@@ -1,0 +1,27 @@
+---
+title: Colautti Lab Resources
+author: "Rob Colautti"
+output: html_document
+---
+
+# Class material
+
+## BIOL 532
+
+Intro to Computation and Big Data for Biology
+
+[BIOL 532](biol532.html)
+
+## BIOL 812
+
+Grad course in Computaiton for Biologists
+
+[BIOL 812](biol812.html)
+
+
+
+# Other links
+
+## Colautti Lab Manifesto
+
+[DRAFT Manifesto]()
