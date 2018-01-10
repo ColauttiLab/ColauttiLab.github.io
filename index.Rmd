@@ -6,11 +6,11 @@ output: html_document
 
 # Class material
 
-## BIOL 532
+## BIOL 432
 
 ### Introduction to Computation and Big Data for Biology
 
-[BIOL 532](biol532.html)
+[BIOL 432](biol432.html)
 
 ## BIOL 812
 
