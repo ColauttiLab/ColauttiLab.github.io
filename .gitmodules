@@ -1,3 +1,3 @@
-[submodule "RCrashCourse"]
-	path = RCrashCourse
-	url = https://github.com/ColauttiLab/RCrashCourse
+[submodule "RCrashCourse/1_fundamentals.html"]
+	path = RCrashCourse/1_fundamentals.html
+	url = https://github.com/ColauttiLab/RCrashCourse/1_fundamentals.html
