@@ -27,8 +27,7 @@ output: html_document
 
 The goal of the final assignment is to apply the coding skills you have learned to address an interesting biological question, details will be posted in the coming weeks, but expect the following:
 
-1. Analyze a large dataset (>1000 data points); 
-    original or published data are fine (e.g. geospatial data, RNA-seq/gene expression data)
+1. Analyze a large dataset (>1000 data points); original or published data are fine (e.g. geospatial data, RNA-seq/gene expression data)
 2. Use a combination of (1) Bash and (2) R or Python (or both)
 3. Produce beautiful visualizations
 4. Present a poster
