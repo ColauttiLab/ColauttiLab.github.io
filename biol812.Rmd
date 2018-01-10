@@ -4,6 +4,6 @@ author: "Rob Colautti"
 output: html_document
 ---
 
-1. [R Crash Course](http://post.queensu.ca/~rc91/R/1_fundamentals.html)
+1. [R Crash Course](./RCrashCourse/1_fundamentals.html)
 1. [Version Control with Git & GitHub](http://swcarpentry.github.io/git-novice/)
 1. [Introduction to the Shell](http://swcarpentry.github.io/shell-novice/)
