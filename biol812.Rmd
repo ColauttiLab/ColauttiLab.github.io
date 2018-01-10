@@ -4,6 +4,32 @@ author: "Rob Colautti"
 output: html_document
 ---
 
+# Tentative Schedule
+
 1. [R Crash Course](./RCrashCourse/1_fundamentals.html)
-1. [Version Control with Git & GitHub](http://swcarpentry.github.io/git-novice/)
-1. [Introduction to the Shell](http://swcarpentry.github.io/shell-novice/)
+2. [Introduction to the Shell](http://swcarpentry.github.io/shell-novice/)
+3. Python Crash Course
+4. [Version Control with Git & GitHub](http://swcarpentry.github.io/git-novice/)
+5. Introduction to Big Data in Ecology
+6. Introduction to Next Generation Sequencing Analysis
+7. Introduction to Bioconductor
+
+# Grading Rubric:
+
+  * __10%__ Attendance and participation
+  * __40%__ Assignments & quizzes
+  * __50%__ Final project
+    + __10%__ Proposal
+    + __15%__ GitHub Code
+    + __25%__ Poster
+    
+# Final Assignment
+
+The goal of the final assignment is to apply the coding skills you have learned to address an interesting biological question, details will be posted in the coming weeks, but expect the following:
+
+1. Analyze a large dataset (>1000 data points); 
+    original or published data are fine (e.g. geospatial data, RNA-seq/gene expression data)
+2. Use a combination of (1) Bash and (2) R or Python (or both)
+3. Produce beautiful visualizations
+4. Present a poster
+5. Project addresses any interesting biological question
