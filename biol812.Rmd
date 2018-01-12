@@ -4,15 +4,22 @@ author: "Rob Colautti"
 output: html_document
 ---
 
-# Tentative Schedule
+# Topics
 
-1. [R Crash Course](./RCrashCourse/1_fundamentals.html)
-2. [Introduction to the Shell](http://swcarpentry.github.io/shell-novice/)
-3. Python Crash Course
-4. [Version Control with Git & GitHub](http://swcarpentry.github.io/git-novice/)
-5. Introduction to Big Data in Ecology
-6. Introduction to Next Generation Sequencing Analysis
-7. Introduction to Bioconductor
+## Computation Bootcamp:
+
+  * [R Crash Course](./RCrashCourse/1_fundamentals.html)
+  * [Introduction to the Shell](http://swcarpentry.github.io/shell-novice/)
+  * Advanced R: R Markdown & R Notebooks, Visualizations, Regular Expressions, Custom Functions
+  * [Version Control with Git & GitHub](http://swcarpentry.github.io/git-novice/)
+  * Python Crash Course
+  * Bioconductor & Snakemake
+  * Relational Databases
+  
+## Computation in Practice
+
+  * Big Data in Ecology
+  * Next Generation Sequencing
 
 # Grading Rubric:
 
@@ -28,7 +35,54 @@ output: html_document
 The goal of the final assignment is to apply the coding skills you have learned to address an interesting biological question, details will be posted in the coming weeks, but expect the following:
 
 1. Analyze a large dataset (>1000 data points); original or published data are fine (e.g. geospatial data, RNA-seq/gene expression data)
-2. Use a combination of (1) Bash and (2) R or Python (or both)
-3. Produce beautiful visualizations
-4. Present a poster
-5. Project addresses any interesting biological question
+2. Write custom scripts using a combination of (1) Bash and (2) R or Python (or both)
+3. Produce informative and elegant visualizations
+4. All data manipulation, analysis and visualization hard-coded and archived on GitHub
+4. Present key results as a poster
+5. Project addresses an interesting biological question
+
+## Readings & Assignments
+
+### Haddock & Dunn (H&D) - Pracical Computing for Biologists 
+
+  * [Table of Contents]
+  * [Chapter 1]
+  * [Chapter 2]
+  * [Chapter 3]
+  * [Chapter 4](./Readings/HaddockDunn/Chapter 4 - Command-Line Operations The Shell)
+  * [Chapter 5](./Readings/HaddockDunn/Chapter 5 - Handling Text in the Shell)
+  * [Chapter 6]
+  * [Chapter 7]
+  * [Chapter 8]
+  * [Chapter 9]
+  * [Chapter 10]
+  * [Chapter 11]
+  * [Chapter 12]
+  * [Chapter 13]
+  * [Chapter 14]
+  * [Chapter 15]
+  * [Chapter 16]
+  * [Chapter 17]
+  * [Chapter 18]
+  * [Chapter 19]
+  * [Chapter 20]
+  * [Chapter 21]
+  * [Chapter 22]
+  * [Appendix 1]
+  * [Appendix 2]
+  * [Appendix 3]
+
+  
+
+**Due Date**  | **Item**
+Jan 17        | Quiz on Haddock & Dunn Ch. 4 & 5 (Windows users, use MobXTerm terminal)
+Jan 24        | Quiz on R Crash Course Material
+
+
+
+
+
+
+
+
+
