@@ -1,17 +1,42 @@
 ---
-title: BIOL 812 Intro to Computation and Big Data in Biology
+title: |-
+  BIOL 812 \
+    Intro to Computation \
+    and Big Data \
+    in Biology
 author: "Rob Colautti"
 output: html_document
 ---
+
+# Readings & Assignments {.tabset .tabset-fade .tabset-pills}   
+
+## Jan 24  
+
+Assignments due for R and Unix (see email from Jan 17)
+
+## Jan 17    
+
+Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
+  * skip `curl` section
 
 # Topics
 
 ## Computation Bootcamp:
 
   * [R Crash Course](./RCrashCourse/1_fundamentals.html)
-  * [Introduction to the Shell](http://swcarpentry.github.io/shell-novice/)
-  * Advanced R: R Markdown & R Notebooks, Visualizations, Regular Expressions, Custom Functions
-  * [Version Control with Git & GitHub](http://swcarpentry.github.io/git-novice/)
+  * [Introduction to the Shell, SLURM, bash and CAC](https://hpc-carpentry.github.io/hpc-intro/)
+      + [Unix/Linux cheat sheets]()
+  * Advanced R: 
+      + [R Markdown](./RCrashCourse/5_advanced.html#2_r_markdown) ; see also:
+          + Very hand .Rmd [cheat sheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+          + Detailed .Rmd [website](http://rmarkdown.rstudio.com/lesson-1.html)
+          + [R Notebooks](http://rmarkdown.rstudio.com/r_notebooks.html#overview)
+      + [Visualizations with `qplot()` and `ggplot()`](./RCrashCourse/2_qplot.html)
+      + [Regular Expressions (Regex) in R](./RCrashCourse/4_regex.html) 
+          + General regex [cheat sheet](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/)
+          + Regex [cheat sheet for R](https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf)
+      + [Custom functions in R](./RCrashCourse/5_advanced.html)
+  * Version Control with [Git & GitHub](http://swcarpentry.github.io/git-novice/)
   * Python Crash Course
   * Bioconductor & Snakemake
   * Relational Databases
@@ -41,16 +66,15 @@ The goal of the final assignment is to apply the coding skills you have learned 
 4. Present key results as a poster
 5. Project addresses an interesting biological question
 
-## Readings & Assignments
 
-### Haddock & Dunn (H&D) - Pracical Computing for Biologists 
+# Haddock & Dunn (H&D) - Pracical Computing for Biologists 
 
   * [Table of Contents]
   * [Chapter 1]
   * [Chapter 2]
   * [Chapter 3]
-  * [Chapter 4](./Readings/HaddockDunn/Chapter 4 - Command-Line Operations The Shell)
-  * [Chapter 5](./Readings/HaddockDunn/Chapter 5 - Handling Text in the Shell)
+  * [Chapter 4]
+  * [Chapter 5]
   * [Chapter 6]
   * [Chapter 7]
   * [Chapter 8]
@@ -73,14 +97,6 @@ The goal of the final assignment is to apply the coding skills you have learned 
   * [Appendix 3]
 
   
-
-**Due Date**  | **Item**
-Jan 17        | Quiz on Haddock & Dunn Ch. 4 & 5 (Windows users, use MobXTerm terminal)
-Jan 24        | Quiz on R Crash Course Material
-
-
-
-
 
 
 
