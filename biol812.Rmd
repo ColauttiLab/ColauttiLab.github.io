@@ -17,6 +17,7 @@ Assignments due for R and Unix (see email from Jan 17)
 ## Jan 17    
 
 Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
+
   * Note: Okay to skip `curl` section if you are having problems
 
 # Topics
