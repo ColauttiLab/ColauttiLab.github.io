@@ -51,9 +51,9 @@ Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
   
 ### Coming soon...
   * [Regular Expressions (Regex) in R](./RCrashCourse/4_regex.html) 
-          + General regex [cheat sheet](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/)
-          + Regex [cheat sheet for R](https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf)
-      + [Custom functions in R](./RCrashCourse/5_advanced.html)
+    + General regex [cheat sheet](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/)
+    + Regex [cheat sheet for R](https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf)
+    + [Custom functions in R](./RCrashCourse/5_advanced.html)
   * Python Crash Course
   * Bioconductor & Snakemake
   * Relational Databases
