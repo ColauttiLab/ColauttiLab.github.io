@@ -18,7 +18,7 @@ output: html_document
   4. You will be marked on:
       * aesthetic (clean & clear, with no unnecessary ‘ink’)
       * the application of methods used in Rmarkdown and ggplot()
-      * whether your .Rmd file knits without error
+      * clarity and readability of .Rmd code, and file knits without error.
   5. Submit __.Rmd__ file to [onq.queensu.ca](https://onq.queensu.ca) DropBox Link
 
 ## Jan 24  
