@@ -10,6 +10,11 @@ output: html_document
 
 # Readings & Assignments {.tabset .tabset-fade .tabset-pills}   
 
+## Feb 7
+  1. Complete Assignment from CAC (Jeff Stafford ror Hartmut Schmider)
+  2. Read [Chapter 2](./Readings/HaddockDunn/Chapter2.pdf) & [Chapter 3](./Readings/HaddockDunn/Chapter3.pdf) & [Appendix 2](./Readings/HaddockDunn/Appendix2.pdf) of Haddock & Dunn
+  * __WINDOWS USERS:__ A nice text editor for Ch 2 & 3 is [Brackets](http://brackets.io) 
+
 ## Jan 31
 
   1. Review __R Markdown__ and `ggplot2()` at the links below (see also link to ggplot2 Documentation noted in the qplot() tutorial)
@@ -84,12 +89,13 @@ The goal of the final assignment is to apply the coding skills you have learned 
 5. Project addresses an interesting biological question
 
 
-# Haddock & Dunn (H&D) - Pracical Computing for Biologists 
+# Haddock & Dunn (H&D) - Practical Computing for Biologists 
 
   * [Table of Contents]
   * [Chapter 1]
-  * [Chapter 2]
-  * [Chapter 3]
+  * [Chapter 2](./Readings/HaddockDunn/Chapter2.pdf)
+  * [Chapter 3](./Readings/HaddockDunn/Chapter3.pdf)
+    * __WINDOWS USERS:__ A nice text editor for Ch 2 & 3 is [Brackets](http://brackets.io) 
   * [Chapter 4]
   * [Chapter 5]
   * [Chapter 6]
@@ -110,7 +116,7 @@ The goal of the final assignment is to apply the coding skills you have learned 
   * [Chapter 21]
   * [Chapter 22]
   * [Appendix 1]
-  * [Appendix 2]
+  * [Appendix 2](./Readings/HaddockDunn/Appendix2.pdf)
   * [Appendix 3]
 
   
