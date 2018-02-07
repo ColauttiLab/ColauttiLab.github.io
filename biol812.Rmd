@@ -8,10 +8,23 @@ author: "Rob Colautti"
 output: html_document
 ---
 
-# Readings & Assignments {.tabset .tabset-fade .tabset-pills}   
+# Readings & Assignments {.tabset .tabset-fade .tabset-pills} 
+
+## Feb 14
+
+Write a custom function in R that does the following:
+
+  * Takes 2 objects as input from the user:
+      1. A DNA sequence (string) 
+      2. A codon of interest (string)
+  * Generates a random DNA sequence of 1,000bp if nothing is provided by the user (hint: try `rep()` to generate the sequence as a vector and `paste()` with `collapse=""` to collapse the vector to a single string).
+  * Defaults to 'ATG' for the codon of interest if one is not provided by the user.
+  * Tells the user how many times the codon of interest appears in the sequence.
+
+Submit the code to DropBox on OnQ
 
 ## Feb 7
-  1. Complete Assignment from CAC (Jeff Stafford ror Hartmut Schmider)
+  1. Complete Assignment from Jeff Stafford [LINK](https://jstaf.github.io/biol812-assignment/)
   2. Read [Chapter 2](./Readings/HaddockDunn/Chapter2.pdf) & [Chapter 3](./Readings/HaddockDunn/Chapter3.pdf) & [Appendix 2](./Readings/HaddockDunn/Appendix2.pdf) of Haddock & Dunn
   * __WINDOWS USERS:__ A nice text editor for Ch 2 & 3 is [Brackets](http://brackets.io) 
 
