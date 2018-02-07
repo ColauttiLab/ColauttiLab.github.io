@@ -12,6 +12,8 @@ output: html_document
 
 ## Feb 14
 
+__Preparation__ Next week we will start working with Python. To prepare, download and install [Anaconda](https://www.anaconda.com/download/)
+
 __1. GROUP:__ Choose a leader/liason. Identify a source of 'big data' and question(s) you will address with the data. Present idea at the beginning of next class (See 'Final Assignment' for guidelines).
 
 __2. INDIVIDUAL:__ Write a custom function in R that does the following:
@@ -100,7 +102,6 @@ The goal of the final assignment is to apply the coding skills you have learned 
 2. Write custom scripts using a combination of (1) Bash and (2) R or Python (or both)
 3. Produce informative and elegant visualizations
 4. All data manipulation, analysis and visualization hard-coded and archived on GitHub
-4. Present key results as a poster
 5. Project addresses an interesting biological question
 6. Create a poster for the project, and present it at the Biology graduate student symposium (April 20)
 
