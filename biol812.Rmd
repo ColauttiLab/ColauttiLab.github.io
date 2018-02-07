@@ -12,7 +12,9 @@ output: html_document
 
 ## Feb 14
 
-Write a custom function in R that does the following:
+__1. GROUP:__ Choose a leader/liason. Identify a source of 'big data' and question(s) you will address with the data. Present idea at the beginning of next class (See 'Final Assignment' for guidelines).
+
+__2. INDIVIDUAL:__ Write a custom function in R that does the following:
 
   * Takes 2 objects as input from the user:
       1. A DNA sequence (string) 
@@ -66,12 +68,12 @@ Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
       + [Visualizations with `qplot()` and `ggplot()`](./RCrashCourse/2_qplot.html)
       + [Visualization lecture notes](./Lecures/Graphical_Concepts.pdf)
   4. Version Control with [Git & GitHub](http://swcarpentry.github.io/git-novice/)
-  
-### Coming soon...
-  * [Regular Expressions (Regex) in R](./RCrashCourse/4_regex.html) 
+  5. [Regular Expressions (Regex) in R](./RCrashCourse/4_regex.html) 
     + General regex [cheat sheet](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/)
     + Regex [cheat sheet for R](https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf)
-    + [Custom functions in R](./RCrashCourse/5_advanced.html)
+  6. [Custom functions in R](./RCrashCourse/5_advanced.html)
+
+### Coming soon...
   * Python Crash Course
   * Bioconductor & Snakemake
   * Relational Databases
@@ -100,6 +102,7 @@ The goal of the final assignment is to apply the coding skills you have learned 
 4. All data manipulation, analysis and visualization hard-coded and archived on GitHub
 4. Present key results as a poster
 5. Project addresses an interesting biological question
+6. Create a poster for the project, and present it at the Biology graduate student symposium (April 20)
 
 
 # Haddock & Dunn (H&D) - Practical Computing for Biologists 
