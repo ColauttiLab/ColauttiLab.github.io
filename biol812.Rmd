@@ -21,7 +21,7 @@ __2. INDIVIDUAL:__ Write a custom function in R that does the following:
   * Takes 2 objects as input from the user:
       1. A DNA sequence (string) 
       2. A codon of interest (string)
-  * Generates a random DNA sequence of 1,000bp if nothing is provided by the user (hint: try `rep()` to generate the sequence as a vector and `paste()` with `collapse=""` to collapse the vector to a single string).
+  * Generates a random DNA sequence of 1,000bp if nothing is provided by the user (hint: try `sample()` to generate the sequence as a vector and `paste()` with `collapse=""` to collapse the vector to a single string).
   * Defaults to 'ATG' for the codon of interest if one is not provided by the user.
   * Tells the user how many times the codon of interest appears in the sequence.
 
