@@ -74,13 +74,14 @@ Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
     + General regex [cheat sheet](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/)
     + Regex [cheat sheet for R](https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf)
   6. [Custom functions in R](./RCrashCourse/5_advanced.html)
+  7. [Python Crash Course](./PythonCrashCourse/1_fundamentals.html)
 
-### Coming soon...
-  * Python Crash Course
+## Coming soon...
+
   * Bioconductor & Snakemake
   * Relational Databases
   
-## Computation in Practice
+### Computation in Practice
 
   * Big Data in Ecology
   * Next Generation Sequencing
