@@ -1,0 +1,71 @@
+LOCUS       AF421496                1258 bp    DNA     linear   PLN 26-JUL-2016
+DEFINITION  Lythrum salicaria isolate 758F ribulose 1,5-bisphosphate
+            carboxylase/oxygenase large subunit (rbcL) gene, partial cds;
+            chloroplast gene for chloroplast product.
+ACCESSION   AF421496
+VERSION     AF421496.1
+KEYWORDS    .
+SOURCE      chloroplast Lythrum salicaria
+  ORGANISM  Lythrum salicaria
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Magnoliophyta; eudicotyledons; Gunneridae;
+            Pentapetalae; rosids; malvids; Myrtales; Lythraceae; Lythrum.
+REFERENCE   1  (bases 1 to 1258)
+  AUTHORS   Huang,Y. and Shi,S.
+  TITLE     Phylogenetics of Lythraceae sensu lato: A Preliminary Analysis
+            Based on Chloroplast rbcL Gene, psaA-ycf3 Spacer, and Nuclear rDNA
+            Internal Transcribed Spacer (ITS) Sequences
+  JOURNAL   Int. J. Plant Sci. 163 (2), 215-225 (2002)
+REFERENCE   2  (bases 1 to 1258)
+  AUTHORS   Huang,Y. and Shi,S.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (18-SEP-2001) Biology Department, Zhongshan University,
+            No. 135, Xingang Road, Guangzhou, Guangdong 510275, P. R. China
+FEATURES             Location/Qualifiers
+     source          1..1258
+                     /organism="Lythrum salicaria"
+                     /organelle="plastid:chloroplast"
+                     /mol_type="genomic DNA"
+                     /isolate="758F"
+                     /db_xref="taxon:13129"
+     gene            <1..>1258
+                     /gene="rbcL"
+     CDS             <1..>1258
+                     /gene="rbcL"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="ribulose-1,5-bisphosphate carboxylase/oxygenase
+                     large subunit"
+                     /protein_id="AAM45854.1"
+                     /translation="KASVGFKAGVKDYKLTYYTPEYQTKDTDILAAFRVTPQPGVPPE
+                     EAGAAVAAESSTGTWTTVWTDGLTSLDRYKGRCYHIEPVAGEENQYICYVAYPLDLFE
+                     EGSVTNMFTSIVGNVFGFKALRALALEDLRIPNAYIKTFQGPPHGIQVERDKLNKYGR
+                     PLLGCTIKPKLGLSAKNYGRAVYECLRGGLDFTKDDENVNSQPFMRWRDRFLFCAEAI
+                     YKSQAETGEIKGHYLNATAGTCEDMMKRAVFARELGVPIVMHDYLTGGFTANTTLSHY
+                     CRDNGLLLHIHRAMHAVIDRQKNHGMHFRVLAKALRLSGGDHIHSGTVVGKLEGEREI
+                     TLGFVDLLRDDYVEKDRXRGIYFTQDWVSLPGVLPVASGGIHVWHMPALTEIFGDDSV
+                     LQFGGGTLGHPWGNAPGAVANRVALEA"
+ORIGIN      
+        1 aaagcaagtg ttggattcaa agccggtgtt aaagattata aacttactta ttatactcct
+       61 gaatatcaaa ccaaagatac tgatatcttg gcagcattcc gagtaactcc tcaacctggt
+      121 gttccgcctg aggaagcagg ggctgcagta gctgctgaat cttctactgg tacctggaca
+      181 actgtgtgga ccgatggact taccagcctt gatcgttata aaggaagatg ctaccacatc
+      241 gagcctgttg ctggagaaga aaatcaatat atatgttatg tagcttaccc tttagacctt
+      301 tttgaagaag gttctgttac taatatgttt acttccattg taggtaatgt atttggattc
+      361 aaagccctgc gagctctggc tctggaggat ctgagaatcc ctaatgccta tattaaaact
+      421 ttccaaggcc ctcctcatgg tatccaagtt gagagagata aattgaacaa gtatggtcgt
+      481 cccctattgg gatgtactat taaacctaaa ttggggttat ctgctaagaa ctacggtaga
+      541 gcggtttatg aatgtcttcg tggtggactt gattttacga aggatgatga gaacgtgaac
+      601 tcacaaccat ttatgcgttg gagagaccgt ttcttatttt gtgccgaagc aatttataaa
+      661 tcacaggctg aaactggtga aatcaaaggg cattacttaa atgctactgc gggtacatgt
+      721 gaagacatga tgaaaagggc tgtatttgct agagaattgg gagttccaat cgtaatgcat
+      781 gactacttaa caggtggatt cactgcaaat actaccttgt ctcattattg ccgagataat
+      841 ggtctacttc ttcacatcca ccgtgcaatg catgcagtta ttgatagaca gaaaaatcat
+      901 ggtatgcact tccgtgtact agctaaagct ttacgtctat ctggtggaga tcatattcac
+      961 tcaggtactg tagtaggtaa acttgaagga gaaagagaaa ttactttagg ctttgttgat
+     1021 ttactacgtg atgattatgt tgaaaaagat cgnngccgcg gtatttattt cactcaagat
+     1081 tgggtatctc tacctggtgt tctgcctgtg gcttcagggg gtattcacgt ttggcatatg
+     1141 cctgctctaa ccgagatctt tggagatgat tccgtattac aattcggcgg aggaacttta
+     1201 ggacaccctt ggggtaatgc accgggtgct gtagctaatc gagtagctct agaagcgt
+//
+

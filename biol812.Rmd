@@ -10,6 +10,41 @@ output: html_document
 
 # Readings & Assignments {.tabset .tabset-fade .tabset-pills} 
 
+## Mar 7
+
+1. __GROUP__ Identify a source of 'big data' (>100,000 data points) you can incorporate into your final project (if you haven't already).  
+    Some potential databases:  
+      1. Published ecological datasets: e.g. [Eco Dat Wiki](https://ecologicaldata.org)
+      2. Species occurrence data: e.g. [gbif search portal](https://www.gbif.org)
+      3. Climate data: e.g. [WorldClim](http://www.worldclim.org) and [NOAA](https://www.ncdc.noaa.gov)
+      4. Molecular data: e.g. [entrez search portal](https://www.ncbi.nlm.nih.gov/gquery/) and [instructions](https://www.ncbi.nlm.nih.gov/Web/Search/entrezfs.html)
+      5. Other: e.g. links on [NCEAS website](https://www.nceas.ucsb.edu/scicomp/data)
+
+2. __INDIVIDUAL__  
+    A. Python  
+      * Run the following command in python:
+      * `>>> print("Round pi to 100 decimal places %.100f" %pi)`
+      * Explain why the 49th-100th decimal places are incorrect (why all 0)
+      * __hint__: the 'f' `%.100f` stands for 'float'
+      
+    B. Write a custom DNA analysis program using __Python__ that will:
+      1. Read in a genbank text file -- example: <a href="./gene.gb.txt" target="_blank">gene.gb</a> 
+      2. Use regex to pull out and rearrange the relevant information from gene.gb to match the fasta file format -- example: <a href="./gene.fasta.txt" target="_blank">gene.fasta</a>
+      3. Print the rearranggd text to a file called gene.fasta
+      4. Make sure the output follows the [fasta format](https://en.wikipedia.org/wiki/FASTA_format)
+      
+      _Once the program does #1-4, then:_
+      5. Download a different .gb files from genbank --> [ncbi.nlm.nih.gov/genbank](https://www.ncbi.nlm.nih.gov/genbank/) <-- to replace gene.gb
+      6. Run your script on the new gene.fasta file
+      7. If your new output has parsed correctly, you are done.
+      
+      NOTE: If you aren't familiar with a 'fasta' file (.fa or .fasta), it is a very common format for DNA, RNA and protein sequence invormation. It is a widespread standard used across a variety of databases and programs. A 'genbank' (.gb) file is the standard format used to store nucleotide and gene sequences on genbank.
+      
+> This is a challenging assignment so if you can't get it to work 100%, just include comments in your code that describe what you did, and what you are having problems with. You still get marks for working out some of the necessary components.
+
+> Documentation is important! Be sure to include comments describing the components of your script(s), even if everything works properly.
+
+
 ## Feb 14
 
 __Preparation__ Next week we will start working with Python. To prepare, download and install [Anaconda](https://www.anaconda.com/download/)

@@ -282,6 +282,48 @@ in Biology</h1>
 
 <div id="readings-assignments" class="section level1 tabset tabset-fade tabset-pills">
 <h1>Readings &amp; Assignments</h1>
+<div id="mar-7" class="section level2">
+<h2>Mar 7</h2>
+<ol style="list-style-type: decimal">
+<li><strong>GROUP</strong> Identify a source of ‘big data’ (&gt;100,000 data points) you can incorporate into your final project (if you haven’t already).<br />
+Some potential databases:
+<ol style="list-style-type: decimal">
+<li>Published ecological datasets: e.g. <a href="https://ecologicaldata.org">Eco Dat Wiki</a></li>
+<li>Species occurrence data: e.g. <a href="https://www.gbif.org">gbif search portal</a></li>
+<li>Climate data: e.g. <a href="http://www.worldclim.org">WorldClim</a> and <a href="https://www.ncdc.noaa.gov">NOAA</a></li>
+<li>Molecular data: e.g. <a href="https://www.ncbi.nlm.nih.gov/gquery/">entrez search portal</a> and <a href="https://www.ncbi.nlm.nih.gov/Web/Search/entrezfs.html">instructions</a></li>
+<li>Other: e.g. links on <a href="https://www.nceas.ucsb.edu/scicomp/data">NCEAS website</a></li>
+</ol></li>
+<li><strong>INDIVIDUAL</strong><br />
+A. Python
+<ul>
+<li>Run the following command in python:</li>
+<li><code>&gt;&gt;&gt; print(&quot;Round pi to 100 decimal places %.100f&quot; %pi)</code></li>
+<li>Explain why the 49th-100th decimal places are incorrect (why all 0)</li>
+<li><strong>hint</strong>: the ‘f’ <code>%.100f</code> stands for ‘float’</li>
+</ul>
+B. Write a custom DNA analysis program using <strong>Python</strong> that will:
+<ol style="list-style-type: decimal">
+<li>Read in a genbank text file – example: <a href="./gene.gb.txt" target="_blank">gene.gb</a></li>
+<li>Use regex to pull out and rearrange the relevant information from gene.gb to match the fasta file format – example: <a href="./gene.fasta.txt" target="_blank">gene.fasta</a></li>
+<li>Print the rearranggd text to a file called gene.fasta</li>
+<li>Make sure the output follows the <a href="https://en.wikipedia.org/wiki/FASTA_format">fasta format</a></li>
+</ol>
+<em>Once the program does #1-4, then:</em>
+<ol start="5" style="list-style-type: decimal">
+<li>Download a different .gb files from genbank –&gt; <a href="https://www.ncbi.nlm.nih.gov/genbank/">ncbi.nlm.nih.gov/genbank</a> &lt;– to replace gene.gb</li>
+<li>Run your script on the new gene.fasta file</li>
+<li>If your new output has parsed correctly, you are done.</li>
+</ol>
+NOTE: If you aren’t familiar with a ‘fasta’ file (.fa or .fasta), it is a very common format for DNA, RNA and protein sequence invormation. It is a widespread standard used across a variety of databases and programs. A ‘genbank’ (.gb) file is the standard format used to store nucleotide and gene sequences on genbank.</li>
+</ol>
+<blockquote>
+<p>This is a challenging assignment so if you can’t get it to work 100%, just include comments in your code that describe what you did, and what you are having problems with. You still get marks for working out some of the necessary components.</p>
+</blockquote>
+<blockquote>
+<p>Documentation is important! Be sure to include comments describing the components of your script(s), even if everything works properly.</p>
+</blockquote>
+</div>
 <div id="feb-14" class="section level2">
 <h2>Feb 14</h2>
 <p><strong>Preparation</strong> Next week we will start working with Python. To prepare, download and install <a href="https://www.anaconda.com/download/">Anaconda</a></p>
