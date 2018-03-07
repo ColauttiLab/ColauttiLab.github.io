@@ -1,0 +1,334 @@
+---
+title: |-
+  Ecological Data Tutorial --
+  <br> Spatial Analysis 
+author: "Rob Colautti"
+output: html_document
+---
+
+<script src="_hidecode.js"></script>
+
+R is able to handle basic mapping and GIS applications. 
+
+# 1. GBIF API
+
+## `rgbif`, a GBIF API
+A good source of species occurrence data is The Global Biodiversity Information Facility (GBIF) -- [gbif.org](https://www.gbif.org/tool/81747/rgbif)
+
+There is a related R-package called `rgbif`, which acts as an API for accessing data from GBIF using R (API = Application Programming Interface). Here are links to the instructions and tutorial
+
+* [rgbif main site](https://www.gbif.org/tool/81747/rgbif)
+* [rgbif tutorial](https://ropensci.org/tutorials/rgbif_tutorial/)
+
+Take a look at the website to understand the data before continuing, and refer back to the website to understand the type and structure of data.
+
+Install and load the rgbif package
+```{r, eval=F}
+install.packages("rgbif")
+```
+```{r, results='hide'}
+library(rgbif)
+```
+
+Look for occurrence data on garlic mustard (**Alliaria petiolata**). Note for that many species there could be thousands to hundreds of thousands of records. This can take a while to download, so we'll put an upper limit of 200 records to keep it from running too long. We also include only records that contain lat/long data
+```{r}
+GMgbif<-occ_search(scientificName="Alliaria petiolata", hasCoordinate=T, limit=200)
+```
+
+The function `occ_search()` returns a list. It's worth exploring the different items.
+```{r}
+names(GMgbif)
+```
+
+We're most interested in the `GMgbif$data` layer, which includes lats/longs. You can see the names by using the `names()` function on the `$data` slice:
+```{r}
+names(GMgbif$data)
+```
+
+## Finalize data
+
+Extract Lats/longs into a new data.frame object, and rename columns
+```{r}
+gbifLOC<-as.data.frame(GMgbif$data[,grep("decimal",names(GMgbif$data))])
+names(gbifLOC)<-c("Lat","Long")
+head(gbifLOC)
+```
+
+# 2. `ggplot2` maps
+
+You can create quick, rudimentary maps in ggplot2.
+```{r, results='hide'}
+library(ggplot2)
+```
+```{r}
+MyMap <- ggplot() + borders("world", colour="grey70", fill="black") + theme_bw()
+MyMap
+```
+
+## Add points 
+
+Use `geom_point()` to add locations from gbif.
+```{r}
+MyMap <- MyMap + geom_point(aes(x=Long,y=Lat),data=gbifLOC,colour="green",size=2,alpha=0.1)
+MyMap
+```
+
+## Zoom
+Let's try to zoom in to the area covered by the points.
+```{r}
+MyMap + xlim(-100,50) + ylim(25,75)
+```
+
+What's wrong with this map? The borders are vectors connecting points that are outside of the limits we set. When we set `xlim()` + `ylim()` ggplot cuts all the points outside of the plotting area, forcing redrawn polygons that no longer correspond with the borders. Look at `?borders` to find a solution. Note that there is xlim() and ylim() within the `borders()` function.
+```{r}
+MyMap <- ggplot() + borders("world", colour=NA, fill="black",
+                            xlim=c(-100,50), ylim=c(30,75)) +
+  geom_point(aes(x=Long,y=Lat), data=gbifLOC, colour="green",
+             size=2, alpha=0.1) + theme_bw() 
+MyMap 
+```
+
+Now the map borders are complete, but to draw them `borders()` expands the x- and y-limits beyond what we defined so that all the relevant border vector points are not excluded. For example, our right xlim is 50 degrees east, but the plot area extends > 200 to plot the Russian border.
+
+Another solution is `coord_fixed()`.
+```{r}
+MyMap + coord_fixed(xlim=c(-100,50), ylim=c(30,75))
+```
+
+Another problem is that we have 'hard coded' the x- and y-limits. What if we have a big data project and we want to have the borders adjust based on the data? Try to edit the above code to do that. If you get stuck, click on the box below for one possible solution.
+
+<div class="fold s o">
+```{r}
+# Add/subtract 1 degree to add a small buffer around the data points
+PopRange<-c(min(gbifLOC$Long,na.rm=T)-1,
+         min(gbifLOC$Lat,na.rm=T)-1,
+         max(gbifLOC$Long,na.rm=T)+1,
+         max(gbifLOC$Lat,na.rm=T)+1)
+MyMap + coord_fixed(xlim=PopRange[c(1,3)], ylim=PopRange[c(2,4)])
+```
+</div>
+
+## Datum & Projection
+
+Do any of the points in the above graphs look odd (e.g. in the Ocean)? When working with geographic data you have to pay close attention to the __projection__ and __datum__ used. The problem is that lats/longs are based on a spheroid that have to be 'projected' to a flat surface for plotting. The datum describes the spheroid surface, since the earth is not a perfect sphere. The projection transforms the locations from a curved surface to a flat map. The datum you have used probably used is probably WGS84, which is the one used by Google Maps.
+
+The datum information for `gbif` is available in the same `data.frame()` that we got lat/long info from:
+```{r}
+unique(GMgbif$data[46])
+```
+
+The misplacement of points is probably due to different projections for the mapping layer and the gbif point layer. Take a look at `?coord_map` for info on using projections.
+
+```{r}
+MyMap <- ggplot() + borders("world", colour=NA, fill="black") +
+  coord_map(projection="cylindrical") + coord_fixed(xlim=PopRange[c(1,3)], ylim=PopRange[c(2,4)])
+MyMap + geom_point(aes(x=gbifLOC$Long,y=gbifLOC$Lat), colour="green",
+             size=2, alpha=0.1) + theme_bw()
+```
+
+If this didn't fix the problem, you might need a more complicated adjustment using projections in the `rgdal` package. We'll come back to this in the next section on ggmap. 
+
+# 3. `ggmap` maps 
+
+The `ggmap` package in R has nice functions for creating maps and plotting spatial data using online map APIs (e.g. Google Maps). 
+```{r, eval=F}
+install.packages("ggmap")
+```
+```{r, results='hide'}
+library(ggmap)
+```
+
+The functions of `ggmap` are similar to `ggplot2`, so you might want to brush up on the tutorials for:
+
+    1. [qplot visualizations](../RCrashCourse/2_qplot.html)
+    2. [ggplot visualizations](../RCrashCourse/2_qplot.html)
+    
+Then check out this wonderful [ggmap cheat sheet](./ggmapCheatsheet.pdf) by Melanie Frazier
+
+## Base map
+
+The `ggmap` function is the plotting equivalent of `ggplot`. However, a lot of the action happens with `ggmap`. There are a lot of nice options, which you can view in the help file `?ggmap`
+
+To map the base layer, we have to define a range of lats/longs. We'll define these values directly from the data (i.e. min/max of each lat/long with 1-degree buffer)
+
+We define a mapping area as an address 
+```{r}
+ggmap(get_map(location="QUBS",source="google",maptype="satellite",zoom=14))
+```
+
+or lat/long midpoint. A tribute to Gord Downie: __Where the Great Plains begin!__
+```{r}
+ggmap(get_map(location=c(-100,49),source="google",maptype="satellite",zoom=8))
+```
+
+## Zoom 
+
+If you look at `?ggmap` you can see there is also an option for a bounding box: c(left-Long, bottom-Lat, right-Long, top-Lat). Rather than hard-code, let's use the data to define it:
+```{r}
+PopRange<-c(min(gbifLOC$Long,na.rm=T)-1,
+         min(gbifLOC$Lat,na.rm=T)-1,
+         max(gbifLOC$Long,na.rm=T)+1,
+         max(gbifLOC$Lat,na.rm=T)+1)
+ggmap(get_map(location=PopRange,source="google",maptype="road"))
+```
+
+However, this option currently is not working for Google Maps. Try another map source:
+```{r, error=TRUE}
+ggmap(get_map(location=PopRange,source="osm",maptype="satellite"))
+ggmap(get_map(location=PopRange,source="stamen",maptype="satellite"))
+ggmap(get_map(location=PopRange,source="cloudmade",maptype="satellite"))
+```
+
+Nope. Let's use our intuition from `ggplot()` to try to jury-rig Google Maps
+```{r}
+### First create a map object as above, zooming out far enough to cover the area
+MyMap <- get_map(location=PopRange,source="google",maptype="satellite",zoom=3) 
+### Then set Long & Lat limits
+ggmap(MyMap) + coord_fixed(xlim=PopRange[c(1,3)], ylim=PopRange[c(2,4)]) 
+```
+
+## Add points
+
+Looks much better. Now let's add our point data:
+```{r}
+### First create a map object as above, zooming out far enough to cover the area
+MyMap <- get_map(location=PopRange,source="google",maptype="satellite",zoom=3) 
+### Then set Long & Lat limits
+ggmap(MyMap) + coord_fixed(xlim=PopRange[c(1,3)], ylim=PopRange[c(2,4)]) +
+  geom_point(aes(x=Long,y=Lat), data=gbifLOC, colour="yellow",
+             size=2, alpha=0.1) 
+```
+
+Now another problem. Data points are showing up where they shouldn't (e.g. ocean). One common reason for this is that the map and the data points have different projections. We can use the `rgdal` package to fix this.
+
+## Projections
+
+We have to project the plotting data using the same datum and projection as the background map. For Google Earth Maps the datum is __WGS84__ and the projection is __Cylindrical__. This requires additional information attached to our simple lat/long dataset. The package `rgdal` has tools for this.
+```{r, eval=F}
+install.packages("rgdal")
+```
+```{r, results='hide'}
+library(rgdal)
+```
+
+First take a look at the type of data we are using:
+```{r}
+class(gbifLOC)
+```
+
+Spatial data used by rgdal has a special format. To convert to spatial data, define the names of the spatial columns in the `data.frame()` object using the format ~X+Y.
+```{r}
+gbifLOCsp<-gbifLOC
+coordinates(gbifLOCsp)<-~Long+Lat
+class(gbifLOCsp)
+```
+
+Define the projection of the data using `proj4string()` and `CRS()`. For more information on the CRS function, see this [helpful overview](./CRSoverview.pdf), also by Melanie Frazier.
+```{r}
+proj4string(gbifLOCsp)<-CRS("+init=epsg:4326")
+proj4string(gbifLOCsp)
+```
+
+Now we can project the lats/longs of the locations back to the map. But what projection to use?
+```{r, error=T}
+MyMap <- get_map(location=PopRange,source="google",maptype="satellite",zoom=3)
+names(ggmap(MyMap))
+```
+
+Let's take a look at the coordinates layer.
+```{r}
+ggmap(MyMap)$coordinates
+```
+
+Under 'projection' it shows __mercator__. Possibly the Web Mercator projection? You can read about on [Wikipedia](https://en.wikipedia.org/wiki/Web_Mercator).
+
+For a more comprehensive database, see [spatialreference.org](http://spatialreference.org) and [Proj.4](http://proj4.org)
+
+Here is the Web Mercator projection and a few others.
+```{r}
+WebMerc<-CRS("+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs")
+Google<-CRS("+init=epsg:4326 +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs +towgs84=0,0,0") # From Frazier's CRS document, linked above
+Earth<-CRS("+proj=longlat +init=epsg:4326") # Alternate Google Earth Projection
+Geo <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84")# Projection from: http://pakillo.github.io/R-GIS-tutorial/
+GMaps<-CRS("+proj=longlat +init=epsg:3857 +datum=WGS84") # Google Maps Projection
+GBIF<-CRS("+init=epsg:4326")
+```
+
+Projections are very confusing!
+
+Let's try one that seems to be used by Google Maps, defined in the object GMaps, above.
+```{r}
+gbifLOCtform<-spTransform(gbifLOCsp,GMaps)
+```
+
+Now that we have projected the datapoints, we can try plotting.
+
+But FIRST, we have to transform back into a `data.frame()` object for the `ggmap()` function.
+```{r}
+gbifLOCtform_data<-data.frame(gbifLOCtform)
+```
+
+```{r}
+MyMap <- get_map(location=PopRange,source="google",maptype="satellite",zoom=3) 
+ggmap(MyMap) + geom_point(aes(x=Long,y=Lat), data=gbifLOCtform_data, colour="yellow", size=2, alpha=0.1) 
+```
+
+Everything looks good, now let's rescale the map by recalculating the limits from the projected data.
+```{r}
+PopRange_tform<-c(min(gbifLOCtform_data$Long,na.rm=T)-1,
+         min(gbifLOCtform_data$Lat,na.rm=T)-1,
+         max(gbifLOCtform_data$Long,na.rm=T)+1,
+         max(gbifLOCtform_data$Lat,na.rm=T)+1)
+MyMap <- get_map(location=PopRange,source="google",maptype="satellite",zoom=2) 
+ggmap(MyMap)  +
+  geom_point(aes(x=Long,y=Lat), data=gbifLOCtform_data, colour="yellow",
+             size=2, alpha=0.1) + coord_fixed(xlim=PopRange_tform[c(1,3)], ylim=PopRange_tform[c(2,4)])
+```
+
+There seems to be a problem when we rescale the map with coord_fixed. Compare the two graphs above. What is going wrong?
+
+The points seem to be in the right spot relative to lat/long but the background map is not scaling properly. 
+
+We can try the `ratio=` parameter in `coord_fixed`:
+```{r}
+Rat<-abs((PopRange_tform[2]-PopRange_tform[4])/(PopRange_tform[1]-PopRange_tform[3]))
+ggmap(MyMap)  +  geom_point(aes(x=Long,y=Lat), data=gbifLOCtform_data, colour="yellow",size=2, alpha=0.1) + coord_fixed(ratio=Rat)
+```
+
+Still not right. There is no elegant solution here, as far as I know. 
+
+## `get_googlemap()`
+
+The best we can do is hack the `get_googlemap()` function and play around with the `size=` and `scale=` parameters. 
+```{r}
+MidPoint<-round(c((PopRange_tform[1]+PopRange_tform[3])/2,(PopRange_tform[2]+PopRange_tform[4])/2))
+MidPoint
+MyMap<-get_googlemap(center=c(MidPoint),size=c(640,ceiling(640*Rat)),scale=2,source="google",maptype="satellite",zoom=2) 
+ggmap(MyMap) +  geom_point(aes(x=Long,y=Lat), data=gbifLOCtform_data, colour="yellow",size=2, alpha=0.1) 
+```
+
+To take this to the next level, you could make the `size=c(width,height)` paramater into a function of the lats/longs of the datapoints.
+
+# 4. Other Maps
+
+You can leverage the Google Visualizations API to create a number of visuals, including interactive maps! There are a lot of other great visualizations available too. There is a R package called googleVis that uses the Google Visualizations API:
+[link](https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html)
+
+```{r, eval=F}
+install.packages("rgbif")
+```
+
+```{r, results='hide'}
+library(googleVis)
+```
+
+```{r}
+# Create columns for lat/long info and point labels
+gbifLOC$LatLong<-paste(gbifLOC$Lat,gbifLOC$Long,sep=":")
+gbifLOC$PopNum<-seq_along(gbifLOC$LatLong)
+
+InterMap<-gvisMap(gbifLOC,location="LatLong",tipvar="PopNum",option=list(
+  showTip=T, mapType="hybrid", useMapTypeControl=T,zoomLevel=4))
+plot(InterMap)
+```
+

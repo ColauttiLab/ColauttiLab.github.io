@@ -1,0 +1,161 @@
+---
+title: |-
+  Global Garlic Mustard Field Survey --
+  <br> Climate Data 
+author: "Rob Colautti"
+output: html_document
+---
+
+# 1. Introduction
+
+This tutorial is based on an analysis of the Global Garlic Mustard Field Survey. Details on the methods are available in our open-access [article in Neobiota](https://neobiota.pensoft.net/articles.php?id=1270).
+
+To follow along, you should download the [teaching dataset](./GGMFS_Teaching_Data.csv) into your current working directory. Note that this data is intended for teaching purposes only and is not the same as the official, final, published dataset.
+
+# 2. Field Data
+
+Briefly, the data are plot-level measurements from sample sites across North America and Europe. Let's take a look at the data. Each row is a site, with plot-level data in columns, so there are a lot of columns. Let's look at a subset.
+```{r}
+GMdat<-read.csv("./GGMFS_Teaching_Data.csv",header=T)
+names(GMdat)[c(1:54,353:373)]
+```
+
+The first 26 columns define the site, while most of the remaining columns contain plot (P1-P10) and transect data (0,20,40,60).
+
+# 3. Climate Data
+
+In addition to these measurements, it would be nice to have some information about the climate at these locations. There are lots of ways to do this, but let's take a look at the [Climond dataset](https://climond.org), which is an iteration of the [WorldClim dataset](http://www.worldclim.org). This is a huge dataset with many 'layers' representing different bioclimatic variables, which are explained on the [WorldClim](http://www.worldclim.org/bioclim) website and [Climond paper](http://dx.doi.org/10.1111/2041-210X.12244). We'll just focus on just a few bioclimatic variables available [here](./Climond.zip). 
+
+The files are in an odd [`.adf` format](https://en.wikipedia.org/wiki/Auto-lead_Data_Format), which is a human-readable XML file. Unzip the data to a folder called Climond in your working folder, then take a look at the files
+```{r}
+Files <- list.files("./Climond",pattern='w001001.adf',recursive=TRUE,full.names=TRUE)
+Files
+```
+
+```{r}
+library(raster)
+Predictors <- stack(Files)
+# Names based on Bioclim variables used (bio1,bio5,bio6,bio12,bio13,bio14)
+# see: http://www.worldclim.org/bioclim
+names(Predictors)<-c("MeanTemp","MaxTemp","MinTemp","TotalPrec","MaxPrec","MinPrec")
+```
+
+## Raster Plots
+
+The raster package makes it easy to plot
+```{r, fig.width=16.5, fig.height=5.5}
+# Temperature
+plot(Predictors$MeanTemp,xlim=c(-125,45),ylim=c(30,60),1,main="",xaxt="n",yaxt="n",legend=F)
+points(cbind(GMdat$Longitude,GMdat$Latitude), col="#003F91FF", cex=1.5, pch=21)
+points(cbind(GMdat$Longitude,GMdat$Latitude), col="#98B9F266", cex=1, pch=16)
+
+#Moisture
+plot(Predictors$TotalPrec,xlim=c(-125,45),ylim=c(30,60),1,main="",xaxt="n",yaxt="n",legend=F)
+points(cbind(GMdat$Longitude,GMdat$Latitude), col="#003F91FF", cex=1.5, pch=21)
+points(cbind(GMdat$Longitude,GMdat$Latitude), col="#98B9F266", cex=1, pch=16)
+```
+
+## ggplot
+
+Unfortunately, plotting in `ggplot2()` is not straight-forward yet, so we won't cover it here. If you have a lot of time to spend figuring it out, you can start here: [http://ggplot2.tidyverse.org/reference/geom_tile.html](http://ggplot2.tidyverse.org/reference/geom_tile.html)
+
+# 4. Extract Data
+
+Given that each point lies on top of a 'tile' or 'pixel' representing the climate data, we can extract the bioclim data for the locations of our sample sites. This is easily done with the 'extract' function.
+```{r}
+BioDat <- extract(Predictors, GMdat[,c("Longitude","Latitude")])
+head(BioDat)
+class(BioDat)
+```
+
+This returns a matrix with one row for each location in __GMdat__, and one column for each bioclimatic variable in __Predictors__. 
+
+Take a look at the column averages.
+```{r}
+colMeans(data.frame(BioDat))
+```
+
+## Missing Data
+
+We are missing some data. Let's figure out which points, and plot them on a map.
+```{r}
+Missing<-GMdat[is.na(rowSums(BioDat)),c("Longitude","Latitude")]
+Missing
+```
+
+Not too many missing data
+```{r}
+xArea<-c(min(Missing$Longitude)-1,max(Missing$Longitude)+1)
+yArea<-c(min(Missing$Latitude)-1,max(Missing$Latitude)+1)
+plot(Predictors$MeanTemp,xlim=xArea,ylim=yArea,1,main="",xaxt="n",yaxt="n",legend=F)
+points(cbind(Missing$Longitude,Missing$Latitude), col="#003F91FF", cex=1.5, pch=21)
+points(cbind(Missing$Longitude,Missing$Latitude), col="#98B9F266", cex=1, pch=16)
+```
+
+Doesn't look too bad. No points out in the ocean or anything. These samples were collected near large water bodies that don't have climate stations. Since the bioclim variables are in a grid format, the specific location is on a 'water' tile. We can solve this problem by averaging the data of nearby tiles with the 'buffer' parameter. The scale of the buffer value is usually in meters, but you may have to play around with to find the ideal number
+```{r, error=T}
+NoDat<-!complete.cases(BioDat)
+# 1km radius
+test1<-extract(Predictors,GMdat[NoDat,c("Longitude","Latitude")],buffer=1000,fun=mean)
+```
+```{r, error=T}
+# 10km radius
+test2<-extract(Predictors,GMdat[NoDat,c("Longitude","Latitude")],buffer=10000,fun=mean)
+```
+```{r}
+# 100km radius
+test3<-extract(Predictors,GMdat[NoDat,c("Longitude","Latitude")],buffer=100000,fun=mean)
+```
+
+Now add the interpolated values to the dataset
+```{r}
+BioDat[NoDat,]<-test3
+```
+
+We can now merge these into a new dataset. For simplicity, we'll just keep a few of the GMdat columns.
+```{r}
+PlotData<-cbind(GMdat[c("Longitude","Latitude","Pop_Size")],data.frame(BioDat))
+head(PlotData)
+```
+
+# 5. PCA
+
+We may want to use Principal Components Analysis to reduce the number of climate variables and avoid problems of autocorrelation among them. 
+```{r}
+BioDatFrame<-as.data.frame(BioDat)
+bioPCA<-princomp(BioDatFrame,cor=T)
+loadings(bioPCA)
+```
+
+Climate data is not as intercorrelated as it seems -- even 5 of 6 PCs don't account for 90% of (co)variation in the correlation matrix. Still, we might want to save these since they are by definition uncorrelated with each other.
+```{r}
+PCs<-data.frame(bioPCA$scores)
+FullData<-cbind(PlotData,data.frame(bioPCA$scores))
+names(FullData)
+```
+
+Use regular expressions to improve the names
+```{r}
+gsub("Comp\\.","PC",names(FullData)) # Check to make sure we are changing the correct names
+# And combine back to original dataset
+names(FullData)<-gsub("Comp\\.","PC",names(FullData))
+```
+
+Visualize the climate 'space'
+```{r}
+library(ggplot2)
+qplot(PC1,PC2,data=FullData,size=I(2),alpha=I(0.3))+theme_bw()
+qplot(MeanTemp,TotalPrec,data=FullData,size=I(2),alpha=I(0.3))+theme_bw()
+```
+
+# 6. Spatial Models
+
+The problem with analyzing these spatial data is that they are not independent points -- points that are closer together in space are more likely to share similar climates. A simple way to visualize this is with a map, see the [mapping tutorial](./mapping.html) for more mapping examples.
+```{r}
+MyMap <- ggplot(aes(Longitude,Latitude),data=FullData) + borders("world", colour=NA, fill="black") + theme_bw() + scale_colour_gradient2() + coord_fixed(xlim=c(-100,50), ylim=c(30,75))
+MyMap + geom_point(aes(colour=PC1),alpha=0.3,data=FullData) + ggtitle("PC1")
+MyMap + geom_point(aes(colour=PC2),alpha=0.3,data=FullData) + ggtitle("PC2")
+```
+
+Dealing with models involving spatial data is tricky. One way is to use randomization, bootstraps, or simulations to generate a null model (see future lecture). Another is to incorporate spatial scale into the statistical analysis. For information on how to do this, see the paper and R code by [Dormann et al.](../Readings/DormannEtAl2007SpatialAutocorrelation.pdf)
+

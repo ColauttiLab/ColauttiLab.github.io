@@ -6,5 +6,4 @@
     toc_depth: 3
     theme: sandstone
     highlight: haddock
-  word_document:
-    reference_docx: Custom_Template.docx
+
