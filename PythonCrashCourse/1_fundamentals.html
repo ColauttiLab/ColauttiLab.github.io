@@ -871,18 +871,20 @@ my_strlist<span class="op">=</span>[<span class="st">&quot;a&quot;</span>,<span 
 </div>
 <div id="elif" class="section level2">
 <h2>elif</h2>
-<p>Use <code>elif</code> and <code>else</code> to clarify if two lines are part of the same if statement:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">x<span class="op">=</span><span class="dv">4</span>
-<span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span>:
-  <span class="bu">print</span>(<span class="st">&quot;X is &gt; 5. In fact, x is </span><span class="sc">%s</span><span class="st">&quot;</span> <span class="op">%</span>x)
-<span class="cf">elif</span> x <span class="op">&gt;</span> <span class="dv">1</span>:
-  <span class="bu">print</span>(<span class="st">&quot;X is &gt; 1&quot;</span>)</code></pre></div>
-<pre><code>## X is &gt; 1</code></pre>
+<p>Use <code>else</code> and <code>elif</code> to clarify if two lines are part of the same if statement:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">x<span class="op">=</span><span class="dv">4</span>
 <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span>:
   <span class="bu">print</span>(<span class="st">&quot;X is &gt; 5. In fact, x is </span><span class="sc">%s</span><span class="st">&quot;</span> <span class="op">%</span>x)
 <span class="cf">else</span>:
   <span class="bu">print</span>(<span class="st">&quot;X is &gt; 1&quot;</span>)</code></pre></div>
+<pre><code>## X is &gt; 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">x<span class="op">=</span><span class="dv">4</span>
+<span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span>:
+  <span class="bu">print</span>(<span class="st">&quot;X is &gt; 5. In fact, x is </span><span class="sc">%s</span><span class="st">&quot;</span> <span class="op">%</span>x)
+<span class="cf">elif</span> x <span class="op">&gt;</span> <span class="dv">1</span>:
+  <span class="bu">print</span>(<span class="st">&quot;X is &gt; 1&quot;</span>)
+<span class="cf">else</span>:
+  <span class="bu">print</span>(<span class="st">&quot;X is not &gt; 1 or &gt; 5&quot;</span>)</code></pre></div>
 <pre><code>## X is &gt; 1</code></pre>
 </div>
 <div id="for-loops" class="section level2">
@@ -1055,7 +1057,7 @@ myfile.close() <span class="co">## This closes the file -- very important!</span
 myfile<span class="op">=</span><span class="bu">open</span>(<span class="st">&quot;./FallopiaData.csv&quot;</span>)
 mydata<span class="op">=</span>csv.reader(myfile)
 <span class="bu">print</span>(mydata)</code></pre></div>
-<pre><code>## &lt;_csv.reader object at 0x0000000016AD2F50&gt;</code></pre>
+<pre><code>## &lt;_csv.reader object at 0x000000001C542F50&gt;</code></pre>
 <p>Notice the <code>mydata</code> object is not a standard type of object that we usually work with. However, it does contain a set of objects, one for each row. We can access these with a for loop:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">row<span class="op">=</span><span class="dv">0</span>
 <span class="cf">for</span> line <span class="kw">in</span> mydata:
@@ -1126,6 +1128,26 @@ outfile<span class="op">=</span><span class="bu">open</span>(<span class="st">'.
 ##  with new info added
 ## This is line number 9
 ##  with new info added</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">infile.close()
+outfile.close() </code></pre></div>
+<p>Notice that our added input goes on a new line, that’s because the line that we read in already has <code>\n</code> at the end. We can remove this with the <code>.strip()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">infile<span class="op">=</span><span class="bu">open</span>(<span class="st">'./OutFile.txt'</span>,<span class="st">'r'</span>)
+outfile<span class="op">=</span><span class="bu">open</span>(<span class="st">'./ModOutFile.txt'</span>,<span class="st">'w'</span>)
+<span class="cf">for</span> line <span class="kw">in</span> infile:
+  instring<span class="op">=</span>line.strip(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)
+  outstring<span class="op">=</span><span class="st">&quot;</span><span class="sc">%s</span><span class="st"> with new info added&quot;</span> <span class="op">%</span>instring 
+  <span class="bu">print</span>(outstring)
+  outfile.write(outstring<span class="op">+</span><span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</code></pre></div>
+<pre><code>## This is line number 0 with new info added
+## This is line number 1 with new info added
+## This is line number 2 with new info added
+## This is line number 3 with new info added
+## This is line number 4 with new info added
+## This is line number 5 with new info added
+## This is line number 6 with new info added
+## This is line number 7 with new info added
+## This is line number 8 with new info added
+## This is line number 9 with new info added</code></pre>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">infile.close()
 outfile.close() </code></pre></div>
 <p>This can be even more powerful when combined with regular expressions (see <a href="./2_regex.html">Regex tutorial</a>)</p>
