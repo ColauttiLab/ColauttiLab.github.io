@@ -10,7 +10,7 @@ output: html_document
 
 # Readings & Assignments {.tabset .tabset-fade .tabset-pills} 
 
-## Mar 16*
+## Mar 18*
 
 __GROUP ASSIGNMENT__ 
 
