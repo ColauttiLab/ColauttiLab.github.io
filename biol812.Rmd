@@ -10,6 +10,17 @@ output: html_document
 
 # Readings & Assignments {.tabset .tabset-fade .tabset-pills} 
 
+## Mar 14
+
+__Individual Assignments__ -- None left! Please devote the extra time to working on your group project.
+
+__GROUP Assignment__ -- One-page Proposal:
+
+1. __Briefly__ Introduce the problem
+2. Propose one or more questions
+3. Describe the data
+4. Outline the program plan -- no formal code, just explain what it will do; what are the inputs/outputs, what programming language(s) will you use
+
 ## Mar 7
 
 1. __GROUP__ Identify a source of 'big data' (>100,000 data points) you can incorporate into your final project (if you haven't already).  
@@ -111,15 +122,19 @@ Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
   6. [Custom functions in R](./RCrashCourse/5_advanced.html)
   7. [Python Crash Course](./PythonCrashCourse/1_fundamentals.html)
 
+### Computation in Practice
+
+  8. Ecology Tutorials:
+    + [Maps in R](./EcologyTutorials/mapping.html)
+    + [Spatial data example: GGMFS](./EcologyTutorials/GGMFS_climate.html)
+  9. Next Generation Sequencing
+
 ## Coming soon...
 
   * Bioconductor & Snakemake
   * Relational Databases
   
-### Computation in Practice
 
-  * Big Data in Ecology
-  * Next Generation Sequencing
 
 # Grading Rubric:
 
