@@ -1,7 +1,6 @@
 ---
 title: |-
-  Ecological Data Tutorial --
-  <br> Spatial Analysis 
+  Geographical Maps in R 
 author: "Rob Colautti"
 output: html_document
 ---
