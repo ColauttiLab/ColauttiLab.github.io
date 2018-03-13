@@ -164,12 +164,8 @@ Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
   8. Ecology Tutorials:
     + [Maps in R](./EcologyTutorials/mapping.html)
     + [Spatial data example: GGMFS](./EcologyTutorials/GGMFS_climate.html)
+    + [Bootstrap, null model & permutation](./EcologyTutorials/simulations.html)
   9. Next Generation Sequencing
-
-## Coming soon...
-
-  * Bioconductor & Snakemake
-  * Relational Databases
 
 # Grading Rubric:
 
