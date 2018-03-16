@@ -3,14 +3,21 @@ title: |-
   Simulations in R
   <br> Bootstrap, Null Model & Permutation
 author: "Rob Colautti"
-output: html_document
+output:
+  html_document:
+    df_print: paged
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# 1. Introduction
+# Introduction
+
+This tutorial covers models and simulations in R, with a focus on bootstrap, permutation and simulation models. 
+
+
+# 1. Bootstrap Basics
 
 A bootstrap model gets its name from the old 19th century expression to "lift yourself up by your own bootstraps", as a metaphor for accomplishing a task without external forces. In the context of data analysis, the term bootstrap refers to the generation of 'new' data from existing data. 
 
@@ -19,7 +26,6 @@ A very common use of a bootstrap model is to generate a null distribution from t
 You may not realize it, but you have already taken the first step towards a bootstrap model in R by using the `sample()` function. 
 
 Let's look at the data from the Global Garlic Mustard Field Survey. The data are available [here](../EcologyTutorials/GGMFS_Teaching_Data.csv). Details on this dataset are covered in the previous tutorial introducting climate models: [link](../EcologyTutorials/GGMFS_climate.html):
-
 ```{r}
 GMdat<-read.csv("../EcologyTutorials/GGMFS_Teaching_Data.csv",header=T)
 GMsubDat<-GMdat[,c("Longitude","Latitude","Region","Pop_Size")] # Subset to columns of interest
@@ -85,7 +91,7 @@ cat("Transformed mean is:",Xlog,"\n",
 
 Compare the raw vs. log-transformed values. That's more than an order of magnitude difference in the mean, and a much smaller 95% CI!
 
-# 1. Bootstrap Basics
+# 1. Bootstrap Mean
 
 We can also use a bootstrap model estimate the mean and 95% CI directly from the data. The beauty of this approach is that it is not biased by the distribution of the data. To do this we:
 

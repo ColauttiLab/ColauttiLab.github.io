@@ -4,13 +4,18 @@ author: "Rob Colautti"
 output: html_document
 ---
 
+
+# $20 Challenge
+
+Solve this algebra problem and claim the $20 cash prize [LINK](./Colonize_Model.html)
+
 # Class material
 
 ## BIOL 432
 
 ### Introduction to Computation and Big Data for Biology
 
-[BIOL 432](biol432.html)
+BIOL 432
 
 ## BIOL 812
 
@@ -18,10 +23,9 @@ output: html_document
 
 [BIOL 812](biol812.html)
 
-
-
 # Other links
 
 ## Colautti Lab Manifesto
 
-[DRAFT Manifesto]()
+DRAFT Manifesto
+

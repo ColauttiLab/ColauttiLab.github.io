@@ -146,6 +146,7 @@ Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
         + [cheat sheet 2](http://cheatsheetworld.com/programming/unix-linux-cheat-sheet/)
   3. Advanced R: 
       + [R Markdown](./RCrashCourse/5_advanced.html#2_r_markdown) 
+          + [LaTeX cheat sheet](./latexsheet.pdf) for rendering equations in R Markdown
       + see also:
           + Very handy .Rmd [cheat sheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
           + Detailed .Rmd [website](http://rmarkdown.rstudio.com/lesson-1.html)
