@@ -138,35 +138,38 @@ Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
 
 # Topics
 
-## Computation Bootcamp:
+## Coding Bootcamp
 
-  1. [R Crash Course](./RCrashCourse/1_fundamentals.html)
-  2. [Introduction to the Shell, SLURM, bash and CAC](https://hpc-carpentry.github.io/hpc-intro/)
-      + Unix/Linux [cheat sheet 1](https://files.fosswire.com/2007/08/fwunixref.pdf)
-        + [cheat sheet 2](http://cheatsheetworld.com/programming/unix-linux-cheat-sheet/)
-  3. Advanced R: 
-      + [R Markdown](./RCrashCourse/5_advanced.html#2_r_markdown) 
-          + [LaTeX cheat sheet](./latexsheet.pdf) for rendering equations in R Markdown
+  1. R [Crash Course](./RCrashCourse/1_fundamentals.html)
+    + Test your [R knowledge](./RCrashCourse/1_fundamentals_test.html)
+  2. Python [Crash Course](./PythonCrashCourse/1_fundamentals.html)
+  3. Regular Expressions [(Regex) in R](./RCrashCourse/4_regex.html) 
+    + Regex [cheat sheet for R](https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf)
+    + General regex [cheat sheet](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/)
+  4. Regular Expression [in Python](./PythonCrashCourse/2_regex.html)
+  5. Custom [functions in R](./RCrashCourse/5_advanced.html)
+  
+## Advanced Topics
+
+  6. [R Markdown](./RCrashCourse/5_advanced.html#2_r_markdown) 
+      + [LaTeX cheat sheet](./latexsheet.pdf) for rendering equations in R Markdown
       + see also:
           + Very handy .Rmd [cheat sheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
           + Detailed .Rmd [website](http://rmarkdown.rstudio.com/lesson-1.html)
           + [R Notebooks](http://rmarkdown.rstudio.com/r_notebooks.html#overview)
-      + [Visualizations with `qplot()` and `ggplot()`](./RCrashCourse/2_qplot.html)
-      + [Visualization lecture notes](./Lecures/Graphical_Concepts.pdf)
-  4. Version Control with [Git & GitHub](http://swcarpentry.github.io/git-novice/)
-  5. [Regular Expressions (Regex) in R](./RCrashCourse/4_regex.html) 
-    + General regex [cheat sheet](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/)
-    + Regex [cheat sheet for R](https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf)
-  6. [Custom functions in R](./RCrashCourse/5_advanced.html)
-  7. [Python Crash Course](./PythonCrashCourse/1_fundamentals.html)
+  7. Visualizations with [qplot()](./RCrashCourse/2_qplot.html) and [ggplot()](./RCrashCourse/3_ggplot.html)
+      + [Visualizations: Examples and key concepts](./Lecures/Graphical_Concepts.pdf)
+  8. Custom [R Packages](./RCrashCourse/Package_tutorial.html)
+  9. Version Control with [Git & GitHub](http://swcarpentry.github.io/git-novice/)
+  10. Introduction to the [Unix shell, SLURM, bash and CAC](https://hpc-carpentry.github.io/hpc-intro/)
+      + Unix [cheat sheet 1](https://files.fosswire.com/2007/08/fwunixref.pdf)
+      + [cheat sheet 2](http://cheatsheetworld.com/programming/unix-linux-cheat-sheet/)
 
-### Computation in Practice
+## Computation in Practice
 
-  8. Ecology Tutorials:
-    + [Maps in R](./EcologyTutorials/mapping.html)
-    + [Spatial data example: GGMFS](./EcologyTutorials/GGMFS_climate.html)
-    + [Bootstrap, null model & permutation](./EcologyTutorials/simulations.html)
-  9. Next Generation Sequencing
+  11. [Maps in R](./EcologyTutorials/mapping.html)
+    + Spatial data [example: GGMFS](./EcologyTutorials/GGMFS_climate.html)
+  12. [Bootstrap, randomization, permutation & simulation](./EcologyTutorials/simulations.html)
 
 # Grading Rubric:
 
