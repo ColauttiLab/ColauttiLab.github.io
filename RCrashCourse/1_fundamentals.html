@@ -306,7 +306,8 @@ div.tocify {
         <li><a href="2_qplot.html">qplot()</a></li>
         <li><a href="3_ggplot.html">ggplot()</a></li>
 		<li><a href="4_regex.html">Regex</a></li>
-		<li><a href="5_advanced.html">Advanced</a></li>
+		<li><a href="5_advanced.html">Functions<br>&amp; Markdown</a></li>
+          <li><a href="5_advanced.html">Make Your Own<br>Packages</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -365,17 +366,9 @@ Try something new, fail, error correct, repeat</code></pre>
 4. Google: &quot;How do I ______ in R&quot;
 5. Read other people's code carefully
 6. Study, read, listen
-7. Try something new, fail, error correct, repeat</code></pre>
+7. Try something new, fail, error correct, repeat
+8. __EMBRACE FAILURE__ -- even after 10+ years of programming experience, most of my algorithms do not work on the first try (typos, mis-specified objects, etc.)!</code></pre>
 </div>
-</div>
-<div id="class-introductions" class="section level2">
-<h2>Class introductions</h2>
-<ol style="list-style-type: decimal">
-<li>Name, education background, department</li>
-<li>Research interests</li>
-<li>Previous experience with programming?</li>
-<li>After completing this course, I would like to be able to:</li>
-</ol>
 <p><br></p>
 <hr />
 <p><br></p>
@@ -459,36 +452,34 @@ Try something new, fail, error correct, repeat</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span><span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <div id="protip" class="section level3">
-<h3>ProTip:</h3>
-<p>Instead of <code>|</code>, you can use <strong>%in%</strong> with <code>c()</code> to check if a value is in a large group of items/objects:</p>
+<h3>Protip:</h3>
+<p>Instead of <code>|</code>, you can us <code>%in%</code> with <code>c()</code> to check a large number of values:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">11</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)</code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
 </div>
 </div>
 <div id="random-numbers" class="section level2">
 <h2>Random Numbers</h2>
 <p>Generate some random numbers. Useful for modelling, testing scripts, etc.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">runif</span>(<span class="dv">10</span>,<span class="dt">min=</span><span class="dv">0</span>,<span class="dt">max=</span><span class="dv">1</span>) <span class="co"># random numbers from a uniform distribution (each number equally likely to be chosen)</span></code></pre></div>
-<pre><code>##  [1] 0.70742455 0.63481560 0.98850001 0.28742093 0.32488343 0.63117815
-##  [7] 0.47916661 0.02979971 0.63254968 0.92973104</code></pre>
+<pre><code>##  [1] 0.09566582 0.58691773 0.61684175 0.69059207 0.13450037 0.48681460
+##  [7] 0.81264017 0.28179679 0.55563582 0.93078809</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">10</span>,<span class="dt">mean=</span><span class="dv">0</span>,<span class="dt">sd=</span><span class="dv">1</span>) <span class="co"># random numbers from a normal distribution</span></code></pre></div>
-<pre><code>##  [1] -0.01123746 -2.39617228 -0.21595481  0.35734048  0.12435644
-##  [6] -0.95863714  0.65533792 -1.78649096  0.48302472  1.14023011</code></pre>
+<pre><code>##  [1] -0.8827194 -0.2427591 -0.3570605  0.6238607 -0.6669218 -0.4902208
+##  [7]  1.8125888  1.1185693 -1.2957185  1.0799195</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rpois</span>(<span class="dv">10</span>,<span class="dt">lambda=</span><span class="dv">10</span>) <span class="co"># poisson distribution</span></code></pre></div>
-<pre><code>##  [1] 13 14 12  8 11 11  6  3  7  4</code></pre>
+<pre><code>##  [1] 11  6  6 11 14 15  6 14  7  7</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rbinom</span>(<span class="dv">10</span>,<span class="dt">size=</span><span class="dv">1</span>,<span class="dt">prob=</span><span class="fl">0.5</span>) <span class="co"># binomial sampling (e.g. 10 coin tosses where heads=1 tails=0)</span></code></pre></div>
-<pre><code>##  [1] 1 1 0 0 0 0 0 1 1 1</code></pre>
+<pre><code>##  [1] 0 1 0 0 0 0 0 0 0 0</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rbinom</span>(<span class="dv">10</span>,<span class="dt">size=</span><span class="dv">10</span>,<span class="dt">prob=</span><span class="fl">0.5</span>) <span class="co"># binomial repeated sampling  (e.g. number of heads in 10 coin tosses, repeated 10 times)</span></code></pre></div>
-<pre><code>##  [1] 5 6 7 7 3 3 4 5 6 5</code></pre>
+<pre><code>##  [1] 6 5 5 5 6 6 4 4 8 6</code></pre>
 <p>Fun fact, random numbers generated by a computer are generated by a calculation from a ‘seed’ number, so they are never truly random. They act random because the seed number is typically something like the millionth of a second of the time on your computer’s internal clock.</p>
 <p>It’s not just philosophical, it is also useful for testing and debugging since you can set the seed to generate the same ‘random’ numbers.</p>
 <p>Compare these outputs:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">runif</span>(<span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1] 0.27905315 0.42056111 0.26038412 0.08058751 0.26024379</code></pre>
+<pre><code>## [1] 0.8946090 0.4835990 0.1576861 0.4090859 0.9516044</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">runif</span>(<span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1] 0.7851532 0.1313688 0.6564924 0.7205771 0.5745053</code></pre>
+<pre><code>## [1] 0.91329120 0.05569707 0.62837251 0.95315615 0.42284064</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">3</span>)
 <span class="kw">runif</span>(<span class="dv">5</span>)</code></pre></div>
 <pre><code>## [1] 0.1680415 0.8075164 0.3849424 0.3277343 0.6021007</code></pre>
