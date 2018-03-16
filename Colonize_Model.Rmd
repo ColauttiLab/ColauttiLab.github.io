@@ -1,0 +1,130 @@
+---
+title: "Root Colonization Model"
+author: "Robert I. Colautti"
+date: "March 15, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# The Model
+
+## Joint Probabilities
+
+Colonization of roots by _k_ taxa at each of _N_ root intersections can be modelled as the joint probability of _k_ Bernoulli variables. A simple example is the joint probability of mycorrhizal colonization ($P_1$) and pathogen colonization ($P_2$). For each pair of taxa, the joint probability is:
+
+$$ P(P_1=n_1 \space , \space P_2=n_2) $$
+
+$$= P(P_2=n_2 | P_1=n_1) \cdot P(P_1=n_m)$$ 
+
+$$= P(P_1=n_1 | P_2=n_2) \cdot P(P_2=n_2)) $$
+
+where n~m~ and n~p~ are the binary colonization outcomes (0 or 1). 
+
+Now consider the joint probabilities of each of the four possible outcomes:
+
+$$A. \space Both := P(P_1 = 1 , P_2 = 1)$$
+
+$$B. \space Mycorrhizae \space Only := P(P_1 = 1 , P_2 = 0)$$
+
+$$C. \space Pathogens \space Only := P(P_1 = 0 , P_2 = 1)$$ 
+
+$$D. \space Neither := P(P_1 = 0, P_2 = 0)$$
+
+The variance-covariance matrix for mycorrhizae (1) and pathogens (2) species is:
+
+$$V_m = (A + B)(1 - (A + B))$$
+
+$$V_p = (A + C)(1 - (A + C))$$
+
+$$Cov_{mp} = A - (A + B)(A + C)$$
+
+The correlation coefficient between species is:
+
+$$\frac {Cov_{mp}}{\sqrt{V_m \cdot V_p}} $$
+
+$$= \frac {A - (A + B)(A + C)}{\sqrt {(A + B)(1 - (A + B))(A + C)(1 - (A + C))}}$$
+
+## Null Model
+
+Let $p_1$ be the colonization probability for Mycorrhizae
+
+Let $p_2$ be the colonization probability for Pathogens
+
+If colonzation probabilities are independent, then the joint probabilities are:
+
+$$ A. \space Both = p_1p_2 $$
+
+$$ B. \space MycOnly = p_1(1-p_2) $$
+
+$$ C. \space PathOnly = (1-p_1)p_2$$
+
+$$ D. \space Neither = (1-p_1)(1-p_2) $$
+
+## Symmetric interference model
+
+Now consider a symmetric interference model, where species interfere and exclude colonization by the other with probability $\alpha$. The joint probabilities are then:
+
+$$ A. \space Both = p_1p_2 (1-2*\alpha)  $$
+
+$$ B. \space MycOnly = p_1(1-p_2)+p_1P2*\alpha $$
+
+$$ C. \space PathOnly = (1-p_1)p_2+p_1P2*\alpha$$
+
+$$ D. \space Neither = (1-p_1)(1-p_2) $$
+
+## Statistical Model
+
+Given that $A$, $B$, $C$ & $D$ can be estimated from the data, it is easy to use the __Null Model__ to derive an equation for estimating parameters $p_1$ and $p_2$ from the observed data.
+
+
+
+### The Challenge
+
+Given that $A$, $B$, $C$ & $D$ can be estimated from the data, use the __Symmetric Interference Model__ to solve for $\alpha$, $p_1$ and $p_2$.
+
+```{r}
+Icor<-function(p1,p2,a){
+  # Conditional probabilities
+  ## A through B can be estimated from the data
+  ## Use these equations to try to solve for p1, p2 & a
+  ## For example, B-C or C-B will isolate p1 and p2 only
+  A<-p1*p2*(1-2*a)
+  B<-p1*(1-p2)+p1*p2*a
+  C<-(1-p1)*p2+p1*p2*a
+  D<-(1-p1)*(1-p2)
+
+  # Equations for calculating (co)variances and correlation coefficient  
+  V1<-(A+B)*(1-(A+B))
+  V2<-(A+C)*(1-(A+C))
+  COV12<-A-(A+B)*(A+C)
+
+  COR12<-COV12/(sqrt(V1)*sqrt(V2))
+  
+  # Insert equations for A through B here
+  ## For example, if you wanted to solve for p1 & p2 only
+  p1_p2<-B-C
+  ## Combine A through B to isolate each of these terms
+  a<-NA # Insert equation for estimating alpha (a)
+  p1<-NA # Insert equation for p1
+  p2<-NA# insert equation for p2
+  
+  return(cbind(a,p1,p2))
+}
+
+# Test your model
+SimDat<-data.frame(P1=runif(5000),P2=runif(5000),a=runif(5000))
+Parm<-Icor(p1=SimDat$P1,p2=SimDat$P2,a=SimDat$a)
+library(ggplot2)
+
+#Each of these 3 plots will be a 1:1 line if your calculations are correct"
+## Test p1
+qplot(SimDat$P1,Parm[,2])
+## Test p2
+qplot(SimDat$P2,Parm[,3])
+## Test alpha
+qplot(SimDat$P2,Parm[,1])
+```
+
