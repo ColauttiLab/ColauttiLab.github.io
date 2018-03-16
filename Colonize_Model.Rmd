@@ -19,9 +19,9 @@ $$ P(P_1=n_1 \space , \space P_2=n_2) $$
 
 $$= P(P_2=n_2 | P_1=n_1) \cdot P(P_1=n_m)$$ 
 
-$$= P(P_1=n_1 | P_2=n_2) \cdot P(P_2=n_2)) $$
+$$= P(P_1=n_1 | P_2=n_2) \cdot P(P_2=n_2) $$
 
-where n~m~ and n~p~ are the binary colonization outcomes (0 or 1). 
+where n~1~ and n~2~ are the binary colonization outcomes (0 or 1) for species 1 and 2, respectively. 
 
 Now consider the joint probabilities of each of the four possible outcomes:
 
@@ -35,15 +35,15 @@ $$D. \space Neither := P(P_1 = 0, P_2 = 0)$$
 
 The variance-covariance matrix for mycorrhizae (1) and pathogens (2) species is:
 
-$$V_m = (A + B)(1 - (A + B))$$
+$$V_1 = (A + B)(1 - (A + B))$$
 
-$$V_p = (A + C)(1 - (A + C))$$
+$$V_2 = (A + C)(1 - (A + C))$$
 
-$$Cov_{mp} = A - (A + B)(A + C)$$
+$$Cov_{1,2} = A - (A + B)(A + C)$$
 
 The correlation coefficient between species is:
 
-$$\frac {Cov_{mp}}{\sqrt{V_m \cdot V_p}} $$
+$$\frac {Cov_{1,2}}{\sqrt{V_1 \cdot V_2}} $$
 
 $$= \frac {A - (A + B)(A + C)}{\sqrt {(A + B)(1 - (A + B))(A + C)(1 - (A + C))}}$$
 
@@ -69,9 +69,9 @@ Now consider a symmetric interference model, where species interfere and exclude
 
 $$ A. \space Both = p_1p_2 (1-2*\alpha)  $$
 
-$$ B. \space MycOnly = p_1(1-p_2)+p_1P2*\alpha $$
+$$ B. \space MycOnly = p_1(1-p_2)+p_1p_2*\alpha $$
 
-$$ C. \space PathOnly = (1-p_1)p_2+p_1P2*\alpha$$
+$$ C. \space PathOnly = (1-p_1)p_2+p_1p_2*\alpha$$
 
 $$ D. \space Neither = (1-p_1)(1-p_2) $$
 
@@ -81,9 +81,11 @@ Given that $A$, $B$, $C$ & $D$ can be estimated from the data, it is easy to use
 
 
 
-### The Challenge
+# The Challenge
 
 Given that $A$, $B$, $C$ & $D$ can be estimated from the data, use the __Symmetric Interference Model__ to solve for $\alpha$, $p_1$ and $p_2$.
+
+# The Test
 
 ```{r}
 Icor<-function(p1,p2,a){
