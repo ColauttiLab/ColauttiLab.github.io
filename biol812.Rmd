@@ -169,7 +169,8 @@ Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
 
   11. [Maps in R](./EcologyTutorials/mapping.html)
     + Spatial data [example: GGMFS](./EcologyTutorials/GGMFS_climate.html)
-  12. [Bootstrap, randomization, permutation & simulation](./EcologyTutorials/simulations.html)
+  12. [Bootstrap, randomization, permutation](./EcologyTutorials/bootstrap.html)
+  13. [Simulation](./EcologyTutorials/simulations.html)
 
 # Grading Rubric:
 
