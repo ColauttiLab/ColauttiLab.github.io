@@ -97,6 +97,7 @@ Icor<-function(p1,p2,a){
   B<-p1*(1-p2)+p1*p2*a
   C<-(1-p1)*p2+p1*p2*a
   D<-(1-p1)*(1-p2)
+  N<-A+B+C+D
 
   # Equations for calculating (co)variances and correlation coefficient  
   V1<-(A+B)*(1-(A+B))
@@ -109,9 +110,9 @@ Icor<-function(p1,p2,a){
   ## For example, if you wanted to solve for p1 & p2 only
   p1_p2<-B-C
   ## Combine A through B to isolate each of these terms
-  a<-NA # Insert equation for estimating alpha (a)
   p1<-NA # Insert equation for p1
-  p2<-NA# insert equation for p2
+  p2<-NA # insert equation for p2
+  a<-NA # Insert equation for estimating alpha (a)
   
   return(cbind(a,p1,p2))
 }
@@ -123,10 +124,10 @@ library(ggplot2)
 
 #Each of these 3 plots will be a 1:1 line if your calculations are correct"
 ## Test p1
-qplot(SimDat$P1,Parm[,2])
+qplot(SimDat$P1,Parm[,2],alpha=I(0.1))
 ## Test p2
-qplot(SimDat$P2,Parm[,3])
+qplot(SimDat$P2,Parm[,3],alpha=I(0.1))
 ## Test alpha
-qplot(SimDat$P2,Parm[,1])
+qplot(SimDat$a,Parm[,1],alpha=I(0.1))
 ```
 
