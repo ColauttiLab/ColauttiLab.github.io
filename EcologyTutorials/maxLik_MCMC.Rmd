@@ -106,15 +106,15 @@ Given that $A$, $B$, $C$ & $D$ can be estimated from the data, use the __Symmetr
 ## The Test
 
 ```{r}
-Icor<-function(p1,p2,a){
+Icor<-function(P1,P2,Alpha){
   # Conditional probabilities
   ## A through B can be estimated from the data
   ## Use these equations to try to solve for p1, p2 & a
   ## For example, B-C or C-B will isolate p1 and p2 only
-  A<-p1*p2*(1-a)
-  B<-p1*(1-p2)+p1*p2*a/2
-  C<-(1-p1)*p2+p1*p2*a/2
-  D<-(1-p1)*(1-p2)
+  A<-P1*P2*(1-2*Alpha)
+  B<-P1*(1-P2)+P1*P2*Alpha
+  C<-(1-P1)*P2+P1*P2*Alpha
+  D<-(1-P1)*(1-P2)
   N<-A+B+C+D
 
   # Equations for calculating (co)variances and correlation coefficient  
@@ -128,16 +128,23 @@ Icor<-function(p1,p2,a){
   ## For example, if you wanted to solve for p1 & p2 only
   p1_p2<-B-C
   ## Combine A through B to isolate each of these terms
-  p1<-NA # Insert equation for p1
-  p2<-NA # insert equation for p2
-  a<-NA # Insert equation for estimating alpha (a)
-  
+  ## These are derived from the quadratic formula, leaving 2 solutions, one of which is outside the bounds of reasonable probabilities (<0 or >1)
+  ### Calculate both...
+  p1<-(-(B+2-C)+sqrt(((B+2-C)^2) -(4*(-1)*(C+D-B-1)))) / (2*(-1)) 
+  # These are the bad values: (-(B+2-C)-sqrt(((B+2-C)^2) -(4*(-1)*(C+D-B-1)))) / (2*(-1))
+  ### Repeat for p2
+  # These are the bad values: (-(B-2-C)+sqrt(((B-2-C)^2) -(4*(1)*(C-D-B+1)))) / (2*(1)) 
+  p2<-(-(B-2-C)-sqrt(((B-2-C)^2) -(4*(1)*(C-D-B+1)))) / (2*(1))
+  # Insert equation for estimating alpha (a)
+   a<-(p1*p2-A)/(2*p1*p2)  # Solve from A 
+  ## a<-(B-p1+p1*p2)/(p1*p2) # Solve from B
+  ## a<-(C-p2+p1*p2)/(p1*p2) # Solve from C
   return(cbind(a,p1,p2))
 }
 
 # Test your model
 SimDat<-data.frame(P1=runif(5000),P2=runif(5000),a=runif(5000))
-Parm<-Icor(p1=SimDat$P1,p2=SimDat$P2,a=SimDat$a)
+Parm<-Icor(P1=SimDat$P1,P2=SimDat$P2,Alpha=SimDat$a)
 library(ggplot2)
 
 #Each of these 3 plots will be a 1:1 line if your calculations are correct"
