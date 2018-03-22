@@ -149,7 +149,7 @@ Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
   4. Regular Expression [in Python](./PythonCrashCourse/2_regex.html)
   5. Custom [functions in R](./RCrashCourse/5_advanced.html)
   
-## Advanced Topics
+## Intermediate to Advanced Topics
 
   6. [R Markdown](./RCrashCourse/5_advanced.html#2_r_markdown) 
       + [LaTeX cheat sheet](./latexsheet.pdf) for rendering equations in R Markdown
@@ -168,9 +168,10 @@ Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
 ## Computation in Practice
 
   11. [Maps in R](./EcologyTutorials/mapping.html)
-    + Spatial data [example: GGMFS](./EcologyTutorials/GGMFS_climate.html)
-  12. [Bootstrap, randomization, permutation](./EcologyTutorials/bootstrap.html)
-  13. [Simulation](./EcologyTutorials/simulations.html)
+  12. Spatial data & Climate [example: GGMFS](./EcologyTutorials/GGMFS_climate.html)
+  13. [Bootstrap, randomization, permutation in R](./EcologyTutorials/bootstrap.html)
+  14. [Simulations in R](./EcologyTutorials/simulations.html)
+  15. [Maximum Likelihood & MCMC models in R](./EcologyTutorials/maxLik_MCMC.html)
 
 # Grading Rubric:
 
