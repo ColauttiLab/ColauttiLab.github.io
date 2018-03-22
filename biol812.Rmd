@@ -10,6 +10,20 @@ output: html_document
 
 # Readings & Assignments {.tabset .tabset-fade .tabset-pills} 
 
+## Mar 28
+
+__POSTER SUMBISSION__
+
+On April 20th you will present a poster of your group's work at the Biology Graduate Student Symposium.
+
+Please register for the Biology Graduate Student Symposium using the link on the Biology [Website](https://biology.queensu.ca/academics/graduate/biology-gsc/biology-graduate-research-symposium-bgrs/)
+
+Only ONE PERSON FROM EACH GROUP should register the poster. 
+
+__CONFERENCE REGISTRATION__
+
+Everyone else in the group who wants to attend the conference should register without a poster (it's free!)
+
 ## Mar 18*
 
 __GROUP ASSIGNMENT__ 

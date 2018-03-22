@@ -1,31 +1,26 @@
 ---
-title: Colautti Lab Resources
+title: "Colautti Lab Resources"
 author: "Rob Colautti"
 output: html_document
 ---
 
+# Course material
 
-# $20 Challenge
+BIOL 432 -- Introduction to Computation and Big Data in Biology
 
-Solve this algebra problem and claim the $20 cash prize [LINK](./Colonize_Model.html)
+[BIOL 812](biol812.html) -- Introduction to Compuation for Biologists (Graduate-level)
 
-# Class material
+***
 
-## BIOL 432
+# Other resources
 
-### Introduction to Computation and Big Data for Biology
+__Public Website__
 
-BIOL 432
+[bit.ly/colautti](http://bit.ly/colautti) -- Typical departmental website with basic research information
 
-## BIOL 812
+__Private Website__
 
-### Computation Bootcamp for Biology
+[ecogeno.wordpress.com](https://ecogeno.wordpress.com) -- Lab protocols, analytical methods, etc.
 
-[BIOL 812](biol812.html)
 
-# Other links
-
-## Colautti Lab Manifesto
-
-DRAFT Manifesto
 
