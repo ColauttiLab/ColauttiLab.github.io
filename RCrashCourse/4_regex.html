@@ -306,8 +306,8 @@ div.tocify {
         <li><a href="2_qplot.html">qplot()</a></li>
         <li><a href="3_ggplot.html">ggplot()</a></li>
 		<li><a href="4_regex.html">Regex</a></li>
-		<li><a href="5_advanced.html">Functions<br>&amp; Markdown</a></li>
-          <li><a href="5_advanced.html">Make Your Own<br>Packages</a></li>
+		<li><a href="5_advanced.html">Functions<br>&amp; R Markdown</a></li>
+          <li><a href="Package_tutorial.html">Make Your Own<br>Packages</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -682,42 +682,42 @@ Seq&lt;-<span class="kw">gsub</span>(<span class="st">&quot;[</span><span class=
 <p>Imagine you have a repeated measures design. 3 transects (A-C) and 3 positions along each transect (1-3)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Transect&lt;-<span class="kw">data.frame</span>(<span class="dt">Species=</span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,<span class="dt">A1=</span><span class="kw">rnorm</span>(<span class="dv">20</span>),<span class="dt">A2=</span><span class="kw">rnorm</span>(<span class="dv">20</span>),<span class="dt">A3=</span><span class="kw">rnorm</span>(<span class="dv">20</span>),<span class="dt">B1=</span><span class="kw">rnorm</span>(<span class="dv">20</span>),<span class="dt">B2=</span><span class="kw">rnorm</span>(<span class="dv">20</span>),<span class="dt">B3=</span><span class="kw">rnorm</span>(<span class="dv">20</span>),<span class="dt">C1=</span><span class="kw">rnorm</span>(<span class="dv">20</span>),<span class="dt">C2=</span><span class="kw">rnorm</span>(<span class="dv">20</span>),<span class="dt">C3=</span><span class="kw">rnorm</span>(<span class="dv">20</span>))
 <span class="kw">head</span>(Transect)</code></pre></div>
-<pre><code>##   Species         A1          A2         A3         B1         B2
-## 1       1 -1.1574059  1.49146289  0.7587799 -0.8940544 -0.8093876
-## 2       2 -0.9297199  0.04594168 -0.5158029 -0.4459253  0.1223280
-## 3       3 -2.3621133  0.79385641  1.9720034 -1.1334943  1.3839859
-## 4       4  0.9568697  1.03347848  0.9194187  1.2336892  1.4193843
-## 5       5 -0.1833976 -0.44280055  0.1080915  0.5316300  0.5404153
-## 6       6 -1.6335445 -0.72549247  0.3187456  1.5357353  0.9100718
-##           B3          C1         C2         C3
-## 1  1.3167833 -0.16016404  0.8244125  1.9339517
-## 2  0.8047022  0.09614341  0.6916576  0.7927518
-## 3  0.6078744  0.45496833  0.8512677 -0.9325676
-## 4  0.5442870  0.03429943 -0.6455790 -1.1807228
-## 5 -0.6943416  0.31135712 -0.4443744  0.2943139
-## 6 -1.6386266  0.71199054 -0.2693839  0.5455159</code></pre>
+<pre><code>##   Species         A1          A2         A3         B1          B2
+## 1       1  0.1076815 -1.03978866 -0.6588004  0.9055596 -0.36405857
+## 2       2  1.9951366  0.16187556  1.2558982 -1.0743013 -1.17871684
+## 3       3 -0.3938571  0.05104435 -0.5864165  0.6244397  0.26892158
+## 4       4 -0.1583687 -1.57641792  0.9511745  1.2934091  0.03364063
+## 5       5  0.5280745  1.78008074 -1.7837606 -0.5840248 -1.11310269
+## 6       6  0.1449660  0.35054722  0.5443564 -1.7558816 -0.86583907
+##           B3          C1         C2          C3
+## 1  2.0949316  1.35665437  0.2701330 -0.79282639
+## 2 -0.1778770 -0.31840070  0.1481513  0.00525113
+## 3 -0.2320107  0.09238156 -1.4051764 -0.87731070
+## 4 -0.5261245  1.99847529 -2.0009814 -1.93679396
+## 5  0.8398200  0.41271455 -0.6766883 -0.55713566
+## 6  0.1767033 -0.39781505 -0.6588389  0.25755716</code></pre>
 <p>You want to look at only transect A for the first 3 species</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Transect[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="kw">grep</span>(<span class="st">&quot;A&quot;</span>,<span class="kw">names</span>(Transect))]</code></pre></div>
-<pre><code>##           A1         A2         A3
-## 1 -1.1574059 1.49146289  0.7587799
-## 2 -0.9297199 0.04594168 -0.5158029
-## 3 -2.3621133 0.79385641  1.9720034</code></pre>
+<pre><code>##           A1          A2         A3
+## 1  0.1076815 -1.03978866 -0.6588004
+## 2  1.9951366  0.16187556  1.2558982
+## 3 -0.3938571  0.05104435 -0.5864165</code></pre>
 <p>Or look at the first position of each transect for the first 3 species</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Transect[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="kw">grep</span>(<span class="st">&quot;1&quot;</span>,<span class="kw">names</span>(Transect))]</code></pre></div>
 <pre><code>##           A1         B1          C1
-## 1 -1.1574059 -0.8940544 -0.16016404
-## 2 -0.9297199 -0.4459253  0.09614341
-## 3 -2.3621133 -1.1334943  0.45496833</code></pre>
+## 1  0.1076815  0.9055596  1.35665437
+## 2  1.9951366 -1.0743013 -0.31840070
+## 3 -0.3938571  0.6244397  0.09238156</code></pre>
 <p>Or rows with species IDs containing the number 2</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Transect[<span class="kw">grep</span>(<span class="st">&quot;2&quot;</span>,Transect<span class="op">$</span>Species),]</code></pre></div>
-<pre><code>##    Species         A1          A2         A3         B1        B2
-## 2        2 -0.9297199  0.04594168 -0.5158029 -0.4459253 0.1223280
-## 12      12  0.2329845 -0.70790146  1.1174578  0.9061366 0.5632139
-## 20      20  1.6435798 -0.79577846 -0.4591340  0.3936581 0.3752262
-##            B3          C1        C2         C3
-## 2   0.8047022  0.09614341 0.6916576  0.7927518
-## 12 -0.2555507 -1.03629492 0.6966465 -1.0540017
-## 20  1.0487798  0.37208253 1.6800327  0.3413208</code></pre>
+<pre><code>##    Species         A1          A2         A3         B1         B2
+## 2        2  1.9951366  0.16187556 1.25589818 -1.0743013 -1.1787168
+## 12      12 -1.2734753 -0.09912537 1.85455114 -0.4407257  0.3093634
+## 20      20 -0.4685143  0.81794115 0.06910217  0.6778467  0.0963403
+##            B3          C1        C2          C3
+## 2  -0.1778770 -0.31840070 0.1481513  0.00525113
+## 12  0.5551097  0.33070884 1.6004911 -0.51878863
+## 20 -0.2515983 -0.08139139 1.7343686  0.98939422</code></pre>
 </div>
 <div id="practice-exercises" class="section level1">
 <h1>PRACTICE EXERCISES</h1>
