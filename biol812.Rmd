@@ -175,17 +175,23 @@ Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
       + [Visualizations: Examples and key concepts](./Lecures/Graphical_Concepts.pdf)
   8. Custom [R Packages](./RCrashCourse/Package_tutorial.html)
   9. Version Control with [Git & GitHub](http://swcarpentry.github.io/git-novice/)
+
+## High Performance Computing 
+
   10. Introduction to the [Unix shell, SLURM, bash and CAC](https://hpc-carpentry.github.io/hpc-intro/)
       + Unix [cheat sheet 1](https://files.fosswire.com/2007/08/fwunixref.pdf)
-      + [cheat sheet 2](http://cheatsheetworld.com/programming/unix-linux-cheat-sheet/)
+      + Unix [cheat sheet 2](http://cheatsheetworld.com/programming/unix-linux-cheat-sheet/)
+  11. HPC Carpentry [Website](https://hpc-carpentry.github.io)
+      + HPC [introduction](https://hpc-carpentry.github.io/hpc-intro/)
+      + Analysis [pipelines with python](https://hpc-carpentry.github.io/hpc-python/)
 
 ## Computation in Practice
 
-  11. [Maps in R](./EcologyTutorials/mapping.html)
-  12. Spatial data & Climate [example: GGMFS](./EcologyTutorials/GGMFS_climate.html)
-  13. [Bootstrap, randomization, permutation in R](./EcologyTutorials/bootstrap.html)
-  14. [Simulations in R](./EcologyTutorials/simulations.html)
-  15. [Maximum Likelihood & MCMC models in R](./EcologyTutorials/maxLik_MCMC.html)
+  12. [Maps in R](./EcologyTutorials/mapping.html)
+  13. Spatial data & Climate [example: GGMFS](./EcologyTutorials/GGMFS_climate.html)
+  14. [Bootstrap, randomization, permutation in R](./EcologyTutorials/bootstrap.html)
+  15. [Simulations in R](./EcologyTutorials/simulations.html)
+  16. [Maximum Likelihood & MCMC models in R](./EcologyTutorials/maxLik_MCMC.html)
 
 # Grading Rubric:
 
@@ -200,13 +206,12 @@ Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
 
 The goal of the final assignment is to apply the coding skills you have learned to address an interesting biological question, details will be posted in the coming weeks, but expect the following:
 
-1. Analyze a large dataset (>1000 data points); original or published data are fine (e.g. geospatial data, RNA-seq/gene expression data)
+1. Analyze a large dataset (>100,000 data points); original or published data are fine (e.g. geospatial data, RNA-seq/gene expression data)
 2. Write custom scripts using a combination of (1) Bash and (2) R or Python (or both)
 3. Produce informative and elegant visualizations
 4. All data manipulation, analysis and visualization hard-coded and archived on GitHub
 5. Project addresses an interesting biological question
 6. Create a poster for the project, and present it at the Biology graduate student symposium (April 20)
-
 
 # Textbook:
 
