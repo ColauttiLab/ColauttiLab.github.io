@@ -339,6 +339,27 @@ Part 1 – Fundamentals</h1>
 <span class="co"># Add a summary description of what the script does</span>
 <span class="co"># This script will...</span>
 <span class="co"># And annotate individual parts of the script</span></code></pre></div>
+<div id="print" class="section level2">
+<h2><code>print()</code></h2>
+<p>Use the print() function to output objects to the screen</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">&quot;string&quot;</span>)</code></pre></div>
+<pre><code>## string</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">'string'</span>)</code></pre></div>
+<pre><code>## string</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">'''</span>
+<span class="st">use 3 quotation marks</span>
+<span class="st">to make a string string </span>
+<span class="st">that can span </span>
+<span class="st">multiple</span>
+<span class="st">lines</span>
+<span class="st">'''</span>)</code></pre></div>
+<pre><code>## 
+## use 3 quotation marks
+## to make a string string 
+## that can span 
+## multiple
+## lines</code></pre>
+</div>
 <div id="basic-math" class="section level2">
 <h2>Basic Math</h2>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="dv">10</span><span class="op">+</span><span class="dv">2</span>) <span class="co"># add</span></code></pre></div>
@@ -1057,7 +1078,7 @@ myfile.close() <span class="co">## This closes the file -- very important!</span
 myfile<span class="op">=</span><span class="bu">open</span>(<span class="st">&quot;./FallopiaData.csv&quot;</span>)
 mydata<span class="op">=</span>csv.reader(myfile)
 <span class="bu">print</span>(mydata)</code></pre></div>
-<pre><code>## &lt;_csv.reader object at 0x000000001C542F50&gt;</code></pre>
+<pre><code>## &lt;_csv.reader object at 0x000000001B622DB0&gt;</code></pre>
 <p>Notice the <code>mydata</code> object is not a standard type of object that we usually work with. However, it does contain a set of objects, one for each row. We can access these with a for loop:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">row<span class="op">=</span><span class="dv">0</span>
 <span class="cf">for</span> line <span class="kw">in</span> mydata:
