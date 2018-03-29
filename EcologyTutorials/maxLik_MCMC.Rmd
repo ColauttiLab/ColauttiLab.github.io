@@ -95,18 +95,24 @@ $$ C. \space PathOnly = (1-p_1)p_2+p_1p_2*\alpha$$
 
 $$ D. \space Neither = (1-p_1)(1-p_2) $$
 
-## Statistical Model
+# Estimating parameters
 
 Given that $A$, $B$, $C$ & $D$ can be estimated from the data, it is easy to use the __Null Model__ to derive an equation for estimating parameters $p_1$ and $p_2$ from the observed data.
 
-# Sidenote: A Challenge
+It's more difficult for the __Symmetric Interference Models__, but we can solve for $\alpha$ by adding $C+D$, which simplifies to $$\alpha=\frac{1-A}{2-2p_1p_2}$$
 
-Given that $A$, $B$, $C$ & $D$ can be estimated from the data, use the __Symmetric Interference Model__ to solve for $\alpha$, $p_1$ and $p_2$.
+We can also solve $p_1$ and $p_2$ using the quadratic formula:
 
-## The Test
+$$x=\frac{-b\pm \sqrt{b^2-4ac}}{2a}$$
+
+Subtracting $B-C$ or $C-B$ simplifies to: $$-p^2 + p(B-C+2)+(C-D-B-1)$$
+
+Now substitute into the quadratic formula: $x = p$, $a=-1$, $b=B-C+2$ and $c=C+D-B-1$, yielding: 
+
+$$p=\frac{-(B-C+2) \pm \sqrt{(B-C+2)^2-4(-1)(C-D-B-1)}}{2(-1)}$$
 
 ```{r}
-Icor<-function(P1,P2,Alpha){
+ParmCalc<-function(P1,P2,Alpha){
   # Conditional probabilities
   ## A through B can be estimated from the data
   ## Use these equations to try to solve for p1, p2 & a
@@ -115,7 +121,13 @@ Icor<-function(P1,P2,Alpha){
   B<-P1*(1-P2)+P1*P2*Alpha
   C<-(1-P1)*P2+P1*P2*Alpha
   D<-(1-P1)*(1-P2)
+  
+  # Divide each by N to convert observed # occurrences to probabilities
   N<-A+B+C+D
+  A<-A/N
+  B<-B/N
+  C<-C/N
+  D<-D/N
 
   # Equations for calculating (co)variances and correlation coefficient  
   V1<-(A+B)*(1-(A+B))
@@ -124,9 +136,6 @@ Icor<-function(P1,P2,Alpha){
 
   COR12<-COV12/(sqrt(V1)*sqrt(V2))
   
-  # Insert equations for A through B here
-  ## For example, if you wanted to solve for p1 & p2 only
-  p1_p2<-B-C
   ## Combine A through B to isolate each of these terms
   ## These are derived from the quadratic formula, leaving 2 solutions, one of which is outside the bounds of reasonable probabilities (<0 or >1)
   ### Calculate both...
@@ -136,15 +145,19 @@ Icor<-function(P1,P2,Alpha){
   # These are the bad values: (-(B-2-C)+sqrt(((B-2-C)^2) -(4*(1)*(C-D-B+1)))) / (2*(1)) 
   p2<-(-(B-2-C)-sqrt(((B-2-C)^2) -(4*(1)*(C-D-B+1)))) / (2*(1))
   # Insert equation for estimating alpha (a)
-   a<-(p1*p2-A)/(2*p1*p2)  # Solve from A 
+  a<-(p1*p2-A)/(2*p1*p2)  # Solve from A 
   ## a<-(B-p1+p1*p2)/(p1*p2) # Solve from B
   ## a<-(C-p2+p1*p2)/(p1*p2) # Solve from C
   return(cbind(a,p1,p2))
 }
+```
 
-# Test your model
+
+Generate 5,000 parameters and test whether the estimates are correct
+```{r}
+# Test the model
 SimDat<-data.frame(P1=runif(5000),P2=runif(5000),a=runif(5000))
-Parm<-Icor(P1=SimDat$P1,P2=SimDat$P2,Alpha=SimDat$a)
+Parm<-ParmCalc(P1=SimDat$P1,P2=SimDat$P2,Alpha=SimDat$a)
 library(ggplot2)
 
 #Each of these 3 plots will be a 1:1 line if your calculations are correct"
@@ -156,6 +169,72 @@ qplot(SimDat$P2,Parm[,3],alpha=I(0.1))
 qplot(SimDat$a,Parm[,1],alpha=I(0.1))
 ```
 
+
+## Probability
+Working with real data is a little more complicated. For example, consider if $p_1=p_2=0.8$ and $\alpha=0.1$ and we look at 3 cross sections.
+
+We might get species 1 and species 2 in all 3 cross-sections, just by chance. 
+
+Make a toy data set to demonstrate:
+```{r}
+ToyDat<-data.frame(Myc=c(1,1,1),Path=c(1,1,1))
+ToyDat
+```
+
+What is the probability of observing the data in `ToyDat` given $p_1=p_2=0.8$ and $\alpha=0.1$? It's the probability of A occurring 3 times, or $P(A) \times P(A) \times P(A)$, which is $A^3$:
+
+$$(p_1p_2-2\alpha p_1p_2)^3 = (0.8*0.8-2*0.1*0.8*0.8)^3 = 13.4\%$$
+
+In other words, it's quite a likely outcome. But what will happen when we calculate $p_1$ and $p_2$ from the data?
+
+To calculate the parameters $p_1$, $p_2$ and $\alpha$ from the data, we have to modify the above test script in terms of the observed presence/absence data:
+```{r}
+ParmFind<-function(Myc,Path){
+  # Conditional probabilities
+  ## A through B can be estimated from the data
+  ## Use these equations to try to solve for p1, p2 & a
+  ## For example, B-C or C-B will isolate p1 and p2 only
+  N<-length(Myc)
+  
+  A<-sum(Myc*Path)/N
+  B<-sum(Myc*(1-Path))/N
+  C<-sum((1-Myc)*Path)/N
+  D<-sum((1-Myc)*(1-Path))/N
+
+  ### Calculate parameters
+  p1<-(-(B+2-C)+sqrt(((B+2-C)^2) -(4*(-1)*(C+D-B-1)))) / (2*(-1)) 
+  p2<-(-(B-2-C)-sqrt(((B-2-C)^2) -(4*(1)*(C-D-B+1)))) / (2*(1))
+  a<-(B-p1+p1*p2)/(p1*p2)
+  return(cbind(a,p1,p2))
+}
+```
+
+
+```{r}
+ParmFind(Myc=ToyDat$Myc,Path=ToyDat$Path)
+```
+
+Compare these estimated values to the 'true' values (which we know because we put them into the model): $\alpha=0.1$, $p_1=p_2=0.8$. 
+
+Now what if we simulate 10 draws with the same parameter values, and then calculate the parameters from the data? Let's make the simulation easier by setting $\alpha=0$
+
+```{r}
+Iters<-100
+ParmTable<-data.frame(a=rep(NA,Iters),p1=rep(NA,Iters),p2=rep(NA,Iters))
+for (i in 1:Iters){
+  ToyDat<-data.frame(Myc=sample(0:1,10,replace=T,prob=c(0.2,0.8)),Path=sample(0:1,10,replace=T,prob=c(0.2,0.8)))
+  ParmTable[i,]<-ParmFind(Myc=ToyDat$Myc,Path=ToyDat$Path)
+}
+head(ParmTable)
+qplot(ParmTable$a)+theme_bw()
+qplot(ParmTable$p1)+theme_bw()
+qplot(ParmTable$p2)+theme_bw()
+```
+
+The calculation only rarely finds the correct $p_1$ and $p_2$ values of 0.8! Most of the time it calculates $p_1=p_2=1$ with a non-zero $\alpha$ value instead.
+
+Is there an alternative approach that would account for the effect of random sampling?
+
 # Likelihood 
 
 The alternative is to use Maximum Likelihood or a Bayesian method to calculate the probability distribution of the three parameters, given the data. For this we simulate 100 root cross-sections. Start by creating a function for simulating data
@@ -166,9 +245,9 @@ Root<-function(p1=0.5,p2=0.5,a=0,N=100){
   Root<-data.frame(P=rep(0,N),Myc=rep(0,N),Path=rep(0,N))
   
   # Conditional Probabilities
-  A<-p1*p2*(1-a)
-  B<-p1*(1-p2)+p1*p2*a/2
-  C<-(1-p1)*p2+p1*p2*a/2
+  A<-p1*p2*(1-2*a)
+  B<-p1*(1-p2)+p1*p2*a
+  C<-(1-p1)*p2+p1*p2*a
   D<-(1-p1)*(1-p2)
 
   # Assign conditional probabilities
@@ -198,86 +277,84 @@ Write a function that returns the Log-Likelihood given a set of parameters p1, p
 ```{r}
 Lik<-function(p1,p2,a){
   # Conditional Probabilities
-  A<-p1*p2*(1-a)
-  B<-p1*(1-p2)+p1*p2*a/2
-  C<-(1-p1)*p2+p1*p2*a/2
-  D<-(1-p1)*(1-p2)
-
+  A<-p1*p2*(1-2*a)        
+  B<-p1*(1-p2)+p1*p2*a    
+  C<-(1-p1)*p2+p1*p2*a    
+  D<-(1-p1)*(1-p2)        
+  
   # Log-Likelihood Function
   return(log(A)*sum(SimDat$Myc*SimDat$Path)+log(B)*sum(SimDat$Myc*(1-SimDat$Path))+
-            log(C)*sum((1-SimDat$Myc)*SimDat$Path)+log(D)*sum((1-SimDat$Myc)*(1-SimDat$Path)))   
+            log(C)*sum((1-SimDat$Myc)*SimDat$Path)+log(D)*sum((1-SimDat$Myc)*(1-SimDat$Path)))
 }
 ```
 
-
-## Liklihood surface
+## Likelihood surface
 
 Take a look at how the likelihood changes across different values of p1, p2 and a. The 'maximum likelihood' is the highest likelihood value (y-axis) for all values of p1, p2 and a. 
 ```{r}
-# Test Liklihood Function
-SimDat<-Root(0.5,0.5,0,N=10000)
+p1sim<-0.421
+p2sim<-0.615
+asim<-0.153
+# Simulate data to test the Maximum likelihood Values
+SimDat<-Root(p1=p1sim,p2=p2sim,a=asim,N=10000)
+
+# Examine the Liklihood Function 
 library(ggplot2)
-qplot(0:100/100,Lik(p1=c(0:100)/100,p2=0.5,a=0.5))+theme_bw()
-qplot(0:100/100,Lik(p1=0.5,p2=c(0:100)/100,a=0.5))+theme_bw()
-qplot(0:100/100,Lik(p1=0.5,p2=0.5,a=c(0:100)/100))+theme_bw()
+qplot(x=0:100/100,y=Lik(p1=c(0:100)/100,p2=p2sim,a=asim),geom="line")+
+  geom_vline(xintercept=p1sim,colour="red")+theme_bw()+xlab("p1")+ylab("log-L")
+qplot(x=0:100/100,y=Lik(p1=p1sim,p2=c(0:100)/100,a=asim),geom="line")+
+  geom_vline(xintercept=p2sim,colour="red")+theme_bw()+xlab("p2")+ylab("log-L")
+qplot(x=-100:100/100,y=Lik(p1=p1sim,p2=p2sim,a=c(-100:100)/100),geom="line")+
+  geom_vline(xintercept=asim,colour="red")+theme_bw()+xlab("a")+ylab("log-L")
 ```
 
-## Find Max Likelihood
+## Max Likelihood
 
-Calculating the maximum likelihood can be challenging. The Maximum Likelihood values can be derived by taking the partial derivative of the likelihood function, which is not too difficult if there aren't too many parameters, and the probability density functions for each parameter are not too complicated. 
+Calculating the maximum likelihood can be challenging. The Maximum Likelihood values can be derived by taking the partial derivative of the likelihood function, which is not too difficult if there aren't too many parameters, and if the probability density functions for each parameter are not too complicated. 
 
 When the likelihood model is too complicated for an analytical solution, you need some way to 'explore the parameter space'.
 
 ### Brute force
 
-Given that our parameters must fall between 0 and 1, a conceptually straight-forward way to explore parameter space is to consider all values within the range, to a given precision level (e.g. 2 or 3 decimal places).
+If we force our parameters must fall between 0 and 1, a conceptually straight-forward way to explore parameter space is to consider all values within the range, to a given precision level (e.g. 2 or 3 decimal places).
 
-In our example, there are 3 parameters. If we want to look at all combinations from 0 to 1 in 0.01 increments, that would be 100^3, or about a million likelihood calculations. 0.001 increments would require 1000^3, or about 1 billion calculations.
+In our example, there are 3 parameters. If we want to look at all combinations from 0.01 to 0.99 in 0.01 increments, that would be ~100^3, or about a million likelihood calculations. If we increased the precision to 0.001 increments would require 1000^3, or about 1 billion calculations.
 
 ```{r}
-# Simulate data to test the Maximum likelihood Values
-SimDat<-Root(p1=0.421,p2=0.612,a=0.142,N=100000)
-
 MaxLik<-function(Precise=100){
   # Brute Force Method
   # expand.grid() generates an index matrix of all parameter combinations
-  MLdat<-expand.grid(p1=(0:Precise)/Precise,p2=(0:Precise)/Precise,a=(0:Precise)/Precise) 
+  MLdat<-expand.grid(p1=(2:Precise-1)/Precise,p2=(2:Precise-1)/Precise,a=(2:Precise-1)/Precise) 
   # Log-lik can be undefined when p or q are >=1 or <=0
-  MLdat[MLdat==1]<-0.9999  
-  MLdat[MLdat==0]<-0.00001
   MLdat$Lik<-Lik(p1=MLdat$p1,p2=MLdat$p2,a=MLdat$a)
   # Return the 5% most likely values, based on Log-Likelihood
   return(MLdat[order(MLdat$Lik,decreasing=T),][1:ceiling(nrow(MLdat)*0.05),])
 }
-head(MaxLik())
+rbind(c(p1sim,p2sim,asim),head(MaxLik()))
 ```
 
-Now try re-running the above with Precise=1000. If you don't run out of memory, it may take a while to run.
-
-As the number of parameters x precision combinations gets too large, we have to think of other alternatives.
+You could try re-running the above with Precise=1000. If you don't run out of memory, it may take a while to run. As the number of parameters x precision combinations gets too large, we have to think of other alternatives.
 
 ### Random sampling
 
-Take a look at this algorithm, how does it differ from the one above?
+Instead of a brute force sampling, we can use a semi-random sampling process. Here is one possible way we could do this:
 ```{r}
 # Find the Maximum likelihood Values
-SimDat<-Root(p1=0.421,p2=0.612,a=0.142,N=100000)
-
 MaxLik<-function(Iters=1000000){
   # Random Sampling Method
   MLdat<-data.frame(p1=runif(Iters),p2=runif(Iters),a=runif(Iters))
   # Log-lik can be undefined when p or q are >=1 or <=0
   MLdat[MLdat==1]<-0.9999  
-  MLdat[MLdat==0]<-0.00001
+  MLdat[MLdat==0]<-0.0001
   MLdat$Lik<-Lik(p1=MLdat$p1,p2=MLdat$p2,a=MLdat$a)
   return(MLdat[order(MLdat$Lik,decreasing=T),][1:ceiling(Iters*0.05),])
 }
-head(MaxLik())
+rbind(c(p1sim,p2sim,asim),head(MaxLik()))
 ```
 
 > Compare this model is to the previous algorithm. What is the key difference?
 
-### Structured random sampling
+### Structured sampling
 
 A more elegant search algorithm.
 
@@ -285,17 +362,11 @@ A more elegant search algorithm.
 
 ```{r}
 # Find the Maximum likelihood Values
-SimDat<-Root(p1=0.421,p2=0.612,a=0.142,N=100000)
-
 MaxLik<-function(divs=10,zooms=100){
-  # Sample each parameter at evenly-spaced locations
-  # 'zoom-in' on the best parameter set and repeat
   Parms<-data.frame(p1=0.5,p2=0.5,a=0.5)
   for(z in 1:zooms){
     tRange<-seq(-0.4999,0.4999,length.out=divs)/z
     tMLdat<-expand.grid(p1=tRange+Parms$p1,p2=tRange+Parms$p2,a=tRange+Parms$a) # this generates an index matrix of all parameter combinations
-    tMLdat[tMLdat<=0]<-0.1/z # Replace boundary values (0 < parm > 1)
-    tMLdat[tMLdat>=0]<-1-0.1/z
     tLik<-Lik(p1=tMLdat$p1,p2=tMLdat$p2,a=tMLdat$a)
     tLik[is.nan(tLik)]<-min(tLik,na.rm=T)
     Parms<-unique(tMLdat[tLik==max(tLik),])
@@ -303,31 +374,49 @@ MaxLik<-function(divs=10,zooms=100){
   return(Parms)
 }
 X<-MaxLik(divs=10,zooms=100)
-X
+rbind(c(p1sim,p2sim,asim),X)
 ```
+
+This script does a few things:
+    1. Set all starting parameters to 0.5
+    2. Sample a range of values at low-resolution
+    3. Find the combination of low-res parameter values, based on the Likelihood values
+    4. Set these values to the new starting value
+    5. 'Zoom in' to a higher resolution, centred around the new values
+    6. Repeat
+    
+Compare the estimated parameters (X) from the ones we used to generate the data (SimDat).
+
+This fairly simple model does a pretty good job of finding the best parameters. However, there are cases where this may not find the 'best' model. In our case, the 'likelihood surface' is relatively smooth, but in other cases it can be more convoluted.
+
+Additionally, we may have parameters that are not bounded. For example, it makes sense to constrain $p_1$ and $p_2$ to be between bounded at 0 and 1 since they are probabilites, but there is no good reason to bound $\alpha$. It should be perfectly fine to have an positive or negative alpha, representing antagonistic vs. facilitative interactions (i.e. fewer vs. more co-occurrences relative to the null model).
+
+In these cases, we need a more advanced optimization algorithm.
 
 # MCMC Model
 
-As a next step beyond the 'brute force' and completely random sampling methods, the Markov-Chain Monte Carlo simulation is a class of structured random sampling algorithms that perform a sort of 'random walk' through the data. There are a few steps to set-up first.
+The Markov-Chain Monte Carlo model is a class of structured random sampling algorithms that perform a sort of 'random walk' through the data. There are a few steps to set-up first. 
+
+First, we need a log-likelihood function. We'll use the same funcation as the previous models.
 
 ## Prior Probability (Uniform)
 
-We have to define a prior probability distribution, which can also be updated with each iteraction of the MCMC simulation.
+Next, we have to define a prior probability distribution, which provides a starting point for the parameter search and will be updated with each iteraction of the MCMC simulation.
 
-You may want to read up on the [probability density function](https://en.wikipedia.org/wiki/Probability_distribution)
+You may want to read up on the [probability density function](https://en.wikipedia.org/wiki/Probability_distribution). In our model, we will use uniform priors for the two probabilities, and a normally distributed prior (mean=0, sd=1) for a. Note the `log=T` option, which log-transforms the probability.
 
 ```{r}
 Prior <- function(p1,p2,a){
     p1pr = dunif(p1, min=0, max=1,log=T)
     p2pr = dunif(p2, min=0, max=1,log=T)
-    apr = dunif(a, min=0, max=1,log=T)
+    apr = dnorm(a,log=T)
     return(p1pr+p2pr+apr)
 }
 ```
 
 ## Posterior Probability
 
-This calculates the posterior probability as the sum of the log-likelihood and the prior (again, this is equivalent to multiplying the probabilities and then taking the log)
+Next, calculate the posterior probability as the sum of the log-likelihood and the log-prior. As noted earlier, this is equivalent to multiplying the probabilities and then taking the log.
 ```{r}
 Post <- function(p1,p2,a){
    return (Lik(p1,p2,a) + Prior(p1,p2,a))
@@ -347,76 +436,104 @@ PickParm <- function(p1,p2,a,sd=0.01){
 }
 ```
 
-For each iteration of the algorithm, we:
+Now we're ready for the MCMC model. For each iteration of the algorithm, we:
 
-  1. Identify the priors (initial values of p1, p2 & a
-  2. Modify priors using PickParm
+  1. Identify the priors (initial values of p1, p2 & a)
+  2. Modify priors by adding small, random deviations in PickParm
   3. Calculate the Likelihood of the new parameters, given the data
-  4. Calculate the posterior probability 
+  4. Update the posterior probability 
   5. Choose a random number from a uniform distribution. 
   6. If the posterior probability > random probability from 5, 
     a. then update the priors 
     b. otherwise, don't update the priors
   7. Repeat
 
-Eventually, the simulation should settle close to the 'true' values of p1, p2 and a
+> Why do we do step #6?
 
+Eventually, the simulation should settle close to the 'true' values of p1, p2 and a. Here is the MCMC function:
 ```{r}
 MeMCMC <- function(p1=0.5,p2=0.5,a=0.5,Iters=1000,verbose=F){
   # Setup output vector and put user-supplied (or default) priors
-    MCout <- data.frame(p1=rep(NA,Iters),p2=rep(NA,Iters),a=rep(NA,Iters))
-    MCout[1,] <- c(p1,p2,a)
-    # Ensure values are in-bounds
-    BadMC <- MCout[1,] <= 0.001 |   MCout[1,] >= 0.999
-    if(sum(BadMC)>0){
-      cat("One or more parameters outside of boundary [0-1], setting to 0.5 \n")
-      MCout[1,BadMC]<-0.5
+  MCout <- data.frame(p1=rep(NA,Iters),p2=rep(NA,Iters),a=rep(NA,Iters))
+  MCout[1,] <- c(p1,p2,a)
+  
+  # MCMC Algorithm
+  for (i in 1:Iters){
+    if(verbose==T){
+      cat("Starting Iteration",i,"\n")
     }
-    for (i in 1:Iters){
-      if(verbose==T){
-        cat("Starting Iteration",i,"\n")
-      }
-      # Choose new parameters
-      Pick <- PickParm(p1=MCout$p1[i],p2=MCout$p2[i],a=MCout$a[i])
-      # Replace 'bad' parameters with parameter from previous iteration
-      BadPick <- Pick <= 0 | Pick >= 1
-      if(sum(BadPick)>0){
-        Pick[BadPick] <- as.double(MCout[i,BadPick])
-      }
+    # Choose new parameters
+    Pick <- PickParm(p1=MCout$p1[i],p2=MCout$p2[i],a=MCout$a[i])
+    
+    # To replace 'bad' values for the a parameter, we need to check that all joint probabilities > 0
+    A<-Pick[1]*Pick[2]*(1-2*Pick[3])
+    B<-Pick[1]*(1-Pick[2])+Pick[1]*Pick[2]*Pick[3]
+    C<-(1-Pick[1])*Pick[2]+Pick[1]*Pick[2]*Pick[3]
+    D<-(1-Pick[1])*(1-Pick[2])
+    # If illogical parameters are chosen, then set probability very small to avoid this 'parameter space'
+    if(max(A,B,C,D) >=1 | min(A,B,C,D) <= 0){
+      Pick<-MCout[i,]
+    } else{
       # Calculate Probability
-      Prob = exp(Post(p1=Pick[1],p2=Pick[2],a=Pick[3])) - 
-        Post(p1=MCout$p1[i],p2=MCout$p2[i],a=MCout$a[i])
-      if (runif(1) < Prob ){
-          MCout[i+1,] <- Pick
-      }else{
-          MCout[i+1,] <- MCout[i,]
-      }
+      Prob <- exp(Post(p1=Pick[1],p2=Pick[2],a=Pick[3]) - 
+        Post(p1=MCout$p1[i],p2=MCout$p2[i],a=MCout$a[i]))
+    }
+    # Compare probability to random draw from a uniform distribution to determine whether new values should be chosen
+    if (runif(1) < Prob ){
+      MCout[i+1,] <- Pick
+    }else{
+      MCout[i+1,] <- MCout[i,]
+    }
   }
   return(MCout)
 }
 ```
 
+A lot of the extra coding in this function is just to avoid generating errors that trace back to our likelihood function. Since the a parameter can be negative, we can end up with probabilities < 0 for one or more scenarios in A, B, C, D. But you can't take the log of a negative number, so this causes an NaN error in the Liklihood funciton. Negative probability also doesn't makes logical sense.
+
+To avoid these problems, we make sure the probabilities of A, B, C, and D are within 0 and 1. If not, we replace the chosen parameters with the ones used in the previous iteration.
 
 ### Test the MCMC results
-```{r}
-# MCMC on simulated Data
-SimDat<-Root(p1=0.5,p2=0.5,a=0,N=100)
-# Run the MCMC algorithm
-MCrun<-MeMCMC(p1=sum(SimDat$Myc)/nrow(SimDat),p2=sum(SimDat$Path)/nrow(SimDat),a=0,Iters=1000,verbose=F)
-# Remove early values, which are more heavily influenced by the starting values
-BurnIn=100
-Accept=1-mean(duplicated(MCrun[-(1:BurnIn),]))
+
+Generate a dataset and test.
+```{r, error=T}
+# Simulated Data
+SimDat<-Root(p1=p1sim,p2=p2sim,a=asim,N=1000)
+# Run the MCMC algorithm; estimate priors from the data
+MCrun<-MeMCMC(p1=sum(SimDat$Myc)/nrow(SimDat),p2=sum(SimDat$Path)/nrow(SimDat),a=0,Iters=10000,verbose=F)
 ```
 
+
 ```{r}
+# Remove early values, which are more heavily influenced by the starting values
+BurnIn<-1000
 PlotDat<-MCrun[-(1:BurnIn),]
 library(ggplot2)
-qplot(x=p1,data=PlotDat)+theme_bw()
-qplot(x=p2,data=PlotDat)+theme_bw()
-qplot(x=a,data=PlotDat)+theme_bw()
+qplot(x=p1,data=PlotDat)+
+  geom_vline(xintercept=p1sim,colour="red")+theme_bw()
+qplot(x=p2,data=PlotDat)+
+  geom_vline(xintercept=p2sim,colour="red")+theme_bw()
+qplot(x=a,data=PlotDat)+
+  geom_vline(xintercept=asim,colour="red")+theme_bw()
 ```
 
-Not looking very good -- we probably need 100s of thousands to millions of iterations. Fortunately, there is an MCMC package that will run much faster.
+Not looking very good -- generally in the right area but a broad range of parameter values. We probably need a lot more of iterations. Fortunately, there is an MCMC package that will run much faster.
+
+## Programming Woes: 
+
+A recurring theme of these tutorials is that coding requires concentration and determination. Case in point, while putting this tutorial together it took me >3 days and countless hours to figure out that I had an error in the `Prob<-...` statement in the MeMCMC function above. This is what I had instead:
+```{r, eval=F}
+      # Calculate Probability
+      Prob <- exp(Post(p1=Pick[1],p2=Pick[2],a=Pick[3])) - 
+        Post(p1=MCout$p1[i],p2=MCout$p2[i],a=MCout$a[i])
+```
+
+> Can you see the error?
+
+This is a classic example of a coding 'bug'. To see why this was such a problem, try substituting this into the function, then re-run the function and the other two code chunks. Compare the distribution of parameter values in the MCMC results for the two diferent `Prob<-...`Prob statements.
+
+All of this to say, that it is completely normal to bang your head against the wall for a long time before you finally get some code that works properly!
+
 
 # MCMC Package
 
@@ -426,16 +543,6 @@ First, a reformulation of the posterior probability function. This is just a com
 ```{r}
 PostProb<-function(Parms,SimDat){
   
-  # Fix parameters out of bounds
-  TooLow <- Parms <= 0 
-  if(sum(TooLow)>0){
-    Parms[TooLow] <- 0.001
-  }
-  TooHigh <- Parms >= 1
-  if(sum(TooHigh)>0){
-    Parms[TooHigh] <- 0.999
-  }
-  
   # Extract Parameters
   p1<-Parms[1]
   p2<-Parms[2]
@@ -444,28 +551,32 @@ PostProb<-function(Parms,SimDat){
   # Priors
   p1pr = dunif(p1, min=0, max=1,log=T)
   p2pr = dunif(p2, min=0, max=1,log=T)
-  apr = dunif(a, min=0, max=1,log=T)
+  apr = dnorm(a,log=T)
   
   # Conditional Probabilities
-  A<-p1*p2*(1-a)
-  B<-p1*(1-p2)+p1*p2*a/2
-  C<-(1-p1)*p2+p1*p2*a/2
+  A<-p1*p2*(1-2*a)
+  B<-p1*(1-p2)+p1*p2*a
+  C<-(1-p1)*p2+p1*p2*a
   D<-(1-p1)*(1-p2)
-
-  # Log-Likelihood Function
-  LogLik<-log(A)*sum(SimDat$Myc*SimDat$Path)+log(B)*sum(SimDat$Myc*(1-SimDat$Path))+
+  
+  if(max(A,B,C,D) >=1 | min(A,B,C,D) <= 0){
+    return(-1e100)
+  } else{
+    LogLik<-log(A)*sum(SimDat$Myc*SimDat$Path)+log(B)*sum(SimDat$Myc*(1-SimDat$Path))+
             log(C)*sum((1-SimDat$Myc)*SimDat$Path)+log(D)*sum((1-SimDat$Myc)*(1-SimDat$Path))
   
-  LogPrior<-p1pr + p2pr + apr
-  
-  return(LogLik + LogPrior)
+    LogPrior<-p1pr + p2pr + apr
+
+    return(LogLik + LogPrior)
+    
+    }
 }
 ```
 
 According to the mcmc vignette, we should use an intial setup function `metrop()` for MCMC resampling.
 ```{r}
 library(mcmc)
-SimDat<-Root(p1=0.421,p2=0.612,a=0.142,N=100000)
+SimDat<-Root(p1=p1sim,p2=p2sim,a=asim,N=10000)
 Init<-c(sum(SimDat$Myc)/nrow(SimDat),sum(SimDat$Path)/nrow(SimDat),0)
 test<-metrop(obj=PostProb,initial=Init,nbatch=10e3,SimDat=SimDat)
 ```
@@ -477,15 +588,13 @@ The metrop function can take the output of a test as input, and just adds more i
 test$accept
 test<-metrop(test,scale=0.01,SimDat=SimDat)
 test$accept
-test<-metrop(test,scale=0.001,SimDat=SimDat)
-test$accept
-test<-metrop(test,scale=0.004,SimDat=SimDat)
+test<-metrop(test,scale=0.02,SimDat=SimDat)
 test$accept
 ```
 
 Now that we found the right scale, we can do a bunch more runs
 ```{r}
-test<-metrop(test,scale=0.004,nbatch=10e4,SimDat=SimDat)
+test<-metrop(test,scale=0.01,nbatch=10e4,SimDat=SimDat)
 ```
 
 ## Time series
@@ -501,9 +610,12 @@ Pdat$Iter<-seq_along(Pdat$a)
 Pdat$Burnin<-F
 Pdat$Burnin[1:20000]<-T
 
-qplot(x=Iter,y=p1,data=Pdat,geom="line",colour=Burnin)+theme_bw()
-qplot(x=Iter,y=p2,data=Pdat,geom="line",colour=Burnin)+theme_bw()
-qplot(x=Iter,y=a,data=Pdat,geom="line",colour=Burnin)+theme_bw()
+qplot(x=Iter,y=p1,data=Pdat,geom="line",colour=Burnin)+
+  geom_hline(yintercept=p1sim,colour="blue")+theme_bw()
+qplot(x=Iter,y=p2,data=Pdat,geom="line",colour=Burnin)+
+  geom_hline(yintercept=p2sim,colour="blue")+theme_bw()
+qplot(x=Iter,y=a,data=Pdat,geom="line",colour=Burnin)+
+  geom_hline(yintercept=asim,colour="blue")+theme_bw()
 ```
 
 These look quite good -- we haven't even used a burn-in parameter to cut out the first N iterations.
@@ -522,9 +634,12 @@ acf(test$batch)
 
 We can start by looking at the frequency distribution of MCMC posterior estimates
 ```{r}
-qplot(x=p1,data=Pdat,fill=Burnin)+theme_bw()
-qplot(x=p2,data=Pdat,fill=Burnin)+theme_bw()
-qplot(x=a,data=Pdat,fill=Burnin)+theme_bw()
+qplot(x=p1,data=Pdat,fill=Burnin)+
+  geom_vline(xintercept=p1sim,colour="blue")+theme_bw()
+qplot(x=p2,data=Pdat,fill=Burnin)+
+  geom_vline(xintercept=p2sim,colour="blue")+theme_bw()
+qplot(x=a,data=Pdat,fill=Burnin)+
+  geom_vline(xintercept=asim,colour="blue")+theme_bw()
 ```
 
 The parameter mean is just the mean of the estimates -- which we might want to calculate after a burn-in period to avoid biases from early priors. The standard error is more complicated and debated. One way is the Batch Means Standard Error, discussed [here](http://personal.psu.edu/drh20/astrostatistics/mcmc/batchmeans.pdf)
