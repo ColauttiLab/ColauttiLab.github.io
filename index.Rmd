@@ -10,6 +10,8 @@ BIOL 432 -- Introduction to Computation and Big Data in Biology
 
 [BIOL 812](biol812.html) -- Introduction to Compuation for Biologists (Graduate-level)
 
+BIOL 812 [Final Survey](https://www.surveymonkey.com/r/CMVZXJG) -- Feedback to help improve the course (<10 min to complete)
+
 ***
 
 # Other resources
