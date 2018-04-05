@@ -21,7 +21,7 @@ Generalizing from our more simplistic colonization simulation model, consider co
 
 $$ P(P_1=n_1 \space , \space P_2=n_2) $$
 
-$$= P(P_2=n_2 | P_1=n_1) \cdot P(P_1=n_m)$$ 
+$$= P(P_2=n_2 | P_1=n_1) \cdot P(P_1=n_2)$$ 
 
 $$= P(P_1=n_1 | P_2=n_2) \cdot P(P_2=n_2) $$
 
@@ -249,6 +249,9 @@ Root<-function(p1=0.5,p2=0.5,a=0,N=100){
   B<-p1*(1-p2)+p1*p2*a
   C<-(1-p1)*p2+p1*p2*a
   D<-(1-p1)*(1-p2)
+  
+  # Avoid errors arising when a >> p1 & p2, leading to negative probabilities 
+  A[A<0]<-0
 
   # Assign conditional probabilities
   Root$P<-sample(c("A","B","C","D"),size=N,replace=T,prob=c(A,B,C,D))
@@ -281,6 +284,9 @@ Lik<-function(p1,p2,a){
   B<-p1*(1-p2)+p1*p2*a    
   C<-(1-p1)*p2+p1*p2*a    
   D<-(1-p1)*(1-p2)        
+  
+  # Avoid errors when taking the log of negative OR ZERO values (below)
+  A[A<0]<-1e-100
   
   # Log-Likelihood Function
   return(log(A)*sum(SimDat$Myc*SimDat$Path)+log(B)*sum(SimDat$Myc*(1-SimDat$Path))+
@@ -406,10 +412,10 @@ Next, we have to define a prior probability distribution, which provides a start
 You may want to read up on the [probability density function](https://en.wikipedia.org/wiki/Probability_distribution). In our model, we will use uniform priors for the two probabilities, and a normally distributed prior (mean=0, sd=1) for a. Note the `log=T` option, which log-transforms the probability.
 
 ```{r}
-Prior <- function(p1,p2,a){
-    p1pr = dunif(p1, min=0, max=1,log=T)
-    p2pr = dunif(p2, min=0, max=1,log=T)
-    apr = dnorm(a,log=T)
+Prior<-function(p1,p2,a){
+    p1pr<-dunif(p1, min=0, max=1,log=T)
+    p2pr<-dunif(p2, min=0, max=1,log=T)
+    apr<-dnorm(a,log=T)
     return(p1pr+p2pr+apr)
 }
 ```
