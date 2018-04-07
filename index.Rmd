@@ -4,11 +4,40 @@ author: "Rob Colautti"
 output: html_document
 ---
 
+# Essentials
+
+[Colautti Lab Manifesto](./Manifesto/index.html) -- Essential reading for all members of the Colautti Lab
+
+# Gain Coding Superpowers
+
+![](./Superheroes.jpg)
+
+| __Conventional Superpower__ | __Coding Superpower__ |
+|:---------------------------:|:---------------------:|
+| Enhanced abilities          | Fundamentals of [R](./RCrashCourse/1_fundamentals.html) and [Python](./PythonCrashCourse/1_fundamentals.html) |
+| Mind Control                | [Bash Scripting and High Performance Computing](https://hpc-carpentry.github.io/hpc-intro/) |
+| Robot Army                  | Flow Control in [R](./RCrashCourse/1_fundamentals.html#7_flow_control) and [Python](./PythonCrashCourse/1_fundamentals.html#6_flow_control) |
+| Clone backup                | [Git and GitHub](http://swcarpentry.github.io/git-novice/) |
+| Illusionist                 | Custom Visualizations with [qplot](./RCrashCourse/2_qplot.html) and [ggplot](./RCrashCourse/3_ggplot.html) |
+| Telekenesis                 | Custom Functions in [R](./RCrashCourse/5_advanced.html) and [Python](PythonCrashCourse/1_fundamentals.html#7_custom_functions) |
+| Transmutation               | Regular Expresssions in [R](RCrashCourse/4_regex.html) and [Python](./PythonCrashCourse/2_regex.html) |
+| Mega-mind                   | Resampling & Simulations in R [Pt.1](./EcologyTutorials/bootstrap.html) [Pt.2](./EcologyTutorials/simulations.html) [Pt.3](ColauttiLab.github.io/EcologyTutorials/maxLik_MCMC.html) |
+| Master Builder              | Custom [R Packages](./RCrashCourse/Package_tutorial.html) |
+
+## Superpowers in Practice
+
+
+  * Geographical maps in [R](./EcologyTutorials/mapping.html)
+  * GIS and Climate data in [R](./EcologyTutorials/GGMFS_climate.html)
+
+
+***
+
 # Course material
 
 BIOL 432 -- Introduction to Computation and Big Data in Biology
 
-[BIOL 812](biol812.html) -- Introduction to Compuation for Biologists (Graduate-level)
+[BIOL 812](biol812.html) -- Applied Compuation for Biologists
 
 BIOL 812 [Final Survey](https://www.surveymonkey.com/r/CMVZXJG) -- Feedback to help improve the course (<10 min to complete)
 
