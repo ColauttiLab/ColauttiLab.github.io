@@ -1,0 +1,109 @@
+---
+title: "Colautti Lab Manifesto <br> > Writing"
+author: "Robert I. Colautti"
+date: "March 3, 2017"
+output: html_document
+---
+
+> "I never thought the write-up could be as challenging as it has been."      --- email from 537 thesis student. March 28, 2016
+
+This document outlines most of the 'what' to do. You should also carefully read more about 'how' to write. In addition to reading this, you should:
+
+Read the [Research Proposal Tips](https://ecogeno.wordpress.com/2016/10/04/research-proposal-tips/) on the lab blog, if you are writing a research proposal.
+
+Read this explanation in the 2016 Bulletin of the Ecological Society of America: [Scientific Writing Made Easy](./References/Turbek2016Writing.pdf)
+
+And this [guide](./References/BES_WritingTips.pdf) from the British Ecological Society
+
+If you are a graduate student, you should also get a copy of Stephen Heard's book [The Scientist's Guide to Writing](https://www.amazon.ca/Scientists-Guide-Writing-Effectively-throughout/dp/0691170223/ref=sr_1_1?ie=UTF8&qid=1523074693&sr=8-1&keywords=scientists+guide+to+writing+heard). Read it carefully and refer back to it periodically.
+
+__Important note:__ The stages listed below are not  independent. You will likely keep reading throughout the process and modify your questions/hypotheses and writing as you read and develop your ideas.
+
+# 1. Make a timeline
+
+Work backwards from your final deadline. Assume a turnaround time of about 1-2 weeks for short documents (<2,500 words or <10 double-spaced pages, double-spaced), and 2-4 weeks for larger documents. Look at the steps for writing below and then work from the bottom up to determine your timeline.
+
+# 2. Identify Main Questions/Hypotheses
+This is the most crucial step and you should work this out with your supervisor as soon as possible. Initially you may only have a vague idea of your topic and what your questions might be. They are not set in stone, but still try to make them as concrete and tractable as you can. Keep them in mind as you move on to step 2.
+
+# 3. Read, Read, Read! 
+
+Yes, the first step of writing is to __READ__. Read early and read often. Actually, the word 'read' is a bit misleading. As a new student you are going to have to spend a lot of time with each paper, trying to understand as much of it as you can and this often requires re-reading the same sentence or paragraph multiple times. Don't worry if you can't understanding every single line or equation, but read each sentence very carefully.
+
+  + Pause to look up terms and phrases that you aren't don't know well enough to explain to a 1st year biology student. 
+  + Try to read everything on your study species and in your study area, no matter how trivial, but save some time to read broadly. 
+  + Focus more time on papers from good journals (Science, Nature, PNAS, PRSC, Evolution, Ecology Letters, and just about anything with an ISI impact factor > 5). Review papers (e.g. TREE, Annu Rev, etc.) are a place to start and a good source for general overview of a topic when you first start researching your topic, but you should focus more on synthesizing primary research papers.
+  + **Start reading** by finding reviews and spending some time digging into relevant papers from the Colautti Lab and our collaborators. Then use these to identify other papers to read (e.g. look at citations in the paper, and use Web of Science or Google Scholar to find newer papers that cite the one you are reading).
+  + **Three very important reasons to read** 
+    1. To learn what has already been discovered.
+    2. To understand the methods used to make those discoveries.
+    3. To learn how to write a good research paper by comparing papers in different journals. 
+
+# 4. Synthesize
+
+Take careful notes as you read. Make concept maps, visual models, mathematical models, find commonalities, identify unanswered questions, and look for contradictory findings. Look carefully at the methods and results and think about alternative explanations to what is presented in the discussion. 
+
+First, accept that __you will never write a perfect paper__, and that's okay. You will constantly need to review and revise your work at every stage. Don't let yourself get frustrated. Nothing worth doing is easy. Embrace the struggle!
+
+# 5. pre-Draft
+
+Think of your final thesis as a potential publication in a peer-reviewed journal. It should be the end result of your absolute best effort. You will then get valuable feedback from your committee, which you can incorporate to improve your thesis before submitting it for peer review.
+
+To write a strong thesis, start with IDEAS, not words
+
+## Outline Stage 1
+
+You must PLAN CAREFULLY. Long before you write even a single sentence.
+
+  * If you have data. Start by making your 'final' figures and tables. In other words, format them and write captions just as they would appear in your final document.
+  * Start with some brainstorming notes. Why would somebody be interested in this study? What does it contribute to scientific knowledge? How does it fit into the broader context?
+  * Make a concept map or outline of your key points. Each one should relate to your key results in some way.
+  * Boil everything down to 1 to 3 points that you want the reader to take away from your study. What are the biggest innovations/findings of your work? Or in the case of a proposal, what are the biggest questions you will address?
+    
+## Outline Stage 2
+
+  * Organize your thoughts from Stage 1 into a coherent flow. 
+  * USING POINT-FORM Start with the main sections:
+      + **Introduction** -- Set up your research for the reader. Provide background information and motivate/justify why you spent (or will spend) so much time on this project.
+      + **Methods** (or proposed methods) -- Summarize your experimental design and analysis so that the reader can follow what you did. More detailed methods, including R code, pictures, and experimental designs should usually be included as supplementary material (using R markdown).
+      + **Results** (or expected/potential results) -- Hold the reader's hand and walk them through your findings. Anticipate what questions they might have and point out what results or analyses might address their questions.
+      + **Discussion** -- Summarize the key findings again, then relate it to previous work. Avoid wild speculation, but cautiously walk the reader through what you think the results mean for answering the main questions you posed in the introduction.
+
+THIS is the first thing you should show me. DON'T WAIT until you have a first draft! I want to see this and comment on it before you start writing your fist draft.
+
+## Outline Stage 3
+
+Once you have finished Stage 2, you should be able to get to Stage 3 pretty quickly
+
+  * Take your sections from Stage 2 and Lay out each paragraph, again in point form
+  * For each paragraph, determine what is the topic sentence and the main points of each sentence. What is the conclusion/transition to the next paragraph. It can be helpful to include key references (no formal reference list, just a reminder of what references will go where)
+
+# 6. First Draft
+
+ONLY AFTER you have completed stages 1-3 should you start writing. Despite laying everything out in great detail, this step is going to take a longer than you think! 
+
+  * Spend time carefully crafting each sentence to be as clear as possible.
+  * Edit sentences to be more concise. See examples online (e.g. [Purdue OWL](https://owl.english.purdue.edu/owl/resource/572/01/))
+  * Don't make your reader work harder than they have to. 
+     
+    * Long, drawn out sentences, many of which contain, among other things, lots of commas, sometimes interrupted by side thoughts (or unnecessary brackets), many of which are not necessary and needlessly break up a simple, single idea (so that you have to re-read the beginning and end of the sentence), are to be avoided.
+    * Short sentences can be quite effective! 
+  * Play around with sentence structure and order to make it as clear as possible.
+  * Make sure each sentence contains only one clear thought.
+  * Make sure each paragraph discusses only one main idea or theme.
+  * Make sure sentences flow together as seemlessly as possible.
+  
+If you are doing this right, you may spend several minutes on a single sentence and up to an hour or two on a single paragraph. That's completely normal, and you will get faster with practice.
+
+As you write you will find that you may have to make major rearrangements to improve the logical flow of the paper. This is a lot of work, but completely normal.
+
+# 7. Peer Feedback
+
+Ask 1-3 lab members to look over your writing. It often helps to have a 'fresh perspective'. Don't mindlessly accept all of their changes, even if they are more senior then you. If you aren't sure why a particular suggestion was made or don't think it would improve your manucript, then talk to them about it. One or both of you man learn something from the discussion.
+
+If somebody asks you to comment on their writing, don't hesitate to do so. It will benefit you as much as them. One of the best ways to improve your own writing is to carefully read somebody else's!
+
+# 8. Mentor Feedback
+
+This is the stage where you should send it to me for comment. Depending on the clarity and efficiency of your writing, this could require anywhere from 3 to 20 rounds of revision. Generally, the more quality work timethat you devote to stages 1-6, the fewer rounds of revision you will require. Note that it can take 1-2 weeks between each revision, so in theory it can take almost a year to revise poorly-written manuscript! Avoid this at all costs -- invest the time to produce the best possible outline and 1st draft.
+

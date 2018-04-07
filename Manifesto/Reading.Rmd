@@ -1,0 +1,10 @@
+---
+title: "Colautti Lab Manifesto"
+author: "Robert I. Colautti"
+date: "March 3, 2017"
+output: html_document
+---
+
+# TO DO:
+-- how to read a paper -- what to look for
+-- what to emulate when writing (structure of abstract, etc.)

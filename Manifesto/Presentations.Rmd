@@ -1,0 +1,14 @@
+---
+title: "Colautti Lab Manifest <br> > Presentations"
+author: "Robert I. Colautti"
+date: "March 3, 2017"
+output: html_document
+---
+
+  1. __Don't underestimate__ how much work it is to put together an effective presentation. Generally, the shorter the presentation, the more editing is required.
+  2. __Plan ahead.__ Have everything planned out before you even start
+  3. __Less is more.__ Avoid overcrowding. Don't write down phrases or sentences that you are going to say anyway.
+  
+Read the tips and guidelines from the [TED Blog](http://blog.ted.com/10-tips-for-better-slide-decks/?utm_campaign=social&utm_medium=referral&utm_source=facebook.com&utm_content=ted-blog&utm_term=business.
+
+See also: [Powerpoint Graphics Tips](https://www.slideshare.net/PlantTeaching/images-for-impact?ref=https://www.botany.one/2016/08/a-picture-is-worth-a-thousand-bullet-points/)
