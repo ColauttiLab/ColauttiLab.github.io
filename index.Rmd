@@ -26,10 +26,14 @@ output: html_document
 
 ## Superpowers in Practice
 
+### Ecology
 
   * Geographical maps in [R](./EcologyTutorials/mapping.html)
   * GIS and Climate data in [R](./EcologyTutorials/GGMFS_climate.html)
 
+### Genomics
+  * _de novo_ [Genome Assembly](./NGS/deNovoTutorial.html)
+  * RNA alignment and Transcriptome [Analysis](./NGS/TuxedoTutorial.html)
 
 ***
 
