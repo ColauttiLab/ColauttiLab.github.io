@@ -88,6 +88,8 @@ ONLY AFTER you have completed stages 1-3 should you start writing. Despite layin
      
     * Long, drawn out sentences, many of which contain, among other things, lots of commas, sometimes interrupted by side thoughts (or unnecessary brackets), many of which are not necessary and needlessly break up a simple, single idea (so that you have to re-read the beginning and end of the sentence), are to be avoided.
     * Short sentences can be quite effective! 
+    * Short sentences are fine! 
+    * They can even be joined with pronouns. This approach can be quite effective. However, it often requires careful editing. And too many in a row can get annoying.
   * Play around with sentence structure and order to make it as clear as possible.
   * Make sure each sentence contains only one clear thought.
   * Make sure each paragraph discusses only one main idea or theme.

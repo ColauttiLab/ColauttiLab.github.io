@@ -5,16 +5,19 @@ date: "March 3, 2017"
 output: html_document
 ---
 
-NOTES:
-http://www.indiana.edu/~halllab/grad-student-resources.html
-training & careers in STEM:
-http://cgsnet.org/ckfinder/userfiles/files/CGS_ProfDev_STEMGrads16_web.pdf
-
 # Welcome to the Lab 
 
 First of all, congratulations on making it this far! Regardless of whether you are an undergraduate student working on your first research project or a postdoctoral researcher applying for a faculty position, you are somewhere along a gradient from __passive learner__ to __independent thinker__. This document is intended as a reference to help you make this transition, by laying out expectations and best practices. It is based on my own experience as well as discussions with colleagues. Most of the examples are therefore biased towards a career as a professional scientist. However, this document is above all a guide to working and thinking like a __professional__.  As such, I have consciously tried to keep the lessons general so that the tips, recommendations, and rules of thumb will apply to a broad range of professional activities and career paths that you may choose to follow.
 
-This document was inspired by the works of other, particularly [Steve Stearns](http://stearnslab.yale.edu/some-modest-advice-graduate-students) and [Ray Huey's response](./References/Huey_Reply.pdf), [John Thompson](./Reference/Thompson_Advice.pdf), and others. These perspectives are well worth reading and reflecting upon, particularly with respect to similarities and differences in philosophy.
+> "Only a Sith deals in absolutes -- Obi-wan Kenoboi"
+
+This manifesto is shaped by my own experences, which are summarized here: [About Me](./AboutMe.html)
+
+It was inspired by the works of other, particularly [Steve Stearns](http://stearnslab.yale.edu/some-modest-advice-graduate-students) advice and [Ray Huey's](./References/Huey_Reply.pdf) response, [John Thompson](./Reference/Thompson_Advice.pdf), and others. 
+
+Other perspectives are well worth reading and reflecting upon, particularly with respect to similarities and differences in philosophy. Your experience and opinion will differ too, and that's okay. 
+
+That said, there are a few immutable ground rules for working in the Colautti Lab.
 
 ## Colautti Lab Rules
 
@@ -24,6 +27,18 @@ To be part of the lab, you must agree to four rules:
 2. Be __kind__
 3. Be __professional__
 4. Be __awesome__ and __have fun__!
+
+# Keys to success
+
+1. Read this Manifesto carefully. Take the time to absorb and think about the information. 
+  + By 'Read Carefully' I mean not just reading, but also making notes with a pen or pencil. The physical act of writing by hand will improve your memory. Then wait a week or two and then organize and type up your notes (a good chance to learn R-markdown). This will help to reinforce your learning.
+2. CAREFULLY read the requirements for completing your thesis. 
+  + If you are a graduate student, these are in the [Guide to Grad Studies](https://biology.queensu.ca/academics/graduate/guide-to-grad-studies/) on the Biology website.
+  + If you are a BIOL 537 honours student, read the [Thesis Guidelines](https://biology.queensu.ca/academics/undergraduate/courses/honours-thesis-course/thesis-guidelines/), and additional information in the coursework.
+3. Make a list of everything you have to do.
+4. Make a timeline with your best guess for completing each item on your list. Work backward from the deadline to set goalposts that help you stay on track. 
+5. Start [your reference letter](./index.html#your_reference_letter). Update it whenever you score a major achievement, develop a new skill, improve on one of the key characteristics, etc. Send this to me whenever you ask me for a reference letter. Never feel bad about asking for a reference letter!
+
 
 # Health & Time Management
 
@@ -164,7 +179,8 @@ There is currently a lot of discussion about the job market facing modern gradua
 
 Perhaps more importantly, several skills that are highly valued by employers are generally lacking in recent graduates. Focusing hard on these can give you a big edge:
 
-1. __Data science__ -- Use basic programming (e.g. in R) to explore data, run statistical analysis, and produce graphs that help to explore and interpret the data, particularly in terms of hypothesis testing. 
+1. __Data science__ -- Use basic programming (especially in R or Python) to explore data, run statistical analysis, and produce graphs that help to explore and interpret the data, particularly in terms of hypothesis testing. 
+2. __Laboratory methods__ -- Learn basic lab techniques, but more importantly learn how to focus, build in quality control checks, and troubleshoot long or difficult protocols.
 2. __Big data__ -- Use high-performance computing, command-line programming in Unix, basic bash script programming, and other tricks for working with large datasets.
 3. __Science policy__ -- Effective policy must deal with inherent uncertainty in scientific discoveries and balance those with social aspects like competing philosophies and priorities of people from different demographic, ethnic and economic backgrounds. 
 4. __Governance__ -- Incorporate input from competing interests to craft effect policies. In addition to student-run organizations, most department and university committees need volunteer student representatives.

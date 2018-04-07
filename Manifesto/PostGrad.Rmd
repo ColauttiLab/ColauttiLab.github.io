@@ -1,0 +1,26 @@
+---
+title: "(Post-)Post-Graduation"
+author: "Robert I. Colautti"
+date: "April 7, 2018"
+output: html_document
+---
+
+You've read through and internalized all of the advice in the Colautti Lab Manifesto. Now what?
+
+Fear not, there are many more amazing career-development resources by some outstanding researchers, covering a wide range of important topics for all stages of your academic career.
+
+# [Marissa Baskett](http://www.des.ucdavis.edu/faculty/baskett/links.html)
+
+From an ecologist at UC Davis, with lots of good advice 
+
+# [Spencer Hall](http://www.indiana.edu/~halllab/grad-student-resources.html)
+
+From an ecologist at the University of Indiana, with lots of usful links for all levels of academia 
+
+# [Ronald Azume](http://www.cs.unc.edu/~azuma/hitch4.html)
+
+A Computer Science perspective 
+
+# [CGS Document](http://cgsnet.org/ckfinder/userfiles/files/CGS_ProfDev_STEMGrads16_web.pdf)
+
+A report from the Council of Graduate Schools, aimed at improving training in graduate programs for jobs outside of academia. A bit more technical than the other links, but good insight into what skills are important to develop.

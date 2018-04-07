@@ -19,55 +19,41 @@ output: html_document
 ### Research (40%)
 
 1. Annual review
-    1 per year
+    + pre-tenure: annually 
+    + post-tenure: biannually
 
 2. Write or co-write grants
-    ~ 3-10 applications per year
-    ~ 4-24 weeks per grant
+    + ~ 3-10 applications per year
+    + ~ 4-24 weeks per grant
 
 3. Grant status/progress/final reports
-    ~ 1x per grant year
-    1-3 weeks
+    + ~ 1x per grant year
+    + 1-3 weeks
     
 4. Reviewing papers
-    ~ 2-4 per month
-    ~ 3-10h per paper
+    + ~ 2-4 per month
+    + ~ 3-10h per paper
 
 5. Writing papers
-    ~ 2-10 per year
-    10s to 100s of hours per paper
+    + ~ 2-10 per year
+    + 10s to 100s of hours per paper
 
 
 ### Teaching (40%)
 
 1. Lectures
-    2-4 courses per year
-    3hr per week per course
+    + 2-4 courses per year
+    + 3hr per week per course
     
 2. Curriculum development and improvement
-    2-4 courses per year
-    ~10-20 weeks per course
+    + 2-4 courses per year
+    + ~10-20 weeks per course
 
 ### Service (20%) 
 
 1. Committee service
-    ~ 4-10 hours per month
-    + additional tasks (ranking applications, writing reports, etc.)
-
-
-
-Other stuff:
-Meeting with students
-Teaching
-
-
-
-### What else I do?
-
-* Pick up kids from school 
-
-
-
+    + ~ 4-10 hours per month
+    + additional tasks (new program development, ranking applications, writing reports, etc.)
 
 
 # Project Managment

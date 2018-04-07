@@ -1,0 +1,110 @@
+---
+title: "About Me"
+author: "Robert I. Colautti"
+date: "April 7, 2018"
+output: html_document
+---
+
+<font size="6">MY STORY</font> <br>
+<font size="5">In point-form</font> <br>
+<font size="4">With a few life-lessons and a focus on early-career stages (BSc & MSc)</font>
+
+*	Grew up in Windsor, ON Canada
+*	Always had a love of science and science programs -- Wonderstruck, Quirks & Quarks, Frontiers, Nova, Mr. Wizard, Bob MacDonald, Bill Nye, David Attenborough, Carl Sagan.
+*	Began undergraduate degree at University of Windsor
+*	Grades were mediocre
+*	Found courses boring, not challenging, didn’t see relevance 
+(In hindsight, I’ve found that some of the most exciting discoveries come from distant or abstract ideas applied in a completely new context)
+*	Grades too low for medicine – am I wasting my money?
+*	__Mental health wasn’t discussed__ (wish it was)
+*	Unmotivated, no direction, overwhelmed
+*	Slept through a final exam in 3rd year, failed the course
+*	Quit after 3rd year – too expensive, no clear direction
+*	Life went on; learned to deal with failure
+
+# Lesson #1: Fail
+
+> Learn how to __Fail early, fail often, fail quickly, fail better__
+
+*	Worked for 1 year as physical laborer for Colautti construction in Ottawa
+* Realized the opportunities available with a university education
+*	Returned to University of Windsor to finish final year
+*	Different cohort, fewer friends, fewer distractions
+*	Sat at front of class, read & researched beyond assignment requirements
+*	Asked good questions, got noticed despite poor grades
+*	Got a job as summer research assistant with Dr. Hugh MacIsaac
+*	Learned that research was a viable career path!
+*	Did an Honours thesis, then MSc
+*	__Read often, read widely and worked hard to try to read journal articles in more detail__. Instead of watching videos or playing video games, relaxed by reading popular science books (Darwin, Dawkins, Gould, Wilson) and biographies about scientists (Feynman, Darwin)
+* Rode bike to/from school in summer (~3km) and got into offroad biking with fellow grad students
+*	__Turned background research into a meta-analysis/review chapter (then published paper)__ – a great way to get into the literature in great depth, learn to synthesize ideas, and end up with a well-cited paper
+*	Won NSERC scholarship
+*	Started __PhD with Spencer Barrett at the University of Toronto__
+*	Published 13 papers Between undergrad, MSc and graduating PhD
+
+# Lesson #2: You can publish
+
+> __Anyone can publish!__ 
+
+* Just read and synthesize as much as possible and emulate the writing style of good writers.
+*	E.g. solo-authored paper in [CJFAS](http://www.nrcresearchpress.com/doi/abs/10.1139/f05-002#.WsjJ-IjwY2w) – Nothing more complicated than basic linear model, bar graphs and bivariate plot.   
+  + Hindsight: Wish I had senior coauthor – would have improved quality and visibility (citations). Avoid embarrassing errors (e.g. Weak statistics; Table A1 caption)
+
+# Lesson #3: Publish along the way
+
+> Constantly push to learn more but publish along the way!
+
+* Publish while you develop your research abilities (reading, analysis, writing, presenting) 
+*	Received NSERC PDF to work with Tom Mitchell-Olds at Duke University in Durham, North Carolina
+*	Received NSERC PDF to work with Loren Rieseberg at the University of British Columbia
+*	Applied for > 100 faculty positions; interviewed for ~10
+*	1st job application takes weeks of dedicated work to put together. 100th still takes about a full day or two. Must research department, faculty research, resources, courses, etc. to identify gap(s) you would fill.
+*	Job interviews last ~2 days including a research seminar (+ sometimes a teaching seminar) and a barrage of meetings with faculty (one-on-one) and one or two committees.
+*	One interview: Great department, beautiful landscape, good fit – __lost by 1 vote__ department-wide
+
+#	Recall Lesson #1
+
+> Learn how to __Fail early, fail often, fail quickly, fail better__
+
+*	After ~10 rejections, got 2 job offers at the same time. Made negotiating a lot easier!
+*	Delayed start date by 1 year to work with Oliver Bossdorf at the University in Tuebingen in Germany.
+* Started at Queen's in 2015
+* Rough transition during first 2 years. Made lots of mistakes
+
+#	Recall Lesson #1
+
+> Learn how to __Fail early, fail often, fail quickly, fail better__
+
+# Other experiences
+
+*	Got married
+*	Had kids
+*	Realized how much time at was spent not focused on working. 
+
+# Lesson #4: Work-life balance
+
+> Work efficiently, separate work from life.
+
+*	Learned to plan for the future but embrace the present. It never gets ‘easier’, so make sure you take the time to enjoy yourself
+
+# Lesson #5: Pace yourself
+
+> You are running a marathon, not a 100-metre dash.
+
+* Plan for the future but don't get distracted from the present.
+  + e.g. The 10 interviews I didn't get jobs were great for building my professional network
+* Enjoy the scenery. 
+* Finishing the race is better than sprinting from the start line and burning out early.
+
+# Lesson #6: Humblebrag
+
+> Take pride in your accomplishments, but stay humble.
+
+*	You should never feel like an ‘expert’ – if you do, you are not challenging yourself.
+
+# A fun fact about me
+
+After submitting my PhD I took some time off but I was still in 'work mode' so invented the [Dragon Phylogeny](https://github.com/ColauttiLab/DragonPhylogeny). In 2012 I submitted it for a t-shirt design and it was a [popular t-shirt](https://www.theshirtlist.com/dragon-phylogeny-t-shirt/) for a short time. It made some headlines (e.g. [CBC](http://www.cbc.ca/news/canada/british-columbia/dragon-family-tree-springs-from-scientist-s-imagination-1.1218358) [Gizmodo i09](https://io9.gizmodo.com/5936427/the-evolutionary-history-of-dragons-illustrated-by-a-scientist)). I always thought it would be fun to push it further, but haven't had the time.
+
+
+
