@@ -1,11 +1,9 @@
 ---
 title: "Colautti Lab Manifesto <br> > Writing"
-author: "Robert I. Colautti"
-date: "March 3, 2017"
 output: html_document
 ---
 
-> "I never thought the write-up could be as challenging as it has been."      --- email from 537 thesis student. March 28, 2016
+> "I never thought the write-up could be as challenging as it has been."      --- email from a 537 BSc Hs Thesis student. March 28, 2016
 
 This document outlines most of the 'what' to do. You should also carefully read more about 'how' to write. In addition to reading this, you should:
 

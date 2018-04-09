@@ -1,7 +1,5 @@
 ---
 title: "Colautti Lab Manifesto <br> > Basics"
-author: "Robert I. Colautti"
-date: "March 3, 2017"
 output: html_document
 ---
 

@@ -1,7 +1,5 @@
 ---
 title: "Colautti Lab Manifesto <br> > Welcome!"
-author: "Robert I. Colautti"
-date: "March 3, 2017"
 output: html_document
 ---
 
@@ -9,7 +7,7 @@ output: html_document
 
 First of all, congratulations on making it this far! Regardless of whether you are an undergraduate student working on your first research project or a postdoctoral researcher applying for a faculty position, you are somewhere along a gradient from __passive learner__ to __independent thinker__. This document is intended as a reference to help you make this transition, by laying out expectations and best practices. It is based on my own experience as well as discussions with colleagues. Most of the examples are therefore biased towards a career as a professional scientist. However, this document is above all a guide to working and thinking like a __professional__.  As such, I have consciously tried to keep the lessons general so that the tips, recommendations, and rules of thumb will apply to a broad range of professional activities and career paths that you may choose to follow.
 
-> "Only a Sith deals in absolutes -- Obi-wan Kenoboi"
+> "Only a Sith deals in absolutes" -- Obi-wan Kenoboi
 
 This manifesto is shaped by my own experences, which are summarized here: [About Me](./AboutMe.html)
 

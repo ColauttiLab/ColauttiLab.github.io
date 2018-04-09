@@ -1,7 +1,5 @@
 ---
 title: "About Me"
-author: "Robert I. Colautti"
-date: "April 7, 2018"
 output: html_document
 ---
 

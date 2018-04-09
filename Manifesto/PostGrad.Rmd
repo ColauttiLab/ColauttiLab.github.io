@@ -1,7 +1,5 @@
 ---
 title: "(Post-)Post-Graduation"
-author: "Robert I. Colautti"
-date: "April 7, 2018"
 output: html_document
 ---
 
