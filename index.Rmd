@@ -1,6 +1,5 @@
 ---
 title: "Colautti Lab Resources"
-author: "Rob Colautti"
 output: html_document
 ---
 
