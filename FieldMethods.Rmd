@@ -1,0 +1,164 @@
+---
+title: |-
+  BIOL 307 \
+    Field Methods in Ecological \
+    and Environmental Genomics
+output: html_document
+---
+
+This is a 2-week __INTENSIVE__ field course. Intensive means your typical schedule will look like this:
+
+| Time  | Activity    |
+|-------|-------------|
+| 07:30 | Breakfast |
+| 08:30 | Morning Tutorials |
+| 10:30 | Field Activities (Pack Lunch) |
+| 17:30 | Dinner |
+| 18:30 | Evening Tutorials |
+| 21:30 | Finish |
+
+# Readings & Assignments {.tabset .tabset-fade .tabset-pills} 
+
+## Schedule
+
+This schedule is __tentative__:
+
+![](./FieldMethods/ActivitySchedule2018_draft1.jpg)
+
+## Grading Scheme
+
+Note: This grading scheme has changed from the [OUPFB Syllabus](http://www.oupfb.ca/2018_modules/module18.pdf).
+
+The main reason is to shorten the final project and replace it with two smaller projects that can be completed during the field course. This also reduces the amount of work to be completed after the field course has finished.
+
+__Group Projects (50%)__ 
+
+  * Herbarium Collections (10) -- Due May 20
+  * Insect Collections (10) -- Due May 20
+  * Final Project (30)
+    + Project Proposal (5) -- Due May 26
+    + Code and Data Quality (10) -- Due June 10
+    + Final write-up (15) -- Due June 10
+
+__Peer Evaluation & Participation (20%)__ 
+
+__Individual Marks (30%)__
+
+  * Field & Lab notes (10)
+  * Paper Presentation 1 -- May 20 
+  * Paper Presentation 2 -- May 22
+
+
+# 
+
+***
+
+# Day 1
+
+## [Overall Introduction](./FieldMethods/1_Intro.pdf)
+
+## [Intro to QUBS](./FieldMethods/2_QUBS.pdf)
+
+__QUBS Website and Key Links__
+
+  * Website: [qubs.ca](https://qubs.ca/)
+  * Properties: [qubs.ca/facilities/properties](https://qubs.ca/facilities/properties)
+  * Bathymetry: [qubs.ca/resources/bathymetry](https://qubs.ca/resources/bathymetry)
+  * Soil and geography: [qubs.ca/resources/soils-geology](https://qubs.ca/resources/soils-geology)
+  * __Maps__ [qubs.ca/resources/maps](https://qubs.ca/resources/maps)
+  * __Species lists__ [qubs.ca/resources/species-lists](https://qubs.ca/resources/species-lists)
+  * __Fowler Herbarium__ [fowlerherbarium.ca](https://fowlerherbarium.ca/)
+
+## Safety Information
+
+### Exercise 1:
+
+Working in your groups, identify __potential risks__ and a __plant to mitigate risk__ the hazards assigned to your group (from handout). 
+
+_Example:_
+
+__Hazard__: Thin ice in winter
+
+__Risk:__ Hypothermia and/or drowning
+
+__Plan:__ Make sure that ice thickness is adequate for your planned activities. Carry 'polar picks'. 
+
+  * Never go on ice alone. It is best to wear a floater suit and carry a rope. 
+
+  * Be sure to bring a complete change of clothes in a dry bag. 
+
+  * If you do go through the ice: 
+    1. Call for help 
+    2. Do not try to climb out in the same direction where you went through the ice 
+    3. Use the air trapped in your clothing to get into a floating position on your stomach. 
+    4. Reach onto the broken ice without pushing down, and then kick your legs to push your torso on the ice. 
+    5. Once on the ice, crawl on your stomach or roll away from the open area with your arms and legs spread out as far as possible to evenly distribute your body weight. Do not stand until well away from the open water and thin ice.
+
+### Exercise 2: 
+
+Fill out OCASP Forms (check for email invite): 
+
+Compare your groups answers to the __risks__ and __plans__ on the OCASP form.
+
+  * What was obvious
+  * What was surprising or something you didn't think of?
+
+[Safety Information](https://webapp.queensu.ca/safety/ocasp/spr-summary.php)
+
+## Course goals
+
+3 Pillars: 
+
+  1. Learn by doing
+	  * Field Activities
+	  * Hands-on tutorials
+  2. Emphasis on transferrable skills
+	  * Coding
+	  * Experimental Design
+	  * Data Science! (collect manage  visualize  analyze  report)
+	  * Communication
+	  * Teamwork
+  3. Cumulative learning – each day builds on previous activities/tutorials
+
+## Code of Conduct
+
+In this course we follow a code of conduct based on [The Carpentries](https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html).
+
+They can be summarized by two __Main rules__:
+
+  1. Be professional
+  2. Be inclusive
+
+Zero-tolerance policy: __Harassment__ is any form of behaviour intended to exclude, intimidate, or cause discomfort. Because we are a diverse community, we may have different ways of communicating and of understanding the intent behind actions. Therefore we have chosen to prohibit certain forms of behaviour in our community, regardless of intent. Prohibited harassing behaviour includes but is not limited to:
+
+  * written or verbal comments which have the effect of excluding people on the basis of membership of a specific group (ethnicity, religious belief, gender, sexual orientation, etc.)
+  * causing someone to fear for their safety, such as through stalking, following, or intimidation
+  * the display of sexual or violent images
+  * unwelcome sexual attention
+  * nonconsensual or unwelcome physical contact
+  * sustained disruption of talks, events or communications
+  * incitement to violence, suicide, or self-harm
+  * continuing to initiate interaction (including photography or recording) with someone after being asked to stop
+  * publication of private communication without consent
+  
+The list above should not be taken as exhaustive but rather as a guide to make it easier to enrich all of us and the communities in which we participate.
+
+## Setup:
+
+Software to install:
+
+  * [R](https://www.r-project.org)
+  * [R Studio](https://www.rstudio.com/products/rstudio/download/)
+  * Windows users: [MobaXTerm](https://mobaxterm.mobatek.net/download.html)
+  * [OpenRefine](http://openrefine.org/download.html)
+
+## Tutorials
+
+  1. Data Carpentry [Overview](http://www.datacarpentry.org/ecology-workshop/)
+  2. Data Organizing with [Spreadsheets](http://www.datacarpentry.org/spreadsheet-ecology-lesson/)
+  3. Working with data using [OpenRefine](http://www.datacarpentry.org/OpenRefine-ecology-lesson/)
+
+***
+
+
+
