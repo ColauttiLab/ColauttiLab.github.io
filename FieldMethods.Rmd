@@ -152,9 +152,28 @@ Software to install:
   * Windows users: [MobaXTerm](https://mobaxterm.mobatek.net/download.html)
   * [OpenRefine](http://openrefine.org/download.html)
 
+## Herbarium Specimens
 
+1. Collect & Preserve the Specimen (and meta-data)
+  * Look at examples on the [Global Biodiversity Informatics Database](https://www.gbif.org)
+  * [Blog post](https://edaphics.blogspot.ca/2013/03/how-to-herbarium.html?q=herbarium) about collecting specimens by Dr. Dylan Burge 
+  * If you are stuck, try online groups (e.g. [Plant ID Facebook Group](https://www.facebook.com/groups/156706504394635/))
 
-***
+2. Identify the Species
+  * Reference manuals in the lab
+  * Go Botany [Website](https://gobotany.newenglandwild.org)
+
+3. Mount and Submit the Specimen
+  
+4. Organize and upload meta-data
+  * [QUBS Dataverse](https://dataverse.scholarsportal.info/dataverse/QUBS)
+
+## Data Tutorials
+
+Datasets:
+
+  * Spreadsheet Tutorial [Data](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459)  
+  * OpenRefine Tutorial [Data](https://ndownloader.figshare.com/files/7823341)
 
 
 
