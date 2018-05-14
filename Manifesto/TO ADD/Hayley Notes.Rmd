@@ -1,0 +1,59 @@
+---
+title: "Colautti Lab Manifesto"
+author: "Hayley Brackenridge & Joanna Strozak"
+date: '2018-04-13'
+output: html_document
+---
+
+#Summaries 
+
+##Roles and Expectations 
+
+This part of the Manifesto was split into two sections: one outlining the duties and expectations of a mentor, and the second outlining those that apply to a mentee. The role of a mentor, here, was marked by the duty to support and guide the mentee by supplying relevant experience and direction when needed (rather than simply “looking over the mentee’s shoulder” to ensure quality of work). The section outlining primary duties of a mentee stressed adequate preparation (including reading and project management) as well as development of transferable skills conducive to sound, productive research. In this section, mentee independence was a prominent theme: mentees are expected to do substantial amounts of research and reading to build a useful base of knowledge prior to engagement with any projects, and are tasked with managing and implementing project plans independently. Thus, the working relationship between a mentor and mentee is one based on learning and self-betterment, with both parties working towards a common goal. 
+
+##Your Reference Letter 
+
+This section outlined the criteria that is assessed in the creation of a reference letter, and stressed the difference between assessments coming from an absolute scale (ie. test grades) compared to those based on a relative scale. It outlined the various components of a science student’s performance that may be taken into account when applying for further studies (or jobs!), supplying us with a clear outline of proficiencies that are sought after in young professionals. The main takeaway from this section was that the transition from purely academic life to more career-oriented endeavours is often marked by increased emphasis on practical skills and aptitudes (rather than test grades), which can be efficiently assessed and elaborated on in a reference letter. 
+
+##Transferable skills
+
+Creating a document of your skills will not only help you track examples of where you gained these experiences but remind you take note of them throughout your research and reinforce their importance. 
+
+Valuable skills:
+  * Communication -> Scientific, public, oral
+  * Writing
+  * Presentation
+  * Leadership/ mentorship
+  * Experimental desgin
+  
+Exceedingly rare skills:
+  * Data science (i.e. programming with R or Python)
+  * Lab methods -> troubleshooting & quality control 
+  * Working with big data sets
+  * Science policy
+  * Governance
+  * Time, budget, and project management 
+
+#Feedback 
+
+- Could clarify what QA/QC means for people that aren’t familiar with the saying 
+- Add a colon to “Here are a few specific tips” under the “Mentee” sections 
+- Space after "Part2:" under Reference Letter
+- Side menu is good - only shows sub-headings when you are on a certain section and avoids overwhelming the reader of the page, avoiding distraction and keeping them on-topic 
+
+- Under “Skill development” in “Mentee” section  - part that says “are discussed in more detail elsewhere” does not provide a resource or outline what the “elsewhere” refers to 
+- Same problem with “a lot has been written on this” in point titled "Experimental design” 
+
+#Most surprising/interesting points 
+
+- “Several skills that are highly valued by employers are generally lacking in recent graduates” 
+
+- Point 4 of “Transferrable Skills” (Science policy) - good science must also be ethical and socially relevant, yielding productive research. Yes, it should be interest-based, but must also make a contribution to society and accommodate for different lifestyles and worldviews - knowledge of policy is valuable here 
+
+- Suggestion to create a document that keeps track of learning opportunities, that can be referred to when asking for reference letters. This is also a good way to track your progress for personal benefit and observe how your skills as a researcher have evolved over time
+
+#Tweetables 
+
+“The first time usually takes the longest, the hundredth or thousandth time is much faster.” 
+
+“Good science communicators spend most of their time planning and editing, rather than writing or laying out slides.” 

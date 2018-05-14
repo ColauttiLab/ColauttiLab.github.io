@@ -1,0 +1,63 @@
+# Reading
+
+* how to find a paper
+* Google Scholar (keyword search)
+* Web of Science (accessed through Queen's Library)
+* citations from other papers
+* ask people for recommendations
+* recommendations from other search engines
+* keeping track of literature (citation software)
+* Mendeley (free, sign up)
+* ResearchGate (free, sign up)
+* Endnote (not free)
+* Zotero (free, no sign up)
+* Excel (free, no sign up)
+
+* tips on how to read a paper
+* read the last paragraph of the introduction for the hypothesis
+* read all the methods
+* critically examine all figures in paper
+* read first paragraph of discussion for summary of results
+* then read the discussion
+# Analysis
+
+To answer your hypothesis, you need the right kind and amount of data to answer your questions. Data collection is informed by your analysis, so plan your analysis before data collection. It seems counterintuitive, but for efficient and effective data collection, you need to understand what analysis you will use it for. 
+
+## Software (need to add links to all of these)
+* R (and R Studio)
+* Python (through Anaconda)
+* Git
+
+## Power of statistical analyses (so that you don't end up collecting unneeded data or insufficient amounts of data to answer the question)
+* if possible, simulate toy data to estimate amount of data needed for sufficient statistical power
+
+
+## Data Analysis Flowchart (To Rob: using DiagrammeR, you can make flowcharts in R)
+
+# Experimental Design (when possible)
+* set up your experiment in a way that will provide data for your imagined analysis
+* pay attention to sample size and pseudo-replication, among other factors
+* make sure there is enough time/manpower for the experiment and data collection
+* plan carefully for the budget
+* Keep a daily journal of events in the project
+
+# Data Collection
+
+From analysis, it is possible to find the highest priority variable to measure.
+Collect data in a manner easy to input into the computer.
+You will always need some flexibility to account for unaccounted events and factors in your study. 
+
+Have your measurement protocol backed-up. Use it during data entry and analysis. 
+Document your variables and definitions. 
+If needed, protocol can be changed to accomodate new variables.
+
+Best practices:
+* distinguish between 0 and NA (not available) for a measurement
+* Have multiple and frequent backups of data
+* Data should be transcribed as soon as possible if needed
+* Have observer variable when multiple collectors are involved
+* Use qrcodes (link) if possible
+* Field safety (link)
+
+
+

@@ -7,6 +7,14 @@ output: html_document
 
 [Colautti Lab Manifesto](./Manifesto/index.html) -- Essential reading for all members of the Colautti Lab
 
+## British Ecological Society
+[Guides](https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf) to Better Science
+
+  * [Data Management](./Readings/BES-Data-Guide-2017)
+  * [Reproducible Code](./Readings/BES-Reproducible-Code.pdf)
+  * [Getting Published](./Readings/BES-Getting-Published-Guide-2017.pdf)
+  * [Peer Review](./Readings/BES-Peer-Review-Guide-2017)
+
 # Coding Superpowers:
 
 ![](./Superheroes.jpg)
@@ -38,9 +46,11 @@ output: html_document
 
 # Course material
 
+[BIOL 307](FieldMethods.html) -- Field Methods in Ecological and Environmental Genomics
+
 BIOL 432 -- Introduction to Computation and Big Data in Biology
 
-[BIOL 812](biol812.html) -- Applied Compuation for Biologists
+[BIOL 812](biol812.html) -- Applied Computation for Biologists
 
 ***
 

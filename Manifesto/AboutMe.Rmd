@@ -96,9 +96,12 @@ output: html_document
 
 # Lesson #6: Humblebrag
 
-> Take pride in your accomplishments, but stay humble.
+> Celebrate your accomplishments, but stay humble.
 
 *	You should never feel like an ‘expert’ – if you do, you are not challenging yourself.
+* Take some time to celebrate major accomplishments -- thesis defence, paper acceptance, etc.
+* Don't let it go to your head. There are lots of people who are much more accomplished than you.
+* Find the balance that gives you enough self-confidence to be an effective colleague and enough insecurity to maintain a drive for improvement.
 
 # A fun fact about me
 

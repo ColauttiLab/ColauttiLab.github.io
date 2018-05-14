@@ -1,0 +1,51 @@
+---
+title: "Alumni"
+output: html_document
+---
+
+# Overview
+
+The purpose of this page is to track the career trajectory of current & former Colautti Lab alumni. If you are a former member of the lab, we love to receive updates on your career goals and accomplishments!
+
+# Student Tracker
+
+| Name                | Degree           | Project           |  Years   | Post-lab experience |
+|---------------------|------------------|-------------------|----------|-------------------------------------------------------------|
+| $Undergraduate$ $Supervision$ |||||
+| Leila Forsythe       | BSc (thesis)     | Lythrum herbarium | 2015-16  | 2016-? PhD with Ben Gilbert, U Toronto St. George Campus |
+| Stephanie Barre      | SLC (Co-op)      | Lab Technician    | 2015-16  | ???? |
+| Erika Gibbons        | SLC (Co-op)      | Lab Technician    | 2015-16  | ???? |
+| Victoria Guba        | BSc (mentorship) | Tick ID           | 2016     | 2018 Concordia, MSc in Environmental Assessment |
+| Jordana de Lima      | BSc (Co-mentorship) | Tick genome       | 2016-17  | 2018 Brasil to complete degree (Science without Borders) |
+| Emily Bao            | BSc (work study) | baRcodes          | 2016-18  | 2018 Scotiabank -- Operating Systems Team Member |
+| Angela Wong          | BSc (thesis)     | eDNA experiment   | 2016-17  | ???? | 
+| Derek McLean         | BSc (thesis)     | Arctic birch DNA  | 2016-17  | ???? |
+| Weihang Chen         | BSc (Co-mentorship)| Ticks + GM      | 2016-17  | ???? |
+| Vanessa Sabourin     | SLC (Co-op)      | Lab Technician    | 2016-17  | ???? |
+| Jessie Obeng         | BSc (work study) | Lab servers       | 2017-18  | 2018 eSight -- Data Analyst |
+| Rhett Andruko        | BSc (USRA)       | GM + maple @ QUBS | 2017 (summer) | 2018 School of Forestry -- Alberta? |
+| Anneke Golemeic      | BSc (thesis)     | GM root colonization | 2017-2018 | 2018-? MSc with Risa Sargent, U Ottawa |
+| Sierra Klueppel      | BSc (thesis)     | Lythrum FT + herbivory | 2017-2018 | ???? |
+| Pallavi Gupta        | BSc (mentorship + thesis) | Tick LAMP + Lythrum GBS? | 2017-19 | ???? |
+| Ke Fang   | BSc (Mitacs intern) | Lab technician | 2018 (summer) | ???? |
+| Kate Ding            | BSc (mentorship) | Tick microbiome   | 2018-19  | ???? |
+| Claire Smith | BSc (USRA) | GRENE-Net | 2018 (sumer) | ???? |
+| Haley Richardson     | BSc (thesis)     | ???? | 2018-19|| 
+| Jamie MacKay         | BSc (thesis)     | ???? | 2018-19|| 
+| Joanna Strozak       | BSc (thesis)     | ???? | 2018-19|| 
+| Meagan Antunes       | BSc (thesis)     | ???? | 2018-19|| 
+| $Graduate$ $Supervision$ |||||
+| Muzzamil Abdur-Razak | MSc (Co-)    | Lythrum herbivory          | 2016-18 | ???? |
+| Katherine Duchesneau | MSc (Co-)    | GM Soil microbiome         | 2016-18 | ???? |
+| Yihan Wu             | MSc          | Lythrum herbarium + GM GBS | 2016-18 | ???? |
+| Eugene Sit           | MSc (Co-)    | Lythrum FT x herbivory     | 2016-18 | ???? |
+| Richard Honor        | MSc          | GM Fungal interactions     | 2018-20 | ???? |
+| ??Sharon's student?? | MSc (Co-)    | Poplar mutants             | 2018-20 | ???? |
+
+# Major Awards & Honours
+
+  * USRA -- Rhett, Claire
+  * OGS -- Eugene
+  * Outstanding TA award -- Muzz
+  * QUBS-BUGS award -- Weihang
+
