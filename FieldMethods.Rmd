@@ -152,11 +152,7 @@ Software to install:
   * Windows users: [MobaXTerm](https://mobaxterm.mobatek.net/download.html)
   * [OpenRefine](http://openrefine.org/download.html)
 
-## Tutorials
 
-  1. Data Carpentry [Overview](http://www.datacarpentry.org/ecology-workshop/)
-  2. Data Organizing with [Spreadsheets](http://www.datacarpentry.org/spreadsheet-ecology-lesson/)
-  3. Working with data using [OpenRefine](http://www.datacarpentry.org/OpenRefine-ecology-lesson/)
 
 ***
 
