@@ -19,11 +19,23 @@ This is a 2-week __INTENSIVE__ field course. Intensive means your typical schedu
 
 # Schedule & Grades {.tabset .tabset-fade .tabset-pills} 
 
+## Upcoming Deadlines & Activities
+
+Check back regularly; these will be updated as the schedule gets set:
+
+| Date | Assignment |
+|------------------|----------------------------------|
+| May 16 (8:30)    | Submit paper choices |
+| May 17 (8:30)    | Bring samples for DNA extraction |
+| May 18 (evening) | 1. Finish collections <br>2. Combine & visualize GM dataset <br>3. Present assigned readings |
+
+
+
 ## Schedule
 
 This schedule is __tentative__:
 
-![](./FieldMethods/ActivitySchedule2018_draft1.jpg)
+![DRAFT schedule](./FieldMethods/ActivitySchedule2018_draft1.jpg)
 
 ## Grading Scheme
 
@@ -172,22 +184,6 @@ Software to install:
   * Windows users: [MobaXTerm](https://mobaxterm.mobatek.net/download.html)
   * [OpenRefine](http://openrefine.org/download.html)
 
-### Herbarium Specimens
-
-1. Collect & Preserve the Specimen (and meta-data)
-  * Look at examples on the [Global Biodiversity Informatics Database](https://www.gbif.org)
-  * [Blog post](https://edaphics.blogspot.ca/2013/03/how-to-herbarium.html?q=herbarium) about collecting specimens by Dr. Dylan Burge 
-  * If you are stuck, try online groups (e.g. [Plant ID Facebook Group](https://www.facebook.com/groups/156706504394635/))
-
-2. Identify the Species
-  * Reference manuals in the lab
-  * Go Botany [Website](https://gobotany.newenglandwild.org)
-
-3. Mount and Submit the Specimen
-  
-4. Organize and upload meta-data
-  * [QUBS Dataverse](https://dataverse.scholarsportal.info/dataverse/QUBS)
-
 ### Data Tutorials
 
 Datasets:
@@ -213,10 +209,10 @@ Data Carpentry:
   1. Read the [intro an eDNA](./FieldMethods/DiscussionPapers/1_TaberletEtAl2012Intro.pdf) paper.
   2. Choose a paper from the list below that interests you*. 
   2. Coordinate so that everyone presents a different paper.
-  3. Submit list of papers and presenters Wednesday Morning (May 16)
+  3. Submit list of papers and presenters Wednesday Morning (__May 16__)
   3. Prepare to teach the paper to the class (15 min + discussion). You will be the only one to read the paper.
   4. While you prepare, discuss confusing terms and concepts to improve your understanding.
-  5. Pesent Friday Evening (May 18)
+  5. Pesent Friday evening (__May 18__)
 
 *You can propose another eco/env genomics paper that is not on the list, but also choose one from the list as a backup in case the one you choose doesn't fit with the theme.
 
@@ -233,7 +229,22 @@ Data Carpentry:
   * [Earthworms](./FieldMethods/DiscussionPapers/21_BairdEtAl2012Biomonitoring2pt0.pdf)
   * [Biomonitoring 2.0](./FieldMethods/DiscussionPapers/21_BairdEtAl2012Biomonitoring2pt0.pdf)
 
+### Herbarium Specimens
 
+  1. Collect & Preserve the Specimen (and meta-data)
+    * Look at examples on the [Global Biodiversity Informatics Database](https://www.gbif.org)
+    * [Blog post](https://edaphics.blogspot.ca/2013/03/how-to-herbarium.html?q=herbarium) about collecting specimens by Dr. Dylan Burge 
+    * If you are stuck, try online groups (e.g. [Plant ID Facebook Group](https://www.facebook.com/groups/156706504394635/))
+  2. Identify the Species
+    * Reference manuals in the lab
+    * Go Botany [Website](https://gobotany.newenglandwild.org)
+  3. Mount and Submit the Specimen
+  4. Organize and upload meta-data
+    * [QUBS Dataverse](https://dataverse.scholarsportal.info/dataverse/QUBS)
+
+You will have all day Wednesday and Thursday morning to make collections. You should have at least 15 specimens ready for preservation before lunch on Thursday, __May 17__. There may not be much time to make more collections after this, and you will still have to mount and label the specimens.
+
+Select two plants for DNA extraction and bring them to the Brown Lab after lunch on Wednesday (May 16).
 
 ***
 
