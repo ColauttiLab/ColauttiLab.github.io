@@ -48,6 +48,24 @@ __Individual Marks (30%)__
   * Paper Presentation 1 -- May 20 
   * Paper Presentation 2 -- May 22
 
+## Grading Rubrics
+
+### Natural History Collections
+
+Each group member should produce at least 5 specimens. Submit 5 from each group member and note 'best' 5 (must include at least 1 from each group member). Grading will be based on:
+
+  1. __Variety (10 marks)__ -- specimens differ from other students, represent a broad range of taxonomic groups, geographical locations, and habitat types.
+  2. __Metadata (20 marks)__ -- labels with correct scientific name, GPS location and datum type; clear & detailed meta-data demonstrating careful observations.
+  3. __Preservation (10 marks)__ -- specimen dried sufficiently, mounted properly, all structures visible (e.g. beetle wings extended; both sides of leaves visible), tidy and aesthetic presentation, secure mounting.
+
+### Paper presentations
+
+15 minute presentations + 5 minutes for questions & discussion. Grade (10%) based on
+  
+  1. __Content (20 marks)__ -- Presentation is an accurate representation of the paper. No important points are left out. 
+  2. __Clarity (10 marks)__ -- Paper is explained well; complex or detailed material is summarized clearly; questions are answered well 
+  3. __Presentation (10 marks)__ -- clean, clear slides; good eye contact; speaking at a good pace with good projection.
+
 
 # 
 
@@ -188,7 +206,32 @@ Data Carpentry:
 
 ## Day 2
 
+### Journal Article Assignment
+
+#### Instructions:
+
+  1. Read the [intro an eDNA](./FieldMethods/DiscussionPapers/1_TaberletEtAl2012Intro.pdf) paper.
+  2. Choose a paper from the list below that interests you*. 
+  2. Coordinate so that everyone presents a different paper.
+  3. Submit list of papers and presenters Wednesday Morning (May 16)
+  3. Prepare to teach the paper to the class (15 min + discussion). You will be the only one to read the paper.
+  4. While you prepare, discuss confusing terms and concepts to improve your understanding.
+  5. Pesent Friday Evening (May 18)
+
+*You can propose another eco/env genomics paper that is not on the list, but also choose one from the list as a backup in case the one you choose doesn't fit with the theme.
+
+#### Paper List:
   
+  * [NGS overview](./FieldMethods/DiscussionPapers/2_ShokrallaEtAl2012NGS.pdf)
+  * [Soil eDNA](./FieldMethods/DiscussionPapers/4_TaberletEtAl2012Soil&ExtracellularDNA.pdf)
+  * [Aquatic microbes](./FieldMethods/DiscussionPapers/9_ZingerEtAl2012aquaticMicrobes.pdf)
+  * [Root fungi](./FieldMethods/DiscussionPapers/10_BlaalidEtAl2012rootFungal454.pdf)
+  * [Microbial traits](./FieldMethods/DiscussionPapers/11_BarberanEtAl2012CommunityTraitsVSmicrobes.pdf)
+  * [Diet assessment](./FieldMethods/DiscussionPapers/13_PompanonEtAl2012DietAssessment.pdf)
+  * [Dirt and verts](./FieldMethods/DiscussionPapers/15_AndersonEtAl2012VertebratesINdirt.pdf)
+  * [Dirt and plants](./FieldMethods/DiscussionPapers/18_HiiesaluEtAl2012PlantsBelowGround.pdf)
+  * [Earthworms](./FieldMethods/DiscussionPapers/21_BairdEtAl2012Biomonitoring2pt0.pdf)
+  * [Biomonitoring 2.0](./FieldMethods/DiscussionPapers/21_BairdEtAl2012Biomonitoring2pt0.pdf)
 
 
 
@@ -207,6 +250,7 @@ Project Finish: Publish your data
 
   * QUBS [Dataverse Repository](https://dataverse.scholarsportal.info/dataverse/QUBS), open to all
   * 2GB maximum file size, but you can include metadata with links to other datasets (e.g. [NCBI SRA database](https://www.ncbi.nlm.nih.gov/sra))
+
 
 
 
