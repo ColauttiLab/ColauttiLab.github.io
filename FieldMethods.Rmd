@@ -17,7 +17,7 @@ This is a 2-week __INTENSIVE__ field course. Intensive means your typical schedu
 | 18:30 | Evening Tutorials |
 | 21:30 | Finish |
 
-# Readings & Assignments {.tabset .tabset-fade .tabset-pills} 
+# Schedule & Grades {.tabset .tabset-fade .tabset-pills} 
 
 ## Schedule
 
@@ -53,11 +53,13 @@ __Individual Marks (30%)__
 
 ***
 
-# Day 1
+# Tutorials & Activities {.tabset .tabset-fade .tabset-pills} 
 
-## [Overall Introduction](./FieldMethods/1_Intro.pdf)
+## Day 1
 
-## [Intro to QUBS](./FieldMethods/2_QUBS.pdf)
+### [Overall Introduction](./FieldMethods/1_Intro.pdf)
+
+### [Intro to QUBS](./FieldMethods/2_QUBS.pdf)
 
 __QUBS Website and Key Links__
 
@@ -69,9 +71,9 @@ __QUBS Website and Key Links__
   * __Species lists__ [qubs.ca/resources/species-lists](https://qubs.ca/resources/species-lists)
   * __Fowler Herbarium__ [fowlerherbarium.ca](https://fowlerherbarium.ca/)
 
-## Safety Information
+### Safety Information
 
-### Exercise 1:
+#### Exercise 1:
 
 Working in your groups, identify __potential risks__ and a __plant to mitigate risk__ the hazards assigned to your group (from handout). 
 
@@ -94,7 +96,7 @@ __Plan:__ Make sure that ice thickness is adequate for your planned activities. 
     4. Reach onto the broken ice without pushing down, and then kick your legs to push your torso on the ice. 
     5. Once on the ice, crawl on your stomach or roll away from the open area with your arms and legs spread out as far as possible to evenly distribute your body weight. Do not stand until well away from the open water and thin ice.
 
-### Exercise 2: 
+#### Exercise 2: 
 
 Fill out OCASP Forms (check for email invite): 
 
@@ -105,7 +107,7 @@ Compare your groups answers to the __risks__ and __plans__ on the OCASP form.
 
 [Safety Information](https://webapp.queensu.ca/safety/ocasp/spr-summary.php)
 
-## Course goals
+### Course goals
 
 3 Pillars: 
 
@@ -120,7 +122,7 @@ Compare your groups answers to the __risks__ and __plans__ on the OCASP form.
 	  * Teamwork
   3. Cumulative learning – each day builds on previous activities/tutorials
 
-## Code of Conduct
+### Code of Conduct
 
 In this course we follow a code of conduct based on [The Carpentries](https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html).
 
@@ -143,7 +145,7 @@ Zero-tolerance policy: __Harassment__ is any form of behaviour intended to exclu
   
 The list above should not be taken as exhaustive but rather as a guide to make it easier to enrich all of us and the communities in which we participate.
 
-## Setup:
+### Setup:
 
 Software to install:
 
@@ -152,7 +154,7 @@ Software to install:
   * Windows users: [MobaXTerm](https://mobaxterm.mobatek.net/download.html)
   * [OpenRefine](http://openrefine.org/download.html)
 
-## Herbarium Specimens
+### Herbarium Specimens
 
 1. Collect & Preserve the Specimen (and meta-data)
   * Look at examples on the [Global Biodiversity Informatics Database](https://www.gbif.org)
@@ -168,12 +170,43 @@ Software to install:
 4. Organize and upload meta-data
   * [QUBS Dataverse](https://dataverse.scholarsportal.info/dataverse/QUBS)
 
-## Data Tutorials
+### Data Tutorials
 
 Datasets:
 
-  * Spreadsheet Tutorial [Data](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459)  
-  * OpenRefine Tutorial [Data](https://ndownloader.figshare.com/files/7823341)
+  * Spreadsheet Tutorial [Data](./FieldMethods/survey_data_spreadsheet_messy.csv)  
+  * OpenRefine Tutorial [Data](./FieldMethods/Portal_rodents_19772002_scinameUUIDs.csv)
+
+
+Data Carpentry:
+
+  1. Data Organizing with [Spreadsheets](http://www.datacarpentry.org/spreadsheet-ecology-lesson/)
+      * Spreadsheet Tutorial [Data](./FieldMethods/survey_data_spreadsheet_messy.csv)  
+  2. Working with data using [OpenRefine](http://www.datacarpentry.org/OpenRefine-ecology-lesson/)
+      * OpenRefine Tutorial [Data](./FieldMethods/Portal_rodents_19772002_scinameUUIDs.csv)
+
+
+## Day 2
+
+  
+
+
+
+***
+
+# Other Notes:
+
+## Data Management Mini-Workshop
+
+Project Start: Create a Data Management Plan (DMP)
+
+  * DMP Assistant is an online portal to help you create a data management plan
+  * [portagenetwork.ca](https://portagenetwork.ca) --> DMP Assistant --> Sign Up for a new account (or Sign in if you already have one)
+  
+Project Finish: Publish your data
+
+  * QUBS [Dataverse Repository](https://dataverse.scholarsportal.info/dataverse/QUBS), open to all
+  * 2GB maximum file size, but you can include metadata with links to other datasets (e.g. [NCBI SRA database](https://www.ncbi.nlm.nih.gov/sra))
 
 
 
