@@ -126,7 +126,7 @@ Data Carpentry:
   * [Diet assessment](./FieldMethods/DiscussionPapers/13_PompanonEtAl2012DietAssessment.pdf)
   * [Dirt and verts](./FieldMethods/DiscussionPapers/15_AndersonEtAl2012VertebratesINdirt.pdf)
   * [Dirt and plants](./FieldMethods/DiscussionPapers/18_HiiesaluEtAl2012PlantsBelowGround.pdf)
-  * [Earthworms](./FieldMethods/DiscussionPapers/21_BairdEtAl2012Biomonitoring2pt0.pdf)
+  * [Earthworms](./FieldMethods/DiscussionPapers/19_BienertEtAl2012EarthwormExample.pdf)
   * [Biomonitoring 2.0](./FieldMethods/DiscussionPapers/21_BairdEtAl2012Biomonitoring2pt0.pdf)
 
 ### Natural History Collections
