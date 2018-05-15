@@ -19,7 +19,7 @@ This is a 2-week __INTENSIVE__ field course. Intensive means your typical schedu
 
 # Schedule & Grades {.tabset .tabset-fade .tabset-pills} 
 
-## Upcoming Deadlines & Activities
+## Deadlines
 
 Check back regularly; these will be updated as the schedule gets set:
 
@@ -31,7 +31,7 @@ Check back regularly; these will be updated as the schedule gets set:
 
 
 
-## Schedule
+## DRAFT Schedule
 
 This schedule is __tentative__:
 
@@ -85,112 +85,13 @@ Each group member should produce at least 5 specimens. Submit 5 from each group 
 
 # Tutorials & Activities {.tabset .tabset-fade .tabset-pills} 
 
-## Day 1
-
-### [Overall Introduction](./FieldMethods/1_Intro.pdf)
-
-### [Intro to QUBS](./FieldMethods/2_QUBS.pdf)
-
-__QUBS Website and Key Links__
-
-  * Website: [qubs.ca](https://qubs.ca/)
-  * Properties: [qubs.ca/facilities/properties](https://qubs.ca/facilities/properties)
-  * Bathymetry: [qubs.ca/resources/bathymetry](https://qubs.ca/resources/bathymetry)
-  * Soil and geography: [qubs.ca/resources/soils-geology](https://qubs.ca/resources/soils-geology)
-  * __Maps__ [qubs.ca/resources/maps](https://qubs.ca/resources/maps)
-  * __Species lists__ [qubs.ca/resources/species-lists](https://qubs.ca/resources/species-lists)
-  * __Fowler Herbarium__ [fowlerherbarium.ca](https://fowlerherbarium.ca/)
-
-### Safety Information
-
-#### Exercise 1:
-
-Working in your groups, identify __potential risks__ and a __plant to mitigate risk__ the hazards assigned to your group (from handout). 
-
-_Example:_
-
-__Hazard__: Thin ice in winter
-
-__Risk:__ Hypothermia and/or drowning
-
-__Plan:__ Make sure that ice thickness is adequate for your planned activities. Carry 'polar picks'. 
-
-  * Never go on ice alone. It is best to wear a floater suit and carry a rope. 
-
-  * Be sure to bring a complete change of clothes in a dry bag. 
-
-  * If you do go through the ice: 
-    1. Call for help 
-    2. Do not try to climb out in the same direction where you went through the ice 
-    3. Use the air trapped in your clothing to get into a floating position on your stomach. 
-    4. Reach onto the broken ice without pushing down, and then kick your legs to push your torso on the ice. 
-    5. Once on the ice, crawl on your stomach or roll away from the open area with your arms and legs spread out as far as possible to evenly distribute your body weight. Do not stand until well away from the open water and thin ice.
-
-#### Exercise 2: 
-
-Fill out OCASP Forms (check for email invite): 
-
-Compare your groups answers to the __risks__ and __plans__ on the OCASP form.
-
-  * What was obvious
-  * What was surprising or something you didn't think of?
-
-[Safety Information](https://webapp.queensu.ca/safety/ocasp/spr-summary.php)
-
-### Course goals
-
-3 Pillars: 
-
-  1. Learn by doing
-	  * Field Activities
-	  * Hands-on tutorials
-  2. Emphasis on transferrable skills
-	  * Coding
-	  * Experimental Design
-	  * Data Science! (collect manage  visualize  analyze  report)
-	  * Communication
-	  * Teamwork
-  3. Cumulative learning – each day builds on previous activities/tutorials
-
-### Code of Conduct
-
-In this course we follow a code of conduct based on [The Carpentries](https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html).
-
-They can be summarized by two __Main rules__:
-
-  1. Be professional
-  2. Be inclusive
-
-Zero-tolerance policy: __Harassment__ is any form of behaviour intended to exclude, intimidate, or cause discomfort. Because we are a diverse community, we may have different ways of communicating and of understanding the intent behind actions. Therefore we have chosen to prohibit certain forms of behaviour in our community, regardless of intent. Prohibited harassing behaviour includes but is not limited to:
-
-  * written or verbal comments which have the effect of excluding people on the basis of membership of a specific group (ethnicity, religious belief, gender, sexual orientation, etc.)
-  * causing someone to fear for their safety, such as through stalking, following, or intimidation
-  * the display of sexual or violent images
-  * unwelcome sexual attention
-  * nonconsensual or unwelcome physical contact
-  * sustained disruption of talks, events or communications
-  * incitement to violence, suicide, or self-harm
-  * continuing to initiate interaction (including photography or recording) with someone after being asked to stop
-  * publication of private communication without consent
-  
-The list above should not be taken as exhaustive but rather as a guide to make it easier to enrich all of us and the communities in which we participate.
-
-### Setup:
-
-Software to install:
-
-  * [R](https://www.r-project.org)
-  * [R Studio](https://www.rstudio.com/products/rstudio/download/)
-  * Windows users: [MobaXTerm](https://mobaxterm.mobatek.net/download.html)
-  * [OpenRefine](http://openrefine.org/download.html)
-
-### Data Tutorials
+## Tutorials
 
 Datasets:
 
-  * Spreadsheet Tutorial [Data](./FieldMethods/survey_data_spreadsheet_messy.csv)  
-  * OpenRefine Tutorial [Data](./FieldMethods/Portal_rodents_19772002_scinameUUIDs.csv)
-
+  * Spreadsheet Tutorial [Data](./FieldMethods/Data/survey_data_spreadsheet_messy.csv)  
+  * OpenRefine Tutorial [Data](./FieldMethods/Data/Portal_rodents_19772002_scinameUUIDs.csv)
+  * Gapminder [Dataset](./FieldMethods/Data/gapminder-FiveYearData.csv)
 
 Data Carpentry:
 
@@ -200,11 +101,10 @@ Data Carpentry:
       * OpenRefine Tutorial [Data](./FieldMethods/Portal_rodents_19772002_scinameUUIDs.csv)
 
 
-## Day 2
 
-### Journal Article Assignment
+## Assignments
 
-#### Instructions:
+### Journal Discussion:
 
   1. Read the [intro an eDNA](./FieldMethods/DiscussionPapers/1_TaberletEtAl2012Intro.pdf) paper.
   2. Choose a paper from the list below that interests you*. 
@@ -229,7 +129,7 @@ Data Carpentry:
   * [Earthworms](./FieldMethods/DiscussionPapers/21_BairdEtAl2012Biomonitoring2pt0.pdf)
   * [Biomonitoring 2.0](./FieldMethods/DiscussionPapers/21_BairdEtAl2012Biomonitoring2pt0.pdf)
 
-### Herbarium Specimens
+### Natural History Collections
 
   1. Collect & Preserve the Specimen (and meta-data)
     * Look at examples on the [Global Biodiversity Informatics Database](https://www.gbif.org)
@@ -245,6 +145,176 @@ Data Carpentry:
 You will have all day Wednesday and Thursday morning to make collections. You should have at least 15 specimens ready for preservation before lunch on Thursday, __May 17__. There may not be much time to make more collections after this, and you will still have to mount and label the specimens.
 
 Select two plants for DNA extraction and bring them to the Brown Lab after lunch on Wednesday (May 16).
+
+# Day 1
+
+## [Overall Introduction](./FieldMethods/1_Intro.pdf)
+
+## [Intro to QUBS](./FieldMethods/2_QUBS.pdf)
+
+__QUBS Website and Key Links__
+
+  * Website: [qubs.ca](https://qubs.ca/)
+  * Properties: [qubs.ca/facilities/properties](https://qubs.ca/facilities/properties)
+  * Bathymetry: [qubs.ca/resources/bathymetry](https://qubs.ca/resources/bathymetry)
+  * Soil and geography: [qubs.ca/resources/soils-geology](https://qubs.ca/resources/soils-geology)
+  * __Maps__ [qubs.ca/resources/maps](https://qubs.ca/resources/maps)
+  * __Species lists__ [qubs.ca/resources/species-lists](https://qubs.ca/resources/species-lists)
+  * __Fowler Herbarium__ [fowlerherbarium.ca](https://fowlerherbarium.ca/)
+
+## Safety Information
+
+### Exercise 1:
+
+Working in your groups, identify __potential risks__ and a __plant to mitigate risk__ the hazards assigned to your group (from handout). 
+
+_Example:_
+
+__Hazard__: Thin ice in winter
+
+__Risk:__ Hypothermia and/or drowning
+
+__Plan:__ Make sure that ice thickness is adequate for your planned activities. Carry 'polar picks'. 
+
+  * Never go on ice alone. It is best to wear a floater suit and carry a rope. 
+
+  * Be sure to bring a complete change of clothes in a dry bag. 
+
+  * If you do go through the ice: 
+    1. Call for help 
+    2. Do not try to climb out in the same direction where you went through the ice 
+    3. Use the air trapped in your clothing to get into a floating position on your stomach. 
+    4. Reach onto the broken ice without pushing down, and then kick your legs to push your torso on the ice. 
+    5. Once on the ice, crawl on your stomach or roll away from the open area with your arms and legs spread out as far as possible to evenly distribute your body weight. Do not stand until well away from the open water and thin ice.
+
+### Exercise 2: 
+
+Fill out OCASP Forms (check for email invite): 
+
+Compare your groups answers to the __risks__ and __plans__ on the OCASP form.
+
+  * What was obvious
+  * What was surprising or something you didn't think of?
+
+[Safety Information](https://webapp.queensu.ca/safety/ocasp/spr-summary.php)
+
+## Course goals
+
+3 Pillars: 
+
+  1. Learn by doing
+	  * Field Activities
+	  * Hands-on tutorials
+  2. Emphasis on transferrable skills
+	  * Coding
+	  * Experimental Design
+	  * Data Science! (collect manage  visualize  analyze  report)
+	  * Communication
+	  * Teamwork
+  3. Cumulative learning – each day builds on previous activities/tutorials
+
+## Code of Conduct
+
+In this course we follow a code of conduct based on [The Carpentries](https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html).
+
+They can be summarized by two __Main rules__:
+
+  1. Be professional
+  2. Be inclusive
+
+Zero-tolerance policy: __Harassment__ is any form of behaviour intended to exclude, intimidate, or cause discomfort. Because we are a diverse community, we may have different ways of communicating and of understanding the intent behind actions. Therefore we have chosen to prohibit certain forms of behaviour in our community, regardless of intent. Prohibited harassing behaviour includes but is not limited to:
+
+  * written or verbal comments which have the effect of excluding people on the basis of membership of a specific group (ethnicity, religious belief, gender, sexual orientation, etc.)
+  * causing someone to fear for their safety, such as through stalking, following, or intimidation
+  * the display of sexual or violent images
+  * unwelcome sexual attention
+  * nonconsensual or unwelcome physical contact
+  * sustained disruption of talks, events or communications
+  * incitement to violence, suicide, or self-harm
+  * continuing to initiate interaction (including photography or recording) with someone after being asked to stop
+  * publication of private communication without consent
+  
+The list above should not be taken as exhaustive but rather as a guide to make it easier to enrich all of us and the communities in which we participate.
+
+## Tutorials
+
+### Setup:
+
+Software to install:
+
+  * [R](https://www.r-project.org)
+  * [R Studio](https://www.rstudio.com/products/rstudio/download/)
+  * Windows users: [MobaXTerm](https://mobaxterm.mobatek.net/download.html)
+  * [OpenRefine](http://openrefine.org/download.html)
+
+Datasets:
+
+  * Spreadsheet Tutorial [Data](./FieldMethods/Data/survey_data_spreadsheet_messy.csv)  
+  * OpenRefine Tutorial [Data](./FieldMethods/Data/Portal_rodents_19772002_scinameUUIDs.csv)
+
+Data Carpentry:
+
+  1. Data Organizing with [Spreadsheets](http://www.datacarpentry.org/spreadsheet-ecology-lesson/)
+      * Spreadsheet Tutorial [Data](./FieldMethods/survey_data_spreadsheet_messy.csv)  
+  2. Working with data using [OpenRefine](http://www.datacarpentry.org/OpenRefine-ecology-lesson/)
+      * OpenRefine Tutorial [Data](./FieldMethods/Portal_rodents_19772002_scinameUUIDs.csv)
+
+
+# Day 2
+
+## CDE
+
+Read through the website for the Global Garlic Mustard Field Survey (GGMFS) project: [garlicmustard.org](http://garlicmustard.org)
+
+As you read through the pages, keep in mind the questions below. Be prepared to discuss your findings with the class:
+
+  1. What is a Coordinated Distributed Experiment?
+  2. What are the major aims or goals of the project?
+  3. Create a flow chart or concept map describing the data collection protocol (see [protocol pdf](https://garlicmustard.files.wordpress.com/2015/11/sampling_protocol.pdf))
+  4. What biological questions can be addressed with the data?
+  5. What are some potential problems or difficulties with the protocol? 
+
+## Journal Article Assignment
+
+  1. Read the [intro an eDNA](./FieldMethods/DiscussionPapers/1_TaberletEtAl2012Intro.pdf) paper.
+  2. Choose a paper from the list below that interests you*. 
+  2. Coordinate so that everyone presents a different paper.
+  3. Submit list of papers and presenters Wednesday Morning (__May 16__)
+  3. Prepare to teach the paper to the class (15 min + discussion). You will be the only one to read the paper.
+  4. While you prepare, discuss confusing terms and concepts to improve your understanding.
+  5. Pesent Friday evening (__May 18__)
+
+*You can propose another eco/env genomics paper that is not on the list, but also choose one from the list as a backup in case the one you choose doesn't fit with the theme.
+
+### Paper List:
+  
+  * [NGS overview](./FieldMethods/DiscussionPapers/2_ShokrallaEtAl2012NGS.pdf)
+  * [Soil eDNA](./FieldMethods/DiscussionPapers/4_TaberletEtAl2012Soil&ExtracellularDNA.pdf)
+  * [Aquatic microbes](./FieldMethods/DiscussionPapers/9_ZingerEtAl2012aquaticMicrobes.pdf)
+  * [Root fungi](./FieldMethods/DiscussionPapers/10_BlaalidEtAl2012rootFungal454.pdf)
+  * [Microbial traits](./FieldMethods/DiscussionPapers/11_BarberanEtAl2012CommunityTraitsVSmicrobes.pdf)
+  * [Diet assessment](./FieldMethods/DiscussionPapers/13_PompanonEtAl2012DietAssessment.pdf)
+  * [Dirt and verts](./FieldMethods/DiscussionPapers/15_AndersonEtAl2012VertebratesINdirt.pdf)
+  * [Dirt and plants](./FieldMethods/DiscussionPapers/18_HiiesaluEtAl2012PlantsBelowGround.pdf)
+  * [Earthworms](./FieldMethods/DiscussionPapers/21_BairdEtAl2012Biomonitoring2pt0.pdf)
+  * [Biomonitoring 2.0](./FieldMethods/DiscussionPapers/21_BairdEtAl2012Biomonitoring2pt0.pdf)
+
+## Natural History Collections
+
+  1. Collect & Preserve the Specimen (and meta-data)
+    * Look at examples on the [Global Biodiversity Informatics Database](https://www.gbif.org)
+    * [Blog post](https://edaphics.blogspot.ca/2013/03/how-to-herbarium.html?q=herbarium) about collecting specimens by Dr. Dylan Burge 
+    * If you are stuck, try online groups (e.g. [Plant ID Facebook Group](https://www.facebook.com/groups/156706504394635/))
+  2. Identify the Species
+    * Reference manuals in the lab
+    * Go Botany [Website](https://gobotany.newenglandwild.org)
+  3. Mount and Submit the Specimen
+  4. Organize and upload meta-data
+    * [QUBS Dataverse](https://dataverse.scholarsportal.info/dataverse/QUBS)
+
+You will have all day Wednesday and Thursday morning to make collections. You should have at least 15 specimens ready for preservation before lunch on Thursday, __May 17__. There may not be much time to make more collections after this, and you will still have to mount and label the specimens.
+
+Select two plant specimens per person for DNA sequencing (e.g. difficult to ID).
 
 ***
 
