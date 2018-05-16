@@ -92,15 +92,14 @@ Datasets:
   * Spreadsheet Tutorial [Data](./FieldMethods/Data/survey_data_spreadsheet_messy.csv)  
   * OpenRefine Tutorial [Data](./FieldMethods/Data/Portal_rodents_19772002_scinameUUIDs.csv)
   * Gapminder [Dataset](./FieldMethods/Data/gapminder-FiveYearData.csv)
+  * Fallopia [Dataset](./FieldMethods/Data/FallopiaData.csv)
 
-Data Carpentry:
-
-  1. Data Organizing with [Spreadsheets](http://www.datacarpentry.org/spreadsheet-ecology-lesson/)
-      * Spreadsheet Tutorial [Data](./FieldMethods/survey_data_spreadsheet_messy.csv)  
-  2. Working with data using [OpenRefine](http://www.datacarpentry.org/OpenRefine-ecology-lesson/)
-      * OpenRefine Tutorial [Data](./FieldMethods/Portal_rodents_19772002_scinameUUIDs.csv)
-
-
+  1. Data Carpentry: Data Organizing with [Spreadsheets](http://www.datacarpentry.org/spreadsheet-ecology-lesson/)
+      * Example of Messy Data [Data](./FieldMethods/survey_data_spreadsheet_messy.csv)  
+  2. Data Carpentry: Working with data using [OpenRefine](http://www.datacarpentry.org/OpenRefine-ecology-lesson/)
+      * Large rodent [Data](./FieldMethods/Portal_rodents_19772002_scinameUUIDs.csv)
+  3. R [FUNdamentals](https://colauttilab.github.io/RCrashCourse/1_fundamentals.html)
+      * Fallopia community ecology experiment [Data](./FieldMethods/Data/FallopiaData.csv)
 
 ## Assignments
 
@@ -146,7 +145,7 @@ You will have all day Wednesday and Thursday morning to make collections. You sh
 
 Select two plants for DNA extraction and bring them to the Brown Lab after lunch on Wednesday (May 16).
 
-# Day 1
+# Day 1 (May 14)
 
 ## [Overall Introduction](./FieldMethods/1_Intro.pdf)
 
@@ -260,7 +259,7 @@ Data Carpentry:
       * OpenRefine Tutorial [Data](./FieldMethods/Portal_rodents_19772002_scinameUUIDs.csv)
 
 
-# Day 2
+# Day 2 (May 15)
 
 ## CDE
 
@@ -315,6 +314,35 @@ As you read through the pages, keep in mind the questions below. Be prepared to 
 You will have all day Wednesday and Thursday morning to make collections. You should have at least 15 specimens ready for preservation before lunch on Thursday, __May 17__. There may not be much time to make more collections after this, and you will still have to mount and label the specimens.
 
 Select two plant specimens per person for DNA sequencing (e.g. difficult to ID).
+
+# Day 3 (May 16)
+
+## 1. Collections
+
+  * Meet at 8:30 in front of the Lodge. A packed lunch will be provided.
+  * Have everything packed ahead of time:
+    * Field clothes, sunhat, sunscreen bug spray, etc.
+    * Maps
+    * Plant pressing equipment
+    * Killing jars and falcon tubes with slightly moist paper towels
+      * To kill insect humanely: place in freezer in Brown Lab when you return
+  * Spend full day hiking QUBS trails collecting plants and insects.
+  * Claire will continue collecting garlic mustard data (give her data sheets)
+  * Aim to have enough specimens to mount and submit for final project
+
+## 2. Prep paper presentation
+
+## 3. Data entry
+
+Enter garlic mustard data as a .csv file
+
+# Day 4 (May 17)
+
+## DNA extraction
+
+  1. Read instructions on the [PCR protocol](./FieldMethods/PCR_Protocol.pdf) handout
+  2. Draw a flowchart or diagram to summarize the protocol
+  3. Find 
 
 ***
 
