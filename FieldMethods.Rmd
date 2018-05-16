@@ -342,7 +342,9 @@ Enter garlic mustard data as a .csv file
 
   1. Read instructions on the [PCR protocol](./FieldMethods/PCR_Protocol.pdf) handout
   2. Draw a flowchart or diagram to summarize the protocol
-  3. Find 
+  3. What are some potential errors or difficult steps
+  4. Find a fresh leaf from each of 2 plants that you want to identify
+  5. Follow the protocol
 
 ***
 
