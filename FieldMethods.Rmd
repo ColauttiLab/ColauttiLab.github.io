@@ -338,13 +338,24 @@ Enter garlic mustard data as a .csv file
 
 # Day 4 (May 17)
 
-## DNA extraction
+## DNA Barcodes
 
-  1. Read instructions on the [PCR protocol](./FieldMethods/PCR_Protocol.pdf) handout
+  1. Read instructions on the [PCR protocol](./FieldMethods/Protocols/PCR_Protocol.pdf) handout
   2. Draw a flowchart or diagram to summarize the protocol
-  3. What are some potential errors or difficult steps
-  4. Find a fresh leaf from each of 2 plants that you want to identify
-  5. Follow the protocol
+  3. What are some potential errors or difficult steps?
+  
+# Day 5 (May 18)
+
+## Deadlines
+
+  1. Finish collecting data from Garlic Mustard Arrays and Common Garden Plots 1, 2 & 4
+  2. Enter and save data as .csv files in the shared dropbox folder
+  3. Finish Assigned Reading Presentations
+  
+13:00 Metabarcoding & metagenomics (Kat)
+
+18:30 Paper presentations
+
 
 ***
 
