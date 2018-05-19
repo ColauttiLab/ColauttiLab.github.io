@@ -408,7 +408,20 @@ Inspect & Mount Specimens
   3. Discuss with partner
   4. Discuss with class
 
-18:30 GM Data
+18:30 
+
+Lythrum 2013 Data
+
+  1. Locate the data in the online repository
+  2. Inspect [the comon garden data](./FieldMethods/Data/Lythrum2013Data.csv) from the paper
+  3. Make sense of the column names
+    * Note: What is missing that could help us interpret these?
+  3. Introduction to lm(), glm() and lmer()
+  4. Attempt to reconstruct (or jury-rig):
+    1. Test for local adaptation 
+    2. Test for natural selection
+
+GM Data
 
 Working with your __partner__:
 
@@ -456,9 +469,16 @@ Lythrum data
 
 12:00 Lunch
 
-1:00 Plant surveys & soil sampling (Kat)
+13:00 Plant surveys & soil sampling (Kat)
 
 18:30 Microbial Metagenomics Tutorial (Kat)
+
+# Day 9 (May 22)
+
+8:30 Outreach day (Emily)
+
+18:30 Tutorial
+
 
 ***
 
