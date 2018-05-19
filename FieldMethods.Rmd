@@ -87,6 +87,12 @@ Each group member should produce at least 5 specimens. Submit 5 from each group 
 
 ## Tutorials
 
+Resources:
+
+  * R markdown [website](website) and [cheat sheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+  * Unix/Linux/command line [cheat sheet](https://files.fosswire.com/2007/08/fwunixref.pdf)
+  * Regular expressions [general cheat sheet](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/) 
+
 Datasets:
 
   * Spreadsheet Tutorial [Data](./FieldMethods/Data/survey_data_spreadsheet_messy.csv)  
@@ -389,23 +395,25 @@ Inspect & Mount Specimens
         1. Content
         2. Delivery
 
-13:00 Paper Discussion
+13:00 Lythrum Paper Discussion
 
   1. Read a paper testing [rapid evolution of local adaptation](./FieldMethods/DiscussionPapers/Colautti&Barrett2013Science.pdf) in invading populations of _Lythrum salicaria_
   2. Private reflection
     * What is this paper testing?
     * How do they test it? What are the main analytical methods?
-      + HINT: You might want to look at the [supplementary metnods](http://science.sciencemag.org/content/sci/suppl/2013/10/16/342.6156.364.DC1/Colautti.SM.pdf)
-    * Are the data publically available? If so, where?
+      + HINT: You might want to look at the [supplementary methods](http://science.sciencemag.org/content/sci/suppl/2013/10/16/342.6156.364.DC1/Colautti.SM.pdf)
+    * Are the data publicly available? If so, where?
     * What are some potential limitations of this research?
     * What are some potential areas for future research?
   3. Discuss with partner
   4. Discuss with class
 
-Data Exercise:
+18:30 GM Data
 
-  1. Finish entering GM data
-  1. Work with your group using OpenRefine to create two data sheets:
+Working with your __partner__:
+
+  1. Finish entering GM data (on .csv file for each block or array)
+  1. Use OpenRefine to create two data sheets:
     1. Import & combine GM data from all three GM common garden plots into a single data sheet.
     2. Import & combine GM data from all three GM arrays into a single data sheet.
   2. Clean your data:
@@ -414,8 +422,11 @@ Data Exercise:
     3. Ensure zeros and missing data are coded properly
     4. Find columns containing >1 piece of information and separate into new column(s)
   3. Save the data sheets (as .csv) and the JSON script recording of your edits in the R Project file you made during the R tutorial.
-  4. Visualize your data in R and inspect your graphs carefully
-    1. Import one of your 'cleaned' .csv files
+  
+Working __individually__: 
+
+  1. Visualize your data in R and inspect your graphs carefully
+    1. Import one of your 'cleaned' and combined .csv files (arrays OR common garden)
     2. Use qplot() to visualize your data
     3. Create an .Rmd notebook file to generate a report
       * Describe in normal language the steps you made to clean the data
@@ -424,12 +435,6 @@ Data Exercise:
           * e.g. Is there a postive/negative correlation? What might have caused this?
     4. 'Preview' your .Rmd file and save it as an .html file in you working directory
 
-18:30 Lythrum dataset
-
-  1. Locate and download data & metadata
-  2. Inspect data and metadata
-  3. Introduction to lm(), glm() and lmer()
-  4. Attempt to reconstruct the analyses
 
 # Day 7 (May 20)
 
@@ -445,6 +450,15 @@ Lythrum data
   2. Import, combine & clean data from all pairs into a single data sheet using OpenRefine.
   3. Save the data sheet (as .csv) and the JSON script recording of your edits in the R Project file you made during the R tutorial.
 
+# Day 8 (May 21)
+
+8:30 Plant surveys & soil sampling (Kat)
+
+12:00 Lunch
+
+1:00 Plant surveys & soil sampling (Kat)
+
+18:30 Microbial Metagenomics Tutorial (Kat)
 
 ***
 
