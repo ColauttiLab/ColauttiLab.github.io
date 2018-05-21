@@ -100,13 +100,18 @@ Datasets:
   * Gapminder [Dataset](./FieldMethods/Data/gapminder-FiveYearData.csv)
   * Fallopia [Dataset](./FieldMethods/Data/FallopiaData.csv)
 
+Tutorials:
+
   1. Data Carpentry: Data Organizing with [Spreadsheets](http://www.datacarpentry.org/spreadsheet-ecology-lesson/)
       * Example of Messy Data [Data](./FieldMethods/survey_data_spreadsheet_messy.csv)  
   2. Data Carpentry: Working with data using [OpenRefine](http://www.datacarpentry.org/OpenRefine-ecology-lesson/)
       * Large rodent [Data](./FieldMethods/Portal_rodents_19772002_scinameUUIDs.csv)
   3. R [FUNdamentals](https://colauttilab.github.io/RCrashCourse/1_fundamentals.html)
       * Fallopia community ecology experiment [Data](./FieldMethods/Data/FallopiaData.csv)
-
+  4. Visualizations with [qplot()](./RCrashCourse/2_qplot.html)
+  5. Some [analysis](./FieldMethods/Lythrum2013Tutorial.R) of the [Lythrum dataset](./FieldMethods/Data/Lythrum2013Data.csv)
+  6. The magic of [regular expressions (regex)](./RCrashCourse/4_regex.html)
+  
 ## Assignments
 
 ### Journal Discussion:
@@ -145,7 +150,8 @@ Datasets:
     * Go Botany [Website](https://gobotany.newenglandwild.org)
   3. Mount and Submit the Specimen
   4. Organize and upload meta-data
-    * [QUBS Dataverse](https://dataverse.scholarsportal.info/dataverse/QUBS)
+    * Microsoft Access [Template](./FieldMethods/Protocols/Herbarium_Label_Form.accdb)
+
 
 You will have all day Wednesday and Thursday morning to make collections. You should have at least 15 specimens ready for preservation before lunch on Thursday, __May 17__. There may not be much time to make more collections after this, and you will still have to mount and label the specimens.
 
@@ -315,7 +321,7 @@ As you read through the pages, keep in mind the questions below. Be prepared to 
     * Go Botany [Website](https://gobotany.newenglandwild.org)
   3. Mount and Submit the Specimen
   4. Organize and upload meta-data
-    * [QUBS Dataverse](https://dataverse.scholarsportal.info/dataverse/QUBS)
+    * Microsoft Access [Template](./FieldMethods/Protocols/Herbarium_Label_Form.accdb)
 
 You will have all day Wednesday and Thursday morning to make collections. You should have at least 15 specimens ready for preservation before lunch on Thursday, __May 17__. There may not be much time to make more collections after this, and you will still have to mount and label the specimens.
 
@@ -465,20 +471,33 @@ Lythrum data
 
 # Day 8 (May 21)
 
-8:30 Plant surveys & soil sampling (Kat)
+8:30 Tick sampling
 
 12:00 Lunch
 
-13:00 Plant surveys & soil sampling (Kat)
-
-18:30 Microbial Metagenomics Tutorial (Kat)
-
-# Day 9 (May 22)
-
-8:30 Outreach day (Emily)
+13:30 Data & Collections work
 
 18:30 Tutorial
 
+# Day 9 (May 22)
+
+8:30 Outreach Day (Emily)
+
+18:30 Finish Outreach Assignments
+
+# Day 10 (May 23)
+
+8:30 Aquatic Sampling Day (Aaron)
+
+18:30 Tutorial
+
+# Day 11 (May 24)
+
+8:30 Plant surveys & soil sampling (Kat)
+
+12:00 Packed Lunch
+
+18:30 Microbial Metagenomics Tutorial (Kat)
 
 ***
 
