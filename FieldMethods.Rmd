@@ -479,17 +479,34 @@ Lythrum data
 
 18:30 Tutorial
 
+  * Lythrum 2013 Data parse & local adaptation test
+  * Lythrum Test for genetic variation (lmer)
+  * Git with R Studio
+
 # Day 9 (May 22)
 
-8:30 Outreach Day (Emily)
+8:30 Gene flow experiment set-up
 
-18:30 Finish Outreach Assignments
+Outreach Day (Emily)
+
+Outreach Assignments
+
+  1. Tweet your paper : Start with something that will grab attention, then sumarize the highlights of the paper in 280 characters.
+  2. 8.5 x 11 poster or pamphlet communicating your paper to a 1st year biology undergraduate.
+
+18:30 Unix/Bash
 
 # Day 10 (May 23)
 
 8:30 Aquatic Sampling Day (Aaron)
 
-18:30 Tutorial
+19:00 QUBS Seminar: Dr. Rute Clemente-Carvalho
+
+"The striking biodiversity of the Brazilian Atlantic Forest. New species discoveries and the extraordinary miniaturised toads in the genus _Brachycephalus_."
+
+20:00 Reflections and Discussion
+
+21:00 Inspect gene flow experiment
 
 # Day 11 (May 24)
 
@@ -498,6 +515,26 @@ Lythrum data
 12:00 Packed Lunch
 
 18:30 Microbial Metagenomics Tutorial (Kat)
+
+# Day 12 (May 25)
+
+8:30 Final Project Day #1
+
+13:00 Hiking @ Rock Dunder
+
+18:30 DNA Barcoding Analysis
+
+# Day 13 (May 26)
+
+8:30 Final Project Day #2
+
+13:00 Lock Hike
+
+18:30 Differential Expression Tutorial
+
+# Day 14 (May 27)
+
+8:30 Depart QUBS
 
 ***
 
