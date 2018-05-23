@@ -6,6 +6,18 @@ title: |-
 output: html_document
 ---
 
+# Photos
+
+[Upload](https://yakilautti.smugmug.com/upload/WtSmtw/FieldMethods) your field photos.
+
+[Download](https://yakilautti.smugmug.com/307-Field-Pictures/Field-Methods-2018/n-p7ZPM8) photos from others field photos.
+
+The password is: _FieldMethods307_
+
+You may want to include your name in the file name of the photos you took.
+
+# Overview
+
 This is a 2-week __INTENSIVE__ field course. Intensive means your typical schedule will look like this:
 
 | Time  | Activity    |
@@ -67,7 +79,7 @@ __Individual Marks (30%)__
 Each group member should produce at least 5 specimens. Submit 5 from each group member and note 'best' 5 (must include at least 1 from each group member). Grading will be based on:
 
   1. __Variety (10 marks)__ -- specimens differ from other students, represent a broad range of taxonomic groups, geographical locations, and habitat types.
-  2. __Metadata (20 marks)__ -- labels with correct scientific name, GPS location and datum type; clear & detailed meta-data demonstrating careful observations.
+  2. __Data & Metadata (20 marks)__ -- labels with correct scientific name, GPS location and datum type; clear & detailed meta-data demonstrating careful attention to detail.
   3. __Preservation (10 marks)__ -- specimen dried sufficiently, mounted properly, all structures visible (e.g. beetle wings extended; both sides of leaves visible), tidy and aesthetic presentation, secure mounting.
 
 ### Paper presentations
@@ -111,6 +123,7 @@ Tutorials:
   4. Visualizations with [qplot()](./RCrashCourse/2_qplot.html)
   5. Some [analysis](./FieldMethods/Lythrum2013Tutorial.R) of the [Lythrum dataset](./FieldMethods/Data/Lythrum2013Data.csv)
   6. The magic of [regular expressions (regex)](./RCrashCourse/4_regex.html)
+  
   
 ## Assignments
 
@@ -530,7 +543,7 @@ Outreach Assignments
 
 13:00 Lock Hike
 
-18:30 Differential Expression Tutorial
+18:30 Wrap-up Tutorial
 
 # Day 14 (May 27)
 
