@@ -51,9 +51,45 @@ qplot(x=Flwr10,y=RelFit,data=LyDat)+geom_smooth(method=lm)
 mod2<-lm(RelFit~Flwr10+I(Flwr10^2),data=LyDat)
 summary(mod2)
 
+Origin<-gsub("\\d","",LyDat$Mat)
+Origin<-gsub("[A-C]","1_North",Origin)
+Origin<-gsub("[E-J]","2_Mid",Origin)
+Origin<-gsub("[S-T]","3_South",Origin)
+
+LyDat$Origin<-Origin
+
 # Test for local adaptation
-mod3<-lm(RelFit~Site+Origin+Site:Origin)
+mod3<-lm(log(RelFit+1)~Site+Origin+Site:Origin,data=LyDat)
 # Shorthand
-mod3<-lm(RelFit~Site*Origin)
+mod3<-lm(log(RelFit+1)~Site*Origin,data=LyDat)
+summary(mod3)
+qplot(x=Origin,y=RelFit,data=LyDat,geom="boxplot")
+# Inspect distribution of RelFit
+qplot(x=log(RelFit+1),data=LyDat,facets=Origin~.)+theme_classic()
+
+# Approximate local adaptation figure
+qplot(x=Site,y=RelFit,data=LyDat,geom="boxplot",
+      facets=.~Origin,shape=Site,fill=Site)+theme_classic()
+
+# Mixed Effects
+library(lme4)
+# Mixed effects models include random effects
+# Random effects are added with +()
+LMM1<-lmer(log(RelFit+1)~Site*Origin+(1|Mat),data=LyDat)
+summary(LMM1)
+# Compare to a simple model
+LMM0<-lmer(log(RelFit+1)~1+(1|Mat),data=LyDat)
+summary(LMM0)
+# Different among-family variances for each Origin
+LMM2<-lmer(log(RelFit+1)~Site*Origin+(Origin|Mat),data=LyDat)
+summary(LMM2)
+
+# Do origins differ in among-family variance?
+# Use a likelihood ratio test
+anova(LMM2,LMM1)
+
+
+library(lme4)
+lmer(log(RelFit+1)~Site*Origin+(1|Mat),data=LyDat)
 
 

@@ -123,7 +123,7 @@ Tutorials:
   4. Visualizations with [qplot()](./RCrashCourse/2_qplot.html)
   5. Some [analysis](./FieldMethods/Lythrum2013Tutorial.R) of the [Lythrum dataset](./FieldMethods/Data/Lythrum2013Data.csv)
   6. The magic of [regular expressions (regex)](./RCrashCourse/4_regex.html)
-  
+  7. Combining datasets:[Lythrum 2017 data](./FieldMethods/Data/Lythrum2017FieldData.csv) and [metadata](./FieldMethods/Data/LythrumMetaData.html)
   
 ## Assignments
 

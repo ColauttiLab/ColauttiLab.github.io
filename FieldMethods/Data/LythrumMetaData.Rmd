@@ -1,0 +1,27 @@
+---
+title: "CGReference.csv"
+output:
+  html_document:
+    df_print: paged
+  word_document: default
+  html_notebook: default
+  pdf_document: default
+---
+
+#CGReference.csv Summary
+
+This document summarizes the variables recorded in CGReference.csv. The data summarizes vegetative and reproductive biomass measurements taken for *Lythrum salicaria* plants grown and harvested from a common garden at Queen's University Biological Station (QUBS) in 2017. These plants were grown from seed in a greenhouse in May and June 2017, with up to 12 replicates from each maternal seed family. Families were either sourced from an experiment on Bracken Tract at QUBS where natural herbivory was manipulated during the summer of 2016, or from a series of populations along a geographic transect through Ontario, New York State, Pennsylvania, and Virginia.
+
+##Variables
+
+* **BLOCK:** Physical location in the QUBS common garden. There are a total of 24 blocks, 12 for each source.
+* **ID:** Physical location within the block. Blocks were numbered 1-100 for the M blocks and 1-200 for the E blocks; some blocks have slightly larger ranges.
+* **CODE:** Code unique to each individual plant which describes the maternal family and source population or maternal treatment, as well as the replicate number.
+* **SOURCE:** "M" for families from the manipulated Bracken Tract experiment, "E" for families collected from the geographic transect.
+* **POP<!-- breaklink -->:** Population from 1-22 for "E" source families; NA for "M" source families.
+* **TRTA:** 2016 experimental treatment applied to "M" source families--P for Pesticide and C for Control; NA for "E" source families.
+* **FAMFULL:** Four digit code unique to each family which describes maternal family and source population or maternal treatment.
+* **LAT:** Latitude corresponding to populations 1-22; NA for "M" source families.
+* **HERB:** Herbivory category assigned to populations 1-22 based on informal observation; NA for "M" source families.
+* **VEGWT:** Weight of vegetative mass recorded for the individual plant (excluding reproductive mass), in grams.
+* **RWT:** Weight of reproductive mass recorded for the individual plant, in grams.
