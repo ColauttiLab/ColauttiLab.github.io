@@ -1,0 +1,108 @@
+---
+title: "DNA Barcode Tutorial"
+output: html_document
+---
+
+
+# Quality Control
+
+First, inspect the [sequencing statistics](./FieldMethods/Data/BarcodePlateStats.csv). What data do you think each of the columns are showing?
+
+  * Well	
+  * Chromatogram
+  * Sample
+  * DNA Type
+  * Submission Lot	
+  * Project	
+  * Primer	
+  * DNA Type - Template Size	
+  * Comment	
+  * Length	
+  * Score	
+  * Capilary	
+  * Ok
+
+Next, we will use an R package called `sangerseqR` inspect the chromatograph, sometimes called the 'trace' file. To make sense of the chromatograph you should __review how Sanger Sequencing works__.
+
+The `sangerseqR` package is part of the __bioconductor__ package for R, which has a lot of great tools for analyzing 'omics' data. For more information, check out the [bioconductor website](https://www.bioconductor.org/).
+
+There are a lot of packages, so we'll just install the sangerseqR package rather than trying to install everything in bioconductor.
+
+```{r, eval=F}
+source("https://bioconductor.org/biocLite.R")
+biocLite(c("sangerseqR"))
+```
+
+Now load the library and read in the sequence for your sample:
+
+```{r}
+library(sangerseqR)
+rbcL<-read.abif("./Data/rbcL/3Ipos_R_P1815443_059.ab1")
+```
+
+We convert the ab1 file to a Sangerseq object using the `sangerseq()` function and inspect the structure of the data file
+
+```{r}
+rbcLseq <- sangerseq(rbcL)
+str(rbcLseq)
+```
+
+This is an example of a 'class object'. You can see the `@` to denote different elements of the object. This is similar to the way that `$` denotes a column in a data.frame object. These are called 'slots' and can be used to subset the class object the same way `$` can subset the data.fram object. 
+
+```{r}
+rbcLseq@primarySeqID
+rbcLseq@primarySeq
+```
+
+Here is an overview of the main slot elements:
+
+  * __primarySeqID__ -- Identification of the primary sequence
+  * __primarySeq__ -- The most likely sequence based on the florescence pattern
+  * __secondarySeqID__ -- Secondary sequence ID. Secondary calls may not be present, but can occur when there is a signal for more than one base pair 
+  * __secondarySeq__ -- The secondary sequence
+  * __traceMatrix__ -- A matrix containing the normalized signals for A,C,G,T.
+  * __peakPosMatrix__ -- A matrix containing the position of the maximum peak values for each base.
+  * __peakAmpMatrix__ A matrix containing the maximum peak amplitudes for each base. 
+
+Now we can graph the trace.
+
+```{r}
+chromatogram(rbcLseq, width = 200, height = 2, showcalls = "both")
+```
+
+You can use the `trim5` and `trim3` parameters to trim the unsequenced base pairs. We can use it with the `width` parameter to 1 ' or to 'zoom in'. We can alsoLet's look at the early part of the sequence:
+
+```{r}
+chromatogram(rbcLseq, width = 50, height = 2, trim3=1100, showcalls = "both")
+```
+
+What do you notice about the early part of the sequence?
+
+Play around with the parameters until you have a good sequence. You may want to use the `filename=graph.pdf` parameter to save the graph to a pdf file that makes it easier to zoom in and inspect the graph.
+
+A quick and easy method is to use the `MakeBaseCalls()` functions to 'call' the base pairs based on the strongest signals.
+
+```{r}
+makeBaseCalls(rbcLseq)
+```
+
+# BLAST
+
+BLAST stand for Basic Local Alignment Search Tool, and there is a nice web interface for it at the address [https://blast.ncbi.nlm.nih.gov/Blast.cgi](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
+
+Take a moment to __note the different types of BLAST__. Why do you think there are so many different types?
+
+We are using genes with fairly low mutation rates, so BLASTn is appropriate for finding a species-level match.
+
+
+
+
+
+
+
+
+
+
+
+
+
