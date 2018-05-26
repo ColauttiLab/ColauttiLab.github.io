@@ -112,6 +112,7 @@ Datasets:
   * Gapminder [Dataset](./FieldMethods/Data/gapminder-FiveYearData.csv)
   * Fallopia [Dataset](./FieldMethods/Data/FallopiaData.csv)
   * Original 2013 [Lythrum Dataset](./FieldMethods/Data/Lythrum2013Data.csv)
+  * Garlic Mustard [Population data](./FieldMethods/Data/GMPopData.csv)
 
 Tutorials:
 
@@ -124,7 +125,8 @@ Tutorials:
   4. Visualizations with [qplot()](./RCrashCourse/2_qplot.html)
   5. Some [analysis](./FieldMethods/Lythrum2013Tutorial.R) of the [Lythrum dataset](./FieldMethods/Data/Lythrum2013Data.csv)
   6. The magic of [regular expressions (regex)](./RCrashCourse/4_regex.html)
-  7. Combining datasets: [Lythrum 2017 data](./FieldMethods/Data/Lythrum2017FieldData.csv) and [metadata](./FieldMethods/Data/LythrumMetaData.html). If you get stuck, take a look at the [LythrumDataMerge.R code](./FieldMethods/Data/LythrumDataMerge.R)
+  7. Combining datasets: [Lythrum 2017 data](./FieldMethods/Data/Lythrum2017FieldData.csv) and [metadata](./FieldMethods/Data/LythrumMetaData.html). If you get stuck, take a look at the [LythrumDataMerge.R code](./FieldMethods/LythrumDataMerge.R) with [PL_complete.csv](./FieldMethods/Data/PL_complete.csv) and [Lythrum2017FieldData.csv](./FieldMethods/Data/Lythrum2017FieldData.csv), or skip to the [merged dataset](./FieldMethods/Data/Lythrum2017-2018.csv)
+  8. DNA [barcode analysis](./FieldMethods/DNAbarcodes.html)
   
 ## Assignments
 
