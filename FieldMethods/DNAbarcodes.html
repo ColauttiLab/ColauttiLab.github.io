@@ -320,7 +320,11 @@ div.tocify {
 
 <div id="quality-control" class="section level1">
 <h1>Quality Control</h1>
+<<<<<<< HEAD
 <p>First, inspect the <a href="./Data/BarcodePlateStats.csv">sequencing statistics</a>. What data do you think each of the columns are showing?</p>
+=======
+<p>First, inspect the <a href="./FieldMethods/Data/BarcodePlateStats.csv">sequencing statistics</a>. What data do you think each of the columns are showing?</p>
+>>>>>>> a94f957a305f7cf86a392d20a81e943d21c3b778
 <ul>
 <li>Well<br />
 </li>
@@ -384,7 +388,11 @@ div.tocify {
 <pre><code>## Warning: package 'IRanges' was built under R version 3.3.3</code></pre>
 <pre><code>## Loading required package: XVector</code></pre>
 <pre><code>## Warning: package 'XVector' was built under R version 3.3.3</code></pre>
+<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rbcL&lt;-<span class="kw">read.abif</span>(<span class="st">&quot;./Data/DNA_Barcoding/rbcL/3Ipos_R_P1815443_059.ab1&quot;</span>)</code></pre></div>
+=======
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rbcL&lt;-<span class="kw">read.abif</span>(<span class="st">&quot;./Data/rbcL/3Ipos_R_P1815443_059.ab1&quot;</span>)</code></pre></div>
+>>>>>>> a94f957a305f7cf86a392d20a81e943d21c3b778
 <p>We convert the ab1 file to a Sangerseq object using the <code>sangerseq()</code> function and inspect the structure of the data file</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rbcLseq &lt;-<span class="st"> </span><span class="kw">sangerseq</span>(rbcL)
 <span class="kw">str</span>(rbcLseq)</code></pre></div>
@@ -393,7 +401,11 @@ div.tocify {
 ##   ..@ primarySeq    :Formal class 'DNAString' [package &quot;Biostrings&quot;] with 5 slots
 ##   .. .. ..@ shared         :Formal class 'SharedRaw' [package &quot;XVector&quot;] with 2 slots
 ##   .. .. .. .. ..@ xp                    :&lt;externalptr&gt; 
+<<<<<<< HEAD
 ##   .. .. .. .. ..@ .link_to_cached_object:&lt;environment: 0x000000001eeef680&gt; 
+=======
+##   .. .. .. .. ..@ .link_to_cached_object:&lt;environment: 0x000000001fbedef0&gt; 
+>>>>>>> a94f957a305f7cf86a392d20a81e943d21c3b778
 ##   .. .. ..@ offset         : int 0
 ##   .. .. ..@ length         : int 1142
 ##   .. .. ..@ elementMetadata: NULL
@@ -402,7 +414,11 @@ div.tocify {
 ##   ..@ secondarySeq  :Formal class 'DNAString' [package &quot;Biostrings&quot;] with 5 slots
 ##   .. .. ..@ shared         :Formal class 'SharedRaw' [package &quot;XVector&quot;] with 2 slots
 ##   .. .. .. .. ..@ xp                    :&lt;externalptr&gt; 
+<<<<<<< HEAD
 ##   .. .. .. .. ..@ .link_to_cached_object:&lt;environment: 0x000000001eeef680&gt; 
+=======
+##   .. .. .. .. ..@ .link_to_cached_object:&lt;environment: 0x000000001fbedef0&gt; 
+>>>>>>> a94f957a305f7cf86a392d20a81e943d21c3b778
 ##   .. .. ..@ offset         : int 0
 ##   .. .. ..@ length         : int 0
 ##   .. .. ..@ elementMetadata: NULL
@@ -452,7 +468,10 @@ div.tocify {
 <p>BLAST stand for Basic Local Alignment Search Tool, and there is a nice web interface for it at the address <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi" class="uri">https://blast.ncbi.nlm.nih.gov/Blast.cgi</a></p>
 <p>Take a moment to <strong>note the different types of BLAST</strong>. Why do you think there are so many different types?</p>
 <p>We are using genes with fairly low mutation rates, so BLASTn is appropriate for finding a species-level match.</p>
+<<<<<<< HEAD
 <p>Simply copy and paste the sequence above into the sequence search box and you are ready to go!</p>
+=======
+>>>>>>> a94f957a305f7cf86a392d20a81e943d21c3b778
 </div>
 
 
