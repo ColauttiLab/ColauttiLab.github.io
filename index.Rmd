@@ -7,14 +7,25 @@ output: html_document
 
 [Colautti Lab Manifesto](./Manifesto/index.html) -- Essential reading for all members of the Colautti Lab
 
-## British Ecological Society
-[Guides](https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf) to Better Science
+## [BES Guides](https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf) to Better Science
 
   * [Data Management](./Readings/BES-Data-Guide-2017)
   * [Reproducible Code](./Readings/BES-Reproducible-Code.pdf)
   * [Getting Published](./Readings/BES-Getting-Published-Guide-2017.pdf)
-  * [Peer Review](./Readings/BES-Peer-Review-Guide-2017)
+  * [Peer Review](./Readings/BES-Peer-Review-Guide-2017.pdf)
 
+## Data Management
+
+Project Start: Create a Data Management Plan (DMP)
+
+  * DMP Assistant is an online portal to help you create a data management plan
+  * [portagenetwork.ca](https://portagenetwork.ca) --> DMP Assistant --> Sign Up for a new account (or Sign in if you already have one)
+  
+Project Finish: Publish your data
+
+  * QUBS [Dataverse Repository](https://dataverse.scholarsportal.info/dataverse/QUBS), open to all
+  * 2GB maximum file size, but you can include metadata with links to other datasets (e.g. [NCBI SRA database](https://www.ncbi.nlm.nih.gov/sra))
+    
 # Coding Superpowers:
 
 ![](./Superheroes.jpg)
