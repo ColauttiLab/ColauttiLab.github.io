@@ -1,0 +1,38 @@
+---
+title: "Garlic Mustard Population Metadata"
+output: html_document
+---
+
+Metadata for the garlic mustard common garden populations
+
+# Codes
+
+* __Pop_Code__ -- Population code, used on the tags
+* __Region__ -- Continent of origin: Europe or North America (NorthAm)
+* __Collection_Date__ -- Date of original seed collections
+* __Latitude__ -- Latitude of collection site, in decimal degrees
+* __Longitude__ -- Longitude of collection site, in decimal degrees
+* __Altitude__ -- Altitude of collection site, in metres
+* __Pop_Size__ -- Estimated area covered by the population, in square metres
+* __Understory__ -- Was this population in a forest understory (1=yes, 0=no)
+* __Roadside__ -- Was this population located near a road (1=yes, 0=no)
+* __Hand_Removal__ -- Is there a known history of attempts to control this population using hand removal 
+* __Herbicide__ -- Is there a known history of herbicide use?
+* __Mowing__ -- Is there a known history of mowing?
+* __CoverPic_Mean__ -- Estimated cover of the forest canopy (%), based on photo image analysis
+* __RosDens__	-- Average # rosettes per square meter
+* __AdultDens__	-- Average # reproductive adults per square meter
+* __RosRatio__ -- ratio of rosettes:adults
+* __TotalSize__	-- Estimated number of individuals (Density * Area)
+* __RosSize__	-- Average rosette diameter
+* __Height__ -- Average adult height
+* __Leaves__ -- Average # leaves per adult plant
+* __Fruits__ -- Average # fruits per adult plant
+* __Herb__ -- Average herbivory per plant
+* __FungDmg__	-- Average fungal damage per plant
+* __PctRosFung__	-- Percent of rosettes with some amount of fungal damage
+* __PctAdultFung__	-- Percent of adult plants with some amount of fungal damage
+* __bio1-bio19__ -- Climatic variables for each population (see [BioClim Variables](http://www.worldclim.org/bioclim))
+
+
+
