@@ -5,16 +5,18 @@ output: html_document
 
 # Essentials
 
-[Colautti Lab Manifesto](./Manifesto/index.html) -- Essential reading for all members of the Colautti Lab
+## 1. [Colautti Lab Manifesto](./Manifesto/index.html) 
 
-## [BES Guides](https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf) to Better Science
+  * Essential reading for all members of the Colautti Lab
+
+## 2. [BES Guides](https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf) to Better Science
 
   * [Data Management](./Readings/BES-Data-Guide-2017)
   * [Reproducible Code](./Readings/BES-Reproducible-Code.pdf)
   * [Getting Published](./Readings/BES-Getting-Published-Guide-2017.pdf)
   * [Peer Review](./Readings/BES-Peer-Review-Guide-2017.pdf)
 
-## Data Management
+## 3. Data Management
 
 Project Start: Create a Data Management Plan (DMP)
 
@@ -57,6 +59,8 @@ Project Finish: Publish your data
 
 # Course material
 
+[2018 SETAC Short-Course](SETAC.html)
+
 [BIOL 307](FieldMethods.html) -- Field Methods in Ecological and Environmental Genomics
 
 BIOL 432 -- Introduction to Computation and Big Data in Biology
@@ -69,11 +73,21 @@ BIOL 432 -- Introduction to Computation and Big Data in Biology
 
 __Public Website__
 
-[bit.ly/colautti](http://bit.ly/colautti) -- Typical departmental website with basic research information
+* [bit.ly/colautti](http://bit.ly/colautti) -- Typical departmental website with basic research information
 
-__Private Website__
+__Publication Record__
 
-[ecogeno.wordpress.com](https://ecogeno.wordpress.com) -- Lab protocols, analytical methods, etc.
+* [Google Scholar Website](http://scholar.google.ca/citations?user=J7MvakAAAAAJ&hl=en)
+* [ORCiD](https://orcid.org/0000-0003-4213-0711)
+* [ResearcherID](http://www.researcherid.com/rid/E-6804-2011)
+
+__Public Engagement__
+
+* Follow @ColauttiLab on [Twitter](https://twitter.com/ColauttiLab)
+
+__Private Lab Website__
+
+* [ecogeno.wordpress.com](https://ecogeno.wordpress.com) -- Lab protocols, analytical methods, etc.
 
 
 

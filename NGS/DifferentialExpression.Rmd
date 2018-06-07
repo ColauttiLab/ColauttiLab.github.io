@@ -1,0 +1,568 @@
+---
+title: "Rob Field Course Tutorial"
+author: "Yihan Wu & Robert I. Colautti"
+date: "May 16, 2018"
+output: 
+  html_document:
+    toc: true
+    theme: cerulean
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+There are multiple tools for analysis of RNA expression data such as the Tuxedo pipeline covered in this tutorial which requires at least a genome, pipelines such as [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki) which does not need any previous knowledge, and extremely fast software programs such as [kallisto](https://github.com/pachterlab/kallisto) and [salmon](https://combine-lab.github.io/salmon/) which need transcriptome information. 
+
+For this tutorial, we will be using a small RNA seq data set for a walkthrough of the pipeline before using results of the pipeline analyzed with a full dataset for visualization in R. 
+
+# A typical differential expression experiment
+
+Usually, differential experiments are run to compare expression of genes or isoforms in different conditions, ie healthy vs cancer, normal or drought. Using this approach, it becomes possible to detect what genes are associated with certain responses and environments. The Tuxedo pipeline only works on two conditions but other software can work with multiple. 
+
+The toy data set in this walkthrough was downloaded from Coursera's "Command Line Tools for Genomic Data Science" which was a dump from TAIR. It contains RNA-seq data for *Arabidopsis thaliana* plants at Day 8 and Day 16 after germination. 
+
+## Data files
+
+To keep memory consumption down and not affect the performance of the login cluster, ask for an allocation. 8 gigabytes should be enough to perform the tutorial. 
+
+```
+$ salloc --mem 8G
+```
+To decompress the tar.gz file, use
+
+```
+$ tar -xzvf tutorial.tar.gz
+```
+
+This will produce a directory called `tutorial`.
+
+Move into this directory with:
+
+``` 
+$ cd tutorial
+```
+
+You can list the files and directory with `ls`.
+
+```
+final_output  athal_chr.fa  athal_genes.gtf Day8.fastq  Day16.fastq
+```
+
+The final_output directory contains the results of each step in the walkthrough. 
+
+## File Formats
+
+Genetic molecules are extracted and broken up into shorter fragments in order to be sequenced. As a result, sequencing machines return data in the form of "short-reads," nucleotide sequences which are from 100-250 base pairs long. The sequences are usually stored in a file format called "FASTQ."
+
+Inside `*.fastq` or `*.fq` is a four-line format used to store information. 
+
+
+Line 1: always starts with a @ sign. Contains the name of the sequencer and has a sequence identifier.
+Line 2: the actual nucleotide sequence.
+Line 3: a "+" connecting lines 2 and 4, may also contain the same information from line 1.
+Line 4: Information on the quality of the bases in line 2.
+
+We can look at one of the fastq files with the `head` command. This command will display the first 10 lines of a file by default. You can always use the `-h` or `--help` flags with a command (ie `head -h`) for help.
+
+```
+$ head Day8.fastq
+```
+
+You should see the resulting lines. 
+```
+@SRR1660397.66 HWI-ST992:140:C2134ACXX:1:1101:5890:2171 length=50
+GTTCAAAGATGAACTAGAAGACAGAAATACTGTTCAGGAGTATGGCTGTC
++
+@@@DDDDDHHHHHGGGGIDHGCBHIIIFHIHIH?GHIJFG?DFGGIJGFG
+@SRR1660397.770 HWI-ST992:140:C2134ACXX:1:1101:15403:2280 length=50
+CTCAAACCAACGAAGCAAACGCTAATACTCTTCGAACAAACCTAGACCAA
++
+CCCFFFFFGGHHHJJJJJIJJJJJJJJJJIJJJIJIIJJJJJJJJJJJJI
+@SRR1660397.948 HWI-ST992:140:C2134ACXX:1:1101:20965:2381 length=50
+CCGGTGACAACTTTACCGATGAAAGCTTCAACGGTGAAATCTCCACACAA
+```
+
+The files here have been cleaned and trimmed for quality. In actual use, sequencing reads should be checked for low quality bases, and adapters in reads to be trimmed if necessary. The steps are usually:
+
+1) Quality check by a program such as [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+2) Adapter removal and trimming by a program such as [cutadapt](https://github.com/marcelm/cutadapt) or [trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
+3) Quality check again to confirm removal of adapters and low quality bases
+
+The precursor to the FASTQ format is the FASTA format, used for storing sequence information but without any quality information. FASTA is usually used for storing nucleotide information such as genomes or amino acid sequences.
+
+We can peek at the reduced "genome" file athal_chr.fa with the `less` command.
+
+```
+$ less athal_chr.fa
+```
+
+The above command should produce a screen starting with 
+
+```
+>4 CHROMOSOME dumped from ADB: Feb/3/09 16:10; last updated: 2009-02-02
+AGTACATGTTTAATCGTGTGTGCTTATCAATATGCAACTTTGTGGTCTCTTATATGCATTCTGCTACTTTGT
+```
+
+`less` only shows as much as what can fit on a screen. You can scroll through the file with the up and down arrow keys, the space bar, or your mouse. To exit the reader, press Q on the keyboard. 
+
+The last important file to look at is the athal_genes.gtf file. This file contains information on where genomic features such as genes, exons, and introns are located along the genome based on past RNA sequencing experiments. A "gene transfer format" has nine fields for each line and is another version of a general feature format (.gff).
+
+From [Ensembl](https://www.ensembl.org/info/website/upload/gff.html):
+
+1. seqname - name of the chromosome or scaffold; chromosome names can be given with or without the 'chr' prefix. Important note: the seqname must be one used within Ensembl, i.e. a standard chromosome name or an Ensembl identifier such as a scaffold ID, without any additional content such as species or assembly. See the example GFF output below.
+2. source - name of the program that generated this feature, or the data source (database or project name)
+3. feature - feature type name, e.g. Gene, Variation, Similarity
+4. start - Start position of the feature, with sequence numbering starting at 1.
+5. end - End position of the feature, with sequence numbering starting at 1.
+6. score - A floating point value.
+7. strand - defined as + (forward) or - (reverse).
+8. frame - One of '0', '1' or '2'. '0' indicates that the first base of the feature is the first base of a codon, '1' that the second base is the first base of a codon, and so on..
+9. attribute - A semicolon-separated list of tag-value pairs, providing additional information about each feature.
+
+# The Tuxedo Pipeline
+
+In this tutorial, we will be using several pieces of software:
+
+1. __BOWTIE2__ -- A very fast, memory-efficient short-read aligner. Use for aligning short DNA sequences to a reference genome. This is the first step in variant detection for GWAS, QTL mapping, and a host of population genetics analyses. [LINK](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml)
+2. __TOPHAT2__ -- Maps RNA sequences to a reference genome to assist with annotation and identify spliced sequences. Can also run de novo alignments when a reference genome is not available. [LINK](http://ccb.jhu.edu/software/tophat/index.shtml)
+3. __CUFFLINKS__ -- a set of tools for analysis of RNA transcripts [LINK](http://cole-trapnell-lab.github.io/cufflinks/manual/)  
+  3a. __cufflinks__ -- assemble transcripts  
+  3b. __cuffcompare__ -- compare assemblies to annotation  
+  3c. __cuffmerge__ -- merge two or more transcript assemblies  
+  3d. __cuffdiff__ -- identify loci with differential expression; detect alternative splicing and
+  promoter regions 
+4. __R__ and the package `ggplot2`.
+
+On the cluster, load the necessary software.
+
+```
+$ module load bowtie2
+$ module load tophat
+$ module load cufflinks
+```
+
+To keep the output of the pipeline organized, make file directories from the main directory. Copy the entire box below into the command line to create an `index` directory, and a `results` directory with sub-folders. 
+
+```
+mkdir indexes
+mkdir results
+mkdir results/Tophat
+mkdir results/Tophat/Test8
+mkdir results/Tophat/Test16
+mkdir results/Cufflinks
+mkdir results/Cufflinks/Test8
+mkdir results/Cufflinks/Test16
+mkdir results/Cuffmerge
+mkdir results/Cuffdiff
+```
+
+## Map short reads to genome: Bowtie2 and Tophat
+
+The aim of the pipeline is to reconstruct transcripts and estimate the quantity by mapping short reads back to the genome, and counting the number of overlapping reads. 
+
+The first step is to index the genome to make it faster to search. We will first move the genome file `athal_chr.fa` into the indexes directory.
+
+```
+$ mv athal_chr.fa indexes
+```
+
+We can then move into the indexes directory and index the FASTA file with bowtie2.
+
+```
+$ cd indexes
+$ bowtie2-build athal_chr.fa indexes/athal_chr
+```
+
+We can then move back out of the directory. The following commands will map the short reads in Day8.fastq to the genome using the transcriptome information from athal_genes.gtf and put the output into the Test8 directory inside the results directory.
+
+```
+$ cd ..
+$ tophat2 -o results/Tophat/Test8 -G athal_genes.gtf  --transcriptome-index indexes indexes/athal_chr Day8.fastq
+```
+The command should only take a few minutes at most to run. The process should be repeated with the other FASTQ file.
+```
+$ tophat2 -o results/Tophat/Test16 -G athal_genes.gtf  --transcriptome-index indexes indexes/athal_chr Day16.fastq
+```
+
+We can move into the results folder to look at the output produced.
+
+```
+$ cd results/Tophat/Test8
+$ ls
+```
+There are .bed and .bam files along with other files in the directory. *.bed files are used with genome viewers such as the [Integrative Genomics Viewer](http://software.broadinstitute.org/software/igv/) and [UCSC Genome Browser](https://genome.ucsc.edu/cgi-bin/hgGateway).
+
+The .bam file is a binary version of a .sam file (Sequence Alignment Map). To view accepted_hits.bam:
+
+```
+samtools view accepted_hits.bam | head -4
+```
+
+Only the reads inside accepted_hits.bam will be used in the following steps.
+
+The first three lines begin with the __&#64;__ symbol and specify the header of the file:  
+  
+* __&#64;HD__ -- The header line
+    + __VN:__ Version number of the alignment (not the __BOWTIE2__ program)  
+    + __SO:__ Sorting order (usorted)  
+* __&#64;SQ__ --  Reference sequence dictionary
+    + __SN:__  Reference sequence name (taken from first line of __FASTA__ file)
+    + __LN:__  Length of the reference sequence
+* __&#64;PG__ --  Program info
+    + __ID:__ Program ID
+    + __PN:__ Program name
+    + __VN:__ Program version
+    + __CL:__ The command line used to generate the alignment  
+
+The fourth line shows the data for the first alignment:  
+  
+1. __QNAME__ -- The name of the sequence; from the __FASTQ__ file
+2. __FLAG__ -- a bit-score FLAG; explained on Wikipedia page [LINK](http://genome.sph.umich.edu/wiki/SAM)
+3. __RNAME__ -- Name of the reference alignment (from __FASTA__ file)
+4. __POS__ -- Mapping position (location along reference) 
+5. __MAPQ__ -- Quality score for the mapped sequence (probability of correct match)
+6. __CIGAR__ -- A code specifying things like mismatches, insertions and deletions. Note the __=__ represents a perfect match
+7. __RNEXT__ -- Name of the mate pair read 
+8. __PNEXT__ -- Position of the mate pair read
+9. __TLEN__ -- Length of the template 
+10. __SEQ__ -- Actual sequence of the mapped read
+11. __QUAL__ -- Quality the original sequence (same Q-score from from __FASTQ__ file)
+
+The last set of columns are optional __TAGS__. For more detail, see the official __SAM__ specification info. [LINK](http://samtools.github.io/hts-specs/SAMv1.pdf)
+
+Return to the main directory
+
+```
+$ cd ../../..
+```
+
+## Make transcripts: Cufflinks and Cuffmerge
+
+The next step takes the mapped short reads and tries to make longer transcripts from those. 
+
+```
+$ cufflinks -o results/Cufflinks/Test8 -g athal_genes.gtf results/Tophat/Test8/accepted_hits.bam
+$ cufflinks -o results/Cufflinks/Test16 -g athal_genes.gtf results/Tophat/Test16/accepted_hits.bam
+```
+
+See the results by moving into the results folder. There are four outputs, two .gtf files and two fpkm_tracking files. The transcripts.gtf file has information on the gene the transcript is most likely associated with, and also its abundance as measured by FKPM (fragments per kilobase per million reads). Due to the differences in length between genes, bigger genes may have more transcripts than smaller genes even if they are expressed in the same amount. FKPM tries to control for this. 
+
+```
+$ cd results.Cufflinks/Test16
+$ ls
+$ head transcripts.gtf
+```
+Right now, we have transcripts information for two different samples but we need to compare between these two samples. 
+
+To do this, we will use Cuffmerge to merge the two transcripts.gtf into one. First, move back into the main directory.
+
+``` 
+$ cd ../../..
+```
+
+Now we will make a text file called `merge.txt` which will contain the paths to the *.gtf files we want to merge using Cuffmerge.
+
+```
+$ nano merge.txt
+```
+
+Paste the following into merge.txt
+
+```
+results/Cufflinks/Test8/transcripts.gtf
+results/Cufflinks/Test16/transcripts.gtf
+```
+
+Save the file and exit. (Ctrl+X and follow prompts at bottom of screen)
+
+Cuffmerge should already be loaded as part of Cufflinks so use the command directly.
+
+```
+$ cuffmerge -g athal_genes.gtf -o results/Cuffmerge merge.txt
+```
+We can look at the output produced by cuffmerge. There should be a log directory and a merged.gtf file.
+
+```
+$ ls results/Cuffmerge/
+$ less results/Cuffmerge/merged.gtf
+```
+
+## Comparing differences: Cuffdiff
+
+Our last step on the cluster is to test for differential expression between the samples. 
+
+```
+$ cuffdiff -o results/Cuffdiff results/Cuffmerge/merged.gtf results/Tophat/Test8/accepted_hits.bam results/Tophat/Test16/accepted_hits.bam
+```
+The results should be in `results/Cuffdiff`. The *.diff files contain the results of tests for differences in expression of genes, transcripts and other features. 
+
+We can examine the gene_exp.diff file. Significance is indicated by the last column called significant. We can also search for all rows that are significant with a `grep` command.
+
+```
+$ cd results/Cuffdiff
+$ head gene_exp.diff
+$ grep -i "yes" gene_exp.diff
+```
+
+# Simple visualization using base R
+
+The next step in the Tuxedo pipeline is visualization. There is a specific package called cummRbund used for analyzing the results of Cuffdiff and other steps. However, cummRbund is a time-consuming process so we will use more common R packages.
+
+The next steps are easier to do in R Studio on your laptop.
+
+Download gene_exp.diff to your computer and put it into your working directory.
+In R, your working directory can be found with the command `getwd()`.
+Alternatively you can set your working directory to where the file is by `setwd(path_to_your_file)`
+
+Read in the file. The columns in gene_exp.diff is separated by tabs so our separator is "\t". We also have column names so we put header as TRUE.
+Replace the path in `read.table` with your own.
+
+```{r}
+gene_diff<-read.table("DiffExp/final_output/results/Cuffdiff/gene_exp.diff", sep = "\t", header=T)
+```
+
+We can examine the data frame.
+
+```{r}
+head(gene_diff)
+summary(gene_diff)
+```
+
+There are `r ncol(gene_diff)` columns and `r nrow(gene_diff)` rows. 
+
+You can see from the summary on the "status" column that there are 62 NOTEST and 70 OK. We will want to filter out the rows where there were no tests.
+
+```{r}
+gene_diff<- gene_diff[gene_diff$status=="OK",]
+```
+
+Now there are only 70 rows in gene_diff.
+
+We can look at the changes between samples by graphing the `log2.fold_change.`
+```{r}
+hist(gene_diff$log2.fold_change.)
+```
+
+The histogram shows a peak near 0. We can see some genes increased in expression and some decreased. However, if we look at the column indicating significance, there are only two genes which are significant, which we already know from our `grep` command.
+
+A common visualization used for differential expression is a heat map. We can make our own using the 10 genes with the lowest p values.
+
+```{r}
+top_genes<-head(gene_diff[order(gene_diff$p_value),], n=5L)
+```
+
+We can unpack the command above by running what is inside each bracket. First, the order command ranks the p_values in ascending order.
+
+```{r}
+order(gene_diff$p_value)
+```
+
+Then `gene_diff` is rearranged based on the order of `p_value` and then we take only the first 10 rows of the resulting data frame using the head command. 
+
+A heat map requires a matrix with column and row names. We have to modify our `top_genes` data frame for the heat map.
+
+First, we only take the rows we need, `gene`, `value_1` and `value_2`. 
+
+```{r}
+mat_gene<-top_genes[,c("gene", "value_1", "value_2")]
+```
+
+Now we make the gene in each row the row name and drop the gene column. Then we make the data frame into a matrix
+
+```{r}
+row.names(mat_gene)<-mat_gene$gene
+mat_gene<-mat_gene[,-1]
+mat_gene<-as.matrix(mat_gene)
+mat_gene
+```
+
+Now we can make our heat map. For people using R on desktop, a graphical window will pop up. On the cluster, if there is no image forwarding, use the commented out commands to save to file, and then download to view the image.
+
+```{r}
+# jpeg("heatmap.jpg")
+heatmap(mat_gene, Rowv = NA, Colv = NA, cexCol = 1, cexRow = 1, main="Heatmap", col=rev(terrain.colors(8)))
+# dev.off()
+```
+
+Another common plot to make is a volcano plot, named so because of the shape that is produced by the points.
+
+We will use our entire data set. First plot the points and add a title. 
+
+```{r}
+gene_diff<-read.table("DiffExp/final_output/results/Cuffdiff/gene_exp.diff", sep = "\t", header=T)
+# jpeg("volcano_plot.jpg")
+with(gene_diff, plot(log2.fold_change., -log10(p_value)))
+title(main = "Volcano Plot")
+```
+
+We can color the points that have status OK.
+
+```{r eval=FALSE}
+with(subset(gene_diff, status=="OK"), points(log2.fold_change., -log10(p_value), col="green"))
+```
+
+We can also add a legend.
+
+```{r eval=F}
+legend("topright", pch = 1, col = c("black", "green"), legend = c("No Test", "Tested"))
+# dev.off()
+```
+
+Here is the code to create the volcano plot together.
+```{r echo=FALSE}
+with(gene_diff, plot(log2.fold_change., -log10(p_value)))
+title(main = "Volcano Plot")
+with(subset(gene_diff, status=="OK"), points(log2.fold_change., -log10(p_value), col="green"))
+legend("topright", pch = 1, col = c("black", "green"), legend = c("No Test", "Tested"))
+```
+
+We can also attempt this using Cuffdiff output of a RNA-seq experiment on garlic mustard treated with jasmonic acid. The *.diff file is called `Ap_gene_exp.diff` in the `final_output` folder.
+
+```{r}
+Ap_gene_diff<-read.table("DiffExp/final_output/Ap_gene_exp.diff", sep = "\t", header=T)
+with(Ap_gene_diff, plot(log2.fold_change., -log10(p_value)))
+title(main = "Volcano Plot")
+with(subset(Ap_gene_diff, status=="OK"), points(log2.fold_change., -log10(p_value), col="green"))
+with(subset(Ap_gene_diff, significant=="yes"), points(log2.fold_change., -log10(p_value), col="red"))
+legend("topleft", pch = 1, col = c("black", "green", "red"), legend = c("No Test", "Tested", "Significant"))
+
+```
+
+
+# Kallisto and other faster methods
+
+kallisto, because it doesn't require time-consuming mapping to the genome, is much faster than alignment-based software such as TopHat. For kallisto, a transcriptome fasta file is needed. 
+
+We can put all the commands into a script to be run on the cluster in a few minutes.
+
+First, start up a bash script.
+
+``` 
+$ nano kallisto.sh
+```
+
+With any script, use the first shebang line to write which shell to use. Here, we are using the bash shell.
+
+```
+#! /bin/bash
+```
+
+Now we can add more options for the scheduler to use when running this job.
+
+```
+#SBATCH -c 1
+#SBATCH --mem 2G 
+#SBATCH -t 00:05:00
+```
+The commands above request 1 core with 2 gigabytes of memory for this job and the job will have a time limit of 5 minutes.
+
+We will download the *A. thaliana* transcriptome from the [National Center for Biotechnology Information.](https://www.ncbi.nlm.nih.gov/). You can search at the top of the NCBI homepage for "Arabidopsis thaliana" and click the "Genome" link under the "Genome" section of the results page. Copy the link for downloading transcript beside "Download sequences in FASTA format" in the box at the top of the page. 
+
+The link is ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/735/GCF_000001735.3_TAIR10/GCF_000001735.3_TAIR10_rna.fna.gz.
+
+Add the following line to the script to download the file 
+
+```
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/735/GCF_000001735.3_TAIR10/GCF_000001735.3_TAIR10_rna.fna.gz
+```
+
+kallisto also requires an index. We will load kallisto and make the index using the downloaded file.
+
+```
+module load kallisto
+kallisto index --index=A_thaliana GCF_000001735.3_TAIR10_rna.fna.gz
+```
+kallisto requires directories for output to be made beforehand.
+
+We can make a results directory and sub-directories for each FASTQ folder.
+
+```
+mkdir kallisto_output
+mkdir kallisto_output/Day8
+mkdir kallisto_output/Day16
+```
+
+
+Then we add the commands for counting transcripts. 
+
+```
+kallisto quant --single -l 200.0 -s 30.0 -i A_thaliana Day8.fastq -o kallisto_output/Day8
+kallisto quant --single -l 200.0 -s 30.0 -i A_thaliana Day16.fastq -o kallisto_output/Day16
+```
+
+In the end, the script `kallisto.sh` will look like this.
+
+
+```
+#!/bin/bash
+#SBATCH --job-name=kallisto
+#SBATCH --time 00:30:00
+#SBATCH -c 1
+#SBATCH --mem=2G
+
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/735/GCF_000001735.3_TAIR10/GCF_000001735.3_TAIR10_rna.fna.gz
+
+module load kallisto
+
+kallisto index --index=A_thaliana GCF_000001735.3_TAIR10_rna.fna.gz
+
+mkdir kallisto_output
+mkdir kallisto_output/Day8
+mkdir kallisto_output/Day16
+
+kallisto quant --single -l 200.0 -s 30.0 -i A_thaliana Day8.fastq -o kallisto_output/Day8
+kallisto quant --single -l 200.0 -s 30.0 -i A_thaliana Day16.fastq -o kallisto_output/Day16
+```
+
+We can submit `kallisto.sh` to the scheduler with:
+
+``` 
+$ sbatch kallisto.sh
+```
+
+and check on its status using 
+
+``` 
+$ squeue -u your_account
+```
+When it is finished, in each output folder, there will be three files. 
+
+```
+$ cd kallisto_output/Day8
+$ ls
+```
+
+```
+abundance.h5  abundance.tsv run_info.json
+```
+
+`abundance.tsv` contains the number of each transcript aligned. To find all the lines where the estimated count is above zero, we can use `awk`, another tool in UNIX for searching text. 
+
+```
+$ awk '($4 > 0 ) ' abundance.tsv > check
+```
+
+What we want awk to search for is contained in the quotation marks. Here, $4 represents the fourth field in the file, or the column. We want all lines in file abundance.tsv where the value in the fourth field is greater than zero to be put into a new file called check.
+
+We can see how many lines there are in check using the `wc` command and check inside the file.
+
+```
+$ wc -l check
+$ head check
+```
+You will find that the column names are gone. In order to keep them, add another part to the awk command.
+
+```
+$ awk '(NR==1) || ($4 > 0 ) ' abundance.tsv > check
+```
+This command means put line one or any line where the fourth field is greater than zero into a file called check. 
+
+Actual statistical analysis using kallisto output is conducted using the "sleuth" package in R. 
+
+https://pachterlab.github.io/sleuth_walkthroughs/trapnell/analysis.html
+
