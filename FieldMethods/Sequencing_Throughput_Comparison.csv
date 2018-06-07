@@ -1,0 +1,39 @@
+Platform,Instrument,Mreads,Length,Gbp,Type
+Illumina,NovaSeq 6000 S4,"10,000",300,3000,SR or PE
+Illumina,NovaSeq 6000 S3,"6,600",300,1980,SR or PE
+Illumina,NovaSeq 5000/6000 S2,"3,300",300,990,SR or PE
+Illumina,NovaSeq 5000/6000 S1,"1,600",300,480,SR or PE
+Illumina,NextSeq 500 High-Output,400,300,120,SR or PE
+Illumina,HiSeq X,375,300,113,PE
+Illumina,HiSeq 3000/4000,313,300,93.8,SR or PE
+Illumina,NextSeq 500 Mid-Output,130,300,39,PE
+Illumina,HiSeq High-Output v4,250,250,62.5,SR or PE
+Illumina,HiSeq High-Output v3,186,250,46.5,SR or PE
+Illumina,HiSeq Rapid run v4,150,500,75,SR or PE
+Illumina,HiSeq Rapid Run,151,300,45.2,SR or PE
+Illumina,HiScanSQ,93,200,18.6,SR or PE
+Illumina,GAIIx,42,300,12.6,SR or PE
+Illumina,MiSeq v3,25,600,15,SR or PE
+Illumina,MiniSeq High-Output,25,300,7.5,SR or PE
+Illumina,MiSeq v2,16,250,4,SR or PE
+Illumina,MiniSeq Mid-Output,8,300,2.4,SR or PE
+Illumina,MiSeq v2 Micro,4,300,1.2,SR or PE
+Illumina,MiSeq v2 Nano,1,500,0.5,SR or PE
+Ion,Proton I,60,200,12,SR
+Ion,PGM 318,4,400,1.6,SR
+Ion,PGM 316,2,400,0.8,SR
+Ion,PGM 314,0.4,400,0.16,SR
+Roche 454,GS FLX+ / FLX,1,700,0.49,SR
+Roche 454,GS FLX+ / FLX,0.35,700,0.245,SR
+Roche 454,GS FLX+ / FLX,0.13,700,0.0875,SR
+Roche 454,GS FLX+ / FLX,0.05,700,0.035,SR
+Roche 454,GS FLX+ / FLX,0.02,700,0.014,SR
+Roche 454,GS FLX+ / FLX,0.07,400,0.028,SR
+SOLiD,5500xl W,267,100,26.7,SR or PE
+SOLiD,5500 W,267,100,26.7,SR or PE
+SOLiD,5500,82,100,8.15,SR or PE
+SOLiD,5500xl,82,100,8.15,SR or PE
+PacBio,PacBio Sequel,0.37,"20,000",7.4,SR
+PacBio,PacBio RS II (P6),0.06,"15,000",0.8,SR
+Oxford Nanopore,MinION,??," 2,000,000 ",20,SR
+Oxford Nanopore,PromethION,??," 2,000,000 ",1000,SR
