@@ -1,0 +1,222 @@
+---
+title: "Floristic survey"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+  html_notebook:
+    toc: yes
+---
+# Housekeeping
+
+```{r Load Packages}
+library(tidyverse)
+library(vegan)
+library(lmtest)
+library(car)
+library(coefplot)
+```
+
+# Loading in data
+
+Create a directory called `Data` inside of your working directory. Then copy the [Floristic Survey Data](./Data/May9_floristicsurvey.csv) into your data folder.
+
+```{r Loading data, include=FALSE}
+FloristicSurvey <- read.csv("./Data/May9_floristicsurvey.csv")
+```
+
+
+Split your dataframe into two dataframes, your metadata, so information about your quadrate (Garlic mustard composition, population, etc) and then your flotistic survey
+
+```{r}
+MyData<-FloristicSurvey[,1:10]
+MyData$Population<-as.factor(MyData$Population)
+
+SpeciesComp<-FloristicSurvey[,11:length(FloristicSurvey)]
+rownames(SpeciesComp)<-MyData[,1] # keep the quadrat names as part of your floristic survey dataframe.
+```
+
+
+
+# Analysis
+
+## Species alpha diversity model
+
+### Calculate
+Species diversity is a complex concept. Here we are speaking about alpha diversity which concentrates on only the site-specific diversity (http://www.metagenomics.wiki/pdf/definition/alpha-beta-diversity). 
+
+
+Different types of alpha diversity exist, and they all have their advantages and drawbacks.
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4224527/
+
+Richness measures the number of species present. ex. chaos1 measurement.
+
+Eveness measures the distribution of individuals in the species categories (from having one dominant species and singletons to having only evenly distributed abundances of species)
+
+Diversity indexes combine these measures. 
+
+The Shannon diversity index is sensitive to rare species, The Simpson's diversity index is sensitive to abundant species, and the Berger–Parker dominance is sensitive to only the most abundant species.  
+
+What are we trying to do here? This is an important question BEFORE choosing an index.
+
+Ranking sites: Diversity index
+
+Detect effects: Richness
+
+```{r}
+MyData$Richness<-rowSums(SpeciesComp!=0)
+
+MyData$Shannon<-diversity(SpeciesComp, index = "shannon", MARGIN = 1, base = exp(1))
+```
+
+Now we model this. 
+
+STEP 1. Fit the response data to a known distribution
+
+```{r}
+mod1<-lm(Richness~ Population + Location + Rosettes + Bolting+ Budding + Bud_Flw, data = MyData)
+
+car::qqp(MyData$Richness, "norm")
+plot(density(MyData$Richness)) # does it fit a normal distribution?
+shapiro.test(MyData$Richness) 
+bptest(mod1) # are the residuals homoskedastic?
+plot(mod1) # visual check
+```
+
+STEP 2. Likelihood ratio test (test parameters)
+
+To test each parameter, remove it and see if the model is as 'likely' without it. 
+
+
+```{r}
+mod1.mPopulation<-update(mod1,.~. - Population)
+anova(mod1,mod1.mPopulation)
+
+mod1.mLocation<-update(mod1.mPopulation,.~. - Location)
+anova(mod1.mPopulation,mod1.mLocation)
+
+mod1.mRosettes<-update(mod1.mLocation,.~. - Rosettes)
+anova(mod1.mLocation,mod1.mRosettes)
+
+mod1.mBolting<-update(mod1.mRosettes,.~. - Bolting)
+anova(mod1.mRosettes,mod1.mBolting)
+
+mod1.mBudding<-update(mod1.mBolting,.~. - Budding)
+anova(mod1.mBolting,mod1.mBudding)
+
+mod1.mBud_Flw<-update(mod1.mBudding,.~. - Bud_Flw)
+anova(mod1.mBudding,mod1.mBud_Flw)
+
+mod1<-mod1.mBud_Flw
+summary(mod1) # this is not done to look at the "stars" but rather to look at the Estimate value.
+```
+
+### Visualize
+
+```{r}
+ggplot(MyData, aes(y=Richness,x=Location))+
+  geom_boxplot(aes(color=Location))+
+  labs(y="Richness")
+```
+
+## Redundancy analysis: a multivariate linear model
+
+We just did a linear model based on one measurement: Richness. But after having discusssed the problems with diversity indexes, you understand why that might not be that telling of what is truely happening in our system. What if the second year garlic mustards cause a turnover in plant species, but the same number of species are present? A linear model on richness wouldnt detect that, but a RDA could. 
+
+This is a linear model but instead of having a vector as a response variable, we have a matrix (hence the "multi" in multivariate!)
+
+### Calculate
+
+Transform the data from count. Its better to use data that is scaled so it doesnt violate the RDA assumptions of normal variability (which count data doesnt always follow).
+
+For more information please see: http://adn.biol.umontreal.ca/~numericalecology/Reprints/Legendre_&_Gallagher.pdf
+
+```{r}
+SpeciesComp.hell <- decostand(SpeciesComp, "hell")
+```
+
+Now we do the RDA:
+
+```{r}
+var <-MyData[,c(2:6)] # Isolate my variables to make this whole code easier to read, since theres been no flowering we wont include it (all 0's will just mess with the analysis)
+
+formulaRDA<- rda(SpeciesComp.hell ~ Location+Rosettes+Bolting+Budding+Population, data=var, scale=T) # notice my predictive variable are being scaled too.
+
+head(summary(formulaRDA))
+anova(formulaRDA, permutations=1000) # Is the RDA meaningful?
+anova.cca(formulaRDA, by="margin", permutations=1000) # Are any predictor variables meaningful?
+```
+
+Depending on whether some things were meaningful, we can see how much of the variation types of variables caused (note that if they wernt meaningful including them here is meaningless):
+
+```{r}
+varpart(SpeciesComp.hell, ~Population, ~ Location, ~Rosettes + Bolting + Budding, data=var)
+```
+
+
+
+### Visualize
+
+```{r}
+smry <- summary(formulaRDA)
+df1  <- data.frame(smry$sites[,1:2])       # RDA1 and RDA2 (for each quadrate)
+df2  <- data.frame(smry$biplot[,1:2])     # loadings for RDA1 and RDA2 (for each variable)
+rda.plot <- ggplot(df1, aes(x=RDA1, y=RDA2)) + 
+  geom_text(aes(label=rownames(df1)),size=3,position=position_jitter(width=.2,height=.2)) +
+  geom_point(aes(alpha=0.3)) +
+  geom_hline(yintercept=0, linetype="dotted") +
+  geom_vline(xintercept=0, linetype="dotted")  
+
+
+(formulaRDA.PLOT<-rda.plot +
+  geom_segment(data=df2, aes(x=0, xend=RDA1, y=0, yend=RDA2), 
+               color="red", arrow=arrow(length=unit(0.01,"npc"))) +
+  geom_text(data=df2, 
+            aes(x=RDA1,y=RDA2,label=rownames(df2),
+                hjust=0.5*(1-sign(RDA1)),vjust=0.5*(1-sign(RDA2))), 
+            color="red", size=4)+ theme(legend.position="none"))
+```
+
+## NMDS: unconstrained spatial analysis
+
+What is an NMDS? 
+
+Usually, when viewing data in space (Principle component analysis, RDA, etc), many axes are calculated (eigenvectors) but since visualization is only useful in a few dimension a lot of the variation is ignored. In NMDS, the number of axes are explicitly chosen prior to the analysis and the data are fitted to those dimensions. The "true" distance, or the overall difference in how two plots differ, is displayed on the graph. One of the limitations, however, is that unlike RDA the axis are not truely meaningful (since NMDS is not  an eigenvalue-eigenvector technique) and thus they cannot be associated with the variance in predictors.
+
+
+### Calculate
+
+We need to produce the betadiversity matrix now. Betadiversity is a measure of difference between sites.
+
+```{r}
+M <- as.matrix(SpeciesComp)
+
+dist_M <- vegdist(M, method = "bray", binary = T)
+```
+
+The metaMDS analysis could have done the distance matrix internally but i would rather control it. 
+
+```{r}
+meta.nmds <- metaMDS(dist_M, k=2, trymax = 1000) # ok so k=2 means I want 2 dimensions 
+
+
+#data for plotting 
+##NMDS points
+NMDS.data<-data.frame(Location=MyData$Location,Population=MyData$Population) 
+NMDS.data$NMDS1<-meta.nmds$points[ ,1] 
+NMDS.data$NMDS2<-meta.nmds$points[ ,2] 
+```
+
+Notice how this analysis was iterative? 
+
+The metaMDS function seeks a solution and stops computation when an acceptable solution has been found, or it stops after some pre-specified number of attempts (trymax = 1000). This is another difference in how the NMDS works. Unlike other multivariate analyses, it is not a direct analysis, instead it is a numerical technique that will search for a likely solution (with a low stress level).
+
+For more information on the NMDS see https://strata.uga.edu/software/pdf/mdsTutorial.pdf.
+
+### Visualize
+
+```{r}
+ggplot(data = NMDS.data, aes(y = NMDS2, x = NMDS1))+ 
+    geom_point( aes(color = NMDS.data$Population,shape = NMDS.data$Location), size = 1.5,alpha=0.6)
+```
+
