@@ -53,6 +53,10 @@ To write a strong thesis, start with IDEAS, not words
 
 You must PLAN CAREFULLY. Long before you write even a single sentence.
 
+Think about the STRUCTURE of a good scientific paper, right from the beginning. Make your outline with this structure in mind:
+
+![](PaperStructure.jpg)
+
   * If you have data. Start by making your 'final' figures and tables. In other words, format them and write captions just as they would appear in your final document.
   * Start with some brainstorming notes. Why would somebody be interested in this study? What does it contribute to scientific knowledge? How does it fit into the broader context?
   * Make a concept map or outline of your key points. Each one should relate to your key results in some way.
