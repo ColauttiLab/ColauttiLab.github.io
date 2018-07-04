@@ -56,6 +56,8 @@ You were not invited to do a thesis in the Colautti Lab because you are a good s
 
 ## Publishing
 
+Read & Discuss: [Publishing papers while keeping everything in balance: Practical advice for a productive graduate school experience](./Manifesto/References/Hotaling2018PublishingAdvice.pdf) by Scott Hotaling
+
 The ultimate goal of a research thesis in the Colautti Lab is publication in a top peer-reviewed journal. Every thesis student is given a thesis project that that could lead to one or more publications. Whether that happens is up to you. Most undergraduate students do not publish their thesis, and many graduate students publish fewer papers than they could have. To understand why this happens, I introduce the Anna Karenina Principle of thesis publishing:
 
 ### Anna Karenina Principle
