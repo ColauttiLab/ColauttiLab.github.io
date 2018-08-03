@@ -1,11 +1,6 @@
 ---
-title: "Rob Field Course Tutorial"
+title: " Tutorial"
 author: "Yihan Wu & Robert I. Colautti"
-date: "May 16, 2018"
-output: 
-  html_document:
-    toc: true
-    theme: cerulean
 editor_options: 
   chunk_output_type: console
 ---
@@ -16,24 +11,29 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction
 
-There are multiple tools for analysis of RNA expression data such as the Tuxedo pipeline covered in this tutorial which requires at least a genome, pipelines such as [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki) which does not need any previous knowledge, and extremely fast software programs such as [kallisto](https://github.com/pachterlab/kallisto) and [salmon](https://combine-lab.github.io/salmon/) which need transcriptome information. 
+There are multiple tools for analysis of RNA expression data such as the [Tuxedo pipeline](https://github.com/Jeanielmj/bioinformatics-workshop/wiki/The-Tuxedo-Pipeline), which is covered in this tutorial and requires a reference genome
 
-For this tutorial, we will be using a small RNA seq data set for a walkthrough of the pipeline before using results of the pipeline analyzed with a full dataset for visualization in R. 
+Other pipelines such as [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki) do not need any a priori knowledge.
+
+Extremely fast software programs such as [kallisto](https://github.com/pachterlab/kallisto) and [salmon](https://combine-lab.github.io/salmon/) are better for large datasets but need pre-existing transcriptome information. 
+
+For this tutorial, we will be using a dataset on small RNA to walkthrough the steps of the pipeline. Then we'll analyze a full dataset for visualization in R. 
 
 # A typical differential expression experiment
 
-Usually, differential experiments are run to compare expression of genes or isoforms in different conditions, ie healthy vs cancer, normal or drought. Using this approach, it becomes possible to detect what genes are associated with certain responses and environments. The Tuxedo pipeline only works on two conditions but other software can work with multiple. 
+Usually, differential experiments are run to compare expression of genes or isoforms in different tissues, cell types, or individuals in different environments. The goal is to identify which genes are differentially expressed between the groups. The Tuxedo pipeline only works on two groups but other software can analyze multiple groups. 
 
-The toy data set in this walkthrough was downloaded from Coursera's "Command Line Tools for Genomic Data Science" which was a dump from TAIR. It contains RNA-seq data for *Arabidopsis thaliana* plants at Day 8 and Day 16 after germination. 
+The toy data set in this walkthrough comes from The Arabidopsis Information Resoruce [TAIR](https://www.arabidopsis.org), and contains RNA-sequence data for *Arabidopsis thaliana* plants at two time points during development -- Day 8 and Day 16 after germination. 
 
 ## Data files
 
-To keep memory consumption down and not affect the performance of the login cluster, ask for an allocation. 8 gigabytes should be enough to perform the tutorial. 
+To keep memory consumption down and not affect the performance of the login cluster, it is good practice to ask for an allocation. 8 gigabytes should be enough to perform the tutorial. 
 
 ```
 $ salloc --mem 8G
 ```
-To decompress the tar.gz file, use
+
+Next, decompress the tar.gz file:
 
 ```
 $ tar -xzvf tutorial.tar.gz
@@ -41,33 +41,43 @@ $ tar -xzvf tutorial.tar.gz
 
 This will produce a directory called `tutorial`.
 
-Move into this directory with:
+Move into this directory:
 
 ``` 
 $ cd tutorial
 ```
 
-You can list the files and directory with `ls`.
+You can list the files and their detail with `ls -al`.
 
 ```
-final_output  athal_chr.fa  athal_genes.gtf Day8.fastq  Day16.fastq
+$ ls
+drwxr-xr-x  3 hpc3183 hpcg1540     4096 Aug  2 15:21 .
+drwxr-x--- 13 hpc3183 hpcg1540     4096 Aug  2 15:15 ..
+-rw-r--r--  1 hpc3183 hpcg1540   500073 May 15 17:06 athal_chr.fa
+-rw-r--r--  1 hpc3183 hpcg1540    94110 May 15 17:06 athal_genes.gtf
+-rw-r--r--  1 hpc3183 hpcg1540 10263308 May 15 17:06 Day16.fastq
+-rw-r--r--  1 hpc3183 hpcg1540 11255870 May 15 17:06 Day8.fastq
+drwxr-xr-x  4 hpc3183 hpcg1540     4096 May 17 16:14 final_output
 ```
 
-The final_output directory contains the results of each step in the walkthrough. 
+The `final_output` directory contains the results of each step in the walkthrough. 
 
 ## File Formats
 
-Genetic molecules are extracted and broken up into shorter fragments in order to be sequenced. As a result, sequencing machines return data in the form of "short-reads," nucleotide sequences which are from 100-250 base pairs long. The sequences are usually stored in a file format called "FASTQ."
+### Sequence Data
 
-Inside `*.fastq` or `*.fq` is a four-line format used to store information. 
+Clusters of DNA sequences read on Illumina machines produce "short-reads" or nucleotide sequences of 75-250 base pairs in length. Each base pair has an associated quality score, and the sequences are usually stored with their quality scores in a file format called "FASTQ."
 
+Inside each `*.fastq` or `*.fq` file is a four-line format used to store information. 
 
-Line 1: always starts with a @ sign. Contains the name of the sequencer and has a sequence identifier.
-Line 2: the actual nucleotide sequence.
-Line 3: a "+" connecting lines 2 and 4, may also contain the same information from line 1.
-Line 4: Information on the quality of the bases in line 2.
++ **Line 1**: always starts with a @ sign. Contains the name of the sequencer and has a sequence identifier.
++ **Line 2**: the actual nucleotide sequence.
++ **Line 3**: a "+" connecting lines 2 and 4, may also contain the same information from line 1.
++ **Line 4**: Information on the quality of the bases in line 2.
 
 We can look at one of the fastq files with the `head` command. This command will display the first 10 lines of a file by default. You can always use the `-h` or `--help` flags with a command (ie `head -h`) for help.
+
+Inspect the first few lines of the `Day8.fastq` file:
 
 ```
 $ head Day8.fastq
@@ -87,15 +97,17 @@ CCCFFFFFGGHHHJJJJJIJJJJJJJJJJIJJJIJIIJJJJJJJJJJJJI
 CCGGTGACAACTTTACCGATGAAAGCTTCAACGGTGAAATCTCCACACAA
 ```
 
-The files here have been cleaned and trimmed for quality. In actual use, sequencing reads should be checked for low quality bases, and adapters in reads to be trimmed if necessary. The steps are usually:
+The files here have been cleaned and trimmed for quality. Sequences should be checked for low quality bases, and adapter sequences to be trimmed if necessary. The steps are usually:
 
 1) Quality check by a program such as [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 2) Adapter removal and trimming by a program such as [cutadapt](https://github.com/marcelm/cutadapt) or [trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
 3) Quality check again to confirm removal of adapters and low quality bases
 
-The precursor to the FASTQ format is the FASTA format, used for storing sequence information but without any quality information. FASTA is usually used for storing nucleotide information such as genomes or amino acid sequences.
+The sister to the FASTQ format is the FASTA format, which stores sequence information  without any quality metrics. FASTA is usually used for storing nucleotide information such as genomes or amino acid sequences.
 
-We can peek at the reduced "genome" file athal_chr.fa with the `less` command.
+### Reference Genome
+
+We can peek at the reduced reference "genome" file athal_chr.fa with the `less` command.
 
 ```
 $ less athal_chr.fa
@@ -110,19 +122,21 @@ AGTACATGTTTAATCGTGTGTGCTTATCAATATGCAACTTTGTGGTCTCTTATATGCATTCTGCTACTTTGT
 
 `less` only shows as much as what can fit on a screen. You can scroll through the file with the up and down arrow keys, the space bar, or your mouse. To exit the reader, press Q on the keyboard. 
 
+### Genome Features
+
 The last important file to look at is the athal_genes.gtf file. This file contains information on where genomic features such as genes, exons, and introns are located along the genome based on past RNA sequencing experiments. A "gene transfer format" has nine fields for each line and is another version of a general feature format (.gff).
 
 From [Ensembl](https://www.ensembl.org/info/website/upload/gff.html):
 
-1. seqname - name of the chromosome or scaffold; chromosome names can be given with or without the 'chr' prefix. Important note: the seqname must be one used within Ensembl, i.e. a standard chromosome name or an Ensembl identifier such as a scaffold ID, without any additional content such as species or assembly. See the example GFF output below.
-2. source - name of the program that generated this feature, or the data source (database or project name)
-3. feature - feature type name, e.g. Gene, Variation, Similarity
-4. start - Start position of the feature, with sequence numbering starting at 1.
-5. end - End position of the feature, with sequence numbering starting at 1.
-6. score - A floating point value.
-7. strand - defined as + (forward) or - (reverse).
-8. frame - One of '0', '1' or '2'. '0' indicates that the first base of the feature is the first base of a codon, '1' that the second base is the first base of a codon, and so on..
-9. attribute - A semicolon-separated list of tag-value pairs, providing additional information about each feature.
+1. **seqname** - name of the chromosome or scaffold; chromosome names can be given with or without the 'chr' prefix. Important note: the seqname must be one used within Ensembl, i.e. a standard chromosome name or an Ensembl identifier such as a scaffold ID, without any additional content such as species or assembly. See the example GFF output below.
+2. **source** - name of the program that generated this feature, or the data source (database or project name)
+3. **feature** - feature type name, e.g. Gene, Variation, Similarity
+4. **start** - Start position of the feature, with sequence numbering starting at 1.
+5. **end** - End position of the feature, with sequence numbering starting at 1.
+6. **score** - A floating point value.
+7. **strand** - defined as + (forward) or - (reverse).
+8. **frame** - One of '0', '1' or '2'. '0' indicates that the first base of the feature is the first base of a codon, '1' that the second base is the first base of a codon, and so on.
+9. **attribute** - A semicolon-separated list of tag-value pairs, providing additional information about each feature.
 
 # The Tuxedo Pipeline
 
@@ -323,7 +337,7 @@ Read in the file. The columns in gene_exp.diff is separated by tabs so our separ
 Replace the path in `read.table` with your own.
 
 ```{r}
-gene_diff<-read.table("DiffExp/final_output/results/Cuffdiff/gene_exp.diff", sep = "\t", header=T)
+gene_diff<-read.table("Data/gene_exp.diff", sep = "\t", header=T)
 ```
 
 We can examine the data frame.
@@ -394,7 +408,7 @@ Another common plot to make is a volcano plot, named so because of the shape tha
 We will use our entire data set. First plot the points and add a title. 
 
 ```{r}
-gene_diff<-read.table("DiffExp/final_output/results/Cuffdiff/gene_exp.diff", sep = "\t", header=T)
+gene_diff<-read.table("Data/gene_exp.diff", sep = "\t", header=T)
 # jpeg("volcano_plot.jpg")
 with(gene_diff, plot(log2.fold_change., -log10(p_value)))
 title(main = "Volcano Plot")
@@ -424,7 +438,7 @@ legend("topright", pch = 1, col = c("black", "green"), legend = c("No Test", "Te
 We can also attempt this using Cuffdiff output of a RNA-seq experiment on garlic mustard treated with jasmonic acid. The *.diff file is called `Ap_gene_exp.diff` in the `final_output` folder.
 
 ```{r}
-Ap_gene_diff<-read.table("DiffExp/final_output/Ap_gene_exp.diff", sep = "\t", header=T)
+Ap_gene_diff<-read.table("Data/Ap_gene_exp.diff", sep = "\t", header=T)
 with(Ap_gene_diff, plot(log2.fold_change., -log10(p_value)))
 title(main = "Volcano Plot")
 with(subset(Ap_gene_diff, status=="OK"), points(log2.fold_change., -log10(p_value), col="green"))

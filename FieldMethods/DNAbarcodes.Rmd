@@ -5,7 +5,7 @@ output: html_document
 
 # Gel
 
-As a reminder, here is the picture of the gel testing the success of the PCR amplification
+Here is a picture of a gel testing the success of the PCR amplification from the 2018 field course. Note that a lot of bands seem to be missing, due to problems with the extraction, PCR, or loading of the samples.
 ![Gel Image](./Data/GelImage.jpg)
 
 # Download
