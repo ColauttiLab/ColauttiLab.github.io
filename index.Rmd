@@ -59,6 +59,8 @@ Project Finish: Publish your data
 
 # Course material
 
+[2018 HPC Summer School @ Queens](HPC2018.html)
+
 [2018 SETAC Short-Course](SETAC.html)
 
 [BIOL 307](FieldMethods.html) -- Field Methods in Ecological and Environmental Genomics
