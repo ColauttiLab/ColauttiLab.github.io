@@ -369,12 +369,12 @@ div.tocify {
 <h1>Explore the short-read data</h1>
 <p>As noted in lecture, the NCBI’s short-read archive (SRA) database is the go-to repository for short-read sequences in the form of FASTQ files (.fq) output from next-generation sequencers. Data come primarily from Roche 454, Ion Torrent, Illumina, and Oxford Nanopore platforms. The FASTQ file is a text-based formalization of the fluorescence data that you get out of the sequencer. We’ll explore this in more detail below. There is an unbelievable amount of data in this repository and most of it is virtually forgotten once the original papers are published. The few people with the computing power and expertise to analyze them are busy generating and analyzing new data! If you are interested in doing a research project with NGS data, the SRA is a treasure-trove of publishable data. You can explore the database at your leisure: <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/" class="uri">https://trace.ncbi.nlm.nih.gov/Traces/sra/</a></p>
 <p>Short-read sequencing data are usually encoded in the FASTQ format, which is an ASCII text-based, human-readable file. Let’s take a look at the FASTQ Files in the <em>deNovo</em> directory. Using the <strong>list</strong> command and filtering for files ending in <strong>.fq</strong></p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">ls</span> -l *.fastq</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">ls</span> -l *.fq</code></pre></div>
 <p><strong>NOTE:</strong> Don’t type the dollar sign , just everything after it. The dollar sign is to help you understand that this is something typed directly in the command line. Your command line before the dollar sign will probably say something like <strong><a href="mailto:hpc1234@swlogin1">hpc1234@swlogin1</a></strong> where <strong>hpc1234</strong> is your CAC login. The output will look something like this:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">-rw-r--r--</span>  1 hpc3183 hpcg1540 562452706 Aug  2 17:36 MI.M00833_0151.001.Index_9.eu_EFCC3_3_20_R1.fastq
-<span class="ex">-rw-r--r--</span>  1 hpc3183 hpcg1540 562452706 Aug  2 17:38 MI.M00833_0151.001.Index_9.eu_EFCC3_3_20_R2.fastq</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">-rw-r--r--</span> 1 hpc3183 hpcg1540 562452706 Aug  2 17:36 MiSeqF.fq
+<span class="ex">-rw-r--r--</span> 1 hpc3183 hpcg1540 562452706 Aug  2 17:38 MiSeqR.fq</code></pre></div>
 <p>Note how there is no $ symbol, because you don’t type this. It is output printed after you type the first line.</p>
-<p>Take note of the file sizes. Each base takes 1 byte of data, so 1.5 Megabytes ~ 1.5 Million bases (aka Megabases or Mb). These are only a fraction of the size of the raw sequence files, which would be on the order of 1,000+ times larger. In this tutorial, we will work with these smaller files to keep computation times manageable.</p>
+<p>Take note of the file sizes. Each base takes 1 byte of data, so 562 Megabytes ~ 562 Million bases (Mb). These are only a fraction of the size of the raw sequence files, which would be several Billion bases (Gigabases or Gb). In this tutorial, we will work with these smaller files to keep computation times manageable.</p>
 <p>The file names tell us whether the sequences came from the HiSeq or the MiSeq platform, and whether they are the forward or reverse sequences. This means that for every sequence in a <strong>forward</strong> direction (F) there is a paired sequence in the <strong>reverse</strong> (R) direction. The 5Kb sequences are <strong>mate-pair</strong> sequences. These are specially-made sequences from large fragments of DNA (~5Kb). Unlike regular <strong>paired-end</strong> sequences, the F and R directions of the mate pair sequences face outward. For more details on mate-pair libraries, see the lecture notes on de novo assembly, or more detail here <a href="http://www.google.com/patents/US20120329678">Patent Link</a></p>
 <p>Mate pair sequences are useful for figuring out the order of contigs. We’ll get to that later.</p>
 <blockquote>
@@ -426,20 +426,16 @@ TTTTTACATTTTCCCTCTCTCTCGTAGTGTGGGGAAGAAGTGGACTCTAGAAGTACTCCTAATTGCGGTAATAATAAAAC
 <p>One of many tools available for this is available in the Picard Tools package. Picard Tools are a set of Java programs that are already installed on the CAC servers. To one of the tools, we apply the <strong>module load</strong> command to load java and then run the picard.jar command along with with one of the specific Picard Tools commands. For more details see the website: <a href="https://broadinstitute.github.io/picard/">Picard Tools Website</a>.</p>
 <p><strong>IMPORTANT:</strong> Whenever you are using a program for the first time, you should carefully inspect all of the options listed in the help file:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">module</span> load java
-$ <span class="ex">java</span> -jar /opt/picardtools/2.0.1/picard.jar -h</code></pre></div>
+$ <span class="ex">java</span> -jar picard/build/libs/picard.jar -h</code></pre></div>
 <p>In this case, there are many ‘tools’, each with their own parameters. The website cited above is a good place to explore these in detail. You can also get help for a specific tool. Let’s take a look at a bash script that uses one of the Picard Tools called <strong>QualityScoreDistribution</strong>.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">java</span> -jar /opt/picardtools/2.0.1/picard.jar QualityScoreDistribution -h</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">java</span> -jar picard/build/libs/picard.jar QualityScoreDistribution -h</code></pre></div>
 <p>Take a few minutes to inspect the parameters. If the description is not clear, you can often find more information on the website or Googling for <strong>tutorials</strong> or <strong>examples</strong>.</p>
-<p>We have a file called <em>qcheck.sh</em> that contains a bash script for running <em>QualityScoreDistribution</em>. Go ahead and submit the script to the SGE scheduler using the <strong>qsub</strong> command:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">qsub</span> qcheck.sh</code></pre></div>
+<p>We have a file called <em>qcheck.sh</em> that contains a bash script for running <em>QualityScoreDistribution</em>. Go ahead and submit the script to the SLURM scheduler using the <strong>sbatch</strong> command:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">sbatch</span> qcheck.sh</code></pre></div>
 <p>While it’s running, let’s take a look at the rest of the sript. Open the <em>qcheck.sh</em> file using a text editor. You should see something like this:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#! /bin/bash</span>
-<span class="co">#$ -S /bin/bash</span>
-<span class="co">#$ -cwd</span>
-<span class="co">#$ -q abaqus.q</span>
-<span class="co">#$ -l qname=abaqus.q</span>
-<span class="co">#$ -e qcheck.err</span>
-<span class="co">#$ -o qcheck.out</span>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+<span class="co">#SBATCH -c 1</span>
+<span class="co">#SBATCH --mem=5000</span>
 
 <span class="co">## Quality check using PicardTools</span>
 
@@ -447,22 +443,21 @@ $ <span class="ex">java</span> -jar /opt/picardtools/2.0.1/picard.jar -h</code><
 <span class="ex">module</span> load java
 
 <span class="co">## First we need to convert our FASTQ files to BAM format</span>
-<span class="ex">java</span> -jar /opt/picardtools/2.0.1/picard.jar FastqToSam \
+<span class="ex">java</span> -jar picard/build/libs/picard.jar FastqToSam \
         FASTQ=MiSeqF.fq \
         FASTQ2=MiSeqR.fq \
         OUTPUT=MiSeq.bam \
         SAMPLE_NAME=Ap_euEFCC3_20
 
 <span class="co">## Java command to run QualityScoreDistribution command in Picard Tools</span>
-<span class="ex">java</span> -jar /opt/picardtools/2.0.1/picard.jar QualityScoreDistribution \
+<span class="ex">java</span> -jar picard/build/libs/picard.jar QualityScoreDistribution \
         INPUT=MiSeq.bam \
         OUTPUT=q_score_dist.txt \
         CHART=q_score_dist.pdf
 
 <span class="co">## Note use of backslash to break up one long line of code; easier to read</span></code></pre></div>
-<p>The first five lines are pretty standard to have at the start of your bash script; all begin with # and are used by the Sun Grid Engine (SGE) program to schedule how multiple scripts are run on the CAC servers from the many different people who use them. The first line is the standard ‘shebang’ (!#) with a slightly different format and <em>-S</em> for the SGE scheduler to recognize it as a bash script. The next line with <em>-cwd</em> is also standard for the current scheduling system for the SGE scheduler and controls output (e.g. generates warning messages). The two lines after that tell the scheduler that we want this to run on the abaqus servers (Linx-based). Again, this is standard now that the older Sparc/Solaris servers are obsolete.</p>
-<p>The 6th and 7th lines ask for error logging and output files to the file <em>qcheck.err</em> and <em>qcheck.out</em>. If we do not include this, it will create files with more unweildly names like <em>qcheck.sh.o197078</em>. This is a concatenation of our original bash file <em>qcheck.sh</em>, along with <em>.o</em> or <em>.e</em> signifying the output or error file, and a number that corresponds to the unique job ID – each submission to the scheduler using the <strong>qsub</strong> command gets a unique job ID.</p>
-<p>After the <strong>#$</strong> lines for the SGE there are a few comments, and then all of the action is contained in just two lines.</p>
+<p>The first line is the standard ‘shebang’ (!#). The next lines after that tell the scheduler that we want this to run on a single core with at least 8G of RAM. We ask for only 1 single core because the picard.jar program is not multi-threaded. Some programs have an option for number of ‘cores’ or ‘threads’ to use, and we’ll see an example of this later. If a program does not have these options, then it probably only uses 1 core. Specifying that we only need 1 core will help get our script to run sooner on the scheduler.</p>
+<p>After the <strong>#SBATCH</strong> lines for the SLURM scheduler there are a few comments, and then all of the action is contained in just two commands (note the use of backslash <code>\</code> to break up a single command into multiple lines for clarity.</p>
 <p>The first one is called <strong>FastQToSam</strong> and, as the name suggests, translates both of our FASTQ (.fq) files into a single .sam format.</p>
 </div>
 <div id="sam-vs-bam-vs-cram" class="section level1">
@@ -512,22 +507,21 @@ $ <span class="ex">java</span> -jar /opt/picardtools/2.0.1/picard.jar -h</code><
 </div>
 <div id="quality-check-with-fastqc" class="section level1">
 <h1>Quality check with FASTQC</h1>
-<p>FastQC is another popular program for quality control, using FASTQ files as input. It very easy to run, and provides more detailed analysis of the quality scores. Start by looking at the bash script <em>fastqc.sh</em></p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#! /bin/bash</span>
-<span class="co">#$ -S /bin/bash</span>
-<span class="co">#$ -cwd</span>
-<span class="co">#$ -q abaqus.q</span>
-<span class="co">#$ -l qname=abaqus.q</span>
-<span class="co">#$ -e fastqc.err</span>
-<span class="co">#$ -o fastqc.out</span>
+<p>FastQC is another popular program for quality control, using FASTQ files as input. It very easy to run, and provides more detailed analysis of the quality scores. Start by looking at the help file for <code>fastqc</code></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">module</span> load fastqc
+<span class="ex">fastqc</span> -h</code></pre></div>
+<p>The first part of the help is the most relevant:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">            <span class="ex">FastQC</span> - A high throughput sequence QC analysis tool
 
-<span class="co">## Quality check using PicardTools</span>
+<span class="ex">SYNOPSIS</span>
 
-<span class="ex">use</span> fastqc
+        <span class="ex">fastqc</span> seqfile1 seqfile2 .. seqfileN
 
-<span class="co">## FastQC command</span>
-<span class="ex">fastqc</span> MiSeqF.fq MiSeqR.fq</code></pre></div>
-<p>The only inputs for the fastqc commands are for the <strong>forward</strong> and <strong>reverse</strong> sequence files. The output is generated as an html file that can be viewed in any web browser: <a href="MiSeqF_fastqc.html" class="uri">MiSeqF_fastqc.html</a></p>
+    <span class="ex">fastqc</span> [-o output dir] [--(no)<span class="ex">extract</span>] [-f fastq<span class="kw">|</span><span class="ex">bam</span><span class="kw">|</span><span class="ex">sam</span>]
+           [<span class="ex">-c</span> contaminant file] seqfile1 .. seqfileN</code></pre></div>
+<p>The only required inputs for the sequence files we want to inspect.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">fastqc</span> MiSeqF.fq MiSeqR.fq</code></pre></div>
+<p>The output is generated as an html file that can be viewed in any web browser: <a href="MiSeqF_fastqc.html" class="uri">MiSeqF_fastqc.html</a></p>
 <blockquote>
 <p>Look carefully at the output. <br>Can you tell if this is high-quality or low-quality data? <br>Does it agree with the Picard Tools assessment?</p>
 </blockquote>
@@ -537,7 +531,8 @@ $ <span class="ex">java</span> -jar /opt/picardtools/2.0.1/picard.jar -h</code><
 </div>
 <div id="de-novo-assembly-with-platanus" class="section level1">
 <h1>De novo assembly with PLATANUS</h1>
-<p>Once we have filtered and trimmed out the bad-quality sequences we are ready for the de novo assembly. We’re going to use a newer program called PLATANUS <a href="http://platanus.bio.titech.ac.jp/?page_id=2">web link</a></p>
+<p>Once we have filtered and trimmed out the bad-quality sequences we are ready for the de novo assembly. We’re going to use a newer program called PLATANUS <a href="http://platanus.bio.titech.ac.jp/?page_id=2">web link</a>. Submit the script to run while we look at the program:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">sbatch</span> platcontig.sh</code></pre></div>
 <p>There are 3 main modules to PLATANUS:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Trimming and filtering</strong> – for quality control; removing low-quality sequences, contaminants, or other sequences that we don’t want to include. We’ll skip this component since our sequences have already been filtered and they are pretty good quality overall</li>
@@ -547,21 +542,16 @@ $ <span class="ex">java</span> -jar /opt/picardtools/2.0.1/picard.jar -h</code><
 <li><strong>Gap Closing</strong> – goes back to the short reads in an attempt to fill in some of the gaps made during scaffolding step</li>
 </ol>
 <p>Platanus also has some nice features for dealing with heterzygous genomes. We won’t explore these options because we are assembling a chloroplast genome, which is homozygous. <strong>Take a minute to think</strong> about why a heterozygous genome (e.g. a human genome) might be more difficult to sequence than a homozygous genome (e.g. a mouse inbred line). Once you have figured it out, take a look at the contig assembly bash script called <em>platcontig.sh</em></p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#! /bin/bash</span>
-<span class="co">#$ -S /bin/bash</span>
-<span class="co">#$ -cwd</span>
-<span class="co">#$ -q abaqus.q</span>
-<span class="co">#$ -l qname=abaqus.q</span>
-<span class="co">#$ -pe shm.pe 8</span>
-<span class="co">#$ -o platcontig.out</span>
-<span class="co">#$ -e platcontig.err</span>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+<span class="co">#SBATCH -c 8</span>
+<span class="co">#SBATCH --mem=16000</span>
 
 <span class="ex">use</span> platanus
 
-<span class="ex">platanus</span> assemble -o Ap -t <span class="va">$NSLOTS</span> -m 200 \
+<span class="ex">platanus</span> assemble -o Ap -t <span class="va">$SLURM_JOB_CPUS_PER_NODE</span> -m <span class="va">$SLURM_MEM_PER_NODE</span> \
 -f ./HiSeqF.fq ./HiSeqR.fq</code></pre></div>
 <p>Notice this line:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#$ -pe shm.pe 8</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#SBATCH -c 8</span></code></pre></div>
 <p>Some programs use algorithms that can be run in parallel, meaning that the computation work is spread across a number of computer <strong>threads</strong>. In this case, we are asking the SGE scheduler to use 8 threads for our analysis. In theory this could be as much as 8 times faster than using a single thread, but in practice it is not quite that much faster because some parts of the program can’t be run in parallel. We then add the <em>-t</em> option to the PLATANUS command, but instead of putting the number 8 we put <em>$NSLOTS</em>, which passes the number from the -pe shm.pe line to the PLATANUS program.</p>
 <p>We aren’t going to run this because it will take to long. We’ll skip ahead to the output. It’s a big file so we’ll look at just the first 10 lines:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">head</span> Ap_contig.fa</code></pre></div>
@@ -586,18 +576,14 @@ $ <span class="ex">java</span> -jar /opt/picardtools/2.0.1/picard.jar -h</code><
 <p>Then use your down arrow to scroll down to the 8th sequence:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="op">&gt;</span><span class="ex">seq8_len4434_cov2259</span></code></pre></div>
 <p>Here you can see a contig with 4,434 bases. In total, this file contains 50 contigs. Most of them are small (&lt;300bp) but there are a few larger ones; most notably seq12 (~26Kb), seq20 (~18Kb), seq26 (~39Kb) and seq34 (~20Kb). We have are a few large fragments and a bunch of smaller contigs, but we don’t know how they fit together. For example, is there a repeat separating seq12 from seq34 or is either one closer to seq20? One way to bridge this gap is with our mate pair sequences. PLATANUS can be used for this step. Let’s look at the bash script called <em>platscaf.sh</em></p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#! /bin/bash</span>
-<span class="co">#$ -S /bin/bash</span>
-<span class="co">#$ -cwd</span>
-<span class="co">#$ -q abaqus.q</span>
-<span class="co">#$ -l qname=abaqus.q</span>
-<span class="co">#$ -pe shm.pe 8</span>
-<span class="co">#$ -o platscaf.out</span>
-<span class="co">#$ -e platscaf.err</span>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+<span class="co">#SBATCH -c 8</span>
+<span class="co">#SBATCH --mem=16000</span>
 
-<span class="ex">use</span> platanus
+<span class="ex">module</span> load platanus
 
-<span class="ex">platanus</span> scaffold -o Ap -c Ap_contig.fa -b Ap_contigBubble.fa -t <span class="va">$NSLOTS</span> \
+<span class="ex">platanus</span> scaffold -o Ap -c Ap_contig.fa -b Ap_contigBubble.fa \
+-t <span class="va">$SLURM_JOB_CPUS_PER_NODE</span> -m <span class="va">$SLURM_MEM_PER_NODE</span> \
 -ip1 ./Hi5F.fq -ip2 ./Hi5R.fq</code></pre></div>
 <p>The <em>platanus scaffold</em> command takes our contig file, which was created by <em>platanus assemble</em>, above. It also needs at least one pair of mate pair sequences. The other <em>bubble</em> file was also created by <em>platanus assemble</em> and would normally contain information about merged and removed ‘bubbles’. Bubbles in the assembly occur in heterozygous genomes and in repeat regions where alternate assemblies are possible. However, our <em>bubble</em> file is empty (no merged bubble sequences). This is a bit odd, and we’ll come back to why this occurs for this data.</p>
 <p>The scaffolding step should use the mate pair reads to identify the orientation of scaffolds and the distance between them. It will then combine them into a single <em>scaffold</em>, which is like a <em>contig</em> but with <em>N</em> (the character for an ambiguous sequence) filled into for the unknown sequence.</p>
@@ -609,22 +595,13 @@ $ <span class="ex">java</span> -jar /opt/picardtools/2.0.1/picard.jar -h</code><
 <div id="blast-scaffolds-to-identify-overlap" class="section level1">
 <h1>BLAST scaffolds to identify overlap</h1>
 <p>Let’s investigate by looking for overlap between different scaffolds. To do this we can use the <em>BLAST</em> tools. BLAST may be the most widely used tool in bioinformatics. A good way to learn about BLAST is to explore it through the web interface <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">Website</a></p>
-<p>Let’s take a quick look at <em>scafBLAST.sh</em></p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#! /bin/bash</span>
-<span class="co">#$ -S /bin/bash</span>
-<span class="co">#$ -cwd</span>
-<span class="co">#$ -q abaqus.q</span>
-<span class="co">#$ -l qname=abaqus.q</span>
-<span class="co">#$ -o scafBLAST.out</span>
-<span class="co">#$ -e scafBLAST.err</span>
-
-<span class="ex">use</span> blast
+<p>Let’s run the commands:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">module</span> load blast
 
 <span class="ex">blastn</span> -query Ap_scaffold.fa \
 -subject Ap_scaffold.fa \
 -out scafBLAST.out -outfmt 6</code></pre></div>
-<p><strong>blastn</strong> is the blast tool for finding similarities between pairs of nucleotide sequences. In this case we are taking all of our scaffolds as the ‘query’ sequences and using the same sequences as our ‘subject’ sequence. This will just make a pairwise comparison of all of the scaffolds in the file. The <em>-outfmt 6</em> specifies how we want the output to be displayed. Submit the script</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">qsub</span> scafBLAST.sh</code></pre></div>
+<p><strong>blastn</strong> is the blast tool for finding similarities between pairs of nucleotide sequences. In this case we are taking all of our scaffolds as the ‘query’ sequences and using the same sequences as our ‘subject’ sequence. This will just make a pairwise comparison of all of the scaffolds in the file. The <em>-outfmt 6</em> specifies how we want the output to be displayed.</p>
 <p>After it has finished running, inspect the output file <em>scafBLAST.out</em>. You’ll see that it’s a tab-delimited data file. The column headers are not shown but are as follows:</p>
 <ol style="list-style-type: decimal">
 <li><strong>qseqid</strong> – the query (e.g., gene) sequence id</li>
@@ -655,17 +632,7 @@ $ <span class="ex">java</span> -jar /opt/picardtools/2.0.1/picard.jar -h</code><
 <div id="connect-overlapping-contigs" class="section level1">
 <h1>Connect overlapping contigs</h1>
 <p>Instead of manually trying to align all of the contigs, we can use the program <em>REDUNDANS</em> to automate the process of removing redundancy. The github site has a good overview of the program <a href="https://github.com/lpryszcz/redundans">Web Link</a></p>
-<p>Again, there is a pre-made bash file for you:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">cat</span> redundans.sh</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#! /bin/bash</span>
-<span class="co">#$ -S /bin/bash</span>
-<span class="co">#$ -cwd</span>
-<span class="co">#$ -q abaqus.q</span>
-<span class="co">#$ -l qname=abaqus.q</span>
-<span class="co">#$ -o redun.out</span>
-<span class="co">#$ -e redun.err</span>
-
-<span class="ex">use</span> redundans
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">module</span> load redundans
 
 <span class="ex">redundans.py</span> -v -i *.fq -f Ap_contig.fa -o redun --identity 1</code></pre></div>
 <p>Note that this program is a pipeline written in the python programming language (.py extension). The key inputs are the fastq files, and here we can use the wildcard symbol (*) to include all files with the .fq extension – this includes both our paired end and mate pair reads. We also input the contig file (which was created from platanus, above). I’ve also set identity close to 1 so that we only collapse overlapping contigs that are identical.</p>

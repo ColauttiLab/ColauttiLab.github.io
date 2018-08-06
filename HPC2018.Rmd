@@ -127,12 +127,6 @@ kable(SeqCmp) %>%
       + Unix [cheat sheet 2](http://cheatsheetworld.com/programming/unix-linux-cheat-sheet/)
   2. Version Control with [Git & GitHub](http://swcarpentry.github.io/git-novice/)
 
-## Applications Tutorials
-
-  1. Transcriptome analysis [tutorial](./NGS/DifferentialExpression.html)
-  2. Community ordination -- classic plant sampling [tutorial](./FieldMethods/Floristic_survey_analysis.html)
-  3. Community ordination -- Operational taxonomic units (OTUs) from metabarcoding [tutorial](./FieldMethods/OTU_analysis.html)
-
 ## Guides to Reproducible Science
 
 From the British Ecological Society
