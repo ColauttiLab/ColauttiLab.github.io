@@ -172,7 +172,7 @@ Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
           + Detailed .Rmd [website](http://rmarkdown.rstudio.com/lesson-1.html)
           + [R Notebooks](http://rmarkdown.rstudio.com/r_notebooks.html#overview)
   7. Visualizations with [qplot()](./RCrashCourse/2_qplot.html) and [ggplot()](./RCrashCourse/3_ggplot.html)
-      + [Visualizations: Examples and key concepts](./Lecures/Graphical_Concepts.pdf)
+      + [Visualizations: Examples and key concepts](./Lectures/Graphical_Concepts.pdf)
   8. Custom [R Packages](./RCrashCourse/Package_tutorial.html)
   9. Version Control with [Git & GitHub](http://swcarpentry.github.io/git-novice/)
 
