@@ -5,30 +5,45 @@ output: html_document
 
 # Essentials
 
-## 1. [Colautti Lab Manifesto](./Manifesto/index.html) 
+## 1. Carefully read the [Colautti Lab Manifesto](./Manifesto/index.html)
 
   * Essential reading for all members of the Colautti Lab
 
-## 2. [BES Guides](https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf) to Better Science
+## 2. Read the [BES Guides](https://www.britishecologicalsociety.org/publications/guides-to/) to Better Science
 
-  * [Data Management](./Readings/BES-Data-Guide-2017)
+  * [Data Management](./Readings/BES-Data-Guide-2017.pdf)
   * [Reproducible Code](./Readings/BES-Reproducible-Code.pdf)
   * [Getting Published](./Readings/BES-Getting-Published-Guide-2017.pdf)
   * [Peer Review](./Readings/BES-Peer-Review-Guide-2017.pdf)
 
-## 3. Data Management
+## 3. Create YouR Data Management Plan (DMP)
 
-Project Start: Create a Data Management Plan (DMP)
+Make sure you have read the BES guide to [data management](./Readings/BES-Data-Guide-2017.pdf)
+
+A good __rule of thumb:__ imagine somebody reading over your shoulder who is not familiar with your work. Would they be able to interpret your filenames, meta-data, README files, data field names, documentation, etc? A bonus is that you will be able to understand what you did when you revisit your data months or years later.
+
+__Before Starting__: Create a Data Management Plan (DMP)
 
   * DMP Assistant is an online portal to help you create a data management plan
   * [portagenetwork.ca](https://portagenetwork.ca) --> DMP Assistant --> Sign Up for a new account (or Sign in if you already have one)
   
-Project Finish: Publish your data
+__Collect or Create (Simulate) Data__
+  
+__After Finishing__: Publish your data
 
-  * QUBS [Dataverse Repository](https://dataverse.scholarsportal.info/dataverse/QUBS), open to all
-  * 2GB maximum file size, but you can include metadata with links to other datasets (e.g. [NCBI SRA database](https://www.ncbi.nlm.nih.gov/sra))
+  * For data collected at QUBS, use the [QUBS Dataverse Repository](https://dataverse.scholarsportal.info/dataverse/QUBS), open to all
+  * For other datasets, use a repository like [datadryad.org](https://colauttilab.github.io/), [FigShare.com](https://figshare.com/)
+  * For larger collaborative projects, create a [Dataverse Repository](https://dataverse.scholarsportal.info/)
+  * Use specialized datasets like [NCBI SRA database](https://www.ncbi.nlm.nih.gov/sra) or one on the list in [this paper](https://www.nature.com/sdata/policies/repositories), or search Google for a more appropriate home) 
+  * Consider whether it would be useful to combine repositories e.g. upload SRA files to NCBI and include Accession numbers in metadata posted in another repository containing code and called SNPs.
+
+## 4. Start Coding
+
+__READ__ Google's [R Style Guide](https://google.github.io/styleguide/Rguide.xml)
+
+__Set up__ R Studio ([Free Desktop Version](https://www.rstudio.com/products/rstudio/download/)) with a [GitHub account](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN) on your computer.
     
-# Coding Superpowers:
+## 5. Develop Your Coding Superpowers
 
 ![](./Superheroes.jpg)
 
