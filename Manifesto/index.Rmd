@@ -161,6 +161,17 @@ The first thing you should note is that grading has changed from an absolute sca
 
 These are high standards, and you will only achieve them if you are passionate about your work and embrace the discomfort that comes from acknowledging your weaknesses and always pushing yourself to improve on them. 
 
+### Vanier Scholarship
+
+The level of competition for OGS is low relative to more valuable graduate student grants like the NSERC CGS, NSERC Vanier CGS. Here is an excerpt from NSERC's instructions to reviewers for the Vanier CGS scholarship.
+
+Selection committee members consider referee assessments as part of their overall review and to corroborate their evaluation of the application. The assessments therefore play a critical role in the review process. ResearchNet will ask referees to address each of the selection criteria in the following manner:
+
+* __Academic excellence__: ( max 2250 characters) Provide an assessment of the candidate’s academic excellence as demonstrated by past academic results and by transcripts, awards and distinctions. Since the review committee is multidisciplinary, please provide an assessment that references the norms and expectations of the student’s discipline. If applicable, please also comment on results achieved outside of the university environment.
+* __Research potential__: (max 2250 characters) Provide an assessment of the candidate’s research potential as demonstrated by their research history, interest in discovery, the proposed research and its potential contribution to the advancement of knowledge in the field and any anticipated outcomes. Include examples to support your assessment in comparison to the norms particular to the research area(s) (e.g. publication norms for the discipline etc.)
+* __Leadership__: (max 4500 characters) Provide an assessment of demonstrated and potential leadership ability. Because there is no opportunity to interview the students, please elaborate for the committee how the candidate has gone above and beyond the opportunities presented in order to achieve a goal, contribute to their community, or how they have taken on responsibility for others. Note that high achievement, while admirable, does not necessarily constitute leadership. Be sure therefore to provide context for the committee that illuminates how the candidate’s participation in activities (e.g., volunteer or work, sport or art, and any other participation) goes above and beyond active participation and becomes leadership.
+
+
 ### Don't Panic!
 
 Everything will seem hard at first, and even the simplest tasks will take a long time. You will wonder how anyone ever gets anything done when it takes so long to do even the most basic things (e.g. write a carefully-worded email to a faculty member). I will tell you a big __secret__ about this: the more you do it, the faster it gets. The first time usually takes the longest, the hundredth or thousandth time is much faster. 
