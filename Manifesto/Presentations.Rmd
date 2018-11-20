@@ -9,6 +9,17 @@ output: html_document
 
 # Graphic design
 
+Graphical elements and concepts are the basis slide or poster design. Here are a few basics:
+
+1. **Lines** -- this includes text
+2. **Shapes** -- any 2-dimensional shape
+3. **Forms** -- modify 2-d shapes use shading and perspective to imply 3-dimensional shapes
+4. **Texture** -- adds feel to shapes and forms
+5. **Balance** -- describes how objects are laid out
+6. **Rule of thirds** -- create a 3x3 grid on the page and have major elements fall along these lines rather than smack in the middle of the page or some other random place.
+
+Watch this short (~5 min) [Youtube video on design fundamentals](https://www.youtube.com/watch?v=YqQx75OPRa0)
+
 Graphic design is the unsung hero of visual presentation, both in slides and posters. There are entire degrees devoted to this stuff, but a few simple rules can take you a long way. These fall into a few general categories:
 
 1. **Colour Theory**
