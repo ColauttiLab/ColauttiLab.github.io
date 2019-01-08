@@ -297,13 +297,69 @@ $(document).ready(function() {
 <h1>Assignments</h1>
 <p><em>This section is updated weekly</em></p>
 <p>Assignments will typically be posted by the end of lecture and due within 48 hrs. <strong>A late assignment receives 0%.</strong> See <strong>Grade Assessment</strong> under <strong>Content Summary</strong>, below, for more information.</p>
+<p><em>Assignment Grading Rubric:</em></p>
+<ul>
+<li><strong>1-5</strong>: A good effort is made with some ideas of what to do but many errors and/or non-functional elements.</li>
+<li><strong>6-7</strong>: Mostly working, but some missing elements, or poorly documented.</li>
+<li><strong>8-9</strong>: Excellent code, everything works well with proper documentation.</li>
+<li><strong>10</strong>: Outstanding code, unique or creative approach that differs from the majority, with code that is clean, efficient and well-documented.</li>
+</ul>
 <div id="week-1" class="section level2">
 <h2>Week 1</h2>
 <ol style="list-style-type: decimal">
-<li>Install <a href="https://mobaxterm.mobatek.net/download.html">MobaXterm</a> (Windows users only; Mac/Unix users don’t need this)</li>
-<li>Make an account (free) on <a href="https://github.com/">GitHub</a></li>
-<li>Complete Assignment #1: R Exercises on the <a href="https://onq.queensu.ca/">OnQ Course</a> website.</li>
+<li>Install <a href="https://mobaxterm.mobatek.net/download.html">MobaXterm</a> (Windows users only; Mac/Unix users don’t need this).</li>
+<li>Make an account (free) on <a href="https://github.com/">GitHub</a>.</li>
+<li>Test your core R understanding on the <a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals_test.html">R test website</a> and make sure you are comfortable with all the sections covered in the Week 1 tutorial.</li>
+<li>Complete Assignment #1 and subit your R script to the <a href="https://onq.queensu.ca/">OnQ Course</a> website:</li>
 </ol>
+<p><em>Week 1 Assignment:</em></p>
+<p>Create a new project in R Studio and write an R script that will estimate the volume of an organism’s leg, given a dataset of measurements. The input dataset may contain a number of measurements and other variables but will always include the columns ‘limb.length’ ‘limb.width’ and ‘units’, though not always in that order. The organisms in the datasets could be anything from an insect to a human or other large mammal, and your program should work on any of them.</p>
+<p>An example of the first two lines of a dataset called ‘measurements.csv’ might be:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Organism</th>
+<th>limb.width</th>
+<th>units</th>
+<th>limb.length</th>
+<th>observer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Ixodes scapularis”</td>
+<td>0.01</td>
+<td>“mm”</td>
+<td>0.2</td>
+<td>“Jeff X”</td>
+</tr>
+<tr class="even">
+<td>“Homo sapiens”</td>
+<td>3.28</td>
+<td>“in”</td>
+<td>38</td>
+<td>“Bill P”</td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Your program should be able to:</p>
+<ol style="list-style-type: decimal">
+<li>Load a file called ‘measurements.csv’ into a data.frame object</li>
+<li>Estimate limb volume from the length and width columns</li>
+<li>Convert from ‘in’ (inches) and ‘mm’ (milimeters) to calculate volume in cubic centimeters, with original measurements input from the ‘units’ column</li>
+<li>Save the new estimate of limb volume as a new column in the data.frame called ‘limb.volume’</li>
+<li>Output the modified data.frame object to a file called ‘volume.csv’</li>
+<li>Calculate the average limb.volume for the dataset and print to screen</li>
+</ol>
+<p>Everything you need to do this is in the R Lecture (see ‘CORE R’ link at the top of the page)</p>
+<p>Upload your .R script to the dropbox for Assignment #1 on OnQ</p>
 <hr />
 </div>
 </div>
