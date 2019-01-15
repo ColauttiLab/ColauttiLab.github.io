@@ -293,17 +293,23 @@ $(document).ready(function() {
   })
 });
 </script>
+<hr />
 <div id="assignments" class="section level1 tabset">
-<h1>Assignments</h1>
-<p><em>This section is updated weekly</em></p>
+<h1>Assignments*</h1>
+<p><span style="color:red"> This section is updated weekly </span></p>
+<div id="grading" class="section level2">
+<h2>Grading</h2>
 <p>Assignments will typically be posted by the end of lecture and due within 48 hrs. <strong>A late assignment receives 0%.</strong> See <strong>Grade Assessment</strong> under <strong>Content Summary</strong>, below, for more information.</p>
-<p><em>Assignment Grading Rubric:</em></p>
+<div id="assignment-grading-rubric" class="section level3">
+<h3>Assignment Grading Rubric:</h3>
 <ul>
 <li><strong>1-5</strong>: A good effort is made with some ideas of what to do but many errors and/or non-functional elements.</li>
 <li><strong>6-7</strong>: Mostly working, but some missing elements, or poorly documented.</li>
 <li><strong>8-9</strong>: Excellent code, everything works well with proper documentation.</li>
 <li><strong>10</strong>: Outstanding code, unique or creative approach that differs from the majority, with code that is clean, efficient and well-documented.</li>
 </ul>
+</div>
+</div>
 <div id="week-1" class="section level2">
 <h2>Week 1</h2>
 <ol style="list-style-type: decimal">
@@ -312,7 +318,8 @@ $(document).ready(function() {
 <li>Test your core R understanding on the <a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals_test.html">R test website</a> and make sure you are comfortable with all the sections covered in the Week 1 tutorial.</li>
 <li>Complete Assignment #1 and subit your R script to the <a href="https://onq.queensu.ca/">OnQ Course</a> website:</li>
 </ol>
-<p><em>Week 1 Assignment:</em></p>
+<div id="week-1-assignment" class="section level3">
+<h3>Week 1 Assignment:</h3>
 <p>Create a new project in R Studio and write an R script that will estimate the volume of an organism’s leg, given a dataset of measurements. The input dataset may contain a number of measurements and other variables but will always include the columns ‘limb.length’ ‘limb.width’ and ‘units’, though not always in that order. The organisms in the datasets could be anything from an insect to a human or other large mammal, and your program should work on any of them.</p>
 <p>An example of the first two lines of a dataset called ‘measurements.csv’ might be:</p>
 <table>
@@ -360,8 +367,78 @@ $(document).ready(function() {
 </ol>
 <p>Everything you need to do this is in the R Lecture (see ‘CORE R’ link at the top of the page)</p>
 <p>Upload your .R script to the dropbox for Assignment #1 on OnQ</p>
+</div>
+</div>
+<div id="week-2" class="section level2">
+<h2>Week 2</h2>
+<ol style="list-style-type: decimal">
+<li>Review the online tutorial material for Week 2 (Reminder: links to the tutorial content are always in the ‘Tutorial Content’ section)</li>
+<li>Read <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">Version Control with Git</a> and set up Git with R Studio.</li>
+<li>Watch the how-to video on <a href="https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-managing-part-2/">Version Control with Git in R Studio</a></li>
+<li><p>To make sure you understand the video, write out answers to these questions, and save them on your computer for use in a future tutorial:</p>
+<ol style="list-style-type: decimal">
+<li>Briefly explain the main differences between a ‘save’, ‘commit’, ‘branch’ and ‘merge’ in Git</li>
+<li>Why are commits more advantageous than regularly saving your files?</li>
+<li>What is the .gitignore file used for?</li>
+<li>What are ‘push’ and ‘pull’ used for?</li>
+<li>What’s the difference between Git and GitHub?</li>
+<li>What is your GitHub username? (you should have made an account for last week’s assignment)</li>
+</ol></li>
+<li><p>Do Practice <a href="https://colauttilab.github.io/RCrashCourse/4_regex.html#practice_exercises">Exercises 1-3</a> from the Regex Tutorial. Something very similar will be on the next quiz.</p></li>
+</ol>
+<p><em>Week 2 Assignment</em></p>
+<ul>
+<li>Create a new R package for this week’s assignment, and link it to a <strong>PUBLIC</strong> repository on GitHub.</li>
+<li>Copy the <a href="https://colauttilab.github.io/RCrashCourse/FallopiaData.csv">FallopiaData.csv file</a> (from the R tutorial) to your new project folder.</li>
+<li><p>Write a script called DataMixer.R that uses Regular Expressions and tidyr to do the following (in any order that works):</p>
+<ol style="list-style-type: decimal">
+<li>Read in a file named <em>InData.csv</em></li>
+<li>Remove rows with ‘Total’ biomass &lt; 60</li>
+<li>Reorder the columns so that they are in the order: ‘Total’, ‘Taxon’, ‘Senario’, ‘Nutrients’, and remove the other columns</li>
+<li>Make a new column TotalG, which converts the ‘Total’ column from mg to grams AND replace Total with TotalG.</li>
+<li>If there is a column called ‘Nutrients’, replace each string with its first letter – for example ‘high’ becomes ‘h’, ‘moderate’ becomes ‘m’, etc. (You don’t know what all the options might be)</li>
+<li>Replace all periods <code>.</code> with commas <code>,</code> in the ‘TotalG’ column</li>
+</ol></li>
+<li>Save your changes, and push them to GitHub</li>
+<li>Manually change the name of the file “FallopiaData.csv” to “InData.csv”</li>
+<li>Test your script, save and commit any changes, then push your final edits to GitHub.</li>
+<li><p>Upload your project folder (or individual files) to OnQ for grading.</p></li>
+</ul>
+</div>
+</div>
+<div id="section" class="section level1">
+<h1></h1>
 <hr />
 </div>
+<div id="tutorial-content" class="section level1 tabset">
+<h1>Tutorial Content*</h1>
+<p><span style="color:red">This section is updated weekly</span></p>
+<div id="week-1-r-eview" class="section level2">
+<h2>Week 1 | <strong>R</strong>-eview</h2>
+<ul>
+<li>Install <a href="https://cran.r-project.org/">R</a> with <a href="https://www.rstudio.com/products/RStudio/#Desktop">R Studio</a></li>
+<li>Project Setup</li>
+<li><a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html">R Crash Course</a></li>
+<li><a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html#2_r_basics">Math</a></li>
+<li><a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html#3_defining_variables__objects">Variables/Objects</a></li>
+<li><a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html#4_working_with_data">Data Frames</a></li>
+<li><a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html#7_flow_control">Flow Control</a></li>
+<li><a href="https://colauttilab.github.io/RCrashCourse/5_advanced.html#1_custom_functions">Custom Functions</a></li>
+</ul>
+</div>
+<div id="week-2-r-eproducibility" class="section level2">
+<h2>Week 2 | <strong>R</strong>-eproducibility</h2>
+<ul>
+<li><a href="https://colauttilab.github.io/RCrashCourse/5_datascience.html">Data Science &amp; Big Data in Biology</a></li>
+<li><a href="https://colauttilab.github.io/RCrashCourse/5_datascience.html#2_2d_data_wrangling"><code>dplyr</code></a></li>
+<li><a href="https://colauttilab.github.io/RCrashCourse/4_regex.html">Regex</a></li>
+<li>R Studio with GitHub (see Assignment)</li>
+</ul>
+</div>
+</div>
+<div id="section-1" class="section level1">
+<h1></h1>
+<hr />
 </div>
 <div id="content-summary" class="section level1 tabset tabset-fade">
 <h1>Content Summary</h1>
@@ -438,6 +515,9 @@ $(document).ready(function() {
 <hr />
 </div>
 </div>
+<div id="section-2" class="section level1">
+<h1></h1>
+</div>
 <div id="syllabus" class="section level1 tabset tabset-fade">
 <h1>Syllabus</h1>
 <div id="basic-info" class="section level2">
@@ -500,6 +580,10 @@ $(document).ready(function() {
 <p><strong>Step 3:</strong> If you have spent &gt;1hr on either of the above steps and are still stuck, come to the 1-hr weekly drop-in session and ask your TA for help.</p>
 </div>
 </div>
+<div id="section-3" class="section level1">
+<h1></h1>
+<hr />
+</div>
 <div id="other-considerations" class="section level1 tabset">
 <h1>Other Considerations</h1>
 <div id="grievances" class="section level2">
@@ -526,24 +610,6 @@ $(document).ready(function() {
 <div id="copyright" class="section level2">
 <h2>Copyright</h2>
 <p>The material in this course is the property of the instructor unless otherwise stated. Third party copyrighted materials (such as book chapters and articles) have either been licensed for use in this course or fall under an exception or limitation in Canadian Copyright law. Copying this material for distribution (e.g. uploading material to a commercial third-party website) can lead to a violation of Copyright law. More information on copyright on the <a href="http://library.queensu.ca/copyright/students">Queen’s Library Website</a></p>
-<hr />
-</div>
-</div>
-<div id="course-content" class="section level1 tabset">
-<h1>Course Content</h1>
-<p><em>This section is updated weekly</em></p>
-<div id="week-1-r-eview" class="section level2">
-<h2>Week 1 | <strong>R</strong>-eview</h2>
-<ul>
-<li>Install <a href="https://cran.r-project.org/">R</a> with <a href="https://www.rstudio.com/products/RStudio/#Desktop">R Studio</a></li>
-<li>Project Setup</li>
-<li><a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html">R Crash Course</a></li>
-<li><a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html#2_r_basics">Math</a></li>
-<li><a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html#3_defining_variables__objects">Variables/Objects</a></li>
-<li><a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html#4_working_with_data">Data Frames</a></li>
-<li><a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html#7_flow_control">Flow Control</a></li>
-<li><a href="https://colauttilab.github.io/RCrashCourse/5_advanced.html#1_custom_functions">Custom Functions</a></li>
-</ul>
 </div>
 </div>
 
