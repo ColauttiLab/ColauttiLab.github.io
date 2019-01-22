@@ -386,7 +386,8 @@ $(document).ready(function() {
 </ol></li>
 <li><p>Do Practice <a href="https://colauttilab.github.io/RCrashCourse/4_regex.html#practice_exercises">Exercises 1-3</a> from the Regex Tutorial. Something very similar will be on the next quiz.</p></li>
 </ol>
-<p><em>Week 2 Assignment</em></p>
+<div id="week-2-assignment" class="section level3">
+<h3>Week 2 Assignment</h3>
 <ul>
 <li>Create a new R package for this week’s assignment, and link it to a <strong>PUBLIC</strong> repository on GitHub.</li>
 <li>Copy the <a href="https://colauttilab.github.io/RCrashCourse/FallopiaData.csv">FallopiaData.csv file</a> (from the R tutorial) to your new project folder.</li>
@@ -404,6 +405,68 @@ $(document).ready(function() {
 <li>Test your script, save and commit any changes, then push your final edits to GitHub.</li>
 <li><p>Upload your project folder (or individual files) to OnQ for grading.</p></li>
 </ul>
+</div>
+</div>
+<div id="week-3" class="section level2">
+<h2>Week 3</h2>
+<ol style="list-style-type: decimal">
+<li>Review the structure and function of Ribosomes using notes from your other courses, and/or this <a href="https://en.wikipedia.org/wiki/Ribosome">Wikipedia article</a>.</li>
+<li>16S is a subunit of the prokaryotic ribosome that is commonly used in bacterial <a href="https://en.wikipedia.org/wiki/Phylogenetics">phylogenetics</a> and <a href="https://en.wikipedia.org/wiki/Bacterial_taxonomy">taxonomy</a>.</li>
+<li>DNA, RNA and Protein Sequences are available from <a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a>, a database maintained by the U.S. National Center for Biotechnology Information or <a href="https://en.wikipedia.org/wiki/National_Center_for_Biotechnology_Information">NCBI</a>.</li>
+<li>These sequences can be accessed in R by using the <code>rentrez</code> package.</li>
+</ol>
+<div id="week-3-assignment" class="section level3">
+<h3>Week 3 Assignment</h3>
+<ol style="list-style-type: decimal">
+<li>Install the <code>rentrez</code> package in R. You can read more about it in <a href="https://cran.r-project.org/web/packages/rentrez/vignettes/rentrez_tutorial.html">this tutorial</a></li>
+<li>Create a new R Project and use version control with Git to link it to a new repository on your GitHub account called <em>Rentrez</em>.</li>
+<li>Create a new script called <em>Download.R</em> that loads the <code>rentrez</code> package:
+<ol style="list-style-type: decimal">
+<li><p>Add these lines to your script.</p>
+<pre><code>ncbi_ids &lt;- c(&quot;HQ433692.1&quot;,&quot;HQ433694.1&quot;,&quot;HQ433691.1&quot;)
+Bburg&lt;-entrez_fetch(db = &quot;nuccore&quot;, id = ncbi_ids, rettype = &quot;fasta&quot;)</code></pre></li>
+<li>Add comments to explain what each line of your script does (Hint: use help <code>?</code> in R)</li>
+<li>Take a look at the <code>BBurg</code> object. It contains 3 different sequences of the 16S gene of <em>Borrelia</em> (aka <em>Borreliella</em>) <em>burgdorferi</em>, which is a bacteria that causes <a href="https://en.wikipedia.org/wiki/Lyme_disease">Lyme Disease</a>.</li>
+<li><p>Use the <code>strsplit()</code> function in combination with others to create a vector of 3 components, one for each sequence. Output this vector to a file called <em>Sequences.csv</em>.</p></li>
+</ol></li>
+<li><p>Write an R markdown script called <em>Analysis.rmd</em> that includes the following (in any order that works):</p>
+<ol style="list-style-type: decimal">
+<li>Import the <em>Sequences.csv</em> file.</li>
+<li>Using regular expressions, count the numbers of each base pair (A, T, C and G), in each of the three sequences. (Hint: do not include any characters from the header, use the nucleotide sequence only.)</li>
+<li>Print out each sequence.</li>
+<li>Print out the number of each nucleotide as a table for each of the three sequences.</li>
+<li>Include an image of a bacteria from the internet, and a link to the Wikipedia page about <em>Borrelia burgdorferi</em></li>
+<li>Calculate <em>GC Content</em> (% of nucleotides that are G or C) and create a final table showing GC content for each sequence ID, for example:</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th>Sequence ID</th>
+<th>GC Content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>HQ433694.1</td>
+<td>2%</td>
+</tr>
+<tr class="even">
+<td>HQ433692.1</td>
+<td>5%</td>
+</tr>
+<tr class="odd">
+<td>HQ433691.1</td>
+<td>4%</td>
+</tr>
+</tbody>
+</table>
+<ol start="7" style="list-style-type: decimal">
+<li>Add headers to distinguish the individual sequence analysis from the summary tables, and use sub-headers to distinguish the three individual sequence analyses from Step 3).</li>
+<li>Create an attractive, publication-worthy scatterplot of %GC using data from the file <a href="./Files/GC_content.csv">GC_content.csv</a>. Note: You will have have to calculate %GC Content from this file, which shows %C and %G content for 1000 specimens. Make sure the points for each of the three ‘species’ can be distinguished in the graph as clearly as possible.</li>
+</ol></li>
+</ol>
+<p><strong>To submit this assignment</strong>: upload your files to onQ and include the github link to your repository as a comment.</p>
+</div>
 </div>
 </div>
 <div id="section" class="section level1">
@@ -433,6 +496,15 @@ $(document).ready(function() {
 <li><a href="https://colauttilab.github.io/RCrashCourse/5_datascience.html#2_2d_data_wrangling"><code>dplyr</code></a></li>
 <li><a href="https://colauttilab.github.io/RCrashCourse/4_regex.html">Regex</a></li>
 <li>R Studio with GitHub (see Assignment)</li>
+</ul>
+</div>
+<div id="week-3-visualize-r" class="section level2">
+<h2>Week 3 | Visualize-<strong>R</strong></h2>
+<ul>
+<li><a href="https://colauttilab.github.io/Lectures/Graphical_Concepts.pdf">Basic Graphical Concepts (from BIOL 812)</a></li>
+<li>Intro to <a href="https://colauttilab.github.io/RCrashCourse/2_qplot.html">qplot</a></li>
+<li>Advanced graphics with <a href="https://colauttilab.github.io/RCrashCourse/3_ggplot.html">ggplot</a></li>
+<li>Beautiful reports using <a href="https://colauttilab.github.io/RCrashCourse/5_advanced.html">R Markdown</a></li>
 </ul>
 </div>
 </div>
