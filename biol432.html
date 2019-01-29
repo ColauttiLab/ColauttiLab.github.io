@@ -644,13 +644,15 @@ Bburg&lt;-entrez_fetch(db = &quot;nuccore&quot;, id = ncbi_ids, rettype = &quot;
 <div id="week-4-assignment" class="section level3">
 <h3>Week 4 Assignment</h3>
 <p>Consider these three lines from this weeks’ tutorial:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rbcL&lt;-<span class="kw">read.abif</span>(<span class="st">&quot;./Data/DNA_Barcoding/1Ipos_F_P1815443_064.ab1&quot;</span>) <span class="co"># Read</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(sangerseqR)
+rbcL&lt;-<span class="kw">read.abif</span>(<span class="st">&quot;./Data/DNA_Barcoding/1Ipos_F_P1815443_064.ab1&quot;</span>) <span class="co"># Read</span>
 rbcLseq &lt;-<span class="st"> </span><span class="kw">sangerseq</span>(rbcL) <span class="co"># Extract</span>
 SeqX&lt;-<span class="kw">makeBaseCalls</span>(rbcLseq) <span class="co"># Call </span></code></pre></div>
 <p>Modify and build on this code to write a script that will:</p>
 <ol style="list-style-type: decimal">
 <li>Extract and call the squence from the <code>.ab1</code> file provided</li>
-<li>Use regular expressions to extract the ‘Primary sequence’ only</li>
+<li>Use regular expressions to slice, paste and extract the ‘Primary sequence’ only. (you might need to use the <code>paste()</code> function and/or index brackets <code>[[]]</code>)</li>
+<li>Use regular expressions with the paste() function and the slot accessors to slice, paste and extract the ‘Primary sequence’ only.</li>
 <li>Convert the sequence to a <a href="https://en.wikipedia.org/wiki/FASTA_format">FASTA format</a>, in which the first line starts with <code>&gt;</code> and contains the file name and the second line contains the primary sequence.</li>
 <li>Loop through every file in the <code>Data</code> folder, do steps 1-3, and save the output as a vector of strings in the FASTA format.</li>
 <li>Save the <a href="./Data/BarcodePlateStats.csv">BarcodePlateStats.csv</a> to your <code>Data</code> folder and use it to exclude from your loop any sequences that do not pass the quality check.</li>
@@ -796,7 +798,7 @@ SeqX&lt;-<span class="kw">makeBaseCalls</span>(rbcLseq) <span class="co"># Call 
 <h2>Basic Info</h2>
 <p><strong>Instructor</strong>: Dr. Robert Colautti, <a href="mailto:robert.colautti@queensu.ca">robert.colautti@queensu.ca</a></p>
 <p><strong>Tutorials</strong>: Tuesdays 14:30-17:30, Ellis 333</p>
-<p><strong>Grading TA</strong>: Yihan Wu, <a href="mailto:yihan.wu@queensu.ca">yihan.wu@queensu.ca</a></p>
+<p><strong>Grading TA</strong>: Yihan Wu, <a href="mailto:yw35@queensu.ca">yw35@queensu.ca</a></p>
 <p><strong>Tutorial/Help TA</strong>: Ying Chen, <a href="mailto:15yc24@queensu.ca">15yc24@queensu.ca</a></p>
 <p><strong>Office/Help Hours</strong>: Thursdays 9:30-10:30, BioSci 3110</p>
 <p><strong>Syllabus</strong>: Click tabs above, or view the <a href="./Files/Colautti_432_Syllabus_2019.pdf">pdf version</a></p>
