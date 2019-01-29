@@ -55,5 +55,8 @@ output: html_document
     + ~ 4-10 hours per month
     + additional tasks (new program development, ranking applications, writing reports, etc.)
 
-
 # Project Managment
+
+Your thesis or independent study project is an opportunity to work on your project management skills. It can make a great line for your CV and you will impress an interviewer if you can explain how you oversaw a research project from initial conception to final submission (or, ideally, publication!)
+
+Planning is key. Research what other people have done, try to imagine yourself going through the motions. What do you need to prepare? What are some things that could go wrong and how can you help avoid or mitigate those problems?

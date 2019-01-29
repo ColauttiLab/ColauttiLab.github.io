@@ -76,8 +76,14 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -93,7 +99,6 @@ body {
   padding-top: 66px;
   margin-top: -66px;
 }
-
 .section h2 {
   padding-top: 66px;
   margin-top: -66px;
@@ -113,6 +118,43 @@ body {
 .section h6 {
   padding-top: 66px;
   margin-top: -66px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -134,18 +176,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -282,7 +383,7 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>The purpose of this page is to track the career trajectory of current &amp; former Colautti Lab alumni. If you are a former member of the lab, we love to receive updates on your career goals and accomplishments!</p>
+<p>Some day you will be on this elite list. If you have moved on and aren’t here, please email Rob to tell him! Please also update us as your current status changes. We love to receive updates on your career goals and accomplishments. Your success is our success!</p>
 </div>
 <div id="student-tracker" class="section level1">
 <h1>Student Tracker</h1>
@@ -351,7 +452,7 @@ div.tocify {
 <td>BSc (work study)</td>
 <td>baRcodes</td>
 <td>2016-18</td>
-<td>2018 Scotiabank – Operating Systems Team Member</td>
+<td>Job: 2018 Scotiabank – Operating Systems Team Member</td>
 </tr>
 <tr class="even">
 <td>Angela Wong</td>
@@ -368,7 +469,7 @@ div.tocify {
 <td>????</td>
 </tr>
 <tr class="even">
-<td>Weihang Chen</td>
+<td>Weihang (Kathleen) Chen</td>
 <td>BSc (Co-mentorship)</td>
 <td>Ticks + GM</td>
 <td>2016-17</td>
@@ -386,14 +487,14 @@ div.tocify {
 <td>BSc (work study)</td>
 <td>Lab servers</td>
 <td>2017-18</td>
-<td>2018 eSight – Data Analyst</td>
+<td>Job: 2018 eSight – Data Analyst</td>
 </tr>
 <tr class="odd">
 <td>Rhett Andruko</td>
 <td>BSc (USRA)</td>
 <td>GM + maple @ QUBS</td>
 <td>2017 (summer)</td>
-<td>2018 School of Forestry – Alberta?</td>
+<td>2018-? MSc, School of Forestry – Alberta</td>
 </tr>
 <tr class="even">
 <td>Anneke Golemeic</td>
@@ -412,7 +513,7 @@ div.tocify {
 <tr class="even">
 <td>Pallavi Gupta</td>
 <td>BSc (mentorship + thesis)</td>
-<td>Tick LAMP + Lythrum GBS?</td>
+<td>Tick LAMP + Betula genetics</td>
 <td>2017-19</td>
 <td>????</td>
 </tr>
@@ -433,7 +534,7 @@ div.tocify {
 <tr class="odd">
 <td>Claire Smith</td>
 <td>BSc (USRA)</td>
-<td>GRENE-Net</td>
+<td>GRENE-Net + mentorship</td>
 <td>2018 (sumer)</td>
 <td>????</td>
 </tr>
@@ -473,7 +574,7 @@ div.tocify {
 <td></td>
 </tr>
 <tr class="odd">
-<td>Muzzamil Abdur-Razak</td>
+<td>Muzzamil (Muzz) Abdur-Razak</td>
 <td>MSc (Co-)</td>
 <td>Lythrum herbivory</td>
 <td>2016-18</td>
@@ -508,18 +609,30 @@ div.tocify {
 <td>????</td>
 </tr>
 <tr class="even">
-<td>??Sharon’s student??</td>
-<td>MSc (Co-)</td>
-<td>Poplar mutants</td>
-<td>2018-20</td>
-<td>????</td>
+<td><span class="math inline">\(Other\)</span> <span class="math inline">\(Personnel\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Almira Siew</td>
+<td>The Wonder Technician</td>
+<td>Just about Everything</td>
+<td>2018-19</td>
+<td>Job: 2019</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="major-awards-honours" class="section level1">
 <h1>Major Awards &amp; Honours</h1>
-<p>USRA – Rhett, Claire OGS – Eugene Outstanding TA award – Muzz QUBS-BUGS award – Weihang</p>
+<ul>
+<li>USRA – Rhett Andruko, Claire Smith</li>
+<li>OGS – Eugene Sit</li>
+<li>Outstanding TA award – Muzzamil (Muzz) Abdur-Razak</li>
+<li>QUBS-BUGS award – Weihang (Kathleen) Chen; Jamie Mackay</li>
+</ul>
 </div>
 
 

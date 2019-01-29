@@ -76,8 +76,14 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -93,7 +99,6 @@ body {
   padding-top: 66px;
   margin-top: -66px;
 }
-
 .section h2 {
   padding-top: 66px;
   margin-top: -66px;
@@ -113,6 +118,43 @@ body {
 .section h6 {
   padding-top: 66px;
   margin-top: -66px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -134,18 +176,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -299,19 +400,7 @@ div.tocify {
 </div>
 <div id="read-read-read" class="section level1">
 <h1>3. Read, Read, Read!</h1>
-<p>Yes, the first step of writing is to <strong>READ</strong>. Read early and read often. Actually, the word ‘read’ is a bit misleading. As a new student you are going to have to spend a lot of time with each paper, trying to understand as much of it as you can and this often requires re-reading the same sentence or paragraph multiple times. Don’t worry if you can’t understanding every single line or equation, but read each sentence very carefully.</p>
-<ul>
-<li>Pause to look up terms and phrases that you aren’t don’t know well enough to explain to a 1st year biology student.</li>
-<li>Try to read everything on your study species and in your study area, no matter how trivial, but save some time to read broadly.</li>
-<li>Focus more time on papers from good journals (Science, Nature, PNAS, PRSC, Evolution, Ecology Letters, and just about anything with an ISI impact factor &gt; 5). Review papers (e.g. TREE, Annu Rev, etc.) are a place to start and a good source for general overview of a topic when you first start researching your topic, but you should focus more on synthesizing primary research papers.</li>
-<li><strong>Start reading</strong> by finding reviews and spending some time digging into relevant papers from the Colautti Lab and our collaborators. Then use these to identify other papers to read (e.g. look at citations in the paper, and use Web of Science or Google Scholar to find newer papers that cite the one you are reading).</li>
-<li><strong>Three very important reasons to read</strong>
-<ol style="list-style-type: decimal">
-<li>To learn what has already been discovered.</li>
-<li>To understand the methods used to make those discoveries.</li>
-<li>To learn how to write a good research paper by comparing papers in different journals.</li>
-</ol></li>
-</ul>
+<p>Yes, the first step of writing is to <strong>READ</strong>. Read early and read often. See the <a href="Reading.html">Reading page</a> for tips. Needless to say: read, read read!</p>
 </div>
 <div id="synthesize" class="section level1">
 <h1>4. Synthesize</h1>

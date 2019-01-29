@@ -3,7 +3,19 @@ title: "Colautti Lab Manifesto"
 output: html_document
 ---
 
-# TO DO:
+# Read, read, read!
 
-* how to read a paper -- what to look for
-* what to emulate when writing (structure of abstract, etc.)
+Read early and read often. Actually, the word ‘read’ is a bit misleading as it suggests something like you would do with a good novel or news article. Technical reading is very different. As a new student you are going to have to spend a lot of time with each paper, trying to understand as much of of the article as you can. This often requires re-reading the same sentence or paragraph multiple times, taking a side-track to look up each term or concept that you don't understand. Don’t worry if you can’t understanding every single line or equation, but read each sentence very carefully.
+
+  * Pause to look up terms and phrases that you aren’t don’t know well enough to explain to a 1st year biology student. 
+  * Don't be afraid of equations. Equations aren't like regular text, they take a long time to read and understand, even for people who like math. Take time to understand each parameter, where it comes from, how it's calculated, and what it represents biologically. It may take you as long to work through one equation as it takes you to read a whole page of text -- and that's okay!
+  * Try to read everything on your study species and in your study area, no matter how trivial, but save some time to read broadly.
+  * Focus more time on papers from good journals (Science, Nature, PNAS, PRSC, Evolution, Ecology Letters, and just about anything with an ISI impact factor > 5). 
+  * Review papers (e.g. TREE, Annu Rev, etc.) are a place to start and a good source for general overview of a topic when you first start researching your topic, but you should focus more on synthesizing primary research papers.
+  * Start reading by finding reviews and spending some time digging into relevant papers from the Colautti Lab and our collaborators. Then use these to identify other papers to read (e.g. look at citations in the paper, and use Web of Science or Google Scholar to find newer papers that cite the one you are reading).
+
+# Three very important reasons to read:
+
+  1. To learn what has already been discovered.
+  2. To understand the methods used to make those discoveries.
+  3. To learn how to write a good research paper by comparing papers in different journals.
