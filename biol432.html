@@ -645,9 +645,9 @@ Bburg&lt;-entrez_fetch(db = &quot;nuccore&quot;, id = ncbi_ids, rettype = &quot;
 <h3>Week 4 Assignment</h3>
 <p>Consider these three lines from this weeks’ tutorial:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(sangerseqR)
-rbcL&lt;-<span class="kw">read.abif</span>(<span class="st">&quot;./Data/DNA_Barcoding/1Ipos_F_P1815443_064.ab1&quot;</span>) <span class="co"># Read</span>
-rbcLseq &lt;-<span class="st"> </span><span class="kw">sangerseq</span>(rbcL) <span class="co"># Extract</span>
-SeqX&lt;-<span class="kw">makeBaseCalls</span>(rbcLseq) <span class="co"># Call </span></code></pre></div>
+ITS&lt;-<span class="kw">read.abif</span>(<span class="st">&quot;./Data/DNA_Barcoding/1Ipos_F_P1815443_064.ab1&quot;</span>) <span class="co"># Read</span>
+ITSseq &lt;-<span class="st"> </span><span class="kw">sangerseq</span>(ITS) <span class="co"># Extract</span>
+SeqX&lt;-<span class="kw">makeBaseCalls</span>(ITSseq) <span class="co"># Call </span></code></pre></div>
 <p>Modify and build on this code to write a script that will:</p>
 <ol style="list-style-type: decimal">
 <li>Extract and call the squence from the <code>.ab1</code> file provided</li>
