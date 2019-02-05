@@ -660,6 +660,40 @@ SeqX&lt;-<span class="kw">makeBaseCalls</span>(ITSseq) <span class="co"># Call <
 </ol>
 </div>
 </div>
+<div id="week-5" class="section level2">
+<h2>Week 5</h2>
+<ol style="list-style-type: decimal">
+<li>Review the three methods for phylogeny construction. Don’t worry about the math, but be able to explain how each works using plain language and/or diagrams. Make sure you can write an R script that can use any of these approaches to build a phylogenetic tree.
+<ol style="list-style-type: decimal">
+<li>The <a href="https://en.wikipedia.org/wiki/Neighbor_joining">Neighbour-Joining (NJ)</a> approach</li>
+<li>The <a href="https://www.megasoftware.net/web_help_7/rh_minimum_evolution.htm">Minimum Evolution (ME)</a> approach</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Hierarchical_clustering">Hierarchical Clustering</a> approach</li>
+</ol></li>
+</ol>
+<div id="week-5-assignment" class="section level3">
+<h3>Week 5 Assignment</h3>
+<div id="part-i" class="section level4">
+<h4>PART I</h4>
+<p>After graduating, you land a job as a research scientist at the Canadian Public Health Agency in Canada when a clinician sends you a sample of blood from a patient with life-threatening illness.</p>
+<p>You find a protein in the bloodstream that is usually absent from health patients, so you sequence it:</p>
+<pre><code>NPNQKITTIGSICMVIGIVSLMLQIGNIISIWVSHSIQTGNQHQ
+AEPCNQSIITYENNTWVNQTYVNISNTNFLTEKAVASVTLAGNSSLCPISGWAVYSKD
+NGIRIGSKGDVFVIREPFISCSHLECRTFFLTQGALLNDKHSNGTVKDRSPHRTLMSC
+PVGEAPSPYNSRFESVAWSASACHDGTSWLTIGISGPDNGAVAVLKYNGIITDTIKSW
+RNNIMRTQESECACVNGSCFTVMTDGPSNGQASYKIFRIEKGKVVKSAELNAPNYHYE
+ECSCYPDAGEITCVCRDNWHGSNRPWVSFNQNLEYRIGYICSGVFGDNPRPNDGTGSC
+GPVSPKGAYGIKGFSFKYGNGVWIGRTKSTNSRSGFEMIWDPNGWTGTDSNFSVKQDI
+VAITDWSGYSGSFVQHPELTGLDCIRPCFWVELIRGRPKESTIWTSGSSISFCGVNSD
+TVGWSWPDGAELPFTIDK      </code></pre>
+<p>Use the knowledge gained from alignments and phylogenetic analysis to analyze the sequence. Write a report in R Markdown explaining to the clinician whether this is something to be concerned about, using graphics text to explain your analysis. Use formatting to make it look as professional.</p>
+<p>NOTE: You can use the parameter <code>database=&quot;nr&quot;,program=&quot;blastp&quot;</code>to look for protein matches using the <code>blastSequences()</code> function. You may also want to adjust the <code>timeout=</code> and <code>hitListSize=</code> parameters.</p>
+</div>
+<div id="part-ii" class="section level4">
+<h4>PART II</h4>
+<p>Add an “Appendix I” section to your report that explores how <code>model=&quot;K80&quot;</code> vs <code>model=F84</code> vs <code>model=TN93</code> parameters in your distance matrix calculation. Then choose one of those three models and compare the results of Neighbour Joining vs Minimum Evolution tree building algoritms.</p>
+</div>
+</div>
+</div>
 </div>
 <div id="section" class="section level1">
 <h1></h1>
@@ -709,7 +743,17 @@ SeqX&lt;-<span class="kw">makeBaseCalls</span>(ITSseq) <span class="co"># Call <
 <li>IUPAC Codes</li>
 <li>Chromatographs</li>
 <li>BLAST</li>
+</ul>
+</div>
+<div id="week-5-alignments" class="section level2">
+<h2>Week 5 | Alignments</h2>
+<ul>
+<li>Content in the <a href="./Alignments.html">Alignments Tutorial</a></li>
 <li>Genbank</li>
+<li>Pairwise alignments (more BLAST))</li>
+<li>Multiple alignments with MUSCLE</li>
+<li>Distance matrix algorithms</li>
+<li>Tree construction algorithms</li>
 </ul>
 <hr />
 </div>
