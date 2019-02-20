@@ -16,9 +16,7 @@ output: html_document
   * [Getting Published](./Readings/BES-Getting-Published-Guide-2017.pdf)
   * [Peer Review](./Readings/BES-Peer-Review-Guide-2017.pdf)
 
-## 3. Create YouR Data Management Plan (DMP)
-
-Make sure you have read the BES guide to [data management](./Readings/BES-Data-Guide-2017.pdf)
+## 3. Create Your Data Management Plan (DMP)
 
 A good __rule of thumb:__ imagine somebody reading over your shoulder who is not familiar with your work. Would they be able to interpret your filenames, meta-data, README files, data field names, documentation, etc? A bonus is that you will be able to understand what you did when you revisit your data months or years later.
 
@@ -28,6 +26,10 @@ __Before Starting__: Create a Data Management Plan (DMP)
   * [portagenetwork.ca](https://portagenetwork.ca) --> DMP Assistant --> Sign Up for a new account (or Sign in if you already have one)
   
 __Collect or Create (Simulate) Data__
+
+  * See our bioRxiv manuscript [**baRcodeR** with **PyTrackDat** Open-source labelling and tracking of biological samples for repeatable science](https://www.biorxiv.org/content/early/2018/10/30/457051)
+  * Create labels with [**baRcodeR** in R](https://cran.r-project.org/package=baRcodeR)
+  * Collect data in a spreadsheet, or setup a database with [PyTrackDat](https://github.com/ColauttiLab/PyTrackDat/)
   
 __After Finishing__: Publish your data
 
@@ -74,16 +76,25 @@ __Set up__ R Studio ([Free Desktop Version](https://www.rstudio.com/products/rst
 
 # Course material
 
+## Colautti's courses
+
 [2018 HPC Summer School @ Queens](HPC2018.html)
 
 [2018 SETAC Short-Course](SETAC.html)
 
 [BIOL 307](FieldMethods.html) -- Field Methods in Ecological and Environmental Genomics
 
-BIOL 432 -- Introduction to Computation and Big Data in Biology
+[BIOL 432](biol432.html) -- Introduction to Computation and Big Data in Biology
 
 [BIOL 812](biol812.html) -- Applied Computation for Biologists
 
+## Other course material
+
+__Gram Coop's PopGen notes__
+
+  * [Release Notes](https://github.com/cooplab/popgen-notes/blob/master/release_popgen_notes.pdf)
+  * [Main GitHub Site](https://github.com/cooplab/popgen-notes)
+  
 ***
 
 # Other resources

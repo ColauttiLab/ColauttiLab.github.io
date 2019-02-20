@@ -76,8 +76,14 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -93,7 +99,6 @@ body {
   padding-top: 66px;
   margin-top: -66px;
 }
-
 .section h2 {
   padding-top: 66px;
   margin-top: -66px;
@@ -113,6 +118,43 @@ body {
 .section h6 {
   padding-top: 66px;
   margin-top: -66px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -134,18 +176,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -298,8 +399,7 @@ div.tocify {
 </ul>
 </div>
 <div id="create-your-data-management-plan-dmp" class="section level2">
-<h2>3. Create YouR Data Management Plan (DMP)</h2>
-<p>Make sure you have read the BES guide to <a href="./Readings/BES-Data-Guide-2017.pdf">data management</a></p>
+<h2>3. Create Your Data Management Plan (DMP)</h2>
 <p>A good <strong>rule of thumb:</strong> imagine somebody reading over your shoulder who is not familiar with your work. Would they be able to interpret your filenames, meta-data, README files, data field names, documentation, etc? A bonus is that you will be able to understand what you did when you revisit your data months or years later.</p>
 <p><strong>Before Starting</strong>: Create a Data Management Plan (DMP)</p>
 <ul>
@@ -307,6 +407,9 @@ div.tocify {
 <li><a href="https://portagenetwork.ca">portagenetwork.ca</a> –&gt; DMP Assistant –&gt; Sign Up for a new account (or Sign in if you already have one)</li>
 </ul>
 <p><strong>Collect or Create (Simulate) Data</strong></p>
+<ul>
+<li>See our bioRxiv manuscript <a href="https://www.biorxiv.org/content/early/2018/10/30/457051"><strong>baRcodeR</strong> with <strong>PyTrackDat</strong> Open-source labelling and tracking of biological samples for repeatable science</a></li>
+</ul>
 <p><strong>After Finishing</strong>: Publish your data</p>
 <ul>
 <li>For data collected at QUBS, use the <a href="https://dataverse.scholarsportal.info/dataverse/QUBS">QUBS Dataverse Repository</a>, open to all</li>
@@ -395,12 +498,23 @@ div.tocify {
 </div>
 <div id="course-material" class="section level1">
 <h1>Course material</h1>
+<div id="colauttis-courses" class="section level2">
+<h2>Colautti’s courses</h2>
 <p><a href="HPC2018.html">2018 HPC Summer School @ Queens</a></p>
 <p><a href="SETAC.html">2018 SETAC Short-Course</a></p>
 <p><a href="FieldMethods.html">BIOL 307</a> – Field Methods in Ecological and Environmental Genomics</p>
-<p>BIOL 432 – Introduction to Computation and Big Data in Biology</p>
+<p><a href="biol432.html">BIOL 432</a> – Introduction to Computation and Big Data in Biology</p>
 <p><a href="biol812.html">BIOL 812</a> – Applied Computation for Biologists</p>
+</div>
+<div id="other-course-material" class="section level2">
+<h2>Other course material</h2>
+<p><strong>Gram Coop’s PopGen notes</strong></p>
+<ul>
+<li><a href="https://github.com/cooplab/popgen-notes/blob/master/release_popgen_notes.pdf">Release Notes</a></li>
+<li><a href="https://github.com/cooplab/popgen-notes">Main GitHub Site</a></li>
+</ul>
 <hr />
+</div>
 </div>
 <div id="other-resources" class="section level1">
 <h1>Other resources</h1>
