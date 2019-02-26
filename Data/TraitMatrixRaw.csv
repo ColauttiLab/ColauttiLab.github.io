@@ -1,0 +1,76 @@
+Origin,RefNum,Teeth Type,Tongue,Eyes,Eye position,Ears,Nose,Snout,Horns,Skin-face/neck,Skin-body,Skin-Belly,Dorsal ridge,Toes,Opposed toes,Legs,Claws,Wings,Wing type,Wing structure,Body Type,Tail end,Size,wiskers
+German,1,Blunt,forked; short,small,lateral,spearlike,upturned; forward nostrils,long,absent,smooth,fish scales,wide platemail,absent,3,0,4,short catlike,2,bat-like,4 ridges,elongate,point,,absent
+French,2,Fangs,forked; long,average,lateral,absent,upturned; forward nostrils,long,plates,hairy,soft scales,hair,absent,3,1,4,short talon,2,bird-like,,elongate,point,1-2x human,absent
+French,3,Blunt&Fangs,wormy; short,,forward,spearlike,pointy; forward nostrils,long,absent,smooth,smooth,smooth,absent,3,0,4,short catlike,2,bat-like,11 ridges,rotund,point,1-2x human,absent
+Dutch,4,Pointy,,narrow,lateral,spearlike,upturned; forward nostrils,moderate,absent,scaly skin,round platemail,smooth,single row; spikes,3,1,4,short talon,2,bird-like,5major; 6minor ridges,,,,absent
+English,5,,,small,lateral,absent,upturned; lateral nostrils,long,absent,smooth,smooth,smooth,single row; continuous,2,0,4,,2,batlike,5 ridges,elongate,point,1-2x human,absent
+American,6,Pointy,single; long,large,lateral,absent,slits; forward,absent,absent,scaly skin,hexagonal scales,wide platemail,absent,0,0,0,0,0,0,0,snake,,3x human,absent
+French,7,Blunt&Fangs,forked; long,small,forward,spearlike,upturned; forward nostrils,blunt,absent,hairy,rough,wide platemail,,4,1,4,large talon,2,mix,3major; 1 minor,elongate,point,1-2x human,absent
+English,8,Pointy,long,average,lateral,small,slits; lateral,long; duckbill,short,fish scales,fish scales,fish scales,single row; jagged,3,0,2,short talon,2,batlike,7major; 3minor,elongate,split (Y shape),1-2x human,absent
+French,9,Pointy,,average,forward,round,upturned; forward nostrils,blunt,absent,hairy,smooth,smooth,absent,3,1,4,short talon,2 wing-leg hybrid,batlike,6 ridges,rotund,point,1-2x human,absent
+French,10,Pointy,,average,forward,large dishlike,upturned; forward nostrils,blunt,absent,hairy,extra wide plates,see body,absent,3,0,2,short talon,2 wing-leg hybrid,batlike,7 ridges,elongate,point,1-2x human,absent
+Spanish,11,Blunt&Fangs,,small,lateral,round,hooked,long,absent,smooth,,smooth,absent,3,1,4,short talon,2,batlike,4 ridges,elongate,point,1-2x human,absent
+Japanese,12,,,average,forward,round,small; forward,long,long,hairy,fish scales,wide platemail,single; overlapping plates,3,1,4,large talongs,absent,,,snake,point,,long
+Japanese,13,,,narrow,forward,absent,upturned; forward nostrils,long,absent,spiny,spiny,,absent,3,,,,,,,snake,,,short
+Japanese,14,Fangs&Pointy,,large,forward,absent,upturned; forward nostrils,long,short,hairy,fish scales,wide platemail,single,,,0,,0,,,snake,blunt,3x human,short
+Japanese,15,Fangs&Pointy,,large,lateral,absent,upturned; forward nostrils,blunt,jagged,spiny,fish scales,wide platemail,absent,,,0,,0,,,snake,,1-2x human,long
+Japanese,16,Pointy,short,average,lateral,absent,upturned; forward nostrils,long,2lobed antler,hairy,rough,wide platemail,single; jagged,3,0,2,long catlike,0,,,snake,,,long
+Japanese,17,Pointy,,average,forward,spearlike,upturned; forward nostrils,long,2lobed antler,spiny,fish scales,wide platemail,single; spiked,3,0,4,large talon,absent,,,snake,blunt,,long
+Japanese,18,Fangs&Pointy,short,large,forward,absent,upturned; forward nostrils,blunt,absent,spiny,large scales,wide platemail,absent,,,4,,0,,,snake,,1-2x human,
+Japanese,19,Fangs&Pointy,,large,forward,absent,upturned; forward nostrils,blunt,short,rough,fish scales,wide platemail,absent,,,0,,0,,,snake,,1-2x human,long
+Japanese,20,,,average,forward,round,upturned; forward nostrils,blunt,short,hairy,fish scales,wide platemail,single; jagged,3,0,4,short catlike,0,,,snake,,,long
+Japanese,21,Fangs&Pointy,short,small,forward,absent,upturned; forward nostrils,long,jagged antlers,hairy,fish scales,wide platemail,single; spiked,3,0,4,large talon,0,,,snake,,,long
+Japanese,22,,,large,forward,spearlike,upturned; forward nostrils,long,short antler,hairy,fish scales,wide platemail,single; spiked,3,0,4,large talon,0,,,snake,fan,,medium
+Japanese,23,,,average,forward,round,upturned; forward nostrils,long,2lobed antler,hairy,fish scales,wide platemail,single; jagged,3,0,4,large talon,0,,,snake,fan,1-2x human,medium
+Japanese,24,,,large,lateral,spearlike,forward,long,2lobed antler,hairy,fish scales,wide platemail,single; spiked,3,0,4,large talon,0,,,snake,fan,,medium
+Japanese,25,Fangs&Pointy,,small,forward,absent,upturned; forward nostrils,long,long,hairy,bumpy,double plates,single jagged,3,0,4,large talon,0,,,snake,fan,,long
+Japanese,26,Fangs&Pointy,short,average,forward,spearlike,upturned; forward nostrils,long,2lobed antler,hairy,bumpy,double plates,absent,3,0,,large talon,0,,,snake,,,medium
+Japanese,27,,short,small,forward,,upturned; forward nostrils,long,long,hairy,fish scales,double plates,single; overlapping plates,3,0,4,large talon,0,,,snake,point,5-6x human,long
+Japanese,28,Fangs&Pointy,short,small,forward,spearlike,upturned; forward nostrils,long,2lobed antler,hairy,fish scales,wide platemail,single; jagged,3,0,4,large talon,0,,,snake,fan,3-4x human,long
+Japanese,29,Fangs&Pointy,short,average,forward,spearlike,upturned; forward nostrils,long,very long; multilobed,hairy,fish scales,double plates,single; jagged,4,0,4,large talon,0,,,snake,point,1-2x human,absent
+Italian,30,Pointy,,small,forward,round,pointy,long,absent,smooth,small scales,smooth,single; ridge,3,0,4,short talon,2,birdlike,6 ridges,elongate,point,1/2 human,absent
+Italian,31,Pointy,short,average,forward,small,upturned; forward nostrils,moderate,absent,smooth,light hair,smooth,absent,3; webbed,0,4,short catlike,2,batlike,5 ridges,elongate,point,1/2 human,absent
+Italian,32,Fangs,short,small,forward,spearlike,upturned; forward nostrils,moderate,absent,hairy,light hair,smooth,absent,3,0,2,short catlike,2,batlike,9major; 2 minor,elongate,point,1-2x human,absent
+,33,Fangs&Pointy,,average,forward,spearlike,small; forward,long,stubs,scaly skin; hair,fish scales,hair,single; spiked,4,0,4,short talon,2,batlike,5 ridges,elongate,,1-2x human,absent
+German,34,Pointy,double,small,lateral,absent,small; forward,long,absent,smooth,hairy,double muscular,single; hairy,3,1,2,short talon,2,batlike,2 ridges,elongate,point,1-2x human,absent
+English,35,Pointy,forked; long,small,forward,spearlike,lateral,long,medium,skaly skin,fish scales,wide platemail,single; jagged,4,1,4,large talons,2,mix,5 ridges,elongate,point,1-2x human,nose horn (modified wisker?)
+German,36,Fangs&Pointy,short,large,forward,spearlike,upturned; forward nostrils,long,stubs,hairy,light hair,light hair,sigle; ridge,4,1,4,short catlike,2,batlike,4 ridges,elongate,,1-2x human,absent
+Dutch,37,Fangs&Pointy,short,average,forward,spearlike,forward,moderate,absent,smooth,smooth,muscular,single bumps,3,0,2,large talons,2,batlike,3 ridges,elongate,point,1-2x human,absent
+Spanish,38,Pointy,forked; long,small,forward,small,small; forward,long,absent,smooth,smooth,smooth,wide overlapping plates,3,1,2,short talon,2,batlike,5 ridges,elongate,point,1-2x human,absent
+Italian,39,Pointy,long,small,forward,absent,pointy,forward,jagged antlers,rough,lizard scales,lizard scales,single bumps,3,1,4,short catlike,2,birdlike,5 ridges,elongate,point,1/2 human,absent
+Italian,40,Pointy,long,small,forward,spearlike,forward,long,absent,rough,hairy,muscular,absent,4,1,4,short catlike,2,batlike,17+ ridges,elongate,point,1-2x human,absent
+English,41,Pointy,narrow; short,average,lateral,small,forward,long,absent,hairy,,lizard scales,,5,0,4,short talon,2,batlike,5 ridges,elongate,,1-2x human,absent
+Italian,42,,narrow; short,small,lateral,spearlike,forward,long,absent,rough,smooth,bump ridge,absent,4,1,4,short talon,2,batlike,5 ridges,elongate,point,1-2x human,absent
+Spanish,43,Pointy,narrow; short,small,lateral,round,pointy,long,absent,hairy,complex leather,wide platemail,single; complex bumps,3,1,4,short talon,2,batlike,5 ridges,elongate,point,1-2x human,absent
+Italian,44,Pointy,long,small,lateral,small,upturned; forward nostrils,long,absent,rough,bumpy,,,,,4,,2,batlike,9 ridges,elongate,point,1-2x human,absent
+Italian,45,Fangs&Pointy,long,small,lateral,absent,pointy,long,absent,smooth,smooth,smooth,single; ridge,3,0,2,short catlike,2,batlike,9 ridges,elongate,point,1-2x human,absent
+English,46,Pointy,,narrow,lateral,absent,forward,long,stubs,smooth,platemail,smooth,absent,4,0,4,small talons,0,,,,blunt,1-2x human,absent
+Italian,47,Pointy,narrow; short,small,forward,spearlike,forward,long,fanlike,hairy,hairy,smooth,absent,3,1,4,small talons,2,batlike,7 ridges,elongate,point,1-2x human,absent
+Dutch,48,Pointy,long,average,forward,spearlike,forward,moderate,stubs,smooth,light hair,smooth,single; bumped,3,1,4,small talons,2,birdlike,5 ridges,elongate,point,1/2 human,absent
+Indian,49,Pointy,long,small,lateral,absent,forward,long,absent,rough,bumpy,serrated,single; ridge,3,1,4,absent,0,,,,point,,absent
+Japanese,50,,,narrow,forward,small,upturned; forward nostrils,long,long,hairy,fish scales,muscular,single; overlapping plates,3,0,4,large talons,0,,,snake,point,1-2x human,absent
+Japanese,51,Fangs,,narrow,forward,spearlike,upturned; forward nostrils,long,long,hairy,rough,muscular,single; overlapping plates,3,0,4,small talons,2,birdlike,dozens ridges,snake,blunt,1-2x human,absent
+Japanese,52,,,narrow,lateral,round,upturned; forward nostrils,long,absent,hairy,fish scales,muscular,absent,3,0,4,large talons,0,,,snake,point,1/4 human,medium
+Japanese,53,,,large,forward,absent,forward,long,absent,hairy,lizard scales,lizard scales,wide overlapping plates,3,0,,small talons,0,,,,point,1-2x human,small
+Iranian,54,,,,forward,,forward,long,fanlike,smooth,smooth,smooth,single; ridge,3,0,4,short catlike,2,birdlike,7 ridges,snake,,1-2x human,absent
+Iranian,55,Fangs,,small,lateral,small,forward,long,small,smooth,smooth,smooth,single; ridge,3,0,4,small talons,0,,,snake,point,1-2x human,absent
+Iranian,56,Fangs,many points,narrow,lateral,spearlike,small; forward,long,long,rough,rough,rough,absent,4,1,2,small talons,2,batlike,4 ridges,snake,point,1-2x human,absent
+Iranian,57,Fangs,narrow; short,small,forward,small,upturned; forward nostrils,long,small,rough,rough,muscular,absent,4,1,4,small talons,0,,,snake,point,1-2x human,absent
+Turkish,58,Pointy,long,average,lateral,round,small; forward,long,small,rough,rough,muscular,single; ridge,,,0,,0,,,,blunt,1-2x human,absent
+Iranian,59,Pointy,long,small,forward,spearlike,small; forward,long,2lobed antler,rough,fish scales,fish scales,single; jagged,4,0,4,small talons,0,,,snake,point,1-2x human,absent
+Iranian,60,Fangs,narrow; short,narrow,forward,absent,forward,long,absent,hairy,smooth,muscular,single; ridge,4,0,4,long catlike,0,,,snake,point,1-2x human,absent
+Turkish,61,Pointy,forked; long,narrow,lateral,absent,forward,long,medium,rough,smooth,muscular,single; ridge,4,0,4,small talons,0,,,snake,,,absent
+Turkish,62,Fangs&Pointy,forked; long,small,lateral,spearlike,forward,long,medium,smooth,smooth,muscular,single; ridge,4,0,4,small talons,0,,,snake,blunt,,absent
+Ukraine,63,Blunt&Pointy,short,small,lateral,round,upturned; forward nostrils,forward,ramhorn,rough,lizard scales,muscular,hair,3,0,4,short catlike,0,,,elongate,point,1-2x human,absent
+Ukraine,64,Pointy,,average,lateral,absent,tiny,long,short,smooth,smooth,rough,absent,4,0,2,long catlike,0,,,snake,threetail,1-2x human,absent
+Russia,65,Pointy,long,average,lateral,absent,forward,moderate,absent,rough,rough,spiny,single; bumped,2,1,2,short catlike,2 wing-leg hybrid,birdlike,6 ridges,snake,blunt,1-2x human,absent
+Ukraine,66,Pointy,,small,lateral,round,lateral,moderate,absent,smooth,smooth,smooth,single; bumped,3,0,4,small talons,2,batlike,5 ridges,elongate,point,1-2x human,absent
+Russia,67,,short,narrow,lateral,absent,upturned; forward nostrils,moderate,small,hairy,hairy,hairy,absent,,,2,,2 wing-leg hybrid,birdlike,5 ridges,snake,point,1/2 human,absent
+Greece,68,Fangs,short,average,forward,spearlike,forward,moderate,absent,hairy,hairy,hairy,single; bumped,3,1,4,large talons,2,birdlike,9 ridges,elongate,point,1-2x human,absent
+Italian,69,Pointy,long,average,lateral,spearlike,upturned; lateral nostrils,long,absent,rough,smooth,smooth,single; spiked,4,,4,small talons,2,birdlike,6 ridges,elongate,point,1-2x human,absent
+American,70,,,small,forward,large speaklike,upturned; forward nostrils,long,absent,rough,rough,wide platemail,absent,4,,4,small talons,absent,,,,point,1-2x human,absent
+British (Wales),71,,long; spearhead,narrow,lateral,spearlike,forward,long,absent,hairy,fish scales,lateral plates,single; spiked,3,1,4,large talons,2,batlike,9 ridges,elongate,spear,,absent
+British,72,Fangs,long; spearhead,narrow,lateral,large spearlike,tiny,long,absent,smooth,smooth,lateral plates,single; jagged,2,1,2,small talons,2,batlike,10 ridges,elongate,spear,,absent
+British,73,Fangs,short,narrow,lateral,spearlike,tiny,long,small,spiny,spiny,lateral plates,single; jagged,4,0,2,small talons,2,batlike,6 ridges,elongate,spear,,absent
+British,74,Fangs,long; spearhead,narrow,lateral,spearlike,forward,long,absent,rough,rough,lateral plates,single; jagged,4,0,4,small talons,2,batlike,5 ridges,elongate,spear,,absent
+British,75,Fangs,long; spearhead,average,lateral,spearlike,forward,long,absent,hairy,lizard scales,muscular,single; jagged,4,0,2,large talons,2,batlike,5 ridges,elongate,spear,,absent

@@ -1,0 +1,26 @@
+Code,Origin,Weight,Rationale
+1,Appendages,ZZZZ,Highly Highly conserved (all tertrapods came from the same fish; loss of limbs more common (e.g. lizards to snakes)
+2,Mass,1111,Weak: e.g. squirrel vs. Kangaroo
+3,Body Type,CC,Body type somewhat conserved (e.g. snakes vs. lizards)
+4,ClawType,5555,Somewhat Strong: e.g. mammals vs. eagle
+5,Dorsal Ridges,111111,Weak: e.g. dinosaurs
+6,Ear Morphology,111,Weak: e.g. deer mouse vs. vole
+7,Eye Morphology,111,Weak: e.g. nocturnal vs. diurnal and eye size
+8,Eye Position,1,Weak: e.g. predators vs. prey
+9,HornType,111,Weak: e.g. gazelle vs. deer
+10,NosePos,7,Moderately conserved e.g. amphibians vs. fish
+11,Nasal Morphology,1,Weak: e.g. dog breeds
+12,Skin-dorsal,999999,Somewhat conserved: e.g. reptiles vs. mammals
+13,Skin-head,333333,Somewhat conserved: e.g. reptiles vs. mammals
+14,Skin-ventral,333333,Somewhat conserved: e.g. reptiles vs. mammals
+15,SnoutType,3333,Moderate: e.g. mouse vs. rhinocerous
+16,TailType,11,Weak: e.g. dinosaurs
+17,Teeth,3333,Moderately conserved e.g. herbivore vs. carnivore mammals
+18,OppToes,1,Weak: e.g. chimps vs. humans
+19,Toe Number,333333,Moderate: e.g. horse vs. lion
+20,Tongue Length,1,Weak: e.g. anteater vs. primate
+21,Tongue Morphology Type,44,Moderate: e.g. snake vs. lizard
+22,Ventral Plates,7,Somewhat conserved: e.g. snakes vs. mammals
+23,Wiskers,11,Weak: e.g. catfish vs. bass
+24,Wing Structure,JJ,Somewhat highly conserved; single origin in bats and birds
+25,WingType,AAA,Strong: e.g. bat vs. bird
