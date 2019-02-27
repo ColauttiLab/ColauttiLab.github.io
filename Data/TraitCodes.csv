@@ -2,38 +2,38 @@
 1,Appendages,Zero,1111
 1,Appendages,Two,1101
 1,Appendages,Four,1001
-1,Appendages,Six,1
-2,Mass,1/4 human,0
-2,Mass,1/2 human,1
-2,Mass,1-2x human,11
-2,Mass,3-4x human,111
+1,Appendages,Six,0001
+2,Mass,1/4 human,0000
+2,Mass,1/2 human,0001
+2,Mass,1-2x human,0011
+2,Mass,3-4x human,0111
 2,Mass,>4x human,1111
-3,Body type,Rotund,0
-3,Body type,Elongate,1
+3,Body type,Rotund,00
+3,Body type,Elongate,01
 3,Body type,Snakelike,11
 4,Claw type,Long Catlike,1100
 4,Claw type,Short Catlike,1000
-4,Claw type,Absent,0
-4,Claw type,Short Talons,10
-4,Claw type,Long Talons,11
+4,Claw type,Absent,0000
+4,Claw type,Short Talons,0010
+4,Claw type,Long Talons,0011
 5,Dorsal ridges,Plates,100000
-5,Dorsal ridges,Absent,0
-5,Dorsal ridges,Bumps,10000
-5,Dorsal ridges,Spike,11000
-5,Dorsal ridges,Ridge,10100
-5,Dorsal ridges,Jagged,10010
-5,Dorsal ridges,Hair,10011
-6,Ear morphology,Absent,0
+5,Dorsal ridges,Absent,000000
+5,Dorsal ridges,Bumps,010000
+5,Dorsal ridges,Spike,011000
+5,Dorsal ridges,Ridge,010100
+5,Dorsal ridges,Jagged,010010
+5,Dorsal ridges,Hair,010011
+6,Ear morphology,Absent,000
 6,Ear morphology,Round or Small,100
-6,Ear morphology,Spearlike,10
-6,Ear morphology,Other,1
-7,Eye morphology,Avg,0
-7,Eye morphology,Large,1
-7,Eye morphology,Narrow,10
+6,Ear morphology,Spearlike,010
+6,Ear morphology,Other,001
+7,Eye morphology,Avg,000
+7,Eye morphology,Large,001
+7,Eye morphology,Narrow,010
 7,Eye morphology,Small,100
 8,Eye position,Lateral,0
 8,Eye position,Forward,1
-9,Horn type,Absent,0
+9,Horn type,Absent,000
 9,Horn type,Stubs/Small,100
 9,Horn type,Med/Long,110
 9,Horn type,Jagged/Antlers,111
@@ -41,43 +41,43 @@
 10,Nose Position,Forward,1
 11,Nasal morphology,Upturned,1
 11,Nasal morphology,other,0
-12,Skin-dorsal,Fish Scales,0
+12,Skin-dorsal,Fish Scales,000
 12,Skin-dorsal,Spiny,100
 12,Skin-dorsal,Hairy,110
-12,Skin-dorsal,Plates,1
+12,Skin-dorsal,Plates,001
 12,Skin-dorsal,Scaly Skin,100000
 12,Skin-dorsal,Rough Skin,101000
 12,Skin-dorsal,Smooth Skin,110000
-13,Skin-head,Fish Scales,0
+13,Skin-head,Fish Scales,000
 13,Skin-head,Spiny,100
 13,Skin-head,Hairy,110
-13,Skin-head,Plates,1
+13,Skin-head,Plates,001
 13,Skin-head,Scaly Skin,100000
 13,Skin-head,Rough Skin,101000
 13,Skin-head,Smooth Skin,110000
-14,Skin-ventral,Fish Scales,0
+14,Skin-ventral,Fish Scales,000
 14,Skin-ventral,Spiny,100
 14,Skin-ventral,Hairy,110
-14,Skin-ventral,Plates,1
+14,Skin-ventral,Plates,001
 14,Skin-ventral,Scaly Skin,100000
 14,Skin-ventral,Rough Skin,101000
 14,Skin-ventral,Smooth Skin,110000
-15,Snout type,Absent,0
-15,Snout type,Beak,1
+15,Snout type,Absent,0000
+15,Snout type,Beak,0001
 15,Snout type,Blunt,1000
 15,Snout type,Moderate,1100
 15,Snout type,Long,1110
 16,Tail type,Blunt/Point,10
-16,Tail type,Fan/Split Y,0
-16,Tail type,Sepear,1
-17,Teeth,Pointy Only,0
+16,Tail type,Fan/Split Y,00
+16,Tail type,Sepear,01
+17,Teeth,Pointy Only,0000
 17,Teeth,Blunt + Pointy,1000
 17,Teeth,Blunt Only,1100
-17,Teeth,Fangs + Other,1
-17,Teeth,Fangs Only,11
+17,Teeth,Fangs + Other,0001
+17,Teeth,Fangs Only,0011
 18,Toes-opposing,Yes,0
 18,Toes-opposing,No,1
-19,Toe Number,> Five,0
+19,Toe Number,> Five,000000
 19,Toe Number,Five,100000
 19,Toe Number,Four,110000
 19,Toe Number,Three,111000
@@ -86,17 +86,17 @@
 19,Toe Number,Zero,111111
 20,Tongue length,Short,0
 20,Tongue length,Long,1
-21,Tongue morphology,Regular,0
-21,Tongue morphology,Forked,1
+21,Tongue morphology,Regular,00
+21,Tongue morphology,Forked,01
 21,Tongue morphology,Spear,10
 22,Ventral plates,Yes,1
 22,Ventral plates,No,0
-23,Whiskers,Absent,0
+23,Whiskers,Absent,00
 23,Whiskers,Short,10
 23,Whiskers,Long,11
-24,Wing structure,Absent,0
+24,Wing structure,Absent,00
 24,Wing structure,Hybrid,10
 24,Wing structure,Full,11
 25,Wing type,Bat,100
-25,Wing type,Bird,10
-25,Wing type,Hybrid,1
+25,Wing type,Bird,010
+25,Wing type,Hybrid,001
