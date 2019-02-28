@@ -731,7 +731,12 @@ GCTGAGTTGCCATTCACCATTGACAAGTAGTTTGTTCAAAAAACTCCTTGTTTCTACT</code></pre>
 <h3>Week 7 Assignment</h3>
 <ol style="list-style-type: decimal">
 <li>Pick 3 images of dragons from popular culture. Find and save an image online.</li>
-<li>Use the coding in <a href="./Data/TraitCodes.csv">TraitCodes.csv</a> to encode your dragon</li>
+<li>Use the coding in <a href="./Data/TraitCodes.csv">TraitCodes.csv</a> to encode your dragon.</li>
+</ol>
+<ul>
+<li><strong>CAUTION</strong> – If you open this CSV file in a program that automatically formats numbers (e.g. Excel or read.csv in R), it may remove the leading zeros (e.g. 1 instead of 001). Not having the leading zeros will cause a problem in your analysis – make sure you understand why. A simple way to preserve leading zeros in R is to use the parameter <code>colClasses=&quot;character&quot;</code> in your <code>read.csv()</code> statement.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
 <li>Write an <strong>.Rmd</strong> report with embedded images showing your dragon choices – you can download the pictures or link to them directly online. Use a coloured line to highlight where they appear on the Dragon Phylogeny.</li>
 <li>Render your report in html and upload the final <strong>html</strong> version (and any necessary files to view the html) to OnQ.</li>
 </ol>
