@@ -41,24 +41,24 @@
 10,Nose Position,Forward,1
 11,Nasal morphology,Upturned,1
 11,Nasal morphology,other,0
-12,Skin-dorsal,Fish Scales,000
-12,Skin-dorsal,Spiny,100
-12,Skin-dorsal,Hairy,110
-12,Skin-dorsal,Plates,001
+12,Skin-dorsal,Fish Scales,000000
+12,Skin-dorsal,Spiny,000100
+12,Skin-dorsal,Hairy,000110
+12,Skin-dorsal,Plates,000001
 12,Skin-dorsal,Scaly Skin,100000
 12,Skin-dorsal,Rough Skin,101000
 12,Skin-dorsal,Smooth Skin,110000
-13,Skin-head,Fish Scales,000
-13,Skin-head,Spiny,100
-13,Skin-head,Hairy,110
-13,Skin-head,Plates,001
+13,Skin-head,Fish Scales,000000
+13,Skin-head,Spiny,000100
+13,Skin-head,Hairy,000110
+13,Skin-head,Plates,000001
 13,Skin-head,Scaly Skin,100000
 13,Skin-head,Rough Skin,101000
 13,Skin-head,Smooth Skin,110000
-14,Skin-ventral,Fish Scales,000
-14,Skin-ventral,Spiny,100
-14,Skin-ventral,Hairy,110
-14,Skin-ventral,Plates,001
+14,Skin-ventral,Fish Scales,000000
+14,Skin-ventral,Spiny,000100
+14,Skin-ventral,Hairy,000110
+14,Skin-ventral,Plates,000001
 14,Skin-ventral,Scaly Skin,100000
 14,Skin-ventral,Rough Skin,101000
 14,Skin-ventral,Smooth Skin,110000
