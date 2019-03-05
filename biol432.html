@@ -725,7 +725,7 @@ GCTGAGTTGCCATTCACCATTGACAAGTAGTTTGTTCAAAAAACTCCTTGTTTCTACT</code></pre>
 <h2>Week 7</h2>
 <ol style="list-style-type: decimal">
 <li>Review the <a href="https://colauttilab.github.io/Alignments.html">Alignments Lecture</a> in Week 5</li>
-<li>Review the <a href="https://colauttilab.github.io/DragonPhylogenyTutorial.html">Phylogeny Lecture</a> from this week</li>
+<li>Review the <a href="https://colauttilab.github.io/DragonPhylogenyTutorial.html">Dragon Phylogeny Lecture</a> from this week</li>
 </ol>
 <div id="week-7-assignment" class="section level3">
 <h3>Week 7 Assignment</h3>
@@ -740,6 +740,47 @@ GCTGAGTTGCCATTCACCATTGACAAGTAGTTTGTTCAAAAAACTCCTTGTTTCTACT</code></pre>
 <li>Write an <strong>.Rmd</strong> report with embedded images showing your dragon choices – you can download the pictures or link to them directly online. Use a coloured line to highlight where they appear on the Dragon Phylogeny.</li>
 <li>Render your report in html and upload the final <strong>html</strong> version (and any necessary files to view the html) to OnQ.</li>
 </ol>
+</div>
+</div>
+<div id="week-8" class="section level2">
+<h2>Week 8</h2>
+<ol style="list-style-type: decimal">
+<li>Make sure you are comfortable with the <a href="./Alignments.html">Alignments</a> lecture</li>
+<li>Make sure you are comfortable with the <a href="./DragonPhylogenyTutorial.html">Dragon Phylogeny</a> lecture</li>
+<li>Review the <a href="./Metabarcoding_Tutorial.html">Metabarcoding tutorial</a></li>
+</ol>
+<div id="week-8-group-assignment" class="section level3">
+<h3>Week 8 GROUP Assignment</h3>
+<p>Before Next class:</p>
+<ol style="list-style-type: decimal">
+<li>Pick a single GitHub repo from your group to house your group project files</li>
+<li>Identify a dataset to analyze (e.g. DNA sequences, gene expression profiles) using tools that you’ve learned in the course. You can search ncbi.org, datadryad.org, or other sources. You can also ask your lab members for unpublished data to analyze, but please do not use your own data (e.g 537 thesis students).</li>
+<li>Think of 1 to 3 biological questions you can address with the data. NOTE: you may have to iterate between #1 and #2 before you settle on something you are comfortable with</li>
+<li>Briefly (&lt;1 printed page) describe your dataset and what questions you think you can address using the computational techniques you have learned in this course. Note that you will also learn some remote computing (unix/bash), transcription profiling, and gene annotation in the next few weeks.</li>
+<li>Review <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">Version Control with Git</a> and set up Git with R Studio, from Week 2. You will all be working together on GitHub, so make sure you are comfortable with ‘commit’, ‘push’ and ‘pull’ commands.</li>
+<li>Upload your data and ~1-page outline to the group GitHub.</li>
+</ol>
+</div>
+<div id="week-8-assignment-individual" class="section level3">
+<h3>Week 8 Assignment (individual)</h3>
+<p>One of the best things about being a computational biologist, is that the exact same tools can be used to answer biological questions that seem to be completely different. In this week’s tutorial we looked at the microbiomes of plants – that is, the <strong>communities</strong> of bacteria associated with <strong>samples</strong> of plants.</p>
+<p>Now use the same tools to look at how the <strong>communities</strong> of plants differ across <strong>sample</strong> locations. The data are testing whether the presence of an invasive plant called garlic mustard (<em>Alliaria petiolata</em>) changes the plant community.</p>
+<p>The dataset <a href="./Data/FloristicSurvey.csv">FloristicSurvey.csv</a> contains the results of a floristic survey at the Queen’s University Biological Station (QUBS). Here is a brief description of the data:</p>
+<ul>
+<li>Quadrate – this is a code for a 1m x 1m square in which samples were measured</li>
+<li>Population – this is a code for a specific sampling location at QUBS, determined by presence of garlic mustard nearby</li>
+<li>Location – whether quadrate measurements are taken ‘i’ for ‘inside’ or ‘o’ for ‘outside’ of garlic mustard patches</li>
+<li>Rosettes – the number of garlic mustard rosettes</li>
+<li>Bolting – the number of bolting garlic mustard plants (i.e. getting ready to flower)</li>
+<li>Budding – the number of garlic mustard plants with buds</li>
+<li>Bud_Flw, Flower, Flw_Sil, Silique – These are different stages of flowering</li>
+<li>Claytonia, Anemone, … Unknown_9, mianthenum_racemosum – these are the 34 different species present at all the sites. ‘Unknown’ means that the species hasn’t been definitively identified, but all the sites with the same Unknown number have that species.</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Determine whether garlic mustard has an observable effect on plant communities.</li>
+<li>What has a stronger effect on plant communities: the presence/absence of garlic mustard (in/out) or sampling population?</li>
+</ol>
+<p>Use at least one visualization for each question above and explain your reasoning. Show your work in an R-markdown document (knitted to a .html file that includes your code and upload to OnQ).</p>
 </div>
 </div>
 </div>
@@ -813,7 +854,14 @@ GCTGAGTTGCCATTCACCATTGACAAGTAGTTTGTTCAAAAAACTCCTTGTTTCTACT</code></pre>
 <div id="week-7-phylogenies" class="section level2">
 <h2>Week 7 | Phylogenies</h2>
 <ul>
-<li>The <a href="./DragonPhylogenyTutorial">Dragon Phylogeny</a></li>
+<li>The <a href="./DragonPhylogenyTutorial.pdf">Dragon Phylogeny</a></li>
+</ul>
+</div>
+<div id="week-8-metabarcoding" class="section level2">
+<h2>Week 8 | Metabarcoding</h2>
+<ul>
+<li>Metabarcoding <a href="./Files/Metabarcoding_Overview">overview slides</a></li>
+<li>Metabarcoding <a href="./Metabarcoding_Tutorial.html">tutorial</a></li>
 </ul>
 <hr />
 </div>
