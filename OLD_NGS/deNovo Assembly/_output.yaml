@@ -1,0 +1,10 @@
+  html_document:
+    fig_width: 5
+    fig_height: 3
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    theme: simplex
+    highlight: kate
+#  word_document:
+#    reference_docx: Custom_Template.docx
