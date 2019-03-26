@@ -9,7 +9,6 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="author" content="Robert I. Colautti" />
 
 
 <title>De Novo Assembly Tutorial</title>
@@ -27,7 +26,7 @@
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
+<style type="text/css" data-origin="pandoc">
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
@@ -66,7 +65,29 @@ code > span.wa { color: #bf0303; } /* Warning */
 code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
 code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
 code > span. { color: #1f1c1b; } /* Normal */
+
 </style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
@@ -123,8 +144,14 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -140,7 +167,6 @@ body {
   padding-top: 46px;
   margin-top: -46px;
 }
-
 .section h2 {
   padding-top: 46px;
   margin-top: -46px;
@@ -160,6 +186,43 @@ body {
 .section h6 {
   padding-top: 46px;
   margin-top: -46px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -181,18 +244,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -320,7 +442,6 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">De Novo Assembly Tutorial</h1>
-<h4 class="author"><em>Robert I. Colautti</em></h4>
 
 </div>
 
@@ -329,15 +450,9 @@ div.tocify {
 <h1>Setup</h1>
 <p>To follow along with this tutorial, you will need a CAC account. Then do the following:</p>
 <ol style="list-style-type: decimal">
-<li>Login to your CAC accoun</li>
-<li>Copy the folder <code>hpc2018</code> from <code>/global/project/ColauttiLab</code> to your working directory</li>
+<li>Login to your CAC account</li>
+<li>Copy the folder <code>hpc2018</code> from <code>/global/project/ColauttiLab</code> to your working directory. This will take a few minutes so you shouldn’t clog up the login node. Instead, request a short-term node using the command: <code>salloc -c 1</code>. It may take up to a few minutes before you are logged into a working node. Then, copy the folder using <code>cp -r /global/project/ColauttiLab/hpc2018</code></li>
 <li>Navigate to <code>hpc2018</code> in your working directory</li>
-<li><p>Install Picard Tools:</p>
-<ul>
-<li><code>git clone https://github.com/broadinstitute/picard.git</code></li>
-<li><code>cd picard/</code></li>
-<li><code>./gradlew shadowJar</code></li>
-</ul></li>
 </ol>
 </div>
 <div id="overview" class="section level1">
@@ -371,10 +486,12 @@ div.tocify {
 <p>Short-read sequencing data are usually encoded in the FASTQ format, which is an ASCII text-based, human-readable file. Let’s take a look at the FASTQ Files in the <em>deNovo</em> directory. Using the <strong>list</strong> command and filtering for files ending in <strong>.fq</strong></p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">ls</span> -l *.fq</code></pre></div>
 <p><strong>NOTE:</strong> Don’t type the dollar sign , just everything after it. The dollar sign is to help you understand that this is something typed directly in the command line. Your command line before the dollar sign will probably say something like <strong><a href="mailto:hpc1234@swlogin1">hpc1234@swlogin1</a></strong> where <strong>hpc1234</strong> is your CAC login. The output will look something like this:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">-rw-r--r--</span> 1 hpc3183 hpcg1540 562452706 Aug  2 17:36 MiSeqF.fq
-<span class="ex">-rw-r--r--</span> 1 hpc3183 hpcg1540 562452706 Aug  2 17:38 MiSeqR.fq</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">-rw-r--r--</span>  1 hpc3183 hpcg1540 508825089 Mar 26 00:09 Hi5F.fq
+<span class="ex">-rwxr-x---</span>  1 hpc3183 hpcg1540 508825089 Mar 26 11:18 Hi5R.fq
+<span class="ex">-rw-r--r--</span>  1 hpc3183 hpcg1540 562452706 Mar 25 22:24 MiSeqF.fq
+<span class="ex">-rw-r--r--</span>  1 hpc3183 hpcg1540 562452706 Mar 25 22:24 MiSeqR.fq</code></pre></div>
 <p>Note how there is no $ symbol, because you don’t type this. It is output printed after you type the first line.</p>
-<p>Take note of the file sizes. Each base takes 1 byte of data, so 562 Megabytes ~ 562 Million bases (Mb). These are only a fraction of the size of the raw sequence files, which would be several Billion bases (Gigabases or Gb). In this tutorial, we will work with these smaller files to keep computation times manageable.</p>
+<p>Take note of the file sizes. Each character takes 1 byte of data, so 500 Megabytes is several hundred Million bases (Mb). These are only a fraction of the size of the raw sequence files, which would be several Billion bases (Gigabases or Gb). It’s actually less than half as many base pairs because the FASTQ files contain information on sequence quality and other information about each sequence (see FASTQ section). In this tutorial, we will work with these smaller files to keep computation times manageable. This should be fine for a small chloroplast genome, but would not work so well for larger genomes.</p>
 <p>The file names tell us whether the sequences came from the HiSeq or the MiSeq platform, and whether they are the forward or reverse sequences. This means that for every sequence in a <strong>forward</strong> direction (F) there is a paired sequence in the <strong>reverse</strong> (R) direction. The 5Kb sequences are <strong>mate-pair</strong> sequences. These are specially-made sequences from large fragments of DNA (~5Kb). Unlike regular <strong>paired-end</strong> sequences, the F and R directions of the mate pair sequences face outward. For more details on mate-pair libraries, see the lecture notes on de novo assembly, or more detail here <a href="http://www.google.com/patents/US20120329678">Patent Link</a></p>
 <p>Mate pair sequences are useful for figuring out the order of contigs. We’ll get to that later.</p>
 <blockquote>
@@ -436,6 +553,7 @@ $ <span class="ex">java</span> -jar picard/build/libs/picard.jar -h</code></pre>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
 <span class="co">#SBATCH -c 1</span>
 <span class="co">#SBATCH --mem=5000</span>
+<span class="co">#SBATCH -t 00:20:00</span>
 
 <span class="co">## Quality check using PicardTools</span>
 
@@ -449,13 +567,18 @@ $ <span class="ex">java</span> -jar picard/build/libs/picard.jar -h</code></pre>
         OUTPUT=MiSeq.bam \
         SAMPLE_NAME=Ap_euEFCC3_20
 
+<span class="co">## Note use of backslash to break up one long line of code; easier to read</span>
+
+<span class="co">## Let's also convert the .bam (binary format) to human-readable .sam (text format)</span>
+<span class="ex">java</span> -jar picard/build/libs/picard.jar SamFormatConverter \
+        INPUT=MiSeq.bam \
+        OUTPUT=MiSeq.sam
+
 <span class="co">## Java command to run QualityScoreDistribution command in Picard Tools</span>
 <span class="ex">java</span> -jar picard/build/libs/picard.jar QualityScoreDistribution \
         INPUT=MiSeq.bam \
         OUTPUT=q_score_dist.txt \
-        CHART=q_score_dist.pdf
-
-<span class="co">## Note use of backslash to break up one long line of code; easier to read</span></code></pre></div>
+        CHART=q_score_dist.pdf</code></pre></div>
 <p>The first line is the standard ‘shebang’ (!#). The next lines after that tell the scheduler that we want this to run on a single core with at least 8G of RAM. We ask for only 1 single core because the picard.jar program is not multi-threaded. Some programs have an option for number of ‘cores’ or ‘threads’ to use, and we’ll see an example of this later. If a program does not have these options, then it probably only uses 1 core. Specifying that we only need 1 core will help get our script to run sooner on the scheduler.</p>
 <p>After the <strong>#SBATCH</strong> lines for the SLURM scheduler there are a few comments, and then all of the action is contained in just two commands (note the use of backslash <code>\</code> to break up a single command into multiple lines for clarity.</p>
 <p>The first one is called <strong>FastQToSam</strong> and, as the name suggests, translates both of our FASTQ (.fq) files into a single .sam format.</p>
@@ -469,6 +592,16 @@ $ <span class="ex">java</span> -jar picard/build/libs/picard.jar -h</code></pre>
 <p>Why use <strong>BAM</strong> instad of <strong>SAM</strong> if the former can’t be read with a text editor?</p>
 </blockquote>
 <p>A newer format called <strong>CRAM</strong> is a compressed <strong>BAM</strong> file that can be read by <strong>Picard Tools</strong>.</p>
+<div id="headers" class="section level2">
+<h2>Headers</h2>
+<p>Let’s look at the sam file</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">head</span> -n 5 MiSeq.sam</code></pre></div>
+<p>This same file contains two headers, indicated by the @ symbol: <em><span class="citation">@HD</span></em> and <em><span class="citation">@RG</span></em>. These are followed by info about the aligned sequences.</p>
+<p>There are few headers because we have just aligned raw sequence data. If we were looking at an annotated genome we would have a lot more information. For details on SAM headers, see <a href="https://www.samformat.info/sam-format-header">SAM Format Header Page</a>.</p>
+<p>The <em><span class="citation">@HD</span></em> Header contains basic information about the alignment with <em>VN</em> indicating the version number of the SAM format and <em>SO</em> indicating the order by which the aligned sequences are sorted</p>
+<p>The <em><span class="citation">@RG</span></em> Header provides metadata on the sample, with <em>ID</em> indiciating the read group (only one in this case). The <em>SM</em> header indicates the sample info – in this case <em>Ap_euFCC3_20</em> is a code I provided to the MiSeq operator indicating the genotype sequenced (Ap for <em>Alliaria petiolata</em>), region (eu for Europe), population code (FCC3) and individual code within the population (20).</p>
+<p>The section following the header is the alignment section, which is tab-delimited</p>
+</div>
 </div>
 <div id="inspect-the-quality-scores" class="section level1">
 <h1>Inspect the quality scores</h1>
@@ -544,15 +677,18 @@ $ <span class="ex">java</span> -jar picard/build/libs/picard.jar -h</code></pre>
 <p>Platanus also has some nice features for dealing with heterzygous genomes. We won’t explore these options because we are assembling a chloroplast genome, which is homozygous. <strong>Take a minute to think</strong> about why a heterozygous genome (e.g. a human genome) might be more difficult to sequence than a homozygous genome (e.g. a mouse inbred line). Once you have figured it out, take a look at the contig assembly bash script called <em>platcontig.sh</em></p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
 <span class="co">#SBATCH -c 8</span>
-<span class="co">#SBATCH --mem=16000</span>
+<span class="co">#SBATCH --mem=18G</span>
+<span class="co">#SBATCH -t 01:00:00</span>
 
-<span class="ex">use</span> platanus
+<span class="ex">module</span> load nixpkgs
+<span class="ex">module</span> load gcc
+<span class="ex">module</span> load platanus
 
-<span class="ex">platanus</span> assemble -o Ap -t <span class="va">$SLURM_JOB_CPUS_PER_NODE</span> -m <span class="va">$SLURM_MEM_PER_NODE</span> \
--f ./HiSeqF.fq ./HiSeqR.fq</code></pre></div>
+<span class="ex">platanus</span> assemble -o Ap -t <span class="va">$SLURM_JOB_CPUS_PER_NODE</span> -m 16 \
+-f ./MiSeqF.fq ./MiSeqR.fq</code></pre></div>
 <p>Notice this line:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#SBATCH -c 8</span></code></pre></div>
-<p>Some programs use algorithms that can be run in parallel, meaning that the computation work is spread across a number of computer <strong>threads</strong>. In this case, we are asking the SGE scheduler to use 8 threads for our analysis. In theory this could be as much as 8 times faster than using a single thread, but in practice it is not quite that much faster because some parts of the program can’t be run in parallel. We then add the <em>-t</em> option to the PLATANUS command, but instead of putting the number 8 we put <em>$NSLOTS</em>, which passes the number from the -pe shm.pe line to the PLATANUS program.</p>
+<p>Some programs use algorithms that can be run in parallel, meaning that the computation work is spread across a number of computer <strong>threads</strong>. In this case, we are asking the SGE scheduler to use 8 threads for our analysis. In theory this could be as much as 8 times faster than using a single thread, but in practice it is not quite that much faster because some parts of the program can’t be run in parallel. We then add the <code>-t</code> option to the PLATANUS command, but instead of putting the number 8 we put <code>$SLURM_JOB_CPUS_PER_NODE</code>, which passes the number from the <code>#SBATCH -c 8</code> line to the PLATANUS program.</p>
 <p>We aren’t going to run this because it will take to long. We’ll skip ahead to the output. It’s a big file so we’ll look at just the first 10 lines:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">head</span> Ap_contig.fa</code></pre></div>
 <p><strong>Note:</strong> This is a FASTA (.fa) file, which is a lot like the FASTQ file without the quality scores.</p>
@@ -573,19 +709,23 @@ $ <span class="ex">java</span> -jar picard/build/libs/picard.jar -h</code></pre>
 </blockquote>
 <p>Notice that there are two sequences, each of different lengh, and each longer than our maximum read length of 250 bp (the <em>len</em> in the ID line tells you the length of the sequence). These are the <strong>contigs</strong> assembled by the short read data. These two sequences are frustratingly small – barely larger than the length of our individual short reads – but if you look through the file you will see some bigger ones. Type:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">less</span> Ap_contig.fa</code></pre></div>
-<p>Then use your down arrow to scroll down to the 8th sequence:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="op">&gt;</span><span class="ex">seq8_len4434_cov2259</span></code></pre></div>
-<p>Here you can see a contig with 4,434 bases. In total, this file contains 50 contigs. Most of them are small (&lt;300bp) but there are a few larger ones; most notably seq12 (~26Kb), seq20 (~18Kb), seq26 (~39Kb) and seq34 (~20Kb). We have are a few large fragments and a bunch of smaller contigs, but we don’t know how they fit together. For example, is there a repeat separating seq12 from seq34 or is either one closer to seq20? One way to bridge this gap is with our mate pair sequences. PLATANUS can be used for this step. Let’s look at the bash script called <em>platscaf.sh</em></p>
+<p>Take a look at the first sequence. It will look something like:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="op">&gt;</span><span class="ex">seq1_len978_cov163</span></code></pre></div>
+<p>Information about the first ‘contig’ is encoded in the name. Here you can see a contig with 978 bases. You can also see that this is <em>seq1</em> or the first sequence. Looking at the end of the file reveals how many contig sequences there are in total. Scrolling through, Most of the contigs are small (&lt;300bp) but there are a few larger ones. We have are a few large fragments and a bunch of smaller contigs, but we don’t know how they fit together. For example, is there a repeat separating seq12 from seq34 or is either one closer to seq20? One way to bridge this gap is with our mate pair sequences. PLATANUS can be used for this step. Let’s look at the bash script called <em>platscaf.sh</em></p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
 <span class="co">#SBATCH -c 8</span>
-<span class="co">#SBATCH --mem=16000</span>
+<span class="co">#SBATCH --mem 18G</span>
+<span class="co">#SBATCH -t 01:00:00</span>
 
+<span class="ex">module</span> load nixpkgs
+<span class="ex">module</span> load gcc
 <span class="ex">module</span> load platanus
 
 <span class="ex">platanus</span> scaffold -o Ap -c Ap_contig.fa -b Ap_contigBubble.fa \
--t <span class="va">$SLURM_JOB_CPUS_PER_NODE</span> -m <span class="va">$SLURM_MEM_PER_NODE</span> \
--ip1 ./Hi5F.fq -ip2 ./Hi5R.fq</code></pre></div>
-<p>The <em>platanus scaffold</em> command takes our contig file, which was created by <em>platanus assemble</em>, above. It also needs at least one pair of mate pair sequences. The other <em>bubble</em> file was also created by <em>platanus assemble</em> and would normally contain information about merged and removed ‘bubbles’. Bubbles in the assembly occur in heterozygous genomes and in repeat regions where alternate assemblies are possible. However, our <em>bubble</em> file is empty (no merged bubble sequences). This is a bit odd, and we’ll come back to why this occurs for this data.</p>
+-t <span class="va">$SLURM_JOB_CPUS_PER_NODE</span> \
+-ip1 ./Hi5F.fq \
+-ip2 ./Hi5R.fq</code></pre></div>
+<p>The <em>platanus scaffold</em> command takes our contig file, which was created by <em>platanus assemble</em>, above. It also needs at least one set of mate-pair sequences. The other <em>bubble</em> file was also created by <em>platanus assemble</em> and would normally contain information about merged and removed ‘bubbles’. Bubbles in the assembly occur in heterozygous genomes and in repeat regions where alternate assemblies are possible. However, our <em>bubble</em> file is empty (no merged bubble sequences). This is a bit odd, and we’ll come back to why this occurs for this data.</p>
 <p>The scaffolding step should use the mate pair reads to identify the orientation of scaffolds and the distance between them. It will then combine them into a single <em>scaffold</em>, which is like a <em>contig</em> but with <em>N</em> (the character for an ambiguous sequence) filled into for the unknown sequence.</p>
 <p>Running the script may take a little bit of time so let’s skip to the output again:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">less</span> Ap_scaffold.fa</code></pre></div>
@@ -595,8 +735,9 @@ $ <span class="ex">java</span> -jar picard/build/libs/picard.jar -h</code></pre>
 <div id="blast-scaffolds-to-identify-overlap" class="section level1">
 <h1>BLAST scaffolds to identify overlap</h1>
 <p>Let’s investigate by looking for overlap between different scaffolds. To do this we can use the <em>BLAST</em> tools. BLAST may be the most widely used tool in bioinformatics. A good way to learn about BLAST is to explore it through the web interface <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">Website</a></p>
-<p>Let’s run the commands:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">module</span> load blast
+<p>Make a new bash script called blastscaf.sh to run the commands:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">module</span> load gcc
+<span class="ex">module</span> load blast+
 
 <span class="ex">blastn</span> -query Ap_scaffold.fa \
 -subject Ap_scaffold.fa \
@@ -631,7 +772,8 @@ $ <span class="ex">java</span> -jar picard/build/libs/picard.jar -h</code></pre>
 </div>
 <div id="connect-overlapping-contigs" class="section level1">
 <h1>Connect overlapping contigs</h1>
-<p>Instead of manually trying to align all of the contigs, we can use the program <em>REDUNDANS</em> to automate the process of removing redundancy. The github site has a good overview of the program <a href="https://github.com/lpryszcz/redundans">Web Link</a></p>
+<p>Instead of manually trying to align all of the contigs, we can use the program <em>REDUNDANS</em> to automate the process of removing redundancy. The github site has a good overview of the program <a href="https://github.com/lpryszcz/redundans">Web Link</a>/</p>
+<p>Create a new bash script called redun.sh and include the following:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">module</span> load redundans
 
 <span class="ex">redundans.py</span> -v -i *.fq -f Ap_contig.fa -o redun --identity 1</code></pre></div>
@@ -642,7 +784,7 @@ $ <span class="fu">ls</span></code></pre></div>
 <p>Looking inside the FASTA file <em>scaffolds.fa</em> you will see we have just a few contigs now, and only 2 are &gt;1,000b. Great work! We can quickly run a BLAST command to look for overlap. We won’t bother with a bash script since there are only 6 sequences to compare:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$  <span class="ex">blastn</span> -query scaffolds.fa -subject scaffolds.fa -out scafBLAST.out -outfmt 6</code></pre></div>
 <p>This creates the output scafBLAST.out, as before:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">cat</span> scafBLAST.out</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">less</span> scafBLAST.out</code></pre></div>
 <p>The key rows are the ones that compare scaffolds 1 and 2. We can use <em>regular expressions</em> with the <em>grep</em> command to isolate these. If you aren’t familiar with regular expressions or grep, you should spend some time looking into these. There is a pretty steep learning curve, but these tools are essential to bioinformatics. For now, just type this:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">'scaffold1.*scaffold2'</span> scafBLAST.out</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">scaffold1</span><span class="kw">|</span><span class="ex">size110843</span>    scaffold2<span class="kw">|</span><span class="ex">size17952</span>     100.00  246     0       0       110598  110843  1       246     1e-127    455

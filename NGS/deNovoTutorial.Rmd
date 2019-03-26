@@ -1,6 +1,5 @@
 ---
 title: "De Novo Assembly Tutorial"
-author: "Robert I. Colautti"
 output: html_document
 editor_options: 
   chunk_output_type: console
@@ -14,15 +13,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 To follow along with this tutorial, you will need a CAC account. Then do the following:
 
-1. Login to your CAC accoun
-2. Copy the folder `hpc2018` from `/global/project/ColauttiLab` to your working directory
+1. Login to your CAC account
+2. Copy the folder `hpc2018` from `/global/project/ColauttiLab` to your working directory. This will take a few minutes so you shouldn't clog up the login node. Instead, request a short-term node using the command: `salloc -c 1`. It may take up to a few minutes before you are logged into a working node. Then, copy the folder using `cp -r /global/project/ColauttiLab/hpc2018`
 3. Navigate to `hpc2018` in your working directory
-4. Install Picard Tools: 
-
-    * `git clone https://github.com/broadinstitute/picard.git`
-    * `cd picard/`
-    * `./gradlew shadowJar`
-
 
 # Overview
 
@@ -62,13 +55,15 @@ $ ls -l *.fq
 __NOTE:__ Don't type the dollar sign , just everything after it. The dollar sign is to help you understand that this is something typed directly in the command line. Your command line before the dollar sign will probably say something like <strong>hpc1234@swlogin1</strong> where __hpc1234__ is your CAC login. The output will look something like this:
 
 ```{r, engine = 'bash', eval = FALSE}
--rw-r--r-- 1 hpc3183 hpcg1540 562452706 Aug  2 17:36 MiSeqF.fq
--rw-r--r-- 1 hpc3183 hpcg1540 562452706 Aug  2 17:38 MiSeqR.fq
+-rw-r--r--  1 hpc3183 hpcg1540 508825089 Mar 26 00:09 Hi5F.fq
+-rwxr-x---  1 hpc3183 hpcg1540 508825089 Mar 26 11:18 Hi5R.fq
+-rw-r--r--  1 hpc3183 hpcg1540 562452706 Mar 25 22:24 MiSeqF.fq
+-rw-r--r--  1 hpc3183 hpcg1540 562452706 Mar 25 22:24 MiSeqR.fq
 ```
 
 Note how there is no $ symbol, because you don't type this. It is output printed after you type the first line.  
 
-Take note of the file sizes. Each base takes 1 byte of data, so 562 Megabytes ~ 562 Million bases (Mb). These are only a fraction of the size of the raw sequence files, which would be several Billion bases (Gigabases or Gb). In this tutorial, we will work with these smaller files to keep computation times manageable.  
+Take note of the file sizes. Each character takes 1 byte of data, so 500 Megabytes is several hundred Million bases (Mb). These are only a fraction of the size of the raw sequence files, which would be several Billion bases (Gigabases or Gb). It's actually less than half as many base pairs because the FASTQ files contain information on sequence quality and other information about each sequence (see FASTQ section). In this tutorial, we will work with these smaller files to keep computation times manageable. This should be fine for a small chloroplast genome, but would not work so well for larger genomes.
   
 The file names tell us whether the sequences came from the HiSeq or the MiSeq platform, and whether they are the forward or reverse sequences. This means that for every sequence in a __forward__ direction (F) there is a paired sequence in the __reverse__ (R) direction. The 5Kb sequences are __mate-pair__ sequences. These are specially-made sequences from large fragments of DNA (~5Kb). Unlike regular __paired-end__ sequences, the F and R directions of the mate pair sequences face outward. For more details on mate-pair libraries, see the lecture notes on de novo assembly, or more detail here [Patent Link](http://www.google.com/patents/US20120329678)  
   
@@ -159,6 +154,7 @@ While it's running, let's take a look at the rest of the sript. Open the _qcheck
 #!/bin/bash
 #SBATCH -c 1
 #SBATCH --mem=5000
+#SBATCH -t 00:20:00
 
 ## Quality check using PicardTools
 
@@ -172,13 +168,18 @@ java -jar picard/build/libs/picard.jar FastqToSam \
         OUTPUT=MiSeq.bam \
         SAMPLE_NAME=Ap_euEFCC3_20
 
+## Note use of backslash to break up one long line of code; easier to read
+
+## Let's also convert the .bam (binary format) to human-readable .sam (text format)
+java -jar picard/build/libs/picard.jar SamFormatConverter \
+        INPUT=MiSeq.bam \
+        OUTPUT=MiSeq.sam
+
 ## Java command to run QualityScoreDistribution command in Picard Tools
 java -jar picard/build/libs/picard.jar QualityScoreDistribution \
         INPUT=MiSeq.bam \
         OUTPUT=q_score_dist.txt \
         CHART=q_score_dist.pdf
-
-## Note use of backslash to break up one long line of code; easier to read
 ```
 
 The first line is the standard 'shebang' (!#). The next lines after that tell the scheduler that we want this to run on a single core with at least 8G of RAM. We ask for only 1 single core because the picard.jar program is not multi-threaded. Some programs have an option for number of 'cores' or 'threads' to use, and we'll see an example of this later. If a program does not have these options, then it probably only uses 1 core. Specifying that we only need 1 core will help get our script to run sooner on the scheduler.
@@ -198,7 +199,26 @@ A __BAM__ file is simply a __binary__ version of a __SAM__ file. A __binary__ fi
 > Why use __BAM__ instad of __SAM__ if the former can't be read with a text editor?  
 
 A newer format called __CRAM__ is a compressed __BAM__ file that can be read by __Picard Tools__.
-  
+
+## Headers
+
+
+Let's look at the sam file
+
+```{r, engine = 'bash', eval = FALSE}
+$ head -n 5 MiSeq.sam
+```
+
+This same file contains two headers, indicated by the @ symbol: *@HD* and *@RG*. These are followed by info about the aligned sequences.
+
+There are few headers because we have just aligned raw sequence data. If we were looking at an annotated genome we would have a lot more information. For details on SAM headers, see [SAM Format Header Page](https://www.samformat.info/sam-format-header).
+
+The *@HD* Header contains basic information about the alignment with *VN* indicating the version number of the SAM format and *SO* indicating the order by which the aligned sequences are sorted
+
+The *@RG* Header provides metadata on the sample, with *ID* indiciating the read group (only one in this case). The *SM* header indicates the sample info -- in this case *Ap_euFCC3_20* is a code I provided to the MiSeq operator indicating the genotype sequenced (Ap for *Alliaria petiolata*), region (eu for Europe), population code (FCC3) and individual code within the population (20).
+
+The section following the header is the alignment section, which is tab-delimited 
+
 # Inspect the quality scores
 
 The script should take about 1 minute to run once it has been submitted. The file called _q_score_dist.txt_ is a simple text file containing the data for a histogram, with phred scores (x-axis) in the first column, and number of bases with that phred score (y-axis) in the second column. Use a text editor to inspect the file.  
@@ -302,12 +322,15 @@ Platanus also has some nice features for dealing with heterzygous genomes. We wo
 ```{r, engine = 'bash', eval = FALSE}
 #!/bin/bash
 #SBATCH -c 8
-#SBATCH --mem=16000
+#SBATCH --mem=18G
+#SBATCH -t 01:00:00
 
-use platanus
+module load nixpkgs
+module load gcc
+module load platanus
 
-platanus assemble -o Ap -t $SLURM_JOB_CPUS_PER_NODE -m $SLURM_MEM_PER_NODE \
--f ./HiSeqF.fq ./HiSeqR.fq
+platanus assemble -o Ap -t $SLURM_JOB_CPUS_PER_NODE -m 16 \
+-f ./MiSeqF.fq ./MiSeqR.fq
 ```
 
 Notice this line:
@@ -316,7 +339,7 @@ Notice this line:
 #SBATCH -c 8
 ```
 
-Some programs use algorithms that can be run in parallel, meaning that the computation work is spread across a number of computer __threads__. In this case, we are asking the SGE scheduler to use 8 threads for our analysis. In theory this could be as much as 8 times faster than using a single thread, but in practice it is not quite that much faster because some parts of the program can't be run in parallel. We then add the _-t_ option to the PLATANUS command, but instead of putting the number 8 we put _$NSLOTS_, which passes the number from the -pe shm.pe line to the PLATANUS program.  
+Some programs use algorithms that can be run in parallel, meaning that the computation work is spread across a number of computer __threads__. In this case, we are asking the SGE scheduler to use 8 threads for our analysis. In theory this could be as much as 8 times faster than using a single thread, but in practice it is not quite that much faster because some parts of the program can't be run in parallel. We then add the `-t` option to the PLATANUS command, but instead of putting the number 8 we put `$SLURM_JOB_CPUS_PER_NODE`, which passes the number from the `#SBATCH -c 8` line to the PLATANUS program.  
   
 We aren't going to run this because it will take to long. We'll skip ahead to the output. It's a big file so we'll look at just the first 10 lines:
 
@@ -351,27 +374,31 @@ Notice that there are two sequences, each of different lengh, and each longer th
 $ less Ap_contig.fa
 ```
 
-Then use your down arrow to scroll down to the 8th sequence:
+Take a look at the first sequence. It will look something like: 
 
 ```{r, engine = 'bash', eval = FALSE}
->seq8_len4434_cov2259
+>seq1_len978_cov163
 ```
 
-Here you can see a contig with 4,434 bases. In total, this file contains 50 contigs. Most of them are small (<300bp) but there are a few larger ones; most notably seq12 (~26Kb), seq20 (~18Kb), seq26 (~39Kb) and seq34 (~20Kb). We have are a few large fragments and a bunch of smaller contigs, but we don't know how they fit together. For example, is there a repeat separating seq12 from seq34 or is either one closer to seq20? One way to bridge this gap is with our mate pair sequences. PLATANUS can be used for this step. Let's look at the bash script called _platscaf.sh_
+Information about the first 'contig' is encoded in the name. Here you can see a contig with 978 bases. You can also see that this is *seq1* or the first sequence. Looking at the end of the file reveals how many contig sequences there are in total. Scrolling through, Most of the contigs are small (<300bp) but there are a few larger ones. We have are a few large fragments and a bunch of smaller contigs, but we don't know how they fit together. For example, is there a repeat separating seq12 from seq34 or is either one closer to seq20? One way to bridge this gap is with our mate pair sequences. PLATANUS can be used for this step. Let's look at the bash script called _platscaf.sh_
 
 ```{r, engine = 'bash', eval = FALSE}
 #!/bin/bash
 #SBATCH -c 8
-#SBATCH --mem=16000
+#SBATCH --mem 18G
+#SBATCH -t 01:00:00
 
+module load nixpkgs
+module load gcc
 module load platanus
 
 platanus scaffold -o Ap -c Ap_contig.fa -b Ap_contigBubble.fa \
--t $SLURM_JOB_CPUS_PER_NODE -m $SLURM_MEM_PER_NODE \
--ip1 ./Hi5F.fq -ip2 ./Hi5R.fq
+-t $SLURM_JOB_CPUS_PER_NODE \
+-ip1 ./Hi5F.fq \
+-ip2 ./Hi5R.fq
 ```
 
-The _platanus scaffold_ command takes our contig file, which was created by _platanus assemble_, above. It also needs at least one pair of mate pair sequences. The other _bubble_ file was also created by _platanus assemble_ and would normally contain information about merged and removed 'bubbles'. Bubbles in the assembly occur in heterozygous genomes and in repeat regions where alternate assemblies are possible. However, our _bubble_ file is empty (no merged bubble sequences). This is a bit odd, and we'll come back to why this occurs for this data.
+The _platanus scaffold_ command takes our contig file, which was created by _platanus assemble_, above. It also needs at least one set of mate-pair sequences. The other _bubble_ file was also created by _platanus assemble_ and would normally contain information about merged and removed 'bubbles'. Bubbles in the assembly occur in heterozygous genomes and in repeat regions where alternate assemblies are possible. However, our _bubble_ file is empty (no merged bubble sequences). This is a bit odd, and we'll come back to why this occurs for this data.
 
 The scaffolding step should use the mate pair reads to identify the orientation of scaffolds and the distance between them. It will then combine them into a single _scaffold_, which is like a _contig_ but with _N_ (the character for an ambiguous sequence) filled into for the unknown sequence.
 
@@ -389,10 +416,11 @@ __What's going on here?__
 
 Let's investigate by looking for overlap between different scaffolds. To do this we can use the _BLAST_ tools. BLAST may be the most widely used tool in bioinformatics. A good way to learn about BLAST is to explore it through the web interface [Website](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
 
-Let's run the commands:
+Make a new bash script called blastscaf.sh to run the commands:
 
 ```{r, engine = 'bash', eval = FALSE}
-module load blast
+module load gcc
+module load blast+
 
 blastn -query Ap_scaffold.fa \
 -subject Ap_scaffold.fa \
@@ -430,7 +458,9 @@ In other words, these scaffolds overlap!
 
 # Connect overlapping contigs
 
-Instead of manually trying to align all of the contigs, we can use the program _REDUNDANS_ to automate the process of removing redundancy. The github site has a good overview of the program [Web Link](https://github.com/lpryszcz/redundans)  
+Instead of manually trying to align all of the contigs, we can use the program _REDUNDANS_ to automate the process of removing redundancy. The github site has a good overview of the program [Web Link](https://github.com/lpryszcz/redundans)/
+
+Create a new bash script called redun.sh and include the following:
   
 ```{r, engine = 'bash', eval = FALSE}
 module load redundans
@@ -456,7 +486,7 @@ $  blastn -query scaffolds.fa -subject scaffolds.fa -out scafBLAST.out -outfmt 6
 This creates the output scafBLAST.out, as before:
 
 ```{r, engine = 'bash', eval = FALSE}
-$ cat scafBLAST.out
+$ less scafBLAST.out
 ```
 
 The key rows are the ones that compare scaffolds 1 and 2. We can use _regular expressions_ with the _grep_ command to isolate these. If you aren't familiar with regular expressions or grep, you should spend some time looking into these. There is a pretty steep learning curve, but these tools are essential to bioinformatics. For now, just type this:
