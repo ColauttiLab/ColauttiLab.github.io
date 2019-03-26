@@ -14,8 +14,10 @@ knitr::opts_chunk$set(echo = TRUE)
 To follow along with this tutorial, you will need a CAC account. Then do the following:
 
 1. Login to your CAC account
-2. Copy the folder `hpc2018` from `/global/project/ColauttiLab` to your working directory. This will take a few minutes so you shouldn't clog up the login node. Instead, request a short-term node using the command: `salloc -c 1`. It may take up to a few minutes before you are logged into a working node. Then, copy the folder using `cp -r /global/project/ColauttiLab/hpc2018`
-3. Navigate to `hpc2018` in your working directory
+2. Next, you will need to copy a large file to your working directory. This will take a few minutes so you shouldn't clog up the login node. Instead, request a short-term node using the command: `salloc -c 1`. It may take up to a few minutes before you are logged into a working node.
+3. Wait until you are logged in to a work node, then copy the file `biol432.tar.gz` from `/global/project/ColauttiLab` to your local working directory.  
+4. Unpack the g-zipped tarball using `tar -zxf biol432.tar.gz`
+5. Move into the new directory: `cd ./biol432`
 
 # Overview
 
@@ -131,13 +133,14 @@ __IMPORTANT:__ Whenever you are using a program for the first time, you should c
 
 ```{r, engine = 'bash', eval = FALSE}
 $ module load java
-$ java -jar picard/build/libs/picard.jar -h
+$ module load picard
+$ java -jar $EBROOTPICARD/picard.jar -h
 ```
 
 In this case, there are many 'tools', each with their own parameters. The website cited above is a good place to explore these in detail. You can also get help for a specific tool. Let's take a look at a bash script that uses one of the Picard Tools called __QualityScoreDistribution__. 
 
 ```{r, engine = 'bash', eval = FALSE}
-$ java -jar picard/build/libs/picard.jar QualityScoreDistribution -h
+$ java -jar $EBROOTPICARD/picard.jar QualityScoreDistribution -h
 ```
 
 Take a few minutes to inspect the parameters. If the description is not clear, you can often find more information on the website or Googling for __tutorials__ or __examples__.  
@@ -162,7 +165,7 @@ While it's running, let's take a look at the rest of the sript. Open the _qcheck
 module load java
 
 ## First we need to convert our FASTQ files to BAM format
-java -jar picard/build/libs/picard.jar FastqToSam \
+java -jar $EBROOTPICARD/picard.jar FastqToSam \
         FASTQ=MiSeqF.fq \
         FASTQ2=MiSeqR.fq \
         OUTPUT=MiSeq.bam \
@@ -171,12 +174,12 @@ java -jar picard/build/libs/picard.jar FastqToSam \
 ## Note use of backslash to break up one long line of code; easier to read
 
 ## Let's also convert the .bam (binary format) to human-readable .sam (text format)
-java -jar picard/build/libs/picard.jar SamFormatConverter \
+java -jar $EBROOTPICARD/picard.jar SamFormatConverter \
         INPUT=MiSeq.bam \
         OUTPUT=MiSeq.sam
 
 ## Java command to run QualityScoreDistribution command in Picard Tools
-java -jar picard/build/libs/picard.jar QualityScoreDistribution \
+java -jar $EBROOTPICARD/picard.jar QualityScoreDistribution \
         INPUT=MiSeq.bam \
         OUTPUT=q_score_dist.txt \
         CHART=q_score_dist.pdf
@@ -329,7 +332,7 @@ module load nixpkgs
 module load gcc
 module load platanus
 
-platanus assemble -o Ap -t $SLURM_JOB_CPUS_PER_NODE -m 16 \
+platanus assemble -o Ap -t $SLURM_JOB_CPUS_PER_NODE \
 -f ./MiSeqF.fq ./MiSeqR.fq
 ```
 
