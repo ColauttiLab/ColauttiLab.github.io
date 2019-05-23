@@ -19,3 +19,15 @@ Read early and read often. Actually, the word ‘read’ is a bit misleading as 
   1. To learn what has already been discovered.
   2. To understand the methods used to make those discoveries.
   3. To learn how to write a good research paper by comparing papers in different journals.
+  
+# Where to start?
+
+If you are new to a topic, look for some high-impact reviews. This new literature search tool from Heather Piwowar et al. looks useful [GetTheResearch.org](https://gettheresearch.org/)
+
+For more detailed searches of primary research, try [Web of Science](https://www.webofknowledge.com) and [Google Scholar](https://scholar.google.ca/)
+
+Note that if you are using the internet off-campus you will need to login with a VPN or follow the link through the library in order to access many journal articles.
+
+# What are you waiting for?
+
+You should probably be reading.

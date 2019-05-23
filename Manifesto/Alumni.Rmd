@@ -11,6 +11,12 @@ Some day you will be on this elite list. If you have moved on and aren't here, p
 
 | Name                | Degree           | Project           |  Years   | Post-lab experience |
 |---------------------|------------------|-------------------|----------|-------------------------------------------------------------|
+| $Graduate$ $Supervision$ |||||
+| Muzzamil (Muzz) Abdur-Razak | MSc (Co-)    | Lythrum herbivory          | 2016-18 | ???? |
+| Katherine Duchesneau | MSc (Co-)    | GM Soil microbiome         | 2016-18 | ???? |
+| Yihan Wu             | MSc          | Lythrum herbarium + GM GBS | 2016-18 | ???? |
+| Eugene Sit           | MSc (Co-)    | Lythrum FT x herbivory     | 2016-18 | ???? |
+| Richard Honor        | MSc          | GM Fungal interactions     | 2018-20 | ???? |
 | $Undergraduate$ $Supervision$ |||||
 | Leila Forsythe       | BSc (thesis)     | Lythrum herbarium | 2015-16  | 2016-? PhD with Ben Gilbert, U Toronto St. George Campus |
 | Stephanie Barre      | SLC (Co-op)      | Lab Technician    | 2015-16  | ???? |
@@ -34,12 +40,7 @@ Some day you will be on this elite list. If you have moved on and aren't here, p
 | Jamie MacKay         | BSc (thesis)     | ???? | 2018-19|| 
 | Joanna Strozak       | BSc (thesis)     | ???? | 2018-19|| 
 | Meagan Antunes       | BSc (thesis)     | ???? | 2018-19|| 
-| $Graduate$ $Supervision$ |||||
-| Muzzamil (Muzz) Abdur-Razak | MSc (Co-)    | Lythrum herbivory          | 2016-18 | ???? |
-| Katherine Duchesneau | MSc (Co-)    | GM Soil microbiome         | 2016-18 | ???? |
-| Yihan Wu             | MSc          | Lythrum herbarium + GM GBS | 2016-18 | ???? |
-| Eugene Sit           | MSc (Co-)    | Lythrum FT x herbivory     | 2016-18 | ???? |
-| Richard Honor        | MSc          | GM Fungal interactions     | 2018-20 | ???? |
+| Scarlet Choi | BSc (mentorship) | ???? | 2018-2019 ||
 | $Other$ $Personnel$ |||||
 | Almira Siew        | The Wonder Technician          | Just about everything     | 2018-19 | Job: 2019 - Lab technician, Octane Medical Group |
 

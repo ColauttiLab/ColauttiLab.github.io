@@ -1,0 +1,18 @@
+---
+title: "Colautti Lab Manifesto <br> Equity, Diversity, Inclusion"
+output: html_document
+---
+
+# Equity, Diversity and Inclusion
+
+There is a growing recognition that increasing equity, diversity and inclusion (EDI) improves creativity and innovation...
+
+
+# To Do: 
+
+Read/summarize Government of Canada pilot program called [Dimensions](http://www.nserc-crsng.gc.ca/NSERC-CRSNG/EDI-EDI/Dimensions_Dimensions_eng.asp); see also this [Press Release](http://www.nserc-crsng.gc.ca/Media-Media/NewsRelease-CommuniqueDePresse_eng.asp?ID=1062) to increase EDI at Canadian Universities
+
+Read/summarize [Reducing bias in the evaluation of researchers](https://elifesciences.org/inside-elife/1fd1018c/research-assessment-reducing-bias-in-the-evaluation-of-researchers)
+
+
+

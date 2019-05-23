@@ -5,15 +5,20 @@ output: html_document
 
 > "I never thought the write-up could be as challenging as it has been."      --- email from a 537 BSc Hs Thesis student. March 28, 2016
 
-This document outlines most of the 'what' to do. You should also carefully read more about 'how' to write. In addition to reading this, you should:
-
-Read the [Research Proposal Tips](https://ecogeno.wordpress.com/2016/10/04/research-proposal-tips/) on the lab blog, if you are writing a research proposal.
+This document outlines most of the 'what' to do. You should also carefully read more about 'how' to write. In addition to reading the suggestions in this page, you should read these additional links:
 
 Read this explanation in the 2016 Bulletin of the Ecological Society of America: [Scientific Writing Made Easy](./References/Turbek2016Writing.pdf)
 
 And this [guide](./References/BES_WritingTips.pdf) from the British Ecological Society
 
-If you are a graduate student, you should also get a copy of Stephen Heard's book [The Scientist's Guide to Writing](https://www.amazon.ca/Scientists-Guide-Writing-Effectively-throughout/dp/0691170223/ref=sr_1_1?ie=UTF8&qid=1523074693&sr=8-1&keywords=scientists+guide+to+writing+heard). Read it carefully and refer back to it periodically.
+See this thread of great academic [writing tips on twitter](https://twitter.com/saraannhart/status/1126222700895195136?s=03) 
+
+If you are a graduate student, consider getting a copy of Stephen Heard's book [The Scientist's Guide to Writing](https://www.amazon.ca/Scientists-Guide-Writing-Effectively-throughout/dp/0691170223/ref=sr_1_1?ie=UTF8&qid=1523074693&sr=8-1&keywords=scientists+guide+to+writing+heard). Read it carefully and refer back to it periodically.
+
+Read the [Notes on Academic Writing](https://ecogeno.wordpress.com/2017/10/20/academic-writing/) from a discussion group led by Chris Eckert.
+
+Read the [Research Proposal Tips](https://ecogeno.wordpress.com/2016/10/04/research-proposal-tips/) on the lab blog, if you are writing a research proposal.
+
 
 __Important note:__ The stages listed below are not  independent. You will likely keep reading throughout the process and modify your questions/hypotheses and writing as you read and develop your ideas.
 
@@ -107,6 +112,12 @@ This is the stage where you should send it to me for comment. Depending on the c
 After the long process of writing and revising a manuscript that passes review of your peers, you may be ready to finally submit your paper for scientific peer review. Your first step is to find a journal. Avoid predatory journals that prey on desperate young scientists and offer a forum for publication that will never be cited. A good resource for identifying predatory journals is *Beall's List*: https://beallslist.weebly.com/
 
 See also, the guidelines at *Think, Check, Submit*: https://thinkchecksubmit.org/
+
+# 10. Improving your game
+
+Some links to take your writing to the next level.
+
+Some great tips from an editor at Nature: https://twitter.com/MWClimateSci/status/1111773593656918016
 
 
 
