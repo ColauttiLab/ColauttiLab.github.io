@@ -10,188 +10,41 @@ output: html_document
 
 # Readings & Assignments {.tabset .tabset-fade .tabset-pills} 
 
-## Mar 28
+<span style="color:red"> Weekly assignments will appear here </span>
 
-__POSTER SUMBISSION__
+Last Updated:
+`r format(Sys.time(), '%d %B, %Y')` 
 
-On April 20th you will present a poster of your group's work at the Biology Graduate Student Symposium.
+## Week 1
 
-Please register for the Biology Graduate Student Symposium using the link on the Biology [Website](https://biology.queensu.ca/academics/graduate/biology-gsc/biology-graduate-research-symposium-bgrs/)
+Review [Fundamental R](https://colauttilab.github.io/RCrashCourse/1_fundamentals.html) and make sure you are comfortable with the content.
 
-Only ONE PERSON FROM EACH GROUP should register the poster. 
+If you think you are comfortable with the content, then take the [self-assessment](https://colauttilab.github.io/RCrashCourse/1_fundamentals_test.html) to test your knowledge.
 
-__CONFERENCE REGISTRATION__
-
-Everyone else in the group who wants to attend the conference should register without a poster (it's free!)
-
-## Mar 18*
-
-__GROUP ASSIGNMENT__ 
-
-*Note that this is due Sunday, March 18 (NOT Wed, March 14).
-
-__Written Proposal -- 10%__
-
-Should include:
-
-1. Project Name
-2. Your group "TEAM" name
-3. The names of the people in your group
-4. Written proposal of ~500-1,000 words + figures/tables + appendices:
-    + __Briefly__ introduce the problem/background (1-4 sentences max)
-    + Describe the __data__
-    + Propose one or more questions to address with the data
-    + Outline your __pipeline__
-5. __Briefly__ summarize the broader significance (1-4 sentences) of the project.
-6. Include predicted or hypothesized results and/or outputs. Describe in the text but consider visualizations in figures or tables that clearly demonstrate your predictions/hypotheses.
-
-__DATA__
-
-Describe the nature of your data. Where do they come from? What do they measure or describe? What is the volume of data (e.g. number of rows/columns or kilo/mega-bytes)? What are the types (e.g. 2-dimensional data files, DNA sequences, meta-data)? Consider including a table or appendix with variable names and descriptions.
-
-__PIPELINE__
-
-Ideally, you have already developed a plan and started working on your program(s). In this section you should formalize the plan and explain it to a competent scientist who may not be an expert in your area. Your plan should answer questions like:
-
-  * What will your analysis pipeline (program) do? 
-  * As noted in the 'Final Assignment' description below, your overall  pipeline should be made of several modules (smaller programs), at least 1 of which is a bash script and 1 of which is in R or Python. 
-  * What are the key components of each module (algorithms, functions, etc.), and which language you will use for each component (bash, R, Python)?
-  * What are the inputs/outputs of each module?
-  * What are the responsibilities planned for each member of your group?
-  * How will you use Git and GitHub to coordinate your efforts?
-  * An appendix with a flowchart is recommended to outline the overall pipeline (not included in one-page limit)
-
-Your proposal will be marked on:
-
-  + __Clarity__ -- Clear, concise writing, logical flow, good sentence/paragraph structure with proper topic/concluding sentences and good 'flow'.
-  + __Question__ -- The proposal identifies a question that would be interesting to a variety of researchers. A broad question is broken down into specific questions or hypotheses.
-  + __Logic__ -- It is clear how the data and analysis pipeline in the proposal can be used to address the questions/hytpothesis posed.
-  + __Data__ -- The data meet the requirements of the assignment (multiple types of data, ideally from >1 source, and overall including >100,000 datapoints), and the proposal describes the data in sufficient detail to be understood by a general scientific audience, as outlined above.
-  + __Program__ -- The program includes content outlined above, with clear explanations and visuals.
-
-__One person from your group should upload the final proposal to OnQ__
+Make sure you are familiar with this content as it will be needed for most of the lecture/tutorials.
 
 
-## Mar 7
+***
 
-1. __GROUP__ Identify a source of 'big data' (>100,000 data points) you can incorporate into your final project (if you haven't already).  
-    Some potential databases:  
-      1. Published ecological datasets: e.g. [Eco Dat Wiki](https://ecologicaldata.org)
-      2. Species occurrence data: e.g. [gbif search portal](https://www.gbif.org)
-      3. Climate data: e.g. [WorldClim](http://www.worldclim.org) and [NOAA](https://www.ncdc.noaa.gov)
-      4. Molecular data: e.g. [entrez search portal](https://www.ncbi.nlm.nih.gov/gquery/) and [instructions](https://www.ncbi.nlm.nih.gov/Web/Search/entrezfs.html)
-      5. Other: e.g. links on [NCEAS website](https://www.nceas.ucsb.edu/scicomp/data)
+# Topics Overview
 
-2. __INDIVIDUAL__  
-    A. Python  
-      * Run the following command in python:
-      * `>>> print("Round pi to 100 decimal places %.100f" %pi)`
-      * Explain why the 49th-100th decimal places are incorrect (why all 0)
-      * __hint__: the 'f' `%.100f` stands for 'float'
-      
-    B. Write a custom DNA analysis program using __Python__ that will:
-      1. Read in a genbank text file -- example: <a href="./gene.gb.txt" target="_blank">gene.gb</a> 
-      2. Use regex to pull out and rearrange the relevant information from gene.gb to match the fasta file format -- example: <a href="./gene.fasta.txt" target="_blank">gene.fasta</a>
-      3. Print the rearranggd text to a file called gene.fasta
-      4. Make sure the output follows the [fasta format](https://en.wikipedia.org/wiki/FASTA_format)
-      
-      _Once the program does #1-4, then:_
-      5. Download a different .gb files from genbank --> [ncbi.nlm.nih.gov/genbank](https://www.ncbi.nlm.nih.gov/genbank/) <-- to replace gene.gb
-      6. Run your script on the new gene.fasta file
-      7. If your new output has parsed correctly, you are done.
-      
-      NOTE: If you aren't familiar with a 'fasta' file (.fa or .fasta), it is a very common format for DNA, RNA and protein sequence invormation. It is a widespread standard used across a variety of databases and programs. A 'genbank' (.gb) file is the standard format used to store nucleotide and gene sequences on genbank.
-      
-> This is a challenging assignment so if you can't get it to work 100%, just include comments in your code that describe what you did, and what you are having problems with. You still get marks for working out some of the necessary components.
+ | Date | Topic
+-----|--------|----------------------------------------------------
+1 | 7-Jan | [Fundamental R](https://colauttilab.github.io/RCrashCourse/1_fundamentals_test.html) (self-study)
+2 | 14-Jan | ggplot and professional visualizations in R
+3 | 21-Jan | Data science and regular expressions (most people don’t know what they are but they are super-useful!)
+4 | 28-Jan | Reproducible R with Git and GitHub
+5 | 4-Feb  | Introduction to Python
+6 | 11-Feb | Introduction to Unix, Bash scripting, and the SLURM scheduler
+- | 18-Feb | Reading Week
+- | 25-Feb | No tutorial
+7 | 3-Mar  | Bootstrap, randomization and permutation models
+8 | 10-Mar | Simulations, functions and modelling
+9 | 17-Mar | Principal components and factor analysis 
+10 | 24-Mar | Cluster analysis
+11 | 31-Mar |	Nonlinear regression
+12 | 7-Apr  |	Sequence data and microbiome analysis in R
 
-> Documentation is important! Be sure to include comments describing the components of your script(s), even if everything works properly.
-
-
-## Feb 14
-
-__Preparation__ Next week we will start working with Python. To prepare, download and install [Anaconda](https://www.anaconda.com/download/)
-
-__1. GROUP:__ Choose a leader/liason. Identify a source of 'big data' and question(s) you will address with the data. Present idea at the beginning of next class (See 'Final Assignment' for guidelines).
-
-__2. INDIVIDUAL:__ Write a custom function in R that does the following:
-
-  * Takes 2 objects as input from the user:
-      1. A DNA sequence (string) 
-      2. A codon of interest (string)
-  * Generates a random DNA sequence of 1,000bp if nothing is provided by the user (hint: try `sample()` to generate the sequence as a vector and `paste()` with `collapse=""` to collapse the vector to a single string).
-  * Defaults to 'ATG' for the codon of interest if one is not provided by the user.
-  * Tells the user how many times the codon of interest appears in the sequence.
-
-Submit the code to DropBox on OnQ
-
-## Feb 7
-  1. Complete Assignment from Jeff Stafford [LINK](https://jstaf.github.io/biol812-assignment/)
-  2. Read [Chapter 2](./Readings/HaddockDunn/Chapter2.pdf) & [Chapter 3](./Readings/HaddockDunn/Chapter3.pdf) & [Appendix 2](./Readings/HaddockDunn/Appendix2.pdf) of Haddock & Dunn
-  * __WINDOWS USERS:__ A nice text editor for Ch 2 & 3 is [Brackets](http://brackets.io) 
-
-## Jan 31
-
-  1. Review __R Markdown__ and `ggplot2()` at the links below (see also link to ggplot2 Documentation noted in the qplot() tutorial)
-  2. Use an R markdown file to create a clean, attractive 1-page report, focusing on a single visualization with ggplot(). The details of the report don’t matter (e.g. real vs. simulated data). 
-  3. Use custom formatting to make the most attractive report you can make using R markdown and ggplot(). 
-  4. You will be marked on:
-      * aesthetic (clean & clear, with no unnecessary ‘ink’)
-      * the application of methods used in Rmarkdown and ggplot()
-      * clarity and readability of .Rmd code, and file knits without error.
-  5. Submit __.Rmd__ file to [onq.queensu.ca](https://onq.queensu.ca) DropBox Link
-
-## Jan 24  
-
-Assignments due for R and Unix (see email from Jan 17)
-
-## Jan 17    
-
-Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
-
-  * Note: Okay to skip `curl` section if you are having problems
-
-# Topics
-
-## Coding Bootcamp
-
-  1. R [Crash Course](./RCrashCourse/1_fundamentals.html)
-    + Test your [R knowledge](./RCrashCourse/1_fundamentals_test.html)
-  2. Python [Crash Course](./PythonCrashCourse/1_fundamentals.html)
-  3. Regular Expressions [(Regex) in R](./RCrashCourse/4_regex.html) 
-    + Regex [cheat sheet for R](https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf)
-    + General regex [cheat sheet](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/)
-  4. Regular Expression [in Python](./PythonCrashCourse/2_regex.html)
-  5. Custom [functions in R](./RCrashCourse/5_advanced.html)
-  
-## Intermediate to Advanced Topics
-
-  6. [R Markdown](./RCrashCourse/5_advanced.html#2_r_markdown) 
-      + [LaTeX cheat sheet](./latexsheet.pdf) for rendering equations in R Markdown
-      + see also:
-          + Very handy .Rmd [cheat sheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
-          + Detailed .Rmd [website](http://rmarkdown.rstudio.com/lesson-1.html)
-          + [R Notebooks](http://rmarkdown.rstudio.com/r_notebooks.html#overview)
-  7. Visualizations with [qplot()](./RCrashCourse/2_qplot.html) and [ggplot()](./RCrashCourse/3_ggplot.html)
-      + [Visualizations: Examples and key concepts](./Lectures/Graphical_Concepts.pdf)
-  8. Custom [R Packages](./RCrashCourse/Package_tutorial.html)
-  9. Version Control with [Git & GitHub](http://swcarpentry.github.io/git-novice/)
-
-## High Performance Computing 
-
-  10. Introduction to the [Unix shell, SLURM, bash and CAC](https://hpc-carpentry.github.io/hpc-intro/)
-      + Unix [cheat sheet 1](https://files.fosswire.com/2007/08/fwunixref.pdf)
-      + Unix [cheat sheet 2](http://cheatsheetworld.com/programming/unix-linux-cheat-sheet/)
-  11. HPC Carpentry [Website](https://hpc-carpentry.github.io)
-      + HPC [introduction](https://hpc-carpentry.github.io/hpc-intro/)
-      + Analysis [pipelines with python](https://hpc-carpentry.github.io/hpc-python/)
-
-## Computation in Practice
-
-  12. [Maps in R](./EcologyTutorials/mapping.html)
-  13. Spatial data & Climate [example: GGMFS](./EcologyTutorials/GGMFS_climate.html)
-  14. [Bootstrap, randomization, permutation in R](./EcologyTutorials/bootstrap.html)
-  15. [Simulations in R](./EcologyTutorials/simulations.html)
-  16. [Maximum Likelihood & MCMC models in R](./EcologyTutorials/maxLik_MCMC.html)
 
 # Grading Rubric:
 
@@ -206,26 +59,13 @@ Haddock & Dunn Chapters 4 & 5 (Windows users, use MobaXTerm)
 
 The goal of the final assignment is to apply the coding skills you have learned to address an interesting biological question, details will be posted in the coming weeks, but expect the following:
 
-1. Analyze a large dataset (>100,000 data points); original or published data are fine (e.g. geospatial data, RNA-seq/gene expression data)
-2. Write custom scripts using a combination of (1) Bash and (2) R or Python (or both)
-3. Produce informative and elegant visualizations
-4. All data manipulation, analysis and visualization hard-coded and archived on GitHub
-5. Project addresses an interesting biological question
-6. Create a poster for the project, and present it at the Biology graduate student symposium (April 20)
+  1. Analyze a large dataset (>100,000 data points); original or published data are fine (e.g. geospatial data, RNA-seq/gene expression data)
+  2. Write custom scripts using a combination of (1) Bash and (2) R or Python (or both)
+  3. Produce informative and elegant visualizations
+  4. All data manipulation, analysis and visualization hard-coded and archived on GitHub
+  5. Project addresses an interesting biological question
+  6. Create a poster for the project, and present it at the Biology graduate student symposium (April 20)
 
 # Textbook:
 
-No textbook is required for the course. However, I highly recommend: 
-
-### Haddock & Dunn (H&D) - Practical Computing for Biologists.
-
-__NOTE FOR WINDOWS USERS__  
-
-  + A nice text editor for Ch 2 & 3 is [Brackets](http://brackets.io) 
-  + Instead of Cygwin, try [MobaXTerm](https://mobaxterm.mobatek.net/download.html), which we also use in our course
-  
-
-
-
-
-
+No textbook is required for the course. I recommend Haddock & Dunn (H&D) - Practical Computing for Biologists, if you can get it at a reasonable price.
