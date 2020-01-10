@@ -8,6 +8,8 @@ author: "Rob Colautti"
 output: html_document
 ---
 
+NOTE: Tutorials run Wednesdays 12:30-2:30 in BioSci 1120
+
 # Readings & Assignments {.tabset .tabset-fade .tabset-pills} 
 
 <span style="color:red"> Weekly assignments will appear here </span>
@@ -30,20 +32,20 @@ Make sure you are familiar with this content as it will be needed for most of th
 
  | Date | Topic
 -----|--------|----------------------------------------------------
-1 | 7-Jan | [Fundamental R](https://colauttilab.github.io/RCrashCourse/1_fundamentals_test.html) (self-study)
-2 | 14-Jan | ggplot and professional visualizations in R
-3 | 21-Jan | Data science and regular expressions (most people don’t know what they are but they are super-useful!)
-4 | 28-Jan | Reproducible R with Git and GitHub
-5 | 4-Feb  | Introduction to Python
-6 | 11-Feb | Introduction to Unix, Bash scripting, and the SLURM scheduler
-- | 18-Feb | Reading Week
-- | 25-Feb | No tutorial
-7 | 3-Mar  | Bootstrap, randomization and permutation models
-8 | 10-Mar | Simulations, functions and modelling
-9 | 17-Mar | Principal components and factor analysis 
-10 | 24-Mar | Cluster analysis
-11 | 31-Mar |	Nonlinear regression
-12 | 7-Apr  |	Sequence data and microbiome analysis in R
+1 | 8-Jan | [Fundamental R](https://colauttilab.github.io/RCrashCourse/1_fundamentals_test.html) (self-study)
+2 | 15-Jan | ggplot and professional visualizations in R
+3 | 22-Jan | Data science and regular expressions (most people don’t know what they are but they are super-useful!)
+4 | 29-Jan | Reproducible R with Git and GitHub
+5 | 5-Feb  | Introduction to Python
+6 | 12-Feb | Introduction to Unix, Bash scripting, and the SLURM scheduler
+- | 19-Feb | Reading Week
+- | 26-Feb | No tutorial
+7 | 4-Mar  | Bootstrap, randomization and permutation models
+8 | 11-Mar | Simulations, functions and modelling
+9 | 18-Mar | Principal components and factor analysis 
+10 | 25-Mar | Cluster analysis
+11 | 1-Apr |	Nonlinear regression
+12 | 8-Apr  |	Sequence data and microbiome analysis in R
 
 
 # Grading Rubric:
