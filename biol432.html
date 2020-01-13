@@ -399,7 +399,7 @@ $(document).ready(function() {
 <div id="assignments" class="section level1 tabset">
 <h1>Assignments</h1>
 <p><span style="color:red"> Weekly assignments will appear here after lecture (usually the same day). Your answers should be submitted to OnQ within 48 hours of posting. (Quizzes are done in class through OnQ) </span></p>
-<p>Last Updated: 06 January, 2020</p>
+<p>Last Updated: 13 January, 2020</p>
 <div id="week-1" class="section level2">
 <h2>Week 1</h2>
 <ol style="list-style-type: decimal">
@@ -409,6 +409,69 @@ $(document).ready(function() {
 <li>When you think you know the functions well enough then take the <a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals_test.html">self-quiz</a>.</li>
 </ol>
 <p>Nothing to submit to OnQ this week, BUT you will be quizzed on this material in the next class. Make use of the tutorial/help session if you have any difficulties with anything in steps 1-4, above.</p>
+</div>
+<div id="week-2" class="section level2">
+<h2>Week 2</h2>
+<p>The goal of this week’s project is to create a simulated dataset of animal limbs in order to practice some of the methods learned in the last two tutorials.</p>
+<p><strong>Part I</strong></p>
+<ol style="list-style-type: decimal">
+<li>Create a new R project and link to a <strong>public</strong> repository on your GitHub account.</li>
+<li>Create a folder called <code>biol432</code>.</li>
+<li>Create a new R script called <code>DataGeneration.R</code> Inside of <code>DataGeneration.R</code></li>
+<li>Create an object called <code>Species</code> that is a character vector containing the names of 10 species (you can use any species names you want)</li>
+<li>Create a vector called <code>Limb.Width</code> that is a numeric vector containing 10 random numbers sampled from a normal distribution with a mean of 10 and standard deviation of 10.<br />
+</li>
+<li>Change any negative numbers in <code>Limb.Width</code> to positive values. Make sure this will work regardless of which random numbers are generated in 2a.</li>
+<li>Create a vector called <code>unitsW</code> that is a boolean vector containing 10 strings that are either <code>mm</code> or <code>cm</code> generated randomly with a 0.5 probability of each</li>
+<li>Repeat step 5 and 6 for a new object called <code>Limb.Length</code>, but with a mean and standard deviation of 100</li>
+<li>Repeat step 7 for a new object called <code>unitsL</code></li>
+<li>Combine all vectors into a <code>data.frame</code> object called <code>MyData</code></li>
+<li>Save <code>MyData</code> as a csv file in the <code>Data</code> folder called <code>measurements.csv</code></li>
+</ol>
+<p><strong>Hint</strong>: At this point, the first few lines of <code>MyData</code> formatted into a table might look something like this:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Organism</th>
+<th>Limb.Width</th>
+<th>unitsW</th>
+<th>Limb.Length</th>
+<th>unitsL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Ixodes scapularis”</td>
+<td>35.102630</td>
+<td>“mm”</td>
+<td>18.25771</td>
+<td>“cm”</td>
+</tr>
+<tr class="even">
+<td>“Homo sapiens”</td>
+<td>34.33059</td>
+<td>“cm”</td>
+<td>76.90387</td>
+<td>“cm”</td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Part II</strong></p>
+<p>Create a new script called <code>DataMixer.R</code> that does the following:</p>
+<ol style="list-style-type: decimal">
+<li>Read <code>measurements.csv</code> into an object in R called <code>MData</code></li>
+<li>Create a new data column called <code>Volume</code> that calculates limb volume (<strong>Hint</strong>: pay careful attention to your units – assume unitsW shows the units for Limb.Width and unitsL shows the units for Limb.Length). Treat these as limb dimensions (e.g. arms, legs, fins).</li>
+</ol>
+<p><strong>Part III</strong></p>
+<p>Create a graph showing the relationship between Width and Length, with proper formating that makes it look like it could be published in a journal like Nature or Science. Output as a <code>pdf</code> format with printed dimensions of 20 x 20 cm</p>
+<p>Submit your project folder to OnQ. The folder should include: DataGeneration.R, DataMixer.R, and the pdf of the graph that you made</p>
 <hr />
 </div>
 </div>
@@ -433,8 +496,6 @@ $(document).ready(function() {
 <li><a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html#2_r_basics">Math</a></li>
 <li><a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html#3_defining_variables__objects">Variables/Objects</a></li>
 <li><a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html#4_working_with_data">Data Frames</a></li>
-<li><a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html#7_flow_control">Flow Control</a></li>
-<li><a href="https://colauttilab.github.io/RCrashCourse/6_advanced.html#1_custom_functions">Custom Functions</a></li>
 </ul></li>
 <li>Final Thoughts (annonymous):
 <ul>
@@ -444,6 +505,24 @@ $(document).ready(function() {
 <li>Feel free to share any other thoughts or suggestions</li>
 </ul></li>
 </ul>
+</div>
+<div id="week-2-1" class="section level2">
+<h2>Week 2</h2>
+<ul>
+<li>More R
+<ul>
+<li>Setup R Studio with GitHub <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">link</a></li>
+<li>GitHub overview</li>
+<li><a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html#7_flow_control">Flow Control</a></li>
+<li><a href="https://colauttilab.github.io/RCrashCourse/6_advanced.html#1_custom_functions">Custom Functions</a></li>
+</ul></li>
+<li>Visualizations
+<ul>
+<li><a href="https://colauttilab.github.io/Lectures/Graphical_Concepts.pdf">Basic Graphical Concepts (from BIOL 812)</a></li>
+<li>Intro to <a href="https://colauttilab.github.io/RCrashCourse/2_qplot.html">qplot</a></li>
+<li>Advanced graphics with <a href="https://colauttilab.github.io/RCrashCourse/3_ggplot.html">ggplot</a></li>
+</ul></li>
+</ul>
 <hr />
 </div>
 </div>
@@ -451,7 +530,11 @@ $(document).ready(function() {
 <h1>Key Information</h1>
 <p><strong>Instructor</strong>: Dr. Robert Colautti, <a href="mailto:robert.colautti@queensu.ca">robert.colautti@queensu.ca</a></p>
 <p><strong>‘Lectures’</strong>: Mondays 14:30-17:30, Ellis 333</p>
-<p><strong>Tutorial/Help TAs</strong>: * Peiwen Li, <a href="mailto:15pl16@queensu.ca">15pl16@queensu.ca</a> * Ying Chen, <a href="mailto:12yc24@queensu.ca">12yc24@queensu.ca</a></p>
+<p><strong>Tutorial/Help TAs</strong>:</p>
+<ul>
+<li>Peiwen Li, <a href="mailto:15pl16@queensu.ca">15pl16@queensu.ca</a></li>
+<li>Ying Chen, <a href="mailto:12yc24@queensu.ca">12yc24@queensu.ca</a></li>
+</ul>
 <p><strong>Help Sessions</strong>: Wednesdays 14:30-15:30, Ellis 333</p>
 <p><strong>Syllabus</strong>: Read below, or view the <a href="./Files/Colautti_432_Syllabus.pdf">pdf version</a></p>
 <hr />
@@ -507,11 +590,11 @@ $(document).ready(function() {
 </tr>
 <tr class="even">
 <td>2</td>
-<td><strong>R</strong>-eproducibility</td>
+<td>Visualize-<strong>R</strong></td>
 </tr>
 <tr class="odd">
 <td>3</td>
-<td>Visualize-<strong>R</strong></td>
+<td><strong>R</strong>-eproducibility</td>
 </tr>
 <tr class="even">
 <td>4</td>
@@ -641,7 +724,7 @@ $(document).ready(function() {
 <h2>Grievances</h2>
 <p>It is the student’s responsibility to raise any concerns about grading errors within 5 business days of receiving a grade on any quiz or assignment.</p>
 <p>Requests must be made in writing (e.g. email) and must include a very clear explanation of the reason for concern. Any identified grading errors will be corrected, which may result in a lower or higher grade.</p>
-<p>Other grade adjustments not will NOT BE CONSIDERED without prior approval based on academic accommodations or extenuating circumstances.</p>
+<p>Other grade adjustments not will not be considered without prior approval based on academic accommodations or extenuating circumstances.</p>
 </div>
 <div id="academic-accommodations" class="section level2">
 <h2>Academic Accommodations</h2>
