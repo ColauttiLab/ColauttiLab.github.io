@@ -15,6 +15,7 @@ output: html_document
   * [Reproducible Code](./Readings/BES-Reproducible-Code.pdf)
   * [Getting Published](./Readings/BES-Getting-Published-Guide-2017.pdf)
   * [Peer Review](./Readings/BES-Peer-Review-Guide-2017.pdf)
+    * and a related [blog post](https://appliedecologistsblog.com/2019/09/18/quality-in-peer-review) on Peer Review
 
 ## 3. Create Your Data Management Plan (DMP)
 
