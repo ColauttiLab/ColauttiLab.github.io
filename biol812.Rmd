@@ -19,11 +19,24 @@ Last Updated:
 
 ## Week 1
 
-Review [Fundamental R](https://colauttilab.github.io/RCrashCourse/1_fundamentals.html) and make sure you are comfortable with the content.
+  * Review [Fundamental R](https://colauttilab.github.io/RCrashCourse/1_fundamentals.html) and make sure you are comfortable with the content.
 
 If you think you are comfortable with the content, then take the [self-assessment](https://colauttilab.github.io/RCrashCourse/1_fundamentals_test.html) to test your knowledge.
 
 Make sure you are familiar with this content as it will be needed for most of the lecture/tutorials.
+
+## Week 2
+
+  1. Review [qplot](https://colauttilab.github.io/RCrashCourse/2_qplot.html), [ggplot](https://colauttilab.github.io/RCrashCourse/3_ggplot.html) and [professional visualizations](https://colauttilab.github.io/RCrashCourse/Graphics_small.pdf) in R
+  2. Find an interesting dataset (but not too large; < 1Mb). It could be your own, data from someone in your lab, or a dataset on a public repository (https://datadryad.org/stash).
+  3. Create a new R project
+  3. Write an R script to import the data and generate three graphs in a single file (e.g. png, pdf).  
+  4. Each graph should show different aspects of the data.
+  5. Use custom graphing and theme parameters to make 3 publication-worthy figures, each with its own distinct style. One graph should be 'basic' -- the kind of graph you would see in a printed research journal (no colour). A second graph should be 'tabloid colour' that you might see in Nature or Science. The third is a style of your choice but should be distinct from the other two. 
+  6. Submit your R project to OnQ including data file, script and graph file
+  7. As always, be sure to use **relative** path names (e.g. `"Data/MyData.csv"`) not **absolute** path names (e.g. `"Data/MyData.csv"`)
+  
+  
 
 
 ***
@@ -33,7 +46,7 @@ Make sure you are familiar with this content as it will be needed for most of th
  | Date | Topic
 -----|--------|----------------------------------------------------
 1 | 8-Jan | [Fundamental R](https://colauttilab.github.io/RCrashCourse/1_fundamentals_test.html) (self-study)
-2 | 15-Jan | ggplot and professional visualizations in R
+2 | 15-Jan | [qplot](https://colauttilab.github.io/RCrashCourse/2_qplot.html), [ggplot](https://colauttilab.github.io/RCrashCourse/3_ggplot.html) and [professional visualizations](https://colauttilab.github.io/RCrashCourse/Graphics_small.pdf) in R
 3 | 22-Jan | Data science and regular expressions (most people don’t know what they are but they are super-useful!)
 4 | 29-Jan | Reproducible R with Git and GitHub
 5 | 5-Feb  | Introduction to Python
