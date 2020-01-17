@@ -9,7 +9,7 @@ output: html_document
   2. __Plan ahead.__ Have everything planned out before you even start
   3. __Less is more.__ Avoid overcrowding. Don't write down phrases or sentences that you are going to say anyway.
 
-This [Colautti Lab Powerpoint Template](Files/ColauttiLab_SlideFormat.pptx) includes pre-formatted slides featuring lab colours. Use this rather than the garbage and over-used templates that Microsoft provides.
+This [Colautti Lab Powerpoint Template](../Files/ColauttiLab_SlideFormat.pptx) includes pre-formatted slides featuring lab colours. Use this rather than the garbage and over-used templates that Microsoft provides.
 
 # Figures
 

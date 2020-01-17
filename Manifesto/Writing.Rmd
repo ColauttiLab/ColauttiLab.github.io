@@ -11,7 +11,7 @@ Read this explanation in the 2016 Bulletin of the Ecological Society of America:
 
 And this [guide](./References/BES_WritingTips.pdf) from the British Ecological Society
 
-See this thread of great academic [writing tips on twitter](https://twitter.com/saraannhart/status/1126222700895195136?s=03) 
+See this thread of great academic [writing tips on twitter](https://twitter.com/saraannhart/status/1126222700895195136?s=03). And this [short note](https://www.nature.com/articles/d41586-019-02918-5) of points for writing in high-impact journals like Nature.
 
 If you are a graduate student, consider getting a copy of Stephen Heard's book [The Scientist's Guide to Writing](https://www.amazon.ca/Scientists-Guide-Writing-Effectively-throughout/dp/0691170223/ref=sr_1_1?ie=UTF8&qid=1523074693&sr=8-1&keywords=scientists+guide+to+writing+heard). Read it carefully and refer back to it periodically.
 
@@ -107,13 +107,21 @@ If somebody asks you to comment on their writing, don't hesitate to do so. It wi
 
 This is the stage where you should send it to me for comment. Depending on the clarity and efficiency of your writing, this could require anywhere from 3 to 20 rounds of revision. Generally, the more quality work timethat you devote to stages 1-6, the fewer rounds of revision you will require. Note that it can take 1-2 weeks between each revision, so in theory it can take almost a year to revise poorly-written manuscript! Avoid this at all costs -- invest the time to produce the best possible outline and 1st draft.
 
-# 9. Publishing
+# 9. Final Editing
+
+Look carefully at each word, each sentence, each paragraph. Ask youself -- is this the best way to say this? Is it clear?
+
+Check style guides, like [this one](https://authorservices.wiley.com/asset/photos/House_style_guide_ROW4520101451415.pdf) from Wiley. Check for any of these errors and ambiguities in your writing.
+
+If you are submitting a journal article, look at the 'Author Guidelines' on the website of the journal you want to submit to. Read it carefully and make any changes necessary.
+
+# 10. Publishing
 
 After the long process of writing and revising a manuscript that passes review of your peers, you may be ready to finally submit your paper for scientific peer review. Your first step is to find a journal. Avoid predatory journals that prey on desperate young scientists and offer a forum for publication that will never be cited. A good resource for identifying predatory journals is *Beall's List*: https://beallslist.weebly.com/
 
 See also, the guidelines at *Think, Check, Submit*: https://thinkchecksubmit.org/
 
-# 10. Improving your game
+# 11. Improving your game
 
 Some links to take your writing to the next level.
 
