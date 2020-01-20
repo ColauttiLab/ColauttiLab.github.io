@@ -399,12 +399,13 @@ $(document).ready(function() {
 <div id="assignments" class="section level1 tabset">
 <h1>Assignments</h1>
 <p><span style="color:red"> Weekly assignments will appear here after lecture (usually the same day). Your answers should be submitted to OnQ within 48 hours of posting. (Quizzes are done in class through OnQ) </span></p>
-<p>Last Updated: 13 January, 2020</p>
+<p>Last Updated: 20 January, 2020</p>
 <div id="week-1" class="section level2">
 <h2>Week 1</h2>
 <ol style="list-style-type: decimal">
 <li>If you are a Windows user, install <a href="https://mobaxterm.mobatek.net/download.html">MobaXterm</a> (Windows users only; Mac/Unix users don’t need this).</li>
 <li>Make a free account on <a href="https://github.com/">GitHub</a>.</li>
+<li>Follow <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">this tutorial</a> to install Git and set up version control with Git in R Studio.</li>
 <li>Review <a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html">R Fundamentals</a>.</li>
 <li>When you think you know the functions well enough then take the <a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals_test.html">self-quiz</a>.</li>
 </ol>
@@ -466,12 +467,39 @@ $(document).ready(function() {
 <p><strong>Part II</strong></p>
 <p>Create a new script called <code>DataMixer.R</code> that does the following:</p>
 <ol style="list-style-type: decimal">
-<li>Read <code>measurements.csv</code> into an object in R called <code>MData</code></li>
+<li>Read <code>Measurements.csv</code> into an object in R called <code>MData</code></li>
 <li>Create a new data column called <code>Volume</code> that calculates limb volume (<strong>Hint</strong>: pay careful attention to your units – assume unitsW shows the units for Limb.Width and unitsL shows the units for Limb.Length). Treat these as limb dimensions (e.g. arms, legs, fins).</li>
 </ol>
 <p><strong>Part III</strong></p>
 <p>Create a graph showing the relationship between Width and Length, with proper formating that makes it look like it could be published in a journal like Nature or Science. Output as a <code>pdf</code> format with printed dimensions of 20 x 20 cm</p>
 <p>Submit your project folder to OnQ. The folder should include: DataGeneration.R, DataMixer.R, and the pdf of the graph that you made</p>
+</div>
+<div id="week-3" class="section level2">
+<h2>Week 3</h2>
+<ol style="list-style-type: decimal">
+<li>Open your project folder from last week’s assignment.</li>
+<li>Using Git with RStudio, upload your project to GitHub (hint: review ‘commit’, ‘push’ and ‘pull’)</li>
+<li>Create a new R Markdown file called <code>DataAnalysis.Rmd</code> (delete the default text, except for the YAML header)</li>
+<li>In the R Markdown document include functions from the <a href="https://colauttilab.github.io/RCrashCourse/5_datascience.html">Data Science Tutorial</a> to do each of the following:</li>
+</ol>
+<ul>
+<li>Read measurements.csv into an object in R called <code>MData</code></li>
+<li>Change the column names to shorter, 3-letter abbreviations</li>
+<li>Convert measurements to the same units (e.g. mm to cm or cm to mm). For this step, you can use the same code from <code>DataMixer.R</code> in the previous assignment (i.e. you don’t have to use <code>dplyr</code>)</li>
+<li>Create a new column called <code>Volume</code> that calculates limb volume. Treate these as limb dimensions.</li>
+<li>Plot Width and Length, as in Part III from last week’s assignment BUT embed the graph in your Rmd file instead of producing a pdf</li>
+<li>Plot Width and Length, but only for species that have above-average volume</li>
+<li>Add a table showing only Species and Volume for only the species with below-average volume</li>
+<li>Group the species into 2 or more imaginary groups (you decide on the category names). Hint: You will need to make a new column for this.</li>
+<li>Summarize the mean and SD of Length, Width and Volume for each of the groups, and present in table form.</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Write up these results as an official report. (e.g. add text explaining each analysis, plot, data manipulation, etc.)</li>
+</ol>
+<p>NOTE: Imagine you are reporting these results to someone who isn’t familiar with your project. Add headers and short descriptions outlining your analysis. Make sure the figures are formatted for a professional report – see Graphical Concepts and Rules of Thumb from the <a href="https://colauttilab.github.io/RCrashCourse/3_ggplot.html">ggplot tutorial</a>. Make sure your analysis is <strong>reproducible</strong> so that someone unfamiliar with your project could take your data and Rmd file and reproduce the same figures and tables.</p>
+<ol start="6" style="list-style-type: decimal">
+<li>Knit your <code>Rmd</code> file to a <code>html</code> format. Submit the <code>html</code>, the original <code>Rmd</code> file, and the <code>Measurements.csv</code> files to OnQ.</li>
+</ol>
 <hr />
 </div>
 </div>
@@ -511,8 +539,7 @@ $(document).ready(function() {
 <ul>
 <li>More R
 <ul>
-<li>Setup R Studio with GitHub <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">link</a></li>
-<li>GitHub overview</li>
+<li>GitHub with RStudio</li>
 <li><a href="https://colauttilab.github.io/RCrashCourse/1_fundamentals.html#7_flow_control">Flow Control</a></li>
 <li><a href="https://colauttilab.github.io/RCrashCourse/6_advanced.html#1_custom_functions">Custom Functions</a></li>
 </ul></li>
@@ -522,6 +549,15 @@ $(document).ready(function() {
 <li>Intro to <a href="https://colauttilab.github.io/RCrashCourse/2_qplot.html">qplot</a></li>
 <li>Advanced graphics with <a href="https://colauttilab.github.io/RCrashCourse/3_ggplot.html">ggplot</a></li>
 </ul></li>
+</ul>
+</div>
+<div id="week-3-1" class="section level2">
+<h2>Week 3</h2>
+<ul>
+<li>Reproducible reports using <a href="https://colauttilab.github.io/RCrashCourse/6_advanced.html#1_r_markdown">R Markdown</a>. You might also want to print out this handy <a href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">2-page ‘cheat sheet’</a></li>
+<li><a href="https://colauttilab.github.io/RCrashCourse/5_datascience.html">Data Science in Biology</a></li>
+<li><a href="https://colauttilab.github.io/RCrashCourse/5_datascience.html#2_2d_da%20ta_wrangling">Data Wrangling</a></li>
+<li><a href="https://colauttilab.github.io/RCrashCourse/5_datascience.html#3_missing_data">Missing &amp; Naughty Data</a></li>
 </ul>
 <hr />
 </div>
@@ -580,24 +616,29 @@ $(document).ready(function() {
 <thead>
 <tr class="header">
 <th>Week</th>
+<th>Date</th>
 <th>Topic</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>1</td>
+<td>6-Jan</td>
 <td><strong>R</strong>-eview</td>
 </tr>
 <tr class="even">
 <td>2</td>
+<td>13-Jan</td>
 <td>Visualize-<strong>R</strong></td>
 </tr>
 <tr class="odd">
 <td>3</td>
+<td>20-Jan</td>
 <td><strong>R</strong>-eproducibility</td>
 </tr>
 <tr class="even">
 <td>4</td>
+<td>27-Jan</td>
 <td>Introduction to Unix and Bash scripting</td>
 </tr>
 </tbody>
@@ -607,40 +648,49 @@ $(document).ready(function() {
 <thead>
 <tr class="header">
 <th>Week</th>
+<th>Date</th>
 <th>Topic</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>5</td>
+<td>3-Feb</td>
 <td>Working with DNA/RNA Sequences</td>
 </tr>
 <tr class="even">
 <td>6</td>
+<td>10-Feb</td>
 <td>Alignments</td>
 </tr>
 <tr class="odd">
-<td>7</td>
-<td>Phylogenies</td>
+<td>NA</td>
+<td>17-Feb</td>
+<td>READING WEEK</td>
 </tr>
 <tr class="even">
-<td>8</td>
-<td>Remote computing (CAC)</td>
+<td>7</td>
+<td>24-Feb</td>
+<td>Phylogenies</td>
 </tr>
 <tr class="odd">
-<td>9</td>
+<td>8</td>
+<td>2-Mar</td>
 <td>Metabarcoding</td>
 </tr>
 <tr class="even">
-<td>10</td>
-<td>Transcriptomics</td>
+<td>9</td>
+<td>16-Mar</td>
+<td>Remote computing (CAC)</td>
 </tr>
 <tr class="odd">
-<td>11</td>
-<td>Genome Assembly</td>
+<td>10</td>
+<td>23-Mar</td>
+<td>Transcriptomics</td>
 </tr>
 <tr class="even">
-<td>12</td>
+<td>11</td>
+<td>30-Mar</td>
 <td>Final Project Presentations</td>
 </tr>
 </tbody>
