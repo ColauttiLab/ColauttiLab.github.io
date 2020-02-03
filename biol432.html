@@ -557,6 +557,7 @@ $(document).ready(function() {
 </div>
 <div id="week-5" class="section level2">
 <h2>Week 5</h2>
+<p><strong>PART I</strong></p>
 <ol style="list-style-type: decimal">
 <li>Install the <code>rentrez</code> package in R. You can read more about it in <a href="https://cran.r-project.org/web/packages/rentrez/vignettes/rentrez_tutorial.html">this tutorial</a></li>
 <li>Create a new R Project and use version control with Git to link it to a new repository on your GitHub account called <em>Rentrez</em>.</li>
@@ -570,17 +571,36 @@ Bburg&lt;-<span class="kw">entrez_fetch</span>(<span class="dt">db =</span> <spa
 <ul>
 <li>Add comments to explain what each line of your script does (Hint: use help <code>?</code> in R)</li>
 <li>Take a look at the <code>Bburg</code> object. It contains 3 different sequences of the 16S gene of <em>Borrelia burgdorferi</em> (aka <em>Borreliella burgdorferi</em>) , which is a bacteria that causes <a href="https://en.wikipedia.org/wiki/Lyme_disease">Lyme Disease</a>.</li>
-<li>Use the <code>strsplit()</code> function in combination with others to create a vector of 3 components, one for each sequence. Output this vector to a file called <em>Sequences.csv</em>.</li>
+<li>Use the <code>strsplit()</code> function on the <code>Bburg</code> object to create a new object called <code>Sequences</code> that contains 3 elements: one for each sequcne (HINT: Look at the input carefully, especially the new line characters). If you print <code>Sequences</code> it should look like this:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(Sequences)</code></pre></div>
+<pre eval="F"><code>[[1]]
+[1] &quot;&gt;HQ433692.1 Borrelia burgdorferi strain QLZP1 16S ribosomal RNA gene, partial sequence\nAGCATGCAAGTCAAACGAGATGTAGCAATACATCTAGTGGCGAACGGGTGAGTAACGCGTGGATGATCTA\nCCTATGAGATGGGGATAACTATTAGAAATAGTAGCTAATACCGAATAAGGTCAATTAATTTGTTAATTGA\nTGAAAGGAAGCCTTTAAAGCTTCGCTTGTAGATGAGTCTGCGTCTTATTAGTTAGTTGGTAGGGTAAATG\nCCTACCAAGGCGATGATAAGTAACCGGCCTGAGAGGGTGAACGGTCACACTGGAACTGAGACACGGTCCA\nGACTCCTACGGGAGGCAGCAGCTAAGAATCTTCCGCAATGGGCGAAAGCCTGACGGAGCGACACTGCGTG\nAATGAAGAAGGTCGAAAGATTGTAAAATTCTTTTATAAATGAGGAATAAGCTTTGTAGGAAATGACGAAG\nTGATGACGTTAATTTATGAATAAGCCCCGGCTAATTACGTGCCAGCAGCCGCGGTAATACG&quot;
+[2] &quot;&gt;HQ433694.1 Borrelia burgdorferi strain CS4 16S ribosomal RNA gene, partial sequence\nAGCATGCAAGTCAAACGGGATGTAGCAATACATTCAGTGGCGAACGGGTGAGTAACGCGTGGATGATCTA\nCCTATGAGATGGGGATAACTATTAGAAATAGTAGCTAATACCGAATAAGGTCAGTTAATTTGTTAATTGA\nTGAAAGGAAGCCTTTAAAGCTTCGCTTGTAGATGAGTCTGCGTCTTATTAGCTAGTTGGTAGGGTAAATG\nCCTACCAAGGCAATGATAAGTAACCGGCCTGAGAGGGTGAACGGTCACACTGGAACTGAGATACGGTCCA\nGACTCCTACGGGAGGCAGCAGCTAAGAATCTTCCGCAATGGGCGAAAGCCTGACGGAGCGACACTGCGTG\nAATGAAGAAGGTCGAAAGATTGTAAAATTCTTTTATAAATGAGGAATAAGCTTTGTAGGAAATGACAAAG\nTGATGACGTTAATTTATGAATAAGCCCCGGCTAATTACGTGCCAGCAGCAGCGGTAATACG&quot;  
+[3] &quot;&gt;HQ433691.1 Borrelia burgdorferi strain GL18 16S ribosomal RNA gene, partial sequence\nAGCATGCAAGTCAAACGAGATGTAGTAATACATCTAGTGGCGAACGGGTGAGTAACGCGTGGATGATCTA\nCCTATGAGATGGGGATAACTATTAGAAATAGTAGCTAATACCGAATAAGGTCAATTAATTTGTTAATTGA\nTGAAAGGAAGCCTTTAAAGCTTCGCTTGTAGATGAGTCTGCGTCTTATTAGTTAGTTGGTAGGGTAAATG\nCCTACCAAGGCGATGATAAGTAACCGGCCTGAGAGGGTGAACGGTCACACTGGAACTGAGACACGGTCCA\nGACTCCTACGGGAGGCAGCAGCTAAGAATCTTCCGCAATGGGCGAAAGCCTGACGGAGCGACACTGCGTG\nAATGAAGAAGGTCGAAAGATTGTAAAATTCTTTTATAAATGAGGAATAAGCTTTGTAGGAAATGACGAAG\nTGATGACGTTAATTTATGAATAAGCCCCGGCTAATTACGTGCCAGCAGCCGCGGTAATACG&quot;</code></pre>
+<p>NOTE the <code>[[1]]</code> at the top shows us that this is a list, but we want to make a dataframe, so we can convert using the command:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Sequences&lt;-<span class="kw">unlist</span>(Sequences)</code></pre></div>
+<ul>
+<li>Next, use regular expressions to separate the sequences from the headers</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">header&lt;-<span class="kw">gsub</span>(<span class="st">&quot;(^&gt;.*sequence)</span><span class="ch">\\</span><span class="st">n[ATCG].*&quot;</span>,<span class="st">&quot;</span><span class="ch">\\</span><span class="st">1&quot;</span>,Sequences)
+seq&lt;-<span class="kw">gsub</span>(<span class="st">&quot;^&gt;.*sequence</span><span class="ch">\\</span><span class="st">n([ATCG].*)&quot;</span>,<span class="st">&quot;</span><span class="ch">\\</span><span class="st">1&quot;</span>,Sequences)
+Sequences&lt;-<span class="kw">data.frame</span>(<span class="dt">Name=</span>header,<span class="dt">Sequence=</span>seq)</code></pre></div>
+<ul>
+<li>Now remove the newline characters from the Sequences data frame using regular expressions</li>
+<li>Output this vector to a file called <em>Sequences.csv</em>.</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
 <li>Write an R markdown script called <em>Analysis.Rmd</em> that includes the following (in any order that works):</li>
+</ol>
+<ul>
 <li>Import the <em>Sequences.csv</em> file.</li>
-<li>Using regular expressions, count the numbers of each base pair (A, T, C and G), in each of the three sequences. (Hint: do not include any characters from the header, use the nucleotide sequence only.)</li>
+<li>Count the number of each base pair (A, T, C and G), in each of the three sequences. (Hint: do not include any characters from the header, use the nucleotide sequence only; you MIGHT use <code>gsub()</code>, <code>nchar()</code>, for loops, if/then statements)</li>
 <li>Print out each sequence.</li>
 <li>Print out the number of each nucleotide as a table for each of the three sequences.</li>
 <li>Include an image of a bacteria from the internet, and a link to the Wikipedia page about <em>Borrelia burgdorferi</em></li>
 <li>Calculate <em>GC Content</em> (% of nucleotides that are G or C) and create a final table showing GC content for each sequence ID, for example:</li>
-</ol>
+</ul>
 <table>
 <thead>
 <tr class="header">
@@ -603,10 +623,8 @@ Bburg&lt;-<span class="kw">entrez_fetch</span>(<span class="dt">db =</span> <spa
 </tr>
 </tbody>
 </table>
-<ol start="7" style="list-style-type: decimal">
-<li>Add headers to distinguish the individual sequence analysis from the summary tables, and use sub-headers to distinguish the three individual sequence analyses from Step 3).</li>
-<li>Create an attractive, publication-worthy scatterplot of %GC using data from the file <a href="./Files/GC_content.csv">GC_content.csv</a>. Note: You will have have to calculate %GC Content from this file, which shows %C and %G content for 1000 specimens. Make sure the points for each of the three ‘species’ can be distinguished in the graph as clearly as possible.</li>
-</ol>
+<p><strong>PART II</strong></p>
+<p>Create an attractive, publication-worthy scatterplot of %GC using data from the file <a href="./Files/GC_content.csv">GC_content.csv</a>. Note: You will have have to calculate %GC Content from this file, which shows %C and %G content for 1000 specimens. Make sure the points for each of the three ‘species’ can be distinguished in the graph as clearly as possible.</p>
 <p><strong>To submit this assignment</strong>: upload your files to onQ and include the github link to your repository as a comment.</p>
 </div>
 </div>
