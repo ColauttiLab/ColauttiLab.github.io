@@ -598,10 +598,11 @@ drwxr-xr-x    1 rob_c    UsersGrp         0 Jan 27 11:20 ..
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">if</span><span class="bu"> [</span> <span class="va">$Var1</span> <span class="ot">==</span> <span class="va">$Var2</span><span class="bu"> ]</span>
 <span class="kw">then</span>
    <span class="bu">echo</span> <span class="st">&quot;Variable 1 is equal to Variable 2&quot;</span>
-<span class="kw">elif</span><span class="bu"> [</span> <span class="va">$a</span> <span class="ot">-gt</span> <span class="va">$b</span><span class="bu"> ]</span>
+<span class="kw">elif</span><span class="bu"> [</span> <span class="va">$Var1</span> <span class="ot">-gt</span> <span class="va">$Var2</span><span class="bu"> ]</span>
 <span class="kw">then</span>
    <span class="bu">echo</span> <span class="st">&quot;Variable 1 is greater than Variable 2&quot;</span>
-<span class="kw">elif</span><span class="bu"> [</span> <span class="va">$a</span> <span class="ot">-lt</span> <span class="va">$b</span><span class="bu"> ]</span>
+<span class="kw">elif</span><span class="bu"> [</span> <span class="va">$Var1</span> <span class="ot">-lt</span> <span class="va">$Var2</span><span class="bu"> ]</span>
+   <span class="bu">echo</span> <span class="st">&quot;Variable 1 is less than Variable 2&quot;</span>
 <span class="kw">else</span>
    <span class="bu">echo</span> <span class="st">&quot;Variable 1 is not equal to or greater than Variable 2&quot;</span>
 <span class="kw">fi</span></code></pre></div>
