@@ -427,10 +427,13 @@ $(document).ready(function() {
 });
 </script>
 <hr />
-<div id="assignments" class="section level1 tabset">
+<div id="assignments" class="section level1 tabset tabset-fade">
 <h1>Assignments</h1>
+<svg width="100%" height="6">
+<rect x="0" y="0" rx=" 0" ry="0" width="100%" height="100%" style="fill:black;stroke:black;stroke-width:4;opacity:0.5"></rect>
+</svg>
 <p><span style="color:red"> Weekly assignments will appear here after lecture (usually the same day). Your answers should be submitted to OnQ within 48 hours of posting. (Quizzes are done in class through OnQ) </span></p>
-<p>Last Updated: 27 January, 2020</p>
+<p>Last Updated: 03 February, 2020</p>
 <div id="week-1" class="section level2">
 <h2>Week 1</h2>
 <ol style="list-style-type: decimal">
@@ -517,7 +520,7 @@ $(document).ready(function() {
 <li>Read <code>measurements.csv</code> into an object in R called <code>MData</code></li>
 <li>Change the column names to shorter, 3-letter abbreviations</li>
 <li>Convert measurements to the same units (e.g. mm to cm or cm to mm). For this step, you can use the same code from <code>DataMixer.R</code> in the previous assignment (i.e. you don’t have to use <code>dplyr</code>)</li>
-<li>Create a new column called <code>Volume</code> that calculates limb volume. Treate these as limb dimensions.</li>
+<li>Create a new column called <code>Volume</code> that calculates limb volume. Treat these as limb dimensions.</li>
 <li>Plot Width and Length, as in Part III from last week’s assignment BUT embed the graph in your Rmd file instead of producing a pdf</li>
 <li>Plot Width and Length, but only for species that have above-average volume</li>
 <li>Add a table showing only Species and Volume for only the species with below-average volume</li>
@@ -539,7 +542,7 @@ $(document).ready(function() {
 <li>Create a new R Markdown file called <code>Regex.Rmd</code> and add code for each of the following steps:</li>
 <li>Import your <code>measurements.csv</code> file into an object called <code>MData</code></li>
 <li>Use a <code>dplyr</code> command AND regular expressions to add a new column called <code>Sp</code> that modifies the Species names with only the first letter and period. For example: <em>Homo sapiens</em> in the original Species column becomes <em>H. sapiens</em> in the Sp column. HINT: You can think of the regular expression commands like <code>sub</code>, <code>grep</code>, <code>grepl</code> and <code>gsub</code> as equations for strings</li>
-<li>Use a <code>dplyr</code> command to reate a new dataset containing only the <code>Sp</code> column, moved to the beginning in place of the original <code>Species</code> column</li>
+<li>Use a <code>dplyr</code> command to create a new dataset BUT with <code>Sp</code> column instead of the <code>Species</code> column, moved to the beginning in place of the original <code>Species</code> column</li>
 <li>Review the unix commands, they will be on the quiz next week</li>
 <li>Knit your <code>Rmd</code> file to a <code>html</code> format.</li>
 <li>Write a bash script called <code>MyCount.sh</code> that will loop through a sequence of 20 numbers. In each iteration the script will print out the number of the loop iteration AND whether it is a single- or double-digit number. For example, some of the output should look like this:</li>
@@ -551,13 +554,69 @@ $(document).ready(function() {
 <ol start="9" style="list-style-type: decimal">
 <li>Push all of your files to GitHub and then submit the <code>html</code>, the original <code>Rmd</code> file, <code>MyCount.sh</code>, and the <code>Measurements.csv</code> files to OnQ.</li>
 </ol>
-<hr />
+</div>
+<div id="week-5" class="section level2">
+<h2>Week 5</h2>
+<ol style="list-style-type: decimal">
+<li>Install the <code>rentrez</code> package in R. You can read more about it in <a href="https://cran.r-project.org/web/packages/rentrez/vignettes/rentrez_tutorial.html">this tutorial</a></li>
+<li>Create a new R Project and use version control with Git to link it to a new repository on your GitHub account called <em>Rentrez</em>.</li>
+<li>Create a new script called <em>Download.R</em> that loads the <code>rentrez</code> package:</li>
+</ol>
+<ul>
+<li>Add these lines to your script.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ncbi_ids &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;HQ433692.1&quot;</span>,<span class="st">&quot;HQ433694.1&quot;</span>,<span class="st">&quot;HQ433691.1&quot;</span>)
+Bburg&lt;-<span class="kw">entrez_fetch</span>(<span class="dt">db =</span> <span class="st">&quot;nuccore&quot;</span>, <span class="dt">id =</span> ncbi_ids, <span class="dt">rettype =</span> <span class="st">&quot;fasta&quot;</span>)</code></pre></div>
+<ul>
+<li>Add comments to explain what each line of your script does (Hint: use help <code>?</code> in R)</li>
+<li>Take a look at the <code>Bburg</code> object. It contains 3 different sequences of the 16S gene of <em>Borrelia burgdorferi</em> (aka <em>Borreliella burgdorferi</em>) , which is a bacteria that causes <a href="https://en.wikipedia.org/wiki/Lyme_disease">Lyme Disease</a>.</li>
+<li>Use the <code>strsplit()</code> function in combination with others to create a vector of 3 components, one for each sequence. Output this vector to a file called <em>Sequences.csv</em>.</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Write an R markdown script called <em>Analysis.Rmd</em> that includes the following (in any order that works):</li>
+<li>Import the <em>Sequences.csv</em> file.</li>
+<li>Using regular expressions, count the numbers of each base pair (A, T, C and G), in each of the three sequences. (Hint: do not include any characters from the header, use the nucleotide sequence only.)</li>
+<li>Print out each sequence.</li>
+<li>Print out the number of each nucleotide as a table for each of the three sequences.</li>
+<li>Include an image of a bacteria from the internet, and a link to the Wikipedia page about <em>Borrelia burgdorferi</em></li>
+<li>Calculate <em>GC Content</em> (% of nucleotides that are G or C) and create a final table showing GC content for each sequence ID, for example:</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th>Sequence ID</th>
+<th>GC Content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>HQ433694.1</td>
+<td>2%</td>
+</tr>
+<tr class="even">
+<td>HQ433692.1</td>
+<td>5%</td>
+</tr>
+<tr class="odd">
+<td>HQ433691.1</td>
+<td>4%</td>
+</tr>
+</tbody>
+</table>
+<ol start="7" style="list-style-type: decimal">
+<li>Add headers to distinguish the individual sequence analysis from the summary tables, and use sub-headers to distinguish the three individual sequence analyses from Step 3).</li>
+<li>Create an attractive, publication-worthy scatterplot of %GC using data from the file <a href="./Files/GC_content.csv">GC_content.csv</a>. Note: You will have have to calculate %GC Content from this file, which shows %C and %G content for 1000 specimens. Make sure the points for each of the three ‘species’ can be distinguished in the graph as clearly as possible.</li>
+</ol>
+<p><strong>To submit this assignment</strong>: upload your files to onQ and include the github link to your repository as a comment.</p>
 </div>
 </div>
-<div id="content-review" class="section level1 tabset">
+<div id="content-review" class="section level1 tabset tabset-fade">
 <h1>Content Review</h1>
-<div id="week-1-1" class="section level2">
-<h2>Week 1</h2>
+<svg width="100%" height="6">
+<rect x="0" y="0" rx=" 0" ry="0" width="100%" height="100%" style="fill:black;stroke:black;stroke-width:4;opacity:0.5"></rect>
+</svg>
+<div id="week-1-r-crash-course" class="section level2">
+<h2>Week 1 R Crash Course</h2>
 <ul>
 <li><a href="https://colauttilab.github.io/biol432.html">Course Intro</a>
 <ul>
@@ -585,8 +644,8 @@ $(document).ready(function() {
 </ul></li>
 </ul>
 </div>
-<div id="week-2-1" class="section level2">
-<h2>Week 2</h2>
+<div id="week-2-r-eproducible-figures-flow-control" class="section level2">
+<h2>Week 2 | R-eproducible Figures &amp; Flow Control</h2>
 <ul>
 <li>More R
 <ul>
@@ -602,8 +661,8 @@ $(document).ready(function() {
 </ul></li>
 </ul>
 </div>
-<div id="week-3-1" class="section level2">
-<h2>Week 3</h2>
+<div id="week-3-r-eproducible-data-science" class="section level2">
+<h2>Week 3 | R-eproducible Data Science</h2>
 <ul>
 <li>Reproducible reports using <a href="https://colauttilab.github.io/RCrashCourse/6_advanced.html#1_r_markdown">R Markdown</a>. You might also want to print out this handy <a href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">2-page ‘cheat sheet’</a></li>
 <li><a href="https://colauttilab.github.io/RCrashCourse/5_datascience.html">Data Science in Biology</a></li>
@@ -611,17 +670,30 @@ $(document).ready(function() {
 <li><a href="https://colauttilab.github.io/RCrashCourse/5_datascience.html#3_missing_data">Missing &amp; Naughty Data</a></li>
 </ul>
 </div>
-<div id="week-4-1" class="section level2">
-<h2>Week 4</h2>
+<div id="week-4-r-egex" class="section level2">
+<h2>Week 4 | R-egex</h2>
 <ul>
-<li>Manipulating text with <a href="https://colauttilab.github.io/RCrashCourse/4_regex.html">Regular Expression in R</a> (a.k.a. ‘Regex’)</li>
-<li><a href="https://colauttilab.github.io/LinuxCrashCourse/Linux-Fundamentals.html">Introduction to Unix/Linux</a> and the command line</li>
+<li>Manipulating text with <a href="https://colauttilab.github.io/RCrashCourse/4_regex.html">Regular Expression in R</a> (a.k.a. ‘Regex’).</li>
+<li><a href="https://colauttilab.github.io/LinuxCrashCourse/Linux-Fundamentals.html">Introduction to Unix/Linux</a> and the command line.</li>
 </ul>
-<hr />
+</div>
+<div id="week-5-sequence-r" class="section level2">
+<h2>Week 5 | Sequence-R</h2>
+<ul>
+<li>Sequencing technologies <a href="./Files/Sequencing_Background.pdf">overview</a></li>
+<li>DNA barcoding <a href="./DNAbarcodes.html">tutorial</a></li>
+<li>FASTA format</li>
+<li>IUPAC Codes</li>
+<li>Chromatographs</li>
+<li>BLAST</li>
+</ul>
 </div>
 </div>
 <div id="key-information" class="section level1 tabset tabset-fade">
 <h1>Key Information</h1>
+<svg width="100%" height="6">
+<rect x="0" y="0" rx=" 0" ry="0" width="100%" height="100%" style="fill:black;stroke:black;stroke-width:4;opacity:0.5"></rect>
+</svg>
 <p><strong>Instructor</strong>: Dr. Robert Colautti, <a href="mailto:robert.colautti@queensu.ca">robert.colautti@queensu.ca</a></p>
 <p><strong>‘Lectures’</strong>: Mondays 14:30-17:30, Ellis 333</p>
 <p><strong>Tutorial/Help TAs</strong>:</p>
@@ -631,10 +703,12 @@ $(document).ready(function() {
 </ul>
 <p><strong>Help Sessions</strong>: Wednesdays 14:30-15:30, Ellis 333</p>
 <p><strong>Syllabus</strong>: Read below, or view the <a href="./Files/Colautti_432_Syllabus.pdf">pdf version</a></p>
-<hr />
 </div>
 <div id="content-overview" class="section level1 tabset tabset-fade">
 <h1>Content Overview</h1>
+<svg width="100%" height="6">
+<rect x="0" y="0" rx=" 0" ry="0" width="100%" height="100%" style="fill:black;stroke:black;stroke-width:4;opacity:0.5"></rect>
+</svg>
 <div id="philosophy" class="section level2">
 <h2>Philosophy</h2>
 <p>This course applies computational skills to a range of research topics in the biological sciences. The best way to learn coding is with extensive practice, trial and failure, using real-world examples.</p>
@@ -738,16 +812,21 @@ $(document).ready(function() {
 </tr>
 <tr class="even">
 <td>9</td>
-<td>16-Mar</td>
+<td>9-Mar</td>
 <td>Remote computing (CAC)</td>
 </tr>
 <tr class="odd">
 <td>10</td>
-<td>23-Mar</td>
-<td>Transcriptomics</td>
+<td>16-Mar</td>
+<td>de novo assembly</td>
 </tr>
 <tr class="even">
 <td>11</td>
+<td>23-Mar</td>
+<td>Transcriptomics</td>
+</tr>
+<tr class="odd">
+<td>12</td>
 <td>30-Mar</td>
 <td>Final Project Presentations</td>
 </tr>
@@ -776,12 +855,14 @@ $(document).ready(function() {
 <p><strong>Tests</strong>: There are no exams in this course. Instead, you will be tested on your understanding of the course content periodically through unannounced pop quizzes. The purpose of the quizzes is to reinforce learning concepts from tutorials and assignments. Quizzes are not announced ahead of time and occur at the beginning of lecture. There are no make-up quizzes, however students requiring accommodation for any reason may miss up to two quizzes, or drop their two lowest quiz marks without penalty (see “Accommodations” and “Extenuating Circumstances”, below).</p>
 <p><strong>Final Project</strong>: A large part of your final grade depends on a final group project in which you apply methods learned in this course to write original code for managing and interpreting a large dataset. A late project receives 0%. However, groups with students requiring accommodation for any reason receive a 2-week grace period without penalty.</p>
 <p><strong>Participation</strong>: Part of your final grade will be based on participation marks provided to students who contribute to discussion in class in a collegial and respectful manner. Each member of your group will provide an annonymous peer assessment grade based on their assessment of you according to the following statement: “This group member was respectful, helpful, and made important contributions to the group assignments without dominating the discussion.”</p>
-<hr />
 </div>
 </div>
 </div>
-<div id="other-information" class="section level1 tabset">
+<div id="other-information" class="section level1 tabset tabset-fade">
 <h1>Other information</h1>
+<svg width="100%" height="6">
+<rect x="0" y="0" rx=" 0" ry="0" width="100%" height="100%" style="fill:black;stroke:black;stroke-width:4;opacity:0.5"></rect>
+</svg>
 <div id="expectations" class="section level2">
 <h2>Expectations</h2>
 <p>This is a <strong>hard</strong> course! Expect 3hr of hands-on tuturials, plus 3-10hr of assignments per week – potentially more if you aren’t already familiar with some of the prerequisite concepts (see below).</p>
@@ -823,11 +904,13 @@ $(document).ready(function() {
 <li>continuing to initiate interaction (including photography or recording) with someone after being asked to stop</li>
 <li>publication of private communication without consent</li>
 </ul>
-<hr />
 </div>
 </div>
-<div id="other-considerations" class="section level1 tabset">
+<div id="other-considerations" class="section level1 tabset tabset-fade">
 <h1>Other Considerations</h1>
+<svg width="100%" height="6">
+<rect x="0" y="0" rx=" 0" ry="0" width="100%" height="100%" style="fill:black;stroke:black;stroke-width:4;opacity:0.5"></rect>
+</svg>
 <div id="grievances" class="section level2">
 <h2>Grievances</h2>
 <p>It is the student’s responsibility to raise any concerns about grading errors within 5 business days of receiving a grade on any quiz or assignment.</p>
