@@ -433,7 +433,7 @@ $(document).ready(function() {
 <rect x="0" y="0" rx=" 0" ry="0" width="100%" height="100%" style="fill:black;stroke:black;stroke-width:4;opacity:0.5"></rect>
 </svg>
 <p><span style="color:red"> Weekly assignments will appear here after lecture (usually the same day). Your answers should be submitted to OnQ within 48 hours of posting. (Quizzes are done in class through OnQ) </span></p>
-<p>Last Updated: 03 February, 2020</p>
+<p>Last Updated: 10 February, 2020</p>
 <div id="week-1" class="section level2">
 <h2>Week 1</h2>
 <ol style="list-style-type: decimal">
@@ -567,6 +567,7 @@ $(document).ready(function() {
 <li>Add these lines to your script.</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ncbi_ids &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;HQ433692.1&quot;</span>,<span class="st">&quot;HQ433694.1&quot;</span>,<span class="st">&quot;HQ433691.1&quot;</span>)
+<span class="kw">library</span>(rentrez)  <span class="co"># you may need install.packages first</span>
 Bburg&lt;-<span class="kw">entrez_fetch</span>(<span class="dt">db =</span> <span class="st">&quot;nuccore&quot;</span>, <span class="dt">id =</span> ncbi_ids, <span class="dt">rettype =</span> <span class="st">&quot;fasta&quot;</span>)</code></pre></div>
 <ul>
 <li>Add comments to explain what each line of your script does (Hint: use help <code>?</code> in R)</li>
@@ -626,6 +627,32 @@ Sequences&lt;-<span class="kw">data.frame</span>(<span class="dt">Name=</span>he
 <p><strong>PART II</strong></p>
 <p>Create an attractive, publication-worthy scatterplot of %GC using data from the file <a href="./Files/GC_content.csv">GC_content.csv</a>. Note: You will have have to calculate %GC Content from this file, which shows %C and %G content for 1000 specimens. Make sure the points for each of the three ‘species’ can be distinguished in the graph as clearly as possible.</p>
 <p><strong>To submit this assignment</strong>: upload your files to onQ and include the github link to your repository as a comment.</p>
+</div>
+<div id="week-6" class="section level2">
+<h2>Week 6</h2>
+<p>After graduating, you land a job as a research scientist at the Canadian Public Health Agency in Canada when a clinician sends you a sample of blood from a patient with life-threatening illness.</p>
+<p>You use high-throughput sequencing of the patient’s biofluids and find the following DNA sequence:</p>
+<pre><code>&gt; Human isolate, unknown sequence
+ATGTCTGATAATGGACCCCAAAATCAGCGAAATGCACCCCGCATTACGTTTGGTGGACCCTCAGATTCAA
+CTGGCAGTAACCAGAATGGAGAACGCAGTGGGGCGCGATCAAAACAACGTCGGCCCCAAGGTTTACCCAA
+TAATACTGCGTCTTGGTTCACCGCTCTCACTCAACATGGCAAGGAAGACCTTAAATTCCCTCGAGGACAA
+GGCGTTCCAATTAACACCAATAGCAGTCCAGATGACCAAATTGGCTACTACCGAAGAGCTACCAGACGAA
+TTCGTGGTGGTGACGGTAAAATGAAAGATCTCAGTCCAAGATGGTATTTCTACTACCTAGGAACTGGGCC
+AGAAGCTGGACTTCCCTATGGTGCTAACAAAGACGGCATCATATGGGTTGCAACTGAGGGAGCCTTGAAT
+ACACCAAAAGATCACATTGGCACCCGCAATCCTGCTAACAATGCTGCAATCGTGCTACAACTTCCTCAAG
+GAACAACATTGCCAAAAGGCTTCTACGCAGAAGGGAGCAGAGGCGGCAGTCAAGCCTCTTCTCGTTCCTC
+ATCACGTAGTCGCAACAGTTCAAGAAATTCAACTCCAGGCAGCAGTAGGGGAACTTCTCCTGCTAGAATG
+GCTGGCAATGGCGGTGATGCTGCTCTTGCTTTGCTGCTGCTTGACAGATTGAACCAGCTTGAGAGCAAAA
+TGTCTGGTAAAGGCCAACAACAACAAGGCCAAACTGTCACTAAGAAATCTGCTGCTGAGGCTTCTAAGAA
+GCCTCGGCAAAAACGTACTGCCACTAAAGCATACAATGTAACACAAGCTTTCGGCAGACGTGGTCCAGAA
+CAAACCCAAGGAAATTTTGGGGACCAGGAACTAATCAGACAAGGAACTGATTACAAACATTGGCCGCAAA
+TTGCACAATTTGCCCCCAGCGCTTCAGCGTTCTTCGGAATGTCGCGCATTGGCATGGAAGTCACACCTTC
+GGGAACGTGGTTGACCTACACAGGTGCCATCAAATTGGATGACAAAGATCCAAATTTCAAAGATCAAGTC
+ATTTTGCTGAATAAGCATATTGACGCATACAAAACATTCCCACCAACAGAGCCTAAAAAGGACAAAAAGA
+AGAAGGCTGATGAAACTCAAGCCTTACCGCAGAGACAGAAGAAACAGCAAACTGTGACTCTTCTTCCTGC
+TGCAGATTTGGATGATTTCTCCAAACAATTGCAACAATCCATGAGCAGTGCTGACTCAACTCAGGCCTAA</code></pre>
+<p>Use the knowledge you have gained to generate an alignment and build a phylogeny in R to analyze the sequence. Determine if it is human or another organism. Write a report in R Markdown explaining to the clinician whether this is something to be concerned about, using graphics with text to explain your analysis. Remember to pay attention to formatting to make the report look professional.</p>
+<p>NOTE: You may want to adjust the <code>timeout=</code> and <code>hitListSize=</code> parameters in the <code>blastSequences()</code> function. Note that everything should be done through the command line in R (e.g. don’t copy-paste from the BLAST website)</p>
 </div>
 </div>
 <div id="content-review" class="section level1 tabset tabset-fade">
@@ -704,6 +731,17 @@ Sequences&lt;-<span class="kw">data.frame</span>(<span class="dt">Name=</span>he
 <li>IUPAC Codes</li>
 <li>Chromatographs</li>
 <li>BLAST</li>
+</ul>
+</div>
+<div id="week-6-alignments" class="section level2">
+<h2>Week 6 | Alignments</h2>
+<ul>
+<li>Content in the <a href="./Alignments.html">Alignments Tutorial</a></li>
+<li>Genbank</li>
+<li>Pairwise alignments (more BLAST)</li>
+<li>Multiple alignments with MUSCLE</li>
+<li>Distance matrix algorithms</li>
+<li>Tree construction algorithms</li>
 </ul>
 </div>
 </div>
