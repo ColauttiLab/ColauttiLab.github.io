@@ -433,7 +433,7 @@ $(document).ready(function() {
 <rect x="0" y="0" rx=" 0" ry="0" width="100%" height="100%" style="fill:black;stroke:black;stroke-width:4;opacity:0.5"></rect>
 </svg>
 <p><span style="color:red"> Weekly assignments will appear here after lecture (usually the same day). Your answers should be submitted to OnQ within 48 hours of posting. (Quizzes are done in class through OnQ) </span></p>
-<p>Last Updated: 10 February, 2020</p>
+<p>Last Updated: 24 February, 2020</p>
 <div id="week-1" class="section level2">
 <h2>Week 1</h2>
 <ol style="list-style-type: decimal">
@@ -652,7 +652,34 @@ ATTTTGCTGAATAAGCATATTGACGCATACAAAACATTCCCACCAACAGAGCCTAAAAAGGACAAAAAGA
 AGAAGGCTGATGAAACTCAAGCCTTACCGCAGAGACAGAAGAAACAGCAAACTGTGACTCTTCTTCCTGC
 TGCAGATTTGGATGATTTCTCCAAACAATTGCAACAATCCATGAGCAGTGCTGACTCAACTCAGGCCTAA</code></pre>
 <p>Use the knowledge you have gained to generate an alignment and build a phylogeny in R to analyze the sequence. Determine if it is human or another organism. Write a report in R Markdown explaining to the clinician whether this is something to be concerned about, using graphics with text to explain your analysis. Remember to pay attention to formatting to make the report look professional.</p>
-<p>NOTE: You may want to adjust the <code>timeout=</code> and <code>hitListSize=</code> parameters in the <code>blastSequences()</code> function. Note that everything should be done through the command line in R (e.g. don’t copy-paste from the BLAST website)</p>
+<p>NOTE: You may need to adjust the <code>timeout=</code> and <code>hitListSize=</code> parameters in the <code>blastSequences()</code> function. Note that everything should be done through the command line in R (e.g. don’t copy-paste from the BLAST website)</p>
+</div>
+<div id="week-7" class="section level2">
+<h2>Week 7</h2>
+<div id="individual-project-due-in-48hr" class="section level3">
+<h3>Individual Project (due in 48hr)</h3>
+<ol style="list-style-type: decimal">
+<li>Pick 3 images of dragons from popular culture. Find and save an image online.</li>
+<li>Use the coding in <a href="./Data/TraitCodes.csv">TraitCodes.csv</a> to encode your dragon.</li>
+</ol>
+<ul>
+<li><strong>CAUTION</strong> – If you open this CSV file in a program that automatically formats numbers (e.g. Excel or read.csv in R), it may remove the leading zeros (e.g. 1 instead of 001). Not having the leading zeros will cause a problem in your analysis – make sure you understand why. A simple way to preserve leading zeros in R is to use the parameter <code>colClasses=&quot;character&quot;</code> in your <code>read.csv()</code> statement.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Write an <strong>.Rmd</strong> report with embedded images showing your dragon choices – you can download the pictures or link to them directly online. Use a coloured line to highlight where they appear on the Dragon Phylogeny.</li>
+<li>Render your report in html and upload the final <strong>html</strong> version (and any necessary files to view the html) to OnQ.</li>
+</ol>
+</div>
+<div id="group-project-due-in-1-week" class="section level3">
+<h3>Group Project (due in 1 week)</h3>
+<ol style="list-style-type: decimal">
+<li>Pick a single GitHub repo from your group to house your group project files</li>
+<li>Identify a dataset to analyze (e.g. DNA sequences, gene expression profiles) using tools that you’ve learned in the course. You can search ncbi.org, datadryad.org, or other sources. You can also ask your lab members for unpublished data to analyze, but please do not use your own data (e.g 537 thesis students).</li>
+<li>Think of 1 to 3 biological questions you can address with the data. NOTE: you may have to iterate between #1 and #2 before you settle on something you are comfortable with</li>
+<li>Briefly (&lt;500 words) describe your dataset and what questions you think you can address using the computational techniques you have learned in this course.</li>
+<li>Upload your data and ~1-page outline to the group GitHub, and submit your github link to OnQ (note: each individual in your group should upload the link to their own account).</li>
+</ol>
+</div>
 </div>
 </div>
 <div id="content-review" class="section level1 tabset tabset-fade">
@@ -744,6 +771,20 @@ TGCAGATTTGGATGATTTCTCCAAACAATTGCAACAATCCATGAGCAGTGCTGACTCAACTCAGGCCTAA</code></p
 <li>Tree construction algorithms</li>
 </ul>
 </div>
+<div id="week-7-dragon-phylogeny" class="section level2">
+<h2>Week 7 | Dragon Phylogeny</h2>
+<ul>
+<li>Review content in the <a href="./Alignments.html">Alignments Tutorial</a></li>
+<li>Apply concepts for the <a href="./DragonPhylogenyTutorial.html">Dragon Phylogeny</a></li>
+<li>Trait coding</li>
+<li>Nexus file</li>
+<li>Distance matrix</li>
+<li>Visualizations</li>
+<li>Colour coding</li>
+<li>Cluster analysis in the <a href="./Metabarcoding_Tutorial.html">Metabarcoding Tutorial</a></li>
+<li>Phylogeny vs OTU cluster analysis – what’s the difference?</li>
+</ul>
+</div>
 </div>
 <div id="key-information" class="section level1 tabset tabset-fade">
 <h1>Key Information</h1>
@@ -755,7 +796,7 @@ TGCAGATTTGGATGATTTCTCCAAACAATTGCAACAATCCATGAGCAGTGCTGACTCAACTCAGGCCTAA</code></p
 <p><strong>Tutorial/Help TAs</strong>:</p>
 <ul>
 <li>Peiwen Li, <a href="mailto:15pl16@queensu.ca">15pl16@queensu.ca</a></li>
-<li>Ying Chen, <a href="mailto:12yc24@queensu.ca">12yc24@queensu.ca</a></li>
+<li>Ying Chen, <a href="mailto:15yc24@queensu.ca">15yc24@queensu.ca</a></li>
 </ul>
 <p><strong>Help Sessions</strong>: Wednesdays 14:30-15:30, Ellis 333</p>
 <p><strong>Syllabus</strong>: Read below, or view the <a href="./Files/Colautti_432_Syllabus.pdf">pdf version</a></p>
