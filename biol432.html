@@ -433,7 +433,7 @@ $(document).ready(function() {
 <rect x="0" y="0" rx=" 0" ry="0" width="100%" height="100%" style="fill:black;stroke:black;stroke-width:4;opacity:0.5"></rect>
 </svg>
 <p><span style="color:red"> Weekly assignments will appear here after lecture (usually the same day). Your answers should be submitted to OnQ within 48 hours of posting. (Quizzes are done in class through OnQ) </span></p>
-<p>Last Updated: 24 February, 2020</p>
+<p>Last Updated: 02 March, 2020</p>
 <div id="week-1" class="section level2">
 <h2>Week 1</h2>
 <ol style="list-style-type: decimal">
@@ -659,14 +659,16 @@ TGCAGATTTGGATGATTTCTCCAAACAATTGCAACAATCCATGAGCAGTGCTGACTCAACTCAGGCCTAA</code></p
 <div id="individual-project-due-in-48hr" class="section level3">
 <h3>Individual Project (due in 48hr)</h3>
 <ol style="list-style-type: decimal">
-<li>Pick 3 images of dragons from popular culture. Find and save an image online.</li>
-<li>Use the coding in <a href="./Data/TraitCodes.csv">TraitCodes.csv</a> to encode your dragon.</li>
+<li>Pick 3 images of dragons from popular culture. Find and save an image online. In an R Markdown file:</li>
+<li>Use the coding in <a href="./Data/TraitCodes.csv">TraitCodes.csv</a> to encode your dragons as a data.frame object in R.</li>
+<li>Import the Dragon Phylogeny <a href="./Data/TraitMatrixRaw.csv">dataset</a> and append your dragons to the dataset.</li>
 </ol>
 <ul>
-<li><strong>CAUTION</strong> – If you open this CSV file in a program that automatically formats numbers (e.g. Excel or read.csv in R), it may remove the leading zeros (e.g. 1 instead of 001). Not having the leading zeros will cause a problem in your analysis – make sure you understand why. A simple way to preserve leading zeros in R is to use the parameter <code>colClasses=&quot;character&quot;</code> in your <code>read.csv()</code> statement.</li>
+<li><strong>CAUTION</strong> – Make sure your taits have leading zeros (e.g. 001 instead of 1). Depending how you import the data or if you open this CSV file in a program that automatically formats numbers (e.g. Excel or read.csv in R), it may remove the leading zeros. Not having the leading zeros will cause a problem in your analysis (make sure you understand why). A simple way to preserve leading zeros in R is to use the parameter <code>colClasses=&quot;character&quot;</code> in your <code>read.csv()</code> statement.</li>
 </ul>
-<ol start="3" style="list-style-type: decimal">
-<li>Write an <strong>.Rmd</strong> report with embedded images showing your dragon choices – you can download the pictures or link to them directly online. Use a coloured line to highlight where they appear on the Dragon Phylogeny.</li>
+<ol start="4" style="list-style-type: decimal">
+<li>Apply the same trait weightings as those used in the Dragon Phylogeny Tutorial.</li>
+<li>Embedded images showing your dragon choices in your R markdown report – you can download the pictures or link to them directly online. Use coloured lines to highlight the lineages where your dragons appear on the Dragon Phylogeny.</li>
 <li>Render your report in html and upload the final <strong>html</strong> version (and any necessary files to view the html) to OnQ.</li>
 </ol>
 </div>
@@ -680,6 +682,27 @@ TGCAGATTTGGATGATTTCTCCAAACAATTGCAACAATCCATGAGCAGTGCTGACTCAACTCAGGCCTAA</code></p
 <li>Upload your data and ~1-page outline to the group GitHub, and submit your github link to OnQ (note: each individual in your group should upload the link to their own account).</li>
 </ol>
 </div>
+</div>
+<div id="week-8" class="section level2">
+<h2>Week 8</h2>
+<p>One of the best things about being a computational biologist, is that the exact same tools can be used to answer biological questions that seem to be completely different. In this week’s tutorial we looked at the microbiomes of plants – that is, the <strong>communities of bacteria</strong> associated with <strong>samples of plant hosts</strong>. We used many of the same tools and even similar calculations to the ones we used in the Dragon Phylogeny.</p>
+<p>In this week’s assignment, we’ll use the same tools to look at how <strong>communities of plants</strong> differ across <strong>sample locations</strong>. The data are are from a former MSc student and test whether the presence of an invasive plant called garlic mustard (<em>Alliaria petiolata</em>) changes the plant community.</p>
+<p>The dataset <a href="./Data/FloristicSurvey.csv">FloristicSurvey.csv</a> contains the results of a floristic survey at the Queen’s University Biological Station (QUBS). Here is a brief description of the data:</p>
+<ul>
+<li><em>Quadrate</em> – this is a code for a 1m x 1m square in which samples were measured</li>
+<li><em>Population</em> – this is a code for a specific sampling location at QUBS, determined by presence of garlic mustard nearby</li>
+<li><em>Location</em> – whether quadrate measurements are taken ‘i’ for ‘inside’ or ‘o’ for ‘outside’ of garlic mustard patches</li>
+<li><em>Rosettes</em> – the number of garlic mustard rosettes</li>
+<li><em>Bolting</em> – the number of bolting garlic mustard plants (i.e. getting ready to flower)</li>
+<li><em>Budding</em> – the number of garlic mustard plants with buds</li>
+<li><em>Bud_Flw, Flower, Flw_Sil, Silique</em> – These are different stages of flowering</li>
+<li><em>Claytonia, Anemone, … Unknown_9, mianthenum_racemosum</em> – these are the 34 different species present at all the sites. ‘Unknown’ means that the species hasn’t been definitively identified, but all the sites with the same Unknown number have that species.</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Determine whether garlic mustard has an observable effect on plant communities. (HInt: which columns do you need to analyze?)</li>
+<li>What has a stronger effect on plant communities: the presence/absence of garlic mustard (in/out) or sampling population?</li>
+</ol>
+<p>Use at least one visualization for each question above and explain your reasoning. Show your work in an R-markdown document. Upload the .Rmd AND the knitted .html file and any other supporting files needed to view the html (e.g. embedded graphics).</p>
 </div>
 </div>
 <div id="content-review" class="section level1 tabset tabset-fade">
@@ -781,6 +804,12 @@ TGCAGATTTGGATGATTTCTCCAAACAATTGCAACAATCCATGAGCAGTGCTGACTCAACTCAGGCCTAA</code></p
 <li>Distance matrix</li>
 <li>Visualizations</li>
 <li>Colour coding</li>
+</ul>
+</div>
+<div id="week-8-metabarcoding" class="section level2">
+<h2>Week 8 | Metabarcoding</h2>
+<ul>
+<li>Metabarcoding <a href="./Files/Metabarcoding_Overview.pdf">overview slides</a></li>
 <li>Cluster analysis in the <a href="./Metabarcoding_Tutorial.html">Metabarcoding Tutorial</a></li>
 <li>Phylogeny vs OTU cluster analysis – what’s the difference?</li>
 </ul>
