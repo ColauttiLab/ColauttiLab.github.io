@@ -11,6 +11,10 @@ output: html_document
 NOTE: Tutorials run Wednesdays 12:30-2:30 in BioSci 1120
 
 # Readings & Assignments {.tabset .tabset-fade .tabset-pills} 
+<svg width="100%" height="6">
+  <rect x="0" y="0" rx=" 0" ry="0" width="100%" height="100%"
+  style="fill:black;stroke:black;stroke-width:4;opacity:0.5" />
+</svg>
 
 <span style="color:red"> Weekly assignments will appear here </span>
 
@@ -36,25 +40,166 @@ Make sure you are familiar with this content as it will be needed for most of th
   6. Submit your R project to OnQ including data file, script and graph file
   7. As always, be sure to use **relative** path names (e.g. `"Data/MyData.csv"`) not **absolute** path names (e.g. `"Data/MyData.csv"`)
   
+## Week 3
+
+The goal of this week's project is to create a simulated dataset of animal limbs in order to practice some of the methods learned in the last three tutorials.
+
+**Part I**
+
+  1. Create a new **public** repository on your GitHub account called `USERNAME.github.io` (but replace `USERNAME` with your own GitHub username). This will create a public website that anyone can access with a web browser, by entering USERNAME.github.io (it may take a few minutes to sync). 
+  2. Now open RStudio and create a new project linked to your `USERNAME.github.io directory`. Be sure to use the repository website, not the public website link: i.e. `http://github.com/USERNAME/USERNAME.github.io` NOT `http://USERNAME.github.io`
+  3. Create a new Rmd script called `DataGeneration.R`
+Inside of `DataGeneration.R`
+  4. Create an object called `Species` that is a character vector containing the names of 10 species (you can use any species names you want)
+  5. Create a vector called `Limb.Width` that is a numeric vector containing 10 random numbers sampled from a normal distribution with a mean of 10 and standard deviation of 10.  
+  6. Change any negative numbers in `Limb.Width` to positive values. Make sure this will work regardless of which random numbers are generated in 2a.
+  7. Create a vector called `unitsW` that is a boolean vector containing 10 strings that are either `mm` or `cm` generated randomly with a 0.5 probability of each
+  8. Repeat step 5 and 6 for a new object called `Limb.Length`, but with a mean and standard deviation of 100
+  9. Repeat step 7 for a new object called `unitsL` 
+  10. Combine all vectors into a `data.frame` object called `MyData`
+  11. Save `MyData` as a csv file in the `Data` folder called `measurements.csv`
+
+**Hint**: At this point, the first few lines of `MyData` formatted into a table might look something like this:
+
+Organism | Limb.Width | unitsW | Limb.Length | unitsL
+---------|------------|-------|-------------|---
+"Ixodes scapularis" | 35.102630 | "mm" | 18.25771 | "cm" 
+"Homo sapiens" | 34.33059 | "cm" | 76.90387 | "cm"
+... | | | | 
+
+**Part II**
+
+Create a new R markdown file called `DataAnalysis.Rmd` that does the following:
+
+  1. Read `measurements.csv` into an object in R called `MData`
+  2. Include functions from the [Data Science Tutorial](https://colauttilab.github.io/RCrashCourse/5_datascience.html) to do each of the following:
+
+  * Change the column names to shorter, 3-letter abbreviations
+  * Add a new data column called `Volume` that calculates limb volume (**Hint**: pay careful attention to your units -- assume unitsW shows the units for Limb.Width and unitsL shows the units for Limb.Length). Treat these as limb dimensions (e.g. arms, legs, fins).
+  * Group the species into 2 or more imaginary groups (you decide on the category names) and add a column denoting these groups
+  * Summarize the mean and SD of Length, Width and Volume for each of your artificial groups, and present in table form.
+  * Plot Width and Length, as in Part III from last week's assignment BUT embed the graph in your R markdown file rather than creating a separate pdf.
+  * Plot Width and Length, but only for species that have above-average volume
+  * Add a table showing only Species and Volume for only the species with below-average volume
+
+  3. Add notes to your 'official' report. 
+
+NOTE: Imagine you are reporting these results to someone who isn't familiar with your project. Add headers and short descriptions outlining your analysis. Make sure the figures are formatted for a professional report -- see Graphical Concepts and Rules of Thumb from the [ggplot tutorial](https://colauttilab.github.io/RCrashCourse/3_ggplot.html). Make sure your analysis is **reproducible** so that someone unfamiliar with your project could take your data and Rmd file and reproduce the same figures and tables.
+
+  4. Knit your `Rmd` file to a `html` format.
+  5. Save and upload your files to the corresponding GitHub repository (hint: review 'commit', 'push' and 'pull')
+  6. Submit a link to your GitHub repository to OnQ.
   
+## Week 4
+  
+  1. Open the project folder used in last week's tutorial and ensure that it is properly synced with GitHub
+  2. Create a new R Markdown file called `Regex.Rmd` and add code for each of the following steps:
+  3. Import your `measurements.csv` file into an object called `MData`
+  4. Use a `dplyr` command AND regular expressions to add a new column called `Sp` that modifies the Species names with only the first letter and period. For example: *Homo sapiens* in the original Species column becomes *H. sapiens* in the Sp column. HINT: You can think of the regular expression commands like `sub`, `grep`, `grepl` and `gsub` as equations for strings
+  5. Use a `dplyr` command to create a new dataset BUT with `Sp` column instead of the `Species` column, moved to the beginning in place of the original `Species` column
+  6. Review the unix commands, they will be on the quiz next week
+  7. Knit your `Rmd` file to a `html` format. 
+  8. Write a bash script called `MyCount.sh` that will loop through a sequence of 20 numbers. In each iteration the script will print out the number of the loop iteration AND whether it is a single- or double-digit number. For example, some of the output should look like this:
+  
+```{r, eval =F}
+    8 is a single-digit number
+    9 is a single-digit number
+    10 is a double-digit number
+    11 is a double-digit number
+```
+  9. Push all of your files to GitHub and then submit the `html`, the original `Rmd` file, `MyCount.sh`, and the `Measurements.csv` files to OnQ.
+  
+## Week 6 
+
+### Group Project
+
+__Due 11-Mar-2020__
+
+  1. Pick a single GitHub repo from your group to house your group project files
+  2. Identify a large and diverse dataset to analyze (e.g. DNA sequences, gene expression profiles, historical field data, or simulate your own), using tools that you've learned in the course. You can search ncbi.org, datadryad.org, or other sources. You can also ask around your lab for unpublished data to analyze, but please do not use your own thesis data.
+  3. Identify a few main biological questions you can address with the data. 
+  4. Briefly (<2 printed pages) outline the source and structure of your dataset, outline your main questions, and give a broad overview of how you will try to address your questions. Include your *team name*, *project title* and the *names* of all group members
+  6. Upload your outline to the group GitHub and submit your group's github link to OnQ (each member should submit the group link to their own individual OnQ accounts).
+
+NOTE: Don't let the short length fool you, this will take a lot of thought, research and discussion with your group to come up with good data and good questions.
+
+__Written Proposal -- 10%__
+
+Should include:
+
+1. Project Name
+2. Your group "TEAM" name
+3. The names of the people in your group
+4. Written proposal of <1,000 words:
+    + __Briefly__ introduce the problem/background (1-3 paragraphs)
+    + Describe the __data__
+    + Propose one or more questions to address with the data
+    + Outline your __pipeline__
+5. __Briefly__ summarize the broader significance (1 paragraph) of the project.
+6. Include predicted or hypothesized results and/or output. Describe this in the text but consider adding visualizations in figures or tables that clearly demonstrate your predictions/hypotheses.
+
+__DATA__
+
+Describe the nature of your data. Where do they come from? What do they measure or describe? What is the volume of data (e.g. number of rows/columns or kilo/mega-bytes)? What are the types (e.g. 2-dimensional data files, DNA sequences, meta-data)? Consider including a table or appendix with variable names and descriptions.
+
+__PIPELINE__
+
+In this section you should formalize the plan for data 'wrangling' and analysis. Explain it to a competent scientist who knows R but may not be an expert in your area. Your plan should answer questions like:
+
+  * What will your analysis pipeline (program) do? 
+  * As noted in the 'Final Assignment' description below, your overall  pipeline should be made of several modules (smaller programs), at least 1 of which is a bash script and 1 of which is in R or Python. 
+  * What are the key components of each module (algorithms, functions, etc.), and which language you will use for each component (bash, R, Python)?
+  * What are the inputs/outputs of each module?
+  * What are the responsibilities planned for each member of your group?
+  * How will you use Git and GitHub to coordinate your efforts?
+  * An appendix with a flowchart is recommended to outline the overall pipeline (not included in one-page limit)
+
+Your proposal will be marked on:
+
+  + __Clarity__ -- Clear, concise writing, logical flow, good sentence/paragraph structure with proper topic/concluding sentences and good 'flow'.
+  + __Question__ -- The proposal identifies a question that would be interesting to a variety of researchers. A broad question is broken down into specific questions or hypotheses.
+  + __Logic__ -- It is clear how the data and analysis pipeline in the proposal can be used to address the questions/hytpothesis posed.
+  + __Data__ -- The data meet the requirements of the assignment (multiple types of data, ideally from >1 source, and overall including >100,000 datapoints), and the proposal describes the data in sufficient detail to be understood by a general scientific audience, as outlined above.
+  + __Program__ -- The program includes content outlined above, with clear explanations and visuals.
+
+## Week 7
+
+### Individual Project
+
+Write a short simulation model for an interesting biological phenomenon, if you want. It's not mandatory It won't be graded (unless it is on a quiz). 
+
+### Group Project
+
+Read [this paper](./Readings/WeissgerberEtAl2019VisualizationsBestPractices.pdf) on best practices in data visualizations. Create a 2-page 'cheatsheet' summarizing the most important information. A cheatsheet may be in colour and is usually printed on standard paper, so text should generally be at least 10pt.  Imagine your audience is a senior undergrad who has learned ggplot2 but doesn't have experience publishing. What are the key points they should know? Try to **show** with example plots, not just **tell** with lots of text. Simulate your own data to do this (hint: in addition to `sample()` you might want to review the [random number generation](https://colauttilab.github.io/RCrashCourse/1_fundamentals.html#random_numbers) from the R Crash Course. 
+
+Here are a few other cheatsheets for inspiration:
+
+  * [baRcodeR](./Files/CheatSheets/baRcodeR.pdf)
+  * [thematic maps](./Files/CheatSheets/cartography.pdf)
+  * [ggplot2](./Files/CheatSheets/ggplot2.pdf)
+  * [R Markdown](./Files/CheatSheets/rmarkdown2pg.pdf)
+
+Submit your .Rmd, .html and supporting files to OnQ.
 
 
-***
-
-# Topics Overview
+# Content Review {.tabset .tabset-fade}
+<svg width="100%" height="6">
+  <rect x="0" y="0" rx=" 0" ry="0" width="100%" height="100%"
+  style="fill:black;stroke:black;stroke-width:4;opacity:0.5" />
+</svg>
 
  | Date | Topic
 -----|--------|----------------------------------------------------
 1 | 8-Jan | [Fundamental R](https://colauttilab.github.io/RCrashCourse/1_fundamentals_test.html) (self-study)
 2 | 15-Jan | [qplot](https://colauttilab.github.io/RCrashCourse/2_qplot.html), [ggplot](https://colauttilab.github.io/RCrashCourse/3_ggplot.html) and [professional visualizations](https://colauttilab.github.io/RCrashCourse/Graphics_small.pdf) in R
-3 | 22-Jan | Data science and regular expressions (most people don’t know what they are but they are super-useful!)
-4 | 29-Jan | Reproducible R with Git and GitHub
-5 | 5-Feb  | Introduction to Python
-6 | 12-Feb | Introduction to Unix, Bash scripting, and the SLURM scheduler
+3 | 22-Jan | [R Markdown](https://colauttilab.github.io/RCrashCourse/6_advanced.html#1_r_markdown) -- see also https://rmarkdown.rstudio.com for detailed instructions and this handy reference 'cheat sheet' for [R Studio](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf); We also covered [Custom Functions](https://colauttilab.github.io/RCrashCourse/6_advanced.html#2_custom_functions) and [dplyr](https://colauttilab.github.io/RCrashCourse/5_datascience.html) for data science
+4 | 29-Jan | [Regular expressions](https://colauttilab.github.io/RCrashCourse/4_regex.html); Intro [Unix and Bash](https://colauttilab.github.io/LinuxCrashCourse/Linux-Fundamentals.html) scripting
+5 | 5-Feb  | Guest Tutorial: Harmut Schmider (Queen's Centre for Advanced Computing)
+6 | 12-Feb | [Introduction to Python](https://colauttilab.github.io/PythonCrashCourse/1_fundamentals.html)
 - | 19-Feb | Reading Week
 - | 26-Feb | No tutorial
-7 | 4-Mar  | Bootstrap, randomization and permutation models
-8 | 11-Mar | Simulations, functions and modelling
+7 | 4-Mar  | [Bootstrap, randomization and permutation models](https://colauttilab.github.io/EcologyTutorials/bootstrap.html)
+8 | 11-Mar | Simulations, [maximum likelihood and MCMC](https://colauttilab.github.io/EcologyTutorials/maxLik_MCMC.html)
 9 | 18-Mar | Principal components and factor analysis 
 10 | 25-Mar | Cluster analysis
 11 | 1-Apr |	Nonlinear regression
@@ -62,6 +207,10 @@ Make sure you are familiar with this content as it will be needed for most of th
 
 
 # Grading Rubric:
+<svg width="100%" height="6">
+  <rect x="0" y="0" rx=" 0" ry="0" width="100%" height="100%"
+  style="fill:black;stroke:black;stroke-width:4;opacity:0.5" />
+</svg>
 
   * __10%__ Attendance and participation
   * __40%__ Assignments & quizzes
@@ -71,6 +220,10 @@ Make sure you are familiar with this content as it will be needed for most of th
     + __25%__ Poster
     
 # Final Assignment
+<svg width="100%" height="6">
+  <rect x="0" y="0" rx=" 0" ry="0" width="100%" height="100%"
+  style="fill:black;stroke:black;stroke-width:4;opacity:0.5" />
+</svg>
 
 The goal of the final assignment is to apply the coding skills you have learned to address an interesting biological question, details will be posted in the coming weeks, but expect the following:
 
@@ -79,8 +232,12 @@ The goal of the final assignment is to apply the coding skills you have learned 
   3. Produce informative and elegant visualizations
   4. All data manipulation, analysis and visualization hard-coded and archived on GitHub
   5. Project addresses an interesting biological question
-  6. Create a poster for the project, and present it at the Biology graduate student symposium (April 20)
+  6. Create a poster for the project, and present it at the Biology graduate student symposium (Friday, April 17)
 
 # Textbook:
+<svg width="100%" height="6">
+  <rect x="0" y="0" rx=" 0" ry="0" width="100%" height="100%"
+  style="fill:black;stroke:black;stroke-width:4;opacity:0.5" />
+</svg>
 
 No textbook is required for the course. I recommend Haddock & Dunn (H&D) - Practical Computing for Biologists, if you can get it at a reasonable price.
