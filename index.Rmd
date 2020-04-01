@@ -9,7 +9,17 @@ output: html_document
 
   * Essential reading for all members of the Colautti Lab
 
-## 2. Read the [BES Guides](https://www.britishecologicalsociety.org/publications/guides-to/) to Better Science
+## 2. Learn how to research
+
+  * Take the online course from iBiology called "[Let's Experiment: A Guide for Scientists Working at the Bench](https://courses.ibiology.org/courses/course-v1:iBiology+LE+SP/about)". The course is focused on lab work but covers essential concepts in experimental biology.
+  
+## 3. Develop a project
+  
+  * Define your question and research the relevant theory
+  * Identify your main hypotheses, generate quantitative predictions, and plan out your experiment(s).
+  * Run your ideas by everyone who will listen, especially your mentor. Give it your best effort and then be prepared to change it.
+
+## 4. Read the [BES Guides](https://www.britishecologicalsociety.org/publications/guides-to/) to Better Science
 
   * [Data Management](./Readings/BES-Data-Guide-2017.pdf)
   * [Reproducible Code](./Readings/BES-Reproducible-Code.pdf)
@@ -17,22 +27,39 @@ output: html_document
   * [Peer Review](./Readings/BES-Peer-Review-Guide-2017.pdf)
     * and a related [blog post](https://appliedecologistsblog.com/2019/09/18/quality-in-peer-review) on Peer Review
 
-## 3. Create Your Data Management Plan (DMP)
+## 5. Collect Data
 
 A good __rule of thumb:__ imagine somebody reading over your shoulder who is not familiar with your work. Would they be able to interpret your filenames, meta-data, README files, data field names, documentation, etc? A bonus is that you will be able to understand what you did when you revisit your data months or years later.
 
-__Before Starting__: Create a Data Management Plan (DMP)
+### BEFORE you start
 
-  * DMP Assistant is an online portal to help you create a data management plan
-  * [portagenetwork.ca](https://portagenetwork.ca) --> DMP Assistant --> Sign Up for a new account (or Sign in if you already have one)
-  
-__Collect or Create (Simulate) Data__
+**Organize and label samples carefully**
 
-  * See our bioRxiv manuscript [**baRcodeR** with **PyTrackDat** Open-source labelling and tracking of biological samples for repeatable science](https://www.biorxiv.org/content/early/2018/10/30/457051)
-  * Create labels with [**baRcodeR** in R](https://cran.r-project.org/package=baRcodeR)
-  * Collect data in a spreadsheet, or setup a database with [PyTrackDat](https://github.com/ColauttiLab/PyTrackDat/)
+  * Any mistakes at this stage will propagate through your whole project and may never be detected!
+  * We created the [baRcodeR package] in R to help with this. It's a simple as `install.packages(baRcodeR)`. Use it!
+    * Quick Reference Guide: Choose _baRcodeR Cheatsheet_ from the _Addins_ menu in R Studio. Or download pdf from [FigShare](https://figshare.com/articles/baRcodeR_Cheat_Sheet/7043309).
+    * CRAN website for[baRcodeR](https://cran.r-project.org/package=baRcodeR)
+    * baRcodeR [Quick Start Guide](https://cran.r-project.org/web/packages/baRcodeR/vignettes/Using-baRcodeR.html) and [Graphical Interface Instruction](https://cran.r-project.org/web/packages/baRcodeR/vignettes/use-addin.html)
+  * Read bioRxiv manuscript [**baRcodeR** with **PyTrackDat** Open-source labelling and tracking of biological samples for repeatable science](https://www.biorxiv.org/content/early/2018/10/30/457051) to get a better understanding of labelling and sample management.
+
+**Create a Data Management Plan (DMP)**
+  * Know this now -- you will have to publish your data publicly, so take a bit of extra time now to make sure it is understandable.
+  * Using short-hand names (e.g. `Wt` instead of `total dry biomass`) will save a lot of coding headaches. 
+  * Create a `metadata.txt` file describing the basics of your data. A short paragraph of where it comes from, and then a line describing each file and variable in your dataset.
   
-__After Finishing__: Publish your data
+### WHILE you collect (or simulate) data
+
+**Collect and Manage Data CAREFULLY**
+
+  * Build in redundancy. Never have your data in only 1 place.
+  * Collect data by hand, using paper and a pencil. For larger experiments, print out data sheets with defined cells.
+  * Enter handwritten data onto a computer and back it up online. Do it WHILE you record data, not after.
+  * Manage data in one or more spreadsheets, or setup a database with [PyTrackDat](https://github.com/ColauttiLab/PyTrackDat/)
+  * Don't worry about trying to put everything in one spreadsheet. As long as you have ID codes (e.g. from baRcodeR) to link different experiments/measurements then it is easy to connect these later in R.
+  
+### After Finishing
+
+**Publish your data**
 
   * For data collected at QUBS, use the [QUBS Dataverse Repository](https://dataverse.scholarsportal.info/dataverse/QUBS), open to all
   * For other datasets, use a repository like [datadryad.org](https://colauttilab.github.io/), [FigShare.com](https://figshare.com/)
@@ -40,13 +67,13 @@ __After Finishing__: Publish your data
   * Use specialized datasets like [NCBI SRA database](https://www.ncbi.nlm.nih.gov/sra) or one on the list in [this paper](https://www.nature.com/sdata/policies/repositories), or search Google for a more appropriate home) 
   * Consider whether it would be useful to combine repositories e.g. upload SRA files to NCBI and include Accession numbers in metadata posted in another repository containing code and called SNPs.
 
-## 4. Start Coding
+## 7. Start Coding
 
 __READ__ Google's [R Style Guide](https://google.github.io/styleguide/Rguide.xml)
 
 __Set up__ R Studio ([Free Desktop Version](https://www.rstudio.com/products/rstudio/download/)) with a [GitHub account](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN) on your computer.
     
-## 5. Develop Your Coding Superpowers
+### Develop Your Coding Superpowers
 
 ![](./Superheroes.jpg)
 
@@ -62,7 +89,8 @@ __Set up__ R Studio ([Free Desktop Version](https://www.rstudio.com/products/rst
 | Mega-mind                   | Resampling & Simulations in R [Pt.1](./EcologyTutorials/bootstrap.html) [Pt.2](./EcologyTutorials/simulations.html) [Pt.3](ColauttiLab.github.io/EcologyTutorials/maxLik_MCMC.html) |
 | Master Builder              | Custom [R Packages](./RCrashCourse/Package_tutorial.html) |
 
-## Superpowers in Practice
+
+## 7. Next-level coding
 
 ### Ecology
 
