@@ -80,7 +80,7 @@ __Set up__ R Studio ([Free Desktop Version](https://www.rstudio.com/products/rst
 | __Conventional Superpower__ | __Coding Superpower__ |
 |:---------------------------:|:---------------------:|
 | Enhanced abilities          | Fundamentals of [R](./RCrashCourse/1_fundamentals.html) and [Python](./PythonCrashCourse/1_fundamentals.html) |
-| Mind Control                | [Bash Scripting and High Performance Computing](https://hpc-carpentry.github.io/hpc-intro/) |
+| Mind Control                | [Bash and Linux Command Line Computing](https://colauttilab.github.io/LinuxCrashCourse/Linux-Fundamentals.html) |
 | Robot Army                  | Flow Control in [R](./RCrashCourse/1_fundamentals.html#7_flow_control) and [Python](./PythonCrashCourse/1_fundamentals.html#6_flow_control) |
 | Clone backup                | [Git and GitHub](http://swcarpentry.github.io/git-novice/) |
 | Illusionist                 | Custom Visualizations with [qplot](./RCrashCourse/2_qplot.html) and [ggplot](./RCrashCourse/3_ggplot.html) |
