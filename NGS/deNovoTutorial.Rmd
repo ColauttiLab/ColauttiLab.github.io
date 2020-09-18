@@ -163,6 +163,7 @@ While it's running, let's take a look at the rest of the sript. Open the _qcheck
 
 ## Use command loads java commands
 module load java
+module load picard
 
 ## First we need to convert our FASTQ files to BAM format
 java -jar $EBROOTPICARD/picard.jar FastqToSam \
