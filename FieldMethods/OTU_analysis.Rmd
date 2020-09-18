@@ -1,0 +1,258 @@
+---
+title: "Metabarcoding Analysis"
+output: html_document
+---
+
+# Setup
+
+```{r Load Packages, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(vegan)
+library(RAM)
+library(lmtest)
+library(car)
+library(coefplot)
+```
+
+## data
+
+Create a directory called `Data` inside of your working directory. Then copy these files into your Data folder:
+
+  * [BioDatFull2.csv](./Data/BioDatFull2.csv)
+  * [mapping_file.csv](./Data/mapping_file.csv)
+  * [97_OTU_table_QIIME1.txt](./Data/97_OTU_table_QIIME1.txt)
+
+```{r Loading data}
+BioDatFull <- read.csv("./Data/BioDatFull2.csv")
+Mapping_file <- read.csv("./Data/mapping_file.csv",fileEncoding="UTF-8-BOM")
+OTU_table <- read.delim("./Data/97_OTU_table_QIIME1.txt", header=T)
+names(Mapping_file)
+```
+
+
+We need to rearrange the OTU table. Think of this table exactly as you did the floristic survey! 
+
+We want the species names at the top, and the sites are analogous to the samples (SRR...).
+
+```{r}
+row.names(OTU_table)<-OTU_table$OTU_ID
+OTU_table$OTU_ID<-NULL
+
+OTU_table.nz<-OTU_table[rowSums(OTU_table[,c(1:(length(OTU_table)-1))])!=0,]
+OTU_table.ns<-OTU_table.nz[rowSums(OTU_table.nz[,c(1:(length(OTU_table.nz)-1))])!=1,] # We want to remove singletons because they are likely to be errors, especially in such a large dataset. 
+dim(OTU_table)
+dim(OTU_table.ns)
+
+OTU_table<-OTU_table.ns
+
+OTU_table.t<-transpose.OTU(OTU_table) 
+
+which( colSums(OTU_table.t)==0 )
+which( rowSums(OTU_table.t)==0 )
+```
+
+
+# Analysis
+
+## Species alpha diversity model
+
+### Calculate
+
+
+```{r}
+OTUmapping<-data.frame(SampleID=rownames(OTU_table.t))
+row.names(OTUmapping)<-rownames(OTU_table.t)
+
+OTUmapping$Richness<-rowSums(OTU_table.t!=0)
+OTUmapping$Shannon<-diversity(OTU_table.t, index = "shannon", MARGIN = 1, base = exp(1))
+
+Mapping_file$Species<-as.character(Mapping_file$Species) 
+Mapping_file$SampleID<-as.character(Mapping_file$SampleID) 
+OTUmapping$SampleID<-as.character(OTUmapping$SampleID) 
+for(i in 1:(length(row.names(OTUmapping)))){
+OTUmapping$Species[i]<-Mapping_file[Mapping_file$SampleID==OTUmapping$SampleID[i],]$Species
+}
+```
+
+Unlike before, the "site" information is not attached to the file, its in a seperate CSV. 
+
+We have two types of information: climatic info for each species (BioDatFull), and then species for each sample (Mapping_file). Now we also have our Richness and diversity information (OTU.info). We need to merge all of this and make just one dataset with the richness per species and the location/ climatic information.
+
+```{r}
+OTUmapping %>% group_by(Species) %>% dplyr::summarise(mean.Richness=mean(Richness),mean.Shannon=mean(Shannon)) -> OTU.info
+OTU.info<-merge(OTU.info, BioDatFull, by="Species")
+OTU.info$Species<-as.factor(OTU.info$Species)
+MyData<-OTU.info
+```
+
+Now we model this. 
+
+STEP 1. Fit the response data to a known distribution
+
+```{r}
+mod1<-lm(mean.Richness~ Lat + Long + Annual.mean.temperature.C + Max.temperature.C+ Min.temperature.C + Temperature.annual.range.C+ Annual.precipitation.mm. + Precipitation.seasonality.C.of.V.+ Annual.mean.moisture.index + Highest.weekly.moisture.index+ Lowest.weekly.moisture.index+ Moisture.index.seasonality.C.of.V., data = MyData)
+
+car::qqp(MyData$mean.Richness, "norm")
+plot(density(MyData$mean.Richness)) # does it fit a normal distribution?
+shapiro.test(MyData$mean.Richness) 
+bptest(mod1) # are the residuals homoskedastic?
+plot(mod1) # visual check
+```
+
+STEP 2. Likelihood ratio test (test parameters)
+
+To test each parameter, remove it and see if the model is as 'likely' without it. 
+
+
+```{r}
+mod1.mLat<-update(mod1,.~. - Lat)
+anova(mod1,mod1.mLat)
+
+mod1.mLong<-update(mod1,.~. - Long)
+anova(mod1,mod1.mLong)
+
+mod1.mAnnual.mean.temperature.C<-update(mod1,.~. - Annual.mean.temperature.C)
+anova(mod1,mod1.mAnnual.mean.temperature.C)
+
+mod1.mMin.temperature.C<-update(mod1,.~. - Min.temperature.C)
+anova(mod1,mod1.mMin.temperature.C)
+
+mod1.mTemperature.annual.range.C<-update(mod1.mMin.temperature.C,.~. - Temperature.annual.range.C)
+anova(mod1.mMin.temperature.C,mod1.mTemperature.annual.range.C)
+
+mod1.mAnnual.precipitation.mm.<-update(mod1.mMin.temperature.C,.~. - Annual.precipitation.mm.)
+anova(mod1.mMin.temperature.C,mod1.mAnnual.precipitation.mm.)
+
+mod1.mPrecipitation.seasonality.C.of.V.<-update(mod1.mMin.temperature.C,.~. - Precipitation.seasonality.C.of.V.)
+anova(mod1.mMin.temperature.C,mod1.mPrecipitation.seasonality.C.of.V.)
+
+mod1.mAnnual.mean.moisture.index<-update(mod1.mMin.temperature.C,.~. - Annual.mean.moisture.index)
+anova(mod1.mMin.temperature.C,mod1.mAnnual.mean.moisture.index)
+
+mod1.mHighest.weekly.moisture.index<-update(mod1.mAnnual.mean.moisture.index,.~. - Highest.weekly.moisture.index)
+anova(mod1.mAnnual.mean.moisture.index,mod1.mHighest.weekly.moisture.index)
+
+mod1.mLowest.weekly.moisture.index<-update(mod1.mAnnual.mean.moisture.index,.~. - Lowest.weekly.moisture.index)
+anova(mod1.mAnnual.mean.moisture.index,mod1.mLowest.weekly.moisture.index)
+
+mod1.mMoisture.index.seasonality.C.of.V<-update(mod1.mAnnual.mean.moisture.index,.~. - Moisture.index.seasonality.C.of.V.)
+anova(mod1.mAnnual.mean.moisture.index,mod1.mMoisture.index.seasonality.C.of.V)
+
+mod1<-mod1.mAnnual.mean.moisture.index
+summary(mod1) # this is not done to look at the "stars" but rather to look at the Estimate value.
+```
+
+### Visualize
+
+```{r}
+coefplot(mod1)
+
+
+avPlots(mod1)
+```
+
+## Redundancy analysis: a multivariate linear model
+
+### Calculate
+
+We have the same problem here with the samples having no specific data but rather we have experiement specific characteristics. 
+We need to average them out then. 
+
+```{r, message=FALSE, warning=FALSE}
+X<-OTUmapping[,c(1,4)]
+OTU_table.t$SampleID<-row.names(OTU_table.t)
+OTU_table.t_species<-merge(OTU_table.t,X, by="SampleID",all = T)
+OTU_table.t_species$SampleID<-NULL
+
+
+OTU_table.tX<-aggregate(OTU_table.t_species, by = list(Species=OTU_table.t_species$Species), FUN=mean)
+rownames(OTU_table.tX)<-OTU_table.tX$Species
+OTU_table.tX$Species<-NULL
+OTU_table.tX$Species<-NULL
+OTU_table.hell <- decostand(OTU_table.tX, "hell")
+```
+
+Now we do the RDA:
+
+```{r}
+var <-MyData[,c(4:15)] # Isolate my variables to make this whole code easier to read
+
+formulaRDA<- rda(OTU_table.hell ~ ., data=var, scale=T) # notice my predictive variable are being scaled too.
+
+head(summary(formulaRDA))
+RsquareAdj(formulaRDA)
+anova(formulaRDA, permutations=1000) # Is the RDA meaningful?
+anova.cca(formulaRDA, by="margin", permutations=1000) # If so, are any predictor variables meaningful?
+
+```
+
+
+### Visualize
+
+Keep in mind none of these are significant though! so their direction does not have a true effect on the species composition. 
+
+
+```{r}
+smry <- summary(formulaRDA)
+df1  <- data.frame(smry$sites[,1:2])       # RDA1 and RDA2 (for each quadrate)
+df2  <- data.frame(smry$biplot[,1:2])     # loadings for RDA1 and RDA2 (for each variable)
+rda.plot <- ggplot(df1, aes(x=RDA1, y=RDA2)) + 
+  geom_text(aes(label=rownames(df1)),size=3,position=position_jitter(width=.2,height=.2)) +
+  geom_point(aes(alpha=0.3)) +
+  geom_hline(yintercept=0, linetype="dotted") +
+  geom_vline(xintercept=0, linetype="dotted")  
+
+
+(formulaRDA.PLOT<-rda.plot +
+  geom_segment(data=df2, aes(x=0, xend=RDA1, y=0, yend=RDA2), 
+               color="red", arrow=arrow(length=unit(0.01,"npc"))) +
+  geom_text(data=df2, 
+            aes(x=RDA1,y=RDA2,label=rownames(df2),
+                hjust=0.5*(1-sign(RDA1)),vjust=0.5*(1-sign(RDA2))), 
+            color="red", size=4)+ theme(legend.position="none"))
+```
+
+
+## NMDS: unconstrained spatial analysis
+
+So this is when the NMDS can be really helpful. You dont know what is playing a role in the OTU community assembly. Looking at them in space might give you a hint, or might inspire you. 
+
+### Calculate
+
+We need to produce a betadiversity matrix again. We can keep the samples seperate now since we arent using climate here. We might be able to see on this if something else is happening. 
+
+```{r}
+df<-data.frame(Species=OTU_table.t_species$Species)
+
+M<-OTU_table.t
+M$SampleID<-NULL
+M$Species<-NULL
+M$Species<-NULL
+
+
+dist_M <- vegdist(M, method = "bray",binary=T)
+```
+
+
+```{r}
+meta.nmds <- metaMDS(dist_M, k=2, trymax = 1000) # ok so k=2 means I want 2 dimensions 
+
+
+#data for plotting 
+##NMDS points
+NMDS.data<-data.frame(Species=df$Species) # this is the only true difference from floristic composition analysis. Instead of using plots location and population, we want to visualize their species. 
+NMDS.data$NMDS1<-meta.nmds$points[ ,1] 
+NMDS.data$NMDS2<-meta.nmds$points[ ,2] 
+```
+
+
+### Visualize
+
+```{r}
+ggplot(data = NMDS.data, aes(y = NMDS2, x = NMDS1))+ 
+    geom_point( aes(col = NMDS.data$Species), size = 1.5,alpha=0.6)
+```
+
+They are not assembling because of climate... so what do you think might play into their assembly? This NMDS can help you think about it... 
+
+
