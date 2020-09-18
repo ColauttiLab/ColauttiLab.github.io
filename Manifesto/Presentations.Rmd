@@ -9,12 +9,33 @@ output: html_document
   2. __Plan ahead.__ Have everything planned out before you even start
   3. __Less is more.__ Avoid overcrowding. Don't write down phrases or sentences that you are going to say anyway.
 
-This [Colautti Lab Powerpoint Template](../Files/ColauttiLab_SlideFormat.pptx) includes pre-formatted slides featuring lab colours. Use this rather than the garbage and over-used templates that Microsoft provides.
+# General Tips
 
-# Figures
+* For oral presentations, aim for about 1 slide per minute.
+* For a 10-20min research talk, this breaks down to something like:
+  * Title slide with your name, co-authors, and affiliation
+  * 1-3 Introduction slides
+    * Big picture
+    * Specific research area
+    * Open questions you will address
+  * 2-3 Hypotheses, predictions and methods. May include:
+    * Study system (e.g. *Ixodes*, *Lythrum*, *Alliaria*)
+    * Experimental design/setup
+  * 2-5 Methods and results
+  * 1-2 Implications and impact of research
+  * 1 Acknowledgment Slide
+
+* Use clean slides with minimal background distractions and minimal text. Use images/graphs/figures to tell your story. 
+  * Avoid over-used slides like the garbage the default Microsoft Powerpoint templates.
+  * Consider using this [Colautti Lab Powerpoint Template](../Files/ColauttiLab_SlideFormat.pptx), which includes pre-formatted slides and unified colour scheme.
+  * Using the lab template shows that your talk has a 'seal of approval' from the lab.
+    * This also means you have responsibility to reinforce the quality of presentations that use this template
+  
+# Figure Design
+
+Regardless of presentation type (print, verbal), there are a number of important considerations when designing your figures.
 
 Read and summarize [Ten Simple Rules for Better Figures](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833)
-
 
 # Graphic design
 
