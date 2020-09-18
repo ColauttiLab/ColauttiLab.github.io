@@ -8,6 +8,15 @@ author: "Rob Colautti"
 output: html_document
 ---
 
+# COVID-19 Notice:
+<span style="color:red"> 
+In light of the rapidly developing COVID-19 situation, classes have been suspended for the remainder of the semester. There will be no new quizzes or assignments. 
+</span>
+
+<span style="color:red"> 
+<br>**The final assignment is due online by the end of day on April 20, 2020.**
+</span>
+
 NOTE: Tutorials run Wednesdays 12:30-2:30 in BioSci 1120
 
 # Readings & Assignments {.tabset .tabset-fade .tabset-pills} 
@@ -200,10 +209,7 @@ Submit your .Rmd, .html and supporting files to OnQ.
 - | 26-Feb | No tutorial
 7 | 4-Mar  | [Bootstrap, randomization and permutation models](https://colauttilab.github.io/EcologyTutorials/bootstrap.html)
 8 | 11-Mar | Simulations, [maximum likelihood and MCMC](https://colauttilab.github.io/EcologyTutorials/maxLik_MCMC.html)
-9 | 18-Mar | Principal components and factor analysis 
-10 | 25-Mar | Cluster analysis
-11 | 1-Apr |	Nonlinear regression
-12 | 8-Apr  |	Sequence data and microbiome analysis in R
+
 
 
 # Grading Rubric:
