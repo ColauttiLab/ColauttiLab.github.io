@@ -3,9 +3,54 @@ title: "Colautti Lab Manifesto <br> Equity, Diversity, Inclusion"
 output: html_document
 ---
 
-# Equity, Diversity and Inclusion
+Research benefits from diverse perspectives. Under-representation in EEB and the Biological Sciences represents failure to achieve research excellence.
 
-There is a growing recognition that increasing equity, diversity and inclusion (EDI) improves creativity and innovation...
+# Under-representation
+
+Stats from the [Canadian Association of University Teachers](https://www.caut.ca/sites/default/files/caut_equity_report_2018-04final.pdf)
+
+|Equity Group | Labour force | Professors|
+|--------------|---------------|-----------------------|
+| Aboriginal | 3.8% | 1.4% |
+| Black | 3.1% | 2% |
+| Women | 50% | 44% (27% Full Prof.)
+
+However, this varies across disciplines and instutions. In the Biological Sciences at Canadian universities, representation tends to be much lower. Here's a figure showing the race gap in a number of disciplines. Note the location of Evolutionary Biology:
+
+![Source: [Scientific American](https://blogs.scientificamerican.com/sa-visual/this-is-what-the-race-gap-in-academia-looks-like/)](SA_RaceGap.png)
+
+You might think Canada is doing much better than the United States and Europe, because we like to perceive ourselves as more progressive. Nope:
+
+![Source: June 2020 Tweet from the Canadian Institute for Ecology and Evolution (CIEE)](CIEE_Representation.png)
+
+
+# What is EDI?
+
++ **Equity** Not to be confused with 'equality', equity requires the removal of barriers that prevent equal opportunity. Rather than 'treat everyone equally' we have to realize that many people face **sytemic barriers** that we have never faced. These barriers are discussed below.
+
++ **Diversity** In EEB we are all familiar with the concept of diversity. In the context of EDI it particularly includes groups who are historically marginalized based on skin colour, place of origin, religion, (dis)ability, sex, sexual orientation, gender identity/expression and age.
+
++ **Inclusion** This is the principal of including, respecting, and valuing the contributions of all. This includes amplifying some voice
+
+
+# Systemic Barriers
+
+Systemic barriers include any practices or policies that result in uneven access. As a starting point, here are some barriers from previous lab meetings and potential solutions. Can you think of more?
+
+1. **Lack of Mentors** -- Our mentorship is shaped by our own experience in academia and these can leave us blind to the different challenges faced by mentees with different journeys. Even things that seem as innocuous as 'going out for beer' can be a barrier to people who don't drink for religious or other personal reasons. 
+
+2. Microagressions -- Incidents that seem minor on their own but can work together 
+
+
+# Anti-racism
+
+> "The beauty of anti-racism is that you don’t have to pretend to be free of racism to be anti-racist. Anti-racism is the commitment to fight racism wherever you find it, including in yourself. And it’s the only way forward." -- Ijeoma Oluo
+
+
+
+
+
+
 
 
 # To Do: 
@@ -14,5 +59,6 @@ Read/summarize Government of Canada pilot program called [Dimensions](http://www
 
 Read/summarize [Reducing bias in the evaluation of researchers](https://elifesciences.org/inside-elife/1fd1018c/research-assessment-reducing-bias-in-the-evaluation-of-researchers)
 
-
+[MSU Research Toolkit](http://www.montana.edu/nsfadvance/documents/MSU_searchtoolkit_v5.0web.pdf)
+[UNC Charlotte Resources for Search Committees](https://advance.uncc.edu/programming/programs/faculty-recruitment/resources-search-committees-including-evaluation-rubrics)
 
