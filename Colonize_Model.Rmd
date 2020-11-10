@@ -1,9 +1,7 @@
 ---
 title: "Root Colonization Model"
 author: "Robert I. Colautti"
-output:
-  word_document: default
-  html_document: default
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -115,7 +113,9 @@ Icor<-function(p1,p2,a){
   
   return(cbind(a,p1,p2))
 }
+```
 
+```{r, eval=F}
 # Test your model
 SimDat<-data.frame(P1=runif(5000),P2=runif(5000),a=runif(5000))
 Parm<-Icor(p1=SimDat$P1,p2=SimDat$P2,a=SimDat$a)
@@ -210,7 +210,7 @@ In our example, there are 3 parameters. If we want to look at all combinations f
 
 ```{r}
 # Simulate data to test the Maximum likelihood Values
-SimDat<-Root(p1=0.421,p2=0.612,a=0.142,N=100000)
+SimDat<-Root(p1=0.421,p2=0.612,a=0.142,N=10000)
 
 MaxLik<-function(Precise=100){
   # Brute Force Method
@@ -235,9 +235,9 @@ As the number of parameters x precision combinations gets too large, we have to 
 Take a look at this algorithm, how does it differ from the one above?
 ```{r}
 # Find the Maximum likelihood Values
-SimDat<-Root(p1=0.421,p2=0.612,a=0.142,N=100000)
+SimDat<-Root(p1=0.421,p2=0.612,a=0.142,N=10000)
 
-MaxLik<-function(Iters=1000000){
+MaxLik<-function(Iters=10000){
   # Random Sampling Method
   MLdat<-data.frame(p1=runif(Iters),p2=runif(Iters),a=runif(Iters))
   # Log-lik can be undefined when p or q are >=1 or <=0
@@ -246,7 +246,7 @@ MaxLik<-function(Iters=1000000){
   MLdat$Lik<-Lik(p1=MLdat$p1,p2=MLdat$p2,a=MLdat$a)
   return(MLdat[order(MLdat$Lik,decreasing=T),][1:ceiling(Iters*0.05),])
 }
-MaxLik()
+head(MaxLik())
 ```
 
 > Compare this model is to the previous algorithm. What is the key difference?
@@ -259,7 +259,7 @@ A more elegant search algorithm.
 
 ```{r}
 # Find the Maximum likelihood Values
-SimDat<-Root(p1=0.421,p2=0.612,a=0.142,N=100000)
+SimDat<-Root(p1=0.421,p2=0.612,a=0.142,N=10000)
 
 MaxLik<-function(divs=10,zooms=100){
   # Sample each parameter at evenly-spaced locations
@@ -439,7 +439,7 @@ PostProb<-function(Parms,SimDat){
 According to the mcmc vignette, we should use an intial setup function `metrop()` for MCMC resampling.
 ```{r}
 library(mcmc)
-SimDat<-Root(p1=0.421,p2=0.612,a=0.142,N=100000)
+SimDat<-Root(p1=0.421,p2=0.612,a=0.142,N=10000)
 Init<-c(sum(SimDat$Myc)/nrow(SimDat),sum(SimDat$Path)/nrow(SimDat),0)
 test<-metrop(obj=PostProb,initial=Init,nbatch=10e3,SimDat=SimDat)
 ```
@@ -468,7 +468,7 @@ It's common practice to look at the parameter selection over time to make sure t
 
 ```{r}
 # Set up data for plotting
-Pdat<-as.data.frame(ts(test$batch))
+Pdat<-data.frame(ts(test$batch))
 names(Pdat)<-c("p1","p2","a")
 Pdat$Iter<-seq_along(Pdat$a)
 # Denote burnin simulations
@@ -489,12 +489,9 @@ These look quite good -- we haven't even used a burn-in parameter to cut out the
 We can check for autocorrelation in the parameter estimates
 
 ```{r}
-Pdat<-as.data.frame(acf(test$batch))
-names(Pdat)<-c("p1","p2","a")
-Pdat$Iter<-seq_along(Pdat$a)
-qplot(x=Iter,y=p1,data=Pdat,geom="line")+theme_bw()
-qplot(x=Iter,y=p2,data=Pdat,geom="line")+theme_bw()
-qplot(x=Iter,y=a,data=Pdat,geom="line")+theme_bw()
+qplot(x=p1,y=p2,data=Pdat,geom="point",alpha=I(0.01))+theme_bw()
+qplot(x=p1,y=a,data=Pdat,geom="point",alpha=I(0.01))+theme_bw()
+qplot(x=p2,y=a,data=Pdat,geom="point",alpha=I(0.01))+theme_bw()
 ```
 
 ## Parameter Mean + SE

@@ -3,6 +3,10 @@ title: "Colautti Lab Manifesto"
 output: html_document
 ---
 
+# Where to get [HELP](./HELP.pdf)
+
+Not sure where to turn for coursework, mental health, technical support, and other issues? Check [this handy slide](./HELP.pdf).
+
 # Welcome to the Lab 
 
 First of all, congratulations on making it this far! Regardless of whether you are an undergraduate student working on your first research project or a postdoctoral researcher applying for a faculty position, you are somewhere along a gradient from __passive learner__ to __independent thinker__. This document is intended as a reference to help you make this transition, by laying out expectations and best practices. It is based on my own experience as well as discussions with colleagues. Most of the examples are therefore biased towards a career as a professional scientist. However, this document is above all a guide to working and thinking like a __professional__.  As such, I have consciously tried to keep the lessons general so that the tips, recommendations, and rules of thumb will apply to a broad range of professional activities and career paths that you may choose to follow.
@@ -25,6 +29,16 @@ To be part of the lab, you must agree to four rules:
 2. Be __kind__
 3. Be __professional__
 4. Be __awesome__ and __have fun__!
+
+# Biology Code of Conduct
+
+We also follow the Biology Department's Code of Conduct:
+
+```{r label, out.width = "85%", fig.cap = "Biology Code of Conduct", echo=FALSE}
+knitr::include_graphics("./BiologyCodeOfConduct.pdf")
+```
+
+[Download to Print](./BiologyCodeOfConduct.pdf)
 
 # Keys to Success
 
