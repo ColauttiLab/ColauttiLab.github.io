@@ -9,6 +9,10 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Setup
+
+Create a working directory for this tutorial, and download the tutorial files. [tutorial.tar.gz](./Data/tutorial.tar.gz)
+
 # Introduction
 
 There are multiple tools for analysis of RNA expression data such as the [Tuxedo pipeline](https://github.com/Jeanielmj/bioinformatics-workshop/wiki/The-Tuxedo-Pipeline), which is covered in this tutorial and requires a reference genome
