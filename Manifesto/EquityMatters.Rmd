@@ -3,9 +3,19 @@ title: "Colautti Lab Manifesto <br> Equity, Diversity, Inclusion"
 output: html_document
 ---
 
-Research benefits from diverse perspectives. Under-representation in EEB and the Biological Sciences represents failure to achieve research excellence.
+# Land Acknowledgment
+
+If you aren't familiar with the diversity of Indigenous Peoples in North America, this map of [Territories by Land](https://www.whose.land/en) is a nice visualization.
+
+The Colautti Lab at Queen's University is situated on traditional Anishinaabe (Ah- nish-in-ah-bay) and Haudenosaunee (Ho-den-o-show-nee) territory. We are grateful to be able to live, learn and play on these lands.
+
+By acknowledging our shared history, we recognize a long and storied past that began long before the earliest European colonies. We also acknowledge this territory’s significance for the Indigenous Peoples who lived, and continue to live, upon it and whose practices and spiritualities were tied to the land and continue to develop in relationship to the territory and its other inhabitants today.
+
+It is my understanding that this territory is included in the Dish With One Spoon Wampum Belt Covenant, an agreement between the Iroquois Confederacy and the Confederacy of the Ojibwe and Allied Nations to peaceably share and care for the resources around the Great Lakes. The Kingston Indigenous community continues to reflect the area’s Anishinaabek and Haudenosaunee roots. There is also a significant Métis community as well as First Peoples from other Nations across Turtle Island present here today.
 
 # Under-representation
+
+Part of our philosophy is that research benefits from diverse perspectives and different ways of thinking. Under-representation in EEB and the Biological Sciences represents failure to achieve research excellence.
 
 Stats from the [Canadian Association of University Teachers](https://www.caut.ca/sites/default/files/caut_equity_report_2018-04final.pdf)
 
@@ -14,6 +24,9 @@ Stats from the [Canadian Association of University Teachers](https://www.caut.ca
 | Aboriginal | 3.8% | 1.4% |
 | Black | 3.1% | 2% |
 | Women | 50% | 44% (27% Full Prof.)
+
+![Source: [Nature.com](https://www.nature.com/news/racial-bias-continues-to-haunt-nih-grants-1.18807)](NIH_Gap.jpg)
+
 
 However, this varies across disciplines and instutions. In the Biological Sciences at Canadian universities, representation tends to be much lower. Here's a figure showing the race gap in a number of disciplines. Note the location of Evolutionary Biology:
 
