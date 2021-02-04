@@ -1,0 +1,8 @@
+---
+title: 'BIOL 432:  <br> Introduction to Computation <br> and Big Data in Biology'
+output: html_document
+---
+
+
+This course has moved to [OnQ](https://onq.queensu.ca/d2l/home/504875). However, you can still access the tutorials via the main Colautti Lab Resources page (click on the ColauttiLab logo at the top of the page).
+
