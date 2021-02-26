@@ -27,9 +27,16 @@ output: html_document
 
 * Use clean slides with minimal background distractions and minimal text. Use images/graphs/figures to tell your story. 
   * Avoid over-used slides like the garbage the default Microsoft Powerpoint templates.
-  * Consider using this [Colautti Lab Powerpoint Template](../Files/ColauttiLab_SlideFormat.pptx), which includes pre-formatted slides and unified colour scheme.
+  * For Powerpoint, use this [Colautti Lab Powerpoint Template](../Files/ColauttiLab_SlideFormat.pptx), which includes pre-formatted slides and unified colour scheme.
   * Using the lab template shows that your talk has a 'seal of approval' from the lab.
     * This also means you have responsibility to reinforce the quality of presentations that use this template
+  * When creating figures in R, use this code at the top for easy, clean `ggplot/qplot` graphs with larger text and limited clutter:
+  
+```{r, eval=F}
+source("http://bit.ly/theme_pub")
+theme_set(theme_pub())
+```
+  
   
 # Figure Design
 
