@@ -3157,7 +3157,7 @@ k__Bacteria; p__Proteobacteria; c__Gammaproteobacteria; o__Pseudomonadales; f__M
 </tbody>
 </table>
 </div>
-<p>Note that this is a 16.5MB file, so only a few lines are printed here. The first column contains the <code>OTU_ID</code> – this is a unique ID number assigned to a unique ‘Operational Taxonomic Unit’ or OTU. The term OTU is common for microbes like bacteria and fungi where species concepts don’t work so well. Since we are inferring taxonomy from a single gene, all sequences that share the same sequence are considered part of the same OTU.</p>
+<p>Note that this is a 16.5MB file, so only a few lines are printed here. The first column contains the <code>OTU_ID</code> – this is a unique ID number assigned to a unique ‘Operational Taxonomic Unit’ or OTU. The term OTU is common for microbes like bacteria and fungi where species concepts don’t work so well. Since we are inferring taxonomy from a single gene, identical or highly-similar sequence are considered part of the same OTU.</p>
 <p>The next columns start with <code>SRR</code>. These are the the individual samples that were sequenced. Each number in the <code>SRR</code> column corresponds to the number of sequences for the OTU that were present in that sample.</p>
 <p>The last column is called <code>taxonomy</code> and contains the predicted taxonomic assignment for each OTU. Let’s remove these so that we aren’t mixing numeric and character data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">OTU_data&lt;-OTU_table[,<span class="op">-</span><span class="kw">ncol</span>(OTU_table)]</code></pre></div>
