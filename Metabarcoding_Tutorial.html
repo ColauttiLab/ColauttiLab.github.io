@@ -3216,13 +3216,14 @@ k__Bacteria; p__Proteobacteria; c__Gammaproteobacteria; o__Pseudomonadales; f__M
 <h2>Binary Distance matrix</h2>
 <p>We can change our <code>OTUs</code> dataframe into binary data by changing the read counts in each square to 1 or 0. Of course, we lose information of the relative number of sequences for each OTU, so we’ll look how to analyze that data later.</p>
 <p>Transform to 1 if # reads &gt;=1 and 0 otherwise. We could use a nested loop through each row and each column. You CAN do IT this WAY, but it may take a long time, so you might want to skip this code, but take some time to look at it carefully and make sure you understand what it is doing (or replace <code>nrow(OTUs)</code> with a smaller number like 5):</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(OTUs)){</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(OTUs)){</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(OTUs[i,j]<span class="sc">&gt;</span><span class="dv">0</span>){</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>      OTUs[i,j]<span class="ot">&lt;-</span><span class="dv">1</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>OTU_bin<span class="ot">&lt;-</span>OTUs</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(OTU_bin)){</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(OTU_bin)){</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(OTU_bin[i,j]<span class="sc">&gt;</span><span class="dv">0</span>){</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>      OTU_bin[i,j]<span class="ot">&lt;-</span><span class="dv">1</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Loops are not computationally efficient – especially loops nested within loops. This becomes a problem when we have a lot of rows and columns to deal with. Since we are working with a numeric data.frame (i.e. all data in rows and columns are numeric), there is a nice shortcut:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>X<span class="ot">&lt;-</span>OTUs[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>X</span></code></pre></div>
@@ -3451,6 +3452,7 @@ k__Bacteria; p__Proteobacteria; c__Gammaproteobacteria; o__Pseudomonadales; f__M
 ##      2: no. of iterations &gt;= maxit
 ##     88: stress ratio &gt; sratmax
 ##     10: scale factor of the gradient &lt; sfgrmin</code></pre>
+<p>If it still hasn’t converged after 100 iterations, we can increase <code>trymax</code> to try to get a better solution. Go ahead and try and then compare to the figure below.</p>
 <p>Create data for plotting:</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>PDat<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">NMDS1=</span>NMDSdat<span class="sc">$</span>points[,<span class="dv">1</span>],</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">NMDS2=</span>NMDSdat<span class="sc">$</span>points[,<span class="dv">2</span>],</span>
