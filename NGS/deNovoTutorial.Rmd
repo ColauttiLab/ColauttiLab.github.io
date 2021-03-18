@@ -15,9 +15,14 @@ To follow along with this tutorial, you will need a CAC account. Then do the fol
 
 1. Login to your CAC account
 2. Next, you will need to copy a large file to your working directory. This will take a few minutes so you shouldn't clog up the login node. Instead, request a short-term node using the command: `salloc -c 1`. It may take up to a few minutes before you are logged into a working node.
-3. Wait until you are logged in to a work node, then copy the file `biol432.tar.gz` from `/global/project/ColauttiLab` to your local working directory.  
-4. Unpack the g-zipped tarball using `tar -zxf biol432.tar.gz`
-5. Move into the new directory: `cd ./biol432`
+3. Wait until you are logged in to a work node, then copy the file `biol432.tar.gz` from `/global/project/biol432` to your local working directory.  For example, if you want to save it to your home directory:
+
+```
+cp /global/project/biol432 ~
+```
+
+4. Unpack the file (gz = gzip; tar = tarball) using `tar -zxf biol432.tar.gz`
+5. Move into the biol432 directory: e.g.: `cd ~/biol432`
 
 # Overview
 
@@ -155,6 +160,7 @@ While it's running, let's take a look at the rest of the sript. Open the _qcheck
 
 ```{r, engine = 'bash', eval = FALSE}
 #!/bin/bash
+#SBATCH --partition=standard
 #SBATCH -c 1
 #SBATCH --mem=5000
 #SBATCH -t 00:20:00
@@ -325,6 +331,7 @@ Platanus also has some nice features for dealing with heterzygous genomes. We wo
 
 ```{r, engine = 'bash', eval = FALSE}
 #!/bin/bash
+#SBATCH --partition=standard
 #SBATCH -c 8
 #SBATCH --mem=18G
 #SBATCH -t 01:00:00
@@ -388,6 +395,7 @@ Information about the first 'contig' is encoded in the name. Here you can see a 
 
 ```{r, engine = 'bash', eval = FALSE}
 #!/bin/bash
+#SBATCH --partition=standard
 #SBATCH -c 8
 #SBATCH --mem 18G
 #SBATCH -t 01:00:00
