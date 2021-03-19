@@ -11,7 +11,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Setup
 
-Create a working directory for this tutorial, and download the tutorial files. [tutorial.tar.gz](./Data/tutorial.tar.gz)
+1. Login to your CAC account
+2. If you haven't already copied and unpacked `biol432.tar.gz`from the [de novo assembly tutorial](./dNovoTutorial.html), do it now. Be sure to first request an interactive SLURM session using the command: `salloc -c 1` so that you don't clog the login node.
+3. After you unpack the biol432 directory, there will be another compressed folder called `RNAseqTutorial.tar.gz`. Unpack this using your knowledge of the Linux command line. 
+4. If you are stuck, you can alternatively download using this [RNAseqTutorial.tar.gz](./Data/RNAseqTutorial.tar.gz) link.
 
 # Introduction
 
