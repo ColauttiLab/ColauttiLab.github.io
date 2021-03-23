@@ -18,7 +18,13 @@ To follow along with this tutorial, you will need a CAC account. Then do the fol
 3. Wait until you are logged in to a work node, then copy the file `biol432.tar` from `/global/project/biol432` to your local working directory.  For example, if you want to save it to your home directory:
 
 ```
-cp /global/project/biol432 ~
+cp /global/project/biol432/biol432.tar ~
+```
+
+This copies to your home directory. If you are already in your home directory, then you can use `./` to copy to your 'current' directory (the one you see when you type `pwd`):
+
+```
+cp /global/project/biol432/biol432.tar ./
 ```
 
 4. Unpack the file (gz = gzip; tar = tarball) using `tar -xvf biol432.tar`
