@@ -12,9 +12,9 @@ knitr::opts_chunk$set(echo = TRUE)
 # Setup
 
 1. Login to your CAC account
-2. If you haven't already copied and unpacked `biol432.tar.gz`from the [de novo assembly tutorial](./dNovoTutorial.html), do it now. Be sure to first request an interactive SLURM session using the command: `salloc -c 1` so that you don't clog the login node.
-3. After you unpack the biol432 directory, there will be another compressed folder called `RNAseqTutorial.tar.gz`. Unpack this using your knowledge of the Linux command line. 
-4. If you are stuck, you can alternatively download using this [RNAseqTutorial.tar.gz](./Data/RNAseqTutorial.tar.gz) link.
+2. If you haven't already copied and unpacked `biol432.tar`from the [de novo assembly tutorial](./dNovoTutorial.html), do it now. 
+3. After you unpack the biol432 directory, there will be another compressed folder called `RNAseqTutorial.tar.gz`. Make sure you are in the directory containing this file when you go through the tutorial
+
 
 # Introduction
 
@@ -43,7 +43,7 @@ $ salloc --mem 8G
 Next, decompress the tar.gz file:
 
 ```
-$ tar -xzvf tutorial.tar.gz
+$ tar -xzvf RNAseqTutorial.tar.gz
 ```
 
 This will produce a directory called `tutorial`.
@@ -149,9 +149,9 @@ From [Ensembl](https://www.ensembl.org/info/website/upload/gff.html):
 
 In this tutorial, we will be using several pieces of software:
 
-1. __BOWTIE2__ -- A very fast, memory-efficient short-read aligner. Use for aligning short DNA sequences to a reference genome. This is the first step in variant detection for GWAS, QTL mapping, and a host of population genetics analyses. [LINK](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml)
-2. __TOPHAT2__ -- Maps RNA sequences to a reference genome to assist with annotation and identify spliced sequences. Can also run de novo alignments when a reference genome is not available. [LINK](http://ccb.jhu.edu/software/tophat/index.shtml)
-3. __CUFFLINKS__ -- a set of tools for analysis of RNA transcripts [LINK](http://cole-trapnell-lab.github.io/cufflinks/manual/)  
+1. __BOWTIE2__ -- A very fast, memory-efficient short-read aligner. Use for aligning short DNA sequences to a reference genome. This is the first step in variant detection for GWAS, QTL mapping, and a host of population genetics analyses. Since we are working with RNA sequences, we only use BOWTIE2 to generate an index file for the genome. [BOWTIE2 manual](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml)
+2. __TOPHAT2__ -- Maps RNA sequences to a reference genome to assist with annotation and identify spliced sequences. Spliced sequences are RNA sequences that may lack parts of the original DNA (e.g. introns). So the same DNA sequence can produce several different RNA sequences. TOPHAT2 considers this, but BOWTIE2 does not. [TOPHAT2 manual](http://ccb.jhu.edu/software/tophat/index.shtml). See also [Alternative Splicing](https://en.wikipedia.org/wiki/Alternative_splicing) on Wikipedia.
+3. __CUFFLINKS__ -- a set of tools for analysis of RNA transcripts. [CUFFLINKS manual](http://cole-trapnell-lab.github.io/cufflinks/manual/)  
   3a. __cufflinks__ -- assemble transcripts  
   3b. __cuffcompare__ -- compare assemblies to annotation  
   3c. __cuffmerge__ -- merge two or more transcript assemblies  
@@ -165,6 +165,7 @@ On the cluster, load the necessary software.
 $ module load bowtie2
 $ module load tophat
 $ module load cufflinks
+$ module load samtools
 ```
 
 To keep the output of the pipeline organized, make file directories from the main directory. Copy the entire box below into the command line to create an `index` directory, and a `results` directory with sub-folders. 
@@ -195,7 +196,6 @@ $ mv athal_chr.fa indexes
 We can then move into the indexes directory and index the FASTA file with bowtie2.
 
 ```
-$ cd indexes
 $ bowtie2-build athal_chr.fa indexes/athal_chr
 ```
 
@@ -274,7 +274,7 @@ $ cufflinks -o results/Cufflinks/Test16 -g athal_genes.gtf results/Tophat/Test16
 See the results by moving into the results folder. There are four outputs, two .gtf files and two fpkm_tracking files. The transcripts.gtf file has information on the gene the transcript is most likely associated with, and also its abundance as measured by FKPM (fragments per kilobase per million reads). Due to the differences in length between genes, bigger genes may have more transcripts than smaller genes even if they are expressed in the same amount. FKPM tries to control for this. 
 
 ```
-$ cd results.Cufflinks/Test16
+$ cd results/Cufflinks/Test16
 $ ls
 $ head transcripts.gtf
 ```
@@ -336,11 +336,11 @@ The next step in the Tuxedo pipeline is visualization. There is a specific packa
 
 The next steps are easier to do in R Studio on your laptop.
 
-Download gene_exp.diff to your computer and put it into your working directory.
-In R, your working directory can be found with the command `getwd()`.
-Alternatively you can set your working directory to where the file is by `setwd(path_to_your_file)`
+Download gene_exp.diff to your computer and put it into your working directory. You can do this in MobaXTerm, or using a free file transfer protocol (FTP) program like [FileZilla](https://filezilla-project.org/). Or, you can just download the file from this link: [gene_exp.diff](./Data/gene_exp.diff)
 
-Read in the file. The columns in gene_exp.diff is separated by tabs so our separator is "\t". We also have column names so we put header as TRUE.
+In R, your working directory can be found with the command `getwd()`. Alternatively you can set your working directory to where the file is by `setwd(path_to_your_file)`
+
+Read in the file. The columns in gene_exp.diff is separated by tabs so our separator is `\t`. We also have column names so we put header as TRUE.
 Replace the path in `read.table` with your own.
 
 ```{r}
@@ -356,7 +356,7 @@ summary(gene_diff)
 
 There are `r ncol(gene_diff)` columns and `r nrow(gene_diff)` rows. 
 
-You can see from the summary on the "status" column that there are 62 NOTEST and 70 OK. We will want to filter out the rows where there were no tests.
+You can see from the summary on the "status" column that there are 62 NOTEST and 70 OK. NOTEST means there weren't enough sequences aligned to do a statistical test. These should be filtered out of our analysis.
 
 ```{r}
 gene_diff<- gene_diff[gene_diff$status=="OK",]
@@ -369,9 +369,11 @@ We can look at the changes between samples by graphing the `log2.fold_change.`
 hist(gene_diff$log2.fold_change.)
 ```
 
+This is $log_2(\frac{Sample2}{Sample1})$. In other words, we divide the number of reads of one sample divided by the other, and then take the log (base-2) so that negative numbers represent higher expression in the denominator, and positive values represent higher expression in the numerator.
+
 The histogram shows a peak near 0. We can see some genes increased in expression and some decreased. However, if we look at the column indicating significance, there are only two genes which are significant, which we already know from our `grep` command.
 
-A common visualization used for differential expression is a heat map. We can make our own using the 10 genes with the lowest p values.
+A common visualization used for differential expression is a heat map. We can make our own using the 5 genes with the lowest p-values.
 
 ```{r}
 top_genes<-head(gene_diff[order(gene_diff$p_value),], n=5L)
@@ -421,6 +423,8 @@ with(gene_diff, plot(log2.fold_change., -log10(p_value)))
 title(main = "Volcano Plot")
 ```
 
+> Note, use `?with` to read about the with function, and see some examples.
+
 We can color the points that have status OK.
 
 ```{r eval=FALSE}
@@ -442,9 +446,9 @@ with(subset(gene_diff, status=="OK"), points(log2.fold_change., -log10(p_value),
 legend("topright", pch = 1, col = c("black", "green"), legend = c("No Test", "Tested"))
 ```
 
-We can also attempt this using Cuffdiff output of a RNA-seq experiment on garlic mustard treated with jasmonic acid. The *.diff file is called `Ap_gene_exp.diff` in the `final_output` folder.
+Here is another volcano plot for a different analysis (Garlic Mustard, _Alliaria petiolata_). With this data you can really see why it's called a volcano plot.
 
-```{r}
+```{r, echo=F}
 Ap_gene_diff<-read.table("Data/Ap_gene_exp.diff", sep = "\t", header=T)
 with(Ap_gene_diff, plot(log2.fold_change., -log10(p_value)))
 title(main = "Volcano Plot")
@@ -476,6 +480,7 @@ With any script, use the first shebang line to write which shell to use. Here, w
 Now we can add more options for the scheduler to use when running this job.
 
 ```
+#SBATCH --partition=standard
 #SBATCH -c 1
 #SBATCH --mem 2G 
 #SBATCH -t 00:05:00
@@ -568,7 +573,7 @@ abundance.h5  abundance.tsv run_info.json
 $ awk '($4 > 0 ) ' abundance.tsv > check
 ```
 
-What we want awk to search for is contained in the quotation marks. Here, $4 represents the fourth field in the file, or the column. We want all lines in file abundance.tsv where the value in the fourth field is greater than zero to be put into a new file called check.
+This line uses the `awk` command to search the text file called `abundance.tsv`, using information defined in the quotation marks. This `awk` command is similar to `grep` or `gsub` in R, but more complicated. The important thing to know is that `$4` represents the fourth field in the file, or the column. We want all the values greater than zero, using `> 0`. And we want to output to a file called `check` using `>`.
 
 We can see how many lines there are in check using the `wc` command and check inside the file.
 
@@ -576,12 +581,13 @@ We can see how many lines there are in check using the `wc` command and check in
 $ wc -l check
 $ head check
 ```
-You will find that the column names are gone. In order to keep them, add another part to the awk command.
+
+If you find that the column names are gone, try modifying the `awk` command:
 
 ```
 $ awk '(NR==1) || ($4 > 0 ) ' abundance.tsv > check
 ```
-This command means put line one or any line where the fourth field is greater than zero into a file called check. 
+The first part command puts line one (`NR==1`) OR (`||`) any line where the fourth field is greater than zero (`$4 > 0`) from `abundance.tsv` into a file called `check`. 
 
 Actual statistical analysis using kallisto output is conducted using the "sleuth" package in R. 
 
