@@ -428,11 +428,11 @@ div.tocify {
 <ol style="list-style-type: decimal">
 <li>Login to your CAC account</li>
 <li>Next, you will need to copy a large file to your working directory. This will take a few minutes so you shouldn’t clog up the login node. Instead, request a short-term node using the command: <code>salloc -c 1</code>. It may take up to a few minutes before you are logged into a working node.</li>
-<li>Wait until you are logged in to a work node, then copy the file <code>biol432.tar.gz</code> from <code>/global/project/biol432</code> to your local working directory. For example, if you want to save it to your home directory:</li>
+<li>Wait until you are logged in to a work node, then copy the file <code>biol432.tar</code> from <code>/global/project/biol432</code> to your local working directory. For example, if you want to save it to your home directory:</li>
 </ol>
 <pre><code>cp /global/project/biol432 ~</code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li>Unpack the file (gz = gzip; tar = tarball) using <code>tar -zxf biol432.tar.gz</code></li>
+<li>Unpack the file (gz = gzip; tar = tarball) using <code>tar -xvf biol432.tar</code></li>
 <li>Move into the biol432 directory: e.g.: <code>cd ~/biol432</code></li>
 </ol>
 </div>
@@ -535,14 +535,14 @@ div.tocify {
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --partition=standard</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -c 1</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mem=5000</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mem=8G</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 00:20:00</span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Quality check using PicardTools</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Use command loads java commands</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load java</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load picard</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load picard</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">## Use command loads java commands</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load java</span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">## First we need to convert our FASTQ files to BAM format</span></span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> <span class="at">-jar</span> <span class="va">$EBROOTPICARD</span>/picard.jar FastqToSam <span class="dt">\</span></span>
@@ -564,8 +564,10 @@ div.tocify {
 <span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>        OUTPUT=q_score_dist.txt <span class="dt">\</span></span>
 <span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>        CHART=q_score_dist.pdf</span></code></pre></div>
 <p>The first line is the standard ‘shebang’ (!#). The next lines after that tell the scheduler that we want this to run on a single core with at least 8G of RAM. We ask for only 1 single core because the picard.jar program is not multi-threaded. Some programs have an option for number of ‘cores’ or ‘threads’ to use, and we’ll see an example of this later. If a program does not have these options, then it probably only uses 1 core. Specifying that we only need 1 core will help get our script to run sooner on the scheduler.</p>
-<p>After the <strong>#SBATCH</strong> lines for the SLURM scheduler there are a few comments, and then all of the action is contained in just two commands (note the use of backslash <code>\</code> to break up a single command into multiple lines for clarity.</p>
-<p>The first one is called <strong>FastQToSam</strong> and, as the name suggests, translates both of our FASTQ (.fq) files into a single .sam format.</p>
+<p>After the <strong>#SBATCH</strong> lines for the SLURM scheduler there are a few comments, and then all of the action is contained in just three commands (note the use of backslash <code>\</code> to break up a single command into multiple lines for clarity.</p>
+<p>The first one is called <strong>FastQToSam</strong> and, as the name suggests, translates both of our FASTQ (.fq) files into a single .bam format.</p>
+<p>The second one, <strong>SamFormatConverter</strong> just changes from a .bam to a .sam</p>
+<p>And the third, <strong>QualityScoreDistribution</strong> generates a frequency distribution of the quality scores.</p>
 </div>
 <div id="sam-vs-bam-vs-cram" class="section level1">
 <h1>SAM vs BAM vs CRAM</h1>
@@ -590,36 +592,43 @@ div.tocify {
 <div id="inspect-the-quality-scores" class="section level1">
 <h1>Inspect the quality scores</h1>
 <p>The script should take about 1 minute to run once it has been submitted. The file called <em>q_score_dist.txt</em> is a simple text file containing the data for a histogram, with phred scores (x-axis) in the first column, and number of bases with that phred score (y-axis) in the second column. Use a text editor to inspect the file.</p>
-<p>Here are the first few lines of the table:</p>
+<p>Take a look at the first few lines of the table using the <code>less</code> command. Here are the first few lines (you can scroll up and down with arrow keys and page up / page down):</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">## HISTOGRAM    java.lang.Byte</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">QUALITY</span> COUNT_OF_Q</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">2</span>       4430329</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ex">12</span>      929065</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ex">13</span>      1468172</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="ex">14</span>      3123617</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="ex">15</span>      4187723</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="ex">16</span>      3946166</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="ex">17</span>      1611298</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="ex">18</span>      985524</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="ex">19</span>      399284</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="ex">20</span>      483566</span></code></pre></div>
-<p>And the last few lines:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">30</span>      2064434</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">31</span>      1376595</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">32</span>      5313173</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">33</span>      12511389</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ex">34</span>      9322598</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ex">35</span>      6342409</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ex">36</span>      9042219</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="ex">37</span>      57998003</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="ex">38</span>      95239161</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ex">39</span>      172667188</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="ex">40</span>      410589</span></code></pre></div>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">2</span>       9178332</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ex">12</span>      1147091</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ex">13</span>      2049725</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="ex">14</span>      4335175</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="ex">15</span>      6409296</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="ex">16</span>      6754756</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="ex">17</span>      2646063</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="ex">18</span>      1689551</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="ex">19</span>      712264</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="ex">20</span>      852522</span></code></pre></div>
+<blockquote>
+<p>ProTip: The <code>less</code> command is good for reading through large files (&gt;&gt;1MB). It loads fast because it only reads a few lines at a time. In contrast, commands like <code>cat</code> and editors like <code>nano</code> will freeze with large files.</p>
+</blockquote>
+<p>You can also skip to the end if you press <code>shift+g</code></p>
+<p>Take a look at the last few lines (then press <code>q</code> to exit):</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">30</span>      2842858</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">31</span>      1895487</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">32</span>      7128154</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">33</span>      16044318</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ex">34</span>      12013312</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ex">35</span>      8674978</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ex">36</span>      11843773</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="ex">37</span>      66436507</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="ex">38</span>      111021970</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ex">39</span>      217289324</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="ex">40</span>      670671</span></code></pre></div>
+<blockquote>
+<p>Try downloading this file to your computer, and then generate a graph in R to visualize the quality score distribution.</p>
+</blockquote>
 <p>It appears that there are much more high-quality than low quality bases, but there are still millions of bases with Q &lt; 20. Recall that this is an error rate of 1 in 100.</p>
 <blockquote>
 <p>According to the table, there are about 483Kb with Q = 20. <br>Roughly how many of these are incorrectly called bases (i.e. errors)?</p>
 </blockquote>
-<p>Another output file is a <em>.pdf</em> that you can download and examine on your own computer. Note that you will need to copy the file from the server back to your own computer to look at it. Programs like <strong>FileZilla</strong> and <strong>MobaXTerm</strong> are handy for this sort of thing. Take a look at the file: <a href="q_score_dist.pdf">q_score_dist.pdf</a></p>
+<p>Another output file is a <em>.pdf</em> that you can download and examine on your own computer. Note that you will need to copy the file from the server back to your own computer to look at it. Programs like <strong>FileZilla</strong> and <strong>MobaXTerm</strong> are handy for this sort of thing. Take a look at the file: <a href="./Data/q_score_dist.pdf">q_score_dist.pdf</a></p>
 <p>Take a moment to make sure you understand what is on the x- and y-axes. Think about what this would look like for high-quality vs. low-quality sequencing data.</p>
 </div>
 <div id="quality-check-with-fastqc" class="section level1">
@@ -728,6 +737,9 @@ div.tocify {
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="ex">blastn</span> <span class="at">-query</span> Ap_scaffold.fa <span class="dt">\</span></span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>-subject Ap_scaffold.fa <span class="dt">\</span></span>
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>-out scafBLAST.out <span class="at">-outfmt</span> 6</span></code></pre></div>
+<blockquote>
+<p>Be sure to include the same headers as the previous bash scripts!</p>
+</blockquote>
 <p><strong>blastn</strong> is the blast tool for finding similarities between pairs of nucleotide sequences. In this case we are taking all of our scaffolds as the ‘query’ sequences and using the same sequences as our ‘subject’ sequence. This will just make a pairwise comparison of all of the scaffolds in the file. The <em>-outfmt 6</em> specifies how we want the output to be displayed.</p>
 <p>After it has finished running, inspect the output file <em>scafBLAST.out</em>. You’ll see that it’s a tab-delimited data file. The column headers are not shown but are as follows:</p>
 <ol style="list-style-type: decimal">
@@ -763,18 +775,24 @@ div.tocify {
 <div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load redundans</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="ex">redundans.py</span> <span class="at">-v</span> <span class="at">-i</span> <span class="pp">*</span>.fq <span class="at">-f</span> Ap_contig.fa <span class="at">-o</span> redun <span class="at">--identity</span> 1</span></code></pre></div>
+<blockquote>
+<p>Be sure to include the same headers as the previous bash scripts!</p>
+</blockquote>
 <p>Note that this program is a pipeline written in the python programming language (.py extension). The key inputs are the fastq files, and here we can use the wildcard symbol (*) to include all files with the .fq extension – this includes both our paired end and mate pair reads. We also input the contig file (which was created from platanus, above). I’ve also set identity close to 1 so that we only collapse overlapping contigs that are identical.</p>
 <p>This runs pretty quickly and creates a file (actually an alias) called <em>scaffolds.fa</em> inside a folder called <em>redun</em>. Let’s navigate to that folder using the change directory command <em>cd</em> and then inspect the files using the list command <em>ls</em></p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd redun</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre></div>
-<p>Looking inside the FASTA file <em>scaffolds.fa</em> you will see we have just a few contigs now, and only 2 are &gt;1,000b. Great work! We can quickly run a BLAST command to look for overlap. We won’t bother with a bash script since there are only 6 sequences to compare:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span>  blastn <span class="at">-query</span> scaffolds.fa <span class="at">-subject</span> scaffolds.fa <span class="at">-out</span> scafBLAST.out <span class="at">-outfmt</span> 6</span></code></pre></div>
+<p>Looking inside the FASTA file <em>scaffolds.fa</em> you will see we have just a few contigs now, and only 2 are &gt;1,000b. Great work! We can quickly run a BLAST command to look for overlap. We won’t bother with a bash script since there are only 6 sequences to compare.</p>
+<p>First load blast:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span>  module load blast+</span></code></pre></div>
+<p>Then run the blast command:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span>  blastn <span class="at">-query</span> scaffolds.fa <span class="at">-subject</span> scaffolds.fa <span class="at">-out</span> scafBLAST.out <span class="at">-outfmt</span> 6</span></code></pre></div>
 <p>This creates the output scafBLAST.out, as before:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> less scafBLAST.out</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> less scafBLAST.out</span></code></pre></div>
 <p>The key rows are the ones that compare scaffolds 1 and 2. We can use <em>regular expressions</em> with the <em>grep</em> command to isolate these. If you aren’t familiar with regular expressions or grep, you should spend some time looking into these. There is a pretty steep learning curve, but these tools are essential to bioinformatics. For now, just type this:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">&#39;scaffold1.*scaffold2&#39;</span> scafBLAST.out</span></code></pre></div>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">scaffold1</span><span class="kw">|</span><span class="ex">size110843</span>    scaffold2<span class="kw">|</span><span class="ex">size17952</span>     100.00  246     0       0       110598  110843  1       246     1e-127    455</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="ex">scaffold1</span><span class="kw">|</span><span class="ex">size110843</span>    scaffold2<span class="kw">|</span><span class="ex">size17952</span>     100.00  246     0       0       110598  110843  17952   17707   1e-127    455</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">&#39;scaffold1.*scaffold2&#39;</span> scafBLAST.out</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">scaffold1</span><span class="kw">|</span><span class="ex">size110843</span>    scaffold2<span class="kw">|</span><span class="ex">size17952</span>     100.00  246     0       0       110598  110843  1       246     1e-127    455</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="ex">scaffold1</span><span class="kw">|</span><span class="ex">size110843</span>    scaffold2<span class="kw">|</span><span class="ex">size17952</span>     100.00  246     0       0       110598  110843  17952   17707   1e-127    455</span></code></pre></div>
 <blockquote>
 <p>What does this show?</p>
 </blockquote>

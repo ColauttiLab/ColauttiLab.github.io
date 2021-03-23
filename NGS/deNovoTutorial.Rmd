@@ -15,13 +15,13 @@ To follow along with this tutorial, you will need a CAC account. Then do the fol
 
 1. Login to your CAC account
 2. Next, you will need to copy a large file to your working directory. This will take a few minutes so you shouldn't clog up the login node. Instead, request a short-term node using the command: `salloc -c 1`. It may take up to a few minutes before you are logged into a working node.
-3. Wait until you are logged in to a work node, then copy the file `biol432.tar.gz` from `/global/project/biol432` to your local working directory.  For example, if you want to save it to your home directory:
+3. Wait until you are logged in to a work node, then copy the file `biol432.tar` from `/global/project/biol432` to your local working directory.  For example, if you want to save it to your home directory:
 
 ```
 cp /global/project/biol432 ~
 ```
 
-4. Unpack the file (gz = gzip; tar = tarball) using `tar -zxf biol432.tar.gz`
+4. Unpack the file (gz = gzip; tar = tarball) using `tar -xvf biol432.tar`
 5. Move into the biol432 directory: e.g.: `cd ~/biol432`
 
 # Overview
@@ -162,14 +162,14 @@ While it's running, let's take a look at the rest of the sript. Open the _qcheck
 #!/bin/bash
 #SBATCH --partition=standard
 #SBATCH -c 1
-#SBATCH --mem=5000
+#SBATCH --mem=8G
 #SBATCH -t 00:20:00
 
 ## Quality check using PicardTools
+module load picard
 
 ## Use command loads java commands
 module load java
-module load picard
 
 ## First we need to convert our FASTQ files to BAM format
 java -jar $EBROOTPICARD/picard.jar FastqToSam \
@@ -194,9 +194,13 @@ java -jar $EBROOTPICARD/picard.jar QualityScoreDistribution \
 
 The first line is the standard 'shebang' (!#). The next lines after that tell the scheduler that we want this to run on a single core with at least 8G of RAM. We ask for only 1 single core because the picard.jar program is not multi-threaded. Some programs have an option for number of 'cores' or 'threads' to use, and we'll see an example of this later. If a program does not have these options, then it probably only uses 1 core. Specifying that we only need 1 core will help get our script to run sooner on the scheduler.
 
-After the __#SBATCH__ lines for the SLURM scheduler there are a few comments, and then all of the action is contained in just two commands (note the use of backslash `\` to break up a single command into multiple lines for clarity.
+After the __#SBATCH__ lines for the SLURM scheduler there are a few comments, and then all of the action is contained in just three commands (note the use of backslash `\` to break up a single command into multiple lines for clarity.
   
-The first one is called __FastQToSam__ and, as the name suggests, translates both of our FASTQ (.fq) files into a single .sam format. 
+The first one is called __FastQToSam__ and, as the name suggests, translates both of our FASTQ (.fq) files into a single .bam format. 
+
+The second one, __SamFormatConverter__ just changes from a .bam to a .sam
+
+And the third, __QualityScoreDistribution__ generates a frequency distribution of the quality scores.
 
 # SAM vs BAM vs CRAM
   
@@ -233,44 +237,50 @@ The section following the header is the alignment section, which is tab-delimite
 
 The script should take about 1 minute to run once it has been submitted. The file called _q_score_dist.txt_ is a simple text file containing the data for a histogram, with phred scores (x-axis) in the first column, and number of bases with that phred score (y-axis) in the second column. Use a text editor to inspect the file.  
 
-Here are the first few lines of the table:
+Take a look at the first few lines of the table using the `less` command. Here are the first few lines (you can scroll up and down with arrow keys and page up / page down):
 
 ```{r, engine = 'bash', eval = FALSE}
 ## HISTOGRAM    java.lang.Byte
 QUALITY COUNT_OF_Q
-2       4430329
-12      929065
-13      1468172
-14      3123617
-15      4187723
-16      3946166
-17      1611298
-18      985524
-19      399284
-20      483566
+2       9178332
+12      1147091
+13      2049725
+14      4335175
+15      6409296
+16      6754756
+17      2646063
+18      1689551
+19      712264
+20      852522
 ```
 
-And the last few lines:
+> ProTip: The `less` command is good for reading through large files (>>1MB). It loads fast because it only reads a few lines at a time. In contrast, commands like `cat` and editors like `nano` will freeze with large files.
+
+You can also skip to the end if you press `shift+g`
+
+Take a look at the last few lines (then press `q` to exit):
 
 ```{r, engine = 'bash', eval = FALSE}
-30      2064434
-31      1376595
-32      5313173
-33      12511389
-34      9322598
-35      6342409
-36      9042219
-37      57998003
-38      95239161
-39      172667188
-40      410589
+30      2842858
+31      1895487
+32      7128154
+33      16044318
+34      12013312
+35      8674978
+36      11843773
+37      66436507
+38      111021970
+39      217289324
+40      670671
 ```
+
+> Try downloading this file to your computer, and then generate a graph in R to visualize the quality score distribution.
 
 It appears that there are much more high-quality than low quality bases, but there are still millions of bases with Q < 20. Recall that this is an error rate of 1 in 100. 
 
 > According to the table, there are about 483Kb with Q = 20. <br>Roughly how many of these are incorrectly called bases (i.e. errors)?
   
-Another output file is a _.pdf_ that you can download and examine on your own computer. Note that you will need to copy the file from the server back to your own computer to look at it. Programs like __FileZilla__ and __MobaXTerm__ are handy for this sort of thing. Take a look at the file: [q_score_dist.pdf](q_score_dist.pdf)  
+Another output file is a _.pdf_ that you can download and examine on your own computer. Note that you will need to copy the file from the server back to your own computer to look at it. Programs like __FileZilla__ and __MobaXTerm__ are handy for this sort of thing. Take a look at the file: [q_score_dist.pdf](./Data/q_score_dist.pdf)  
   
 Take a moment to make sure you understand what is on the x- and y-axes. Think about what this would look like for high-quality vs. low-quality sequencing data.
 
@@ -439,6 +449,8 @@ blastn -query Ap_scaffold.fa \
 -out scafBLAST.out -outfmt 6
 ```
 
+> Be sure to include the same headers as the previous bash scripts!
+
 __blastn__ is the blast tool for finding similarities between pairs of nucleotide sequences. In this case we are taking all of our scaffolds as the 'query' sequences and using the same sequences as our 'subject' sequence. This will just make a pairwise comparison of all of the scaffolds in the file. The _-outfmt 6_ specifies how we want the output to be displayed.
 
 After it has finished running, inspect the output file _scafBLAST.out_. You'll see that it's a tab-delimited data file. The column headers are not shown but are as follows:
@@ -480,6 +492,8 @@ module load redundans
 redundans.py -v -i *.fq -f Ap_contig.fa -o redun --identity 1
 ```
 
+> Be sure to include the same headers as the previous bash scripts!
+
 Note that this program is a pipeline written in the python programming language (.py extension). The key inputs are the fastq files, and here we can use the wildcard symbol (*) to include all files with the .fq extension -- this includes both our paired end and mate pair reads. We also input the contig file (which was created from platanus, above). I've also set identity close to 1 so that we only collapse overlapping contigs that are identical.  
   
 This runs pretty quickly and creates a file (actually an alias) called _scaffolds.fa_ inside a folder called _redun_. Let's navigate to that folder using the change directory command _cd_ and then inspect the files using the list command _ls_
@@ -489,7 +503,15 @@ $ cd redun
 $ ls
 ```
 
-Looking inside the FASTA file _scaffolds.fa_ you will see we have just a few contigs now, and only 2 are >1,000b. Great work! We can quickly run a BLAST command to look for overlap. We won't bother with a bash script since there are only 6 sequences to compare:
+Looking inside the FASTA file _scaffolds.fa_ you will see we have just a few contigs now, and only 2 are >1,000b. Great work! We can quickly run a BLAST command to look for overlap. We won't bother with a bash script since there are only 6 sequences to compare. 
+
+First load blast:
+
+```{r, engine = 'bash', eval = FALSE}
+$  module load blast+
+```
+
+Then run the blast command:
 
 ```{r, engine = 'bash', eval = FALSE}
 $  blastn -query scaffolds.fa -subject scaffolds.fa -out scafBLAST.out -outfmt 6
