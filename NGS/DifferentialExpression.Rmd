@@ -196,7 +196,8 @@ $ mv athal_chr.fa indexes
 We can then move into the indexes directory and index the FASTA file with bowtie2.
 
 ```
-$ bowtie2-build athal_chr.fa indexes/athal_chr
+$ cd indexes
+$ bowtie2-build athal_chr.fa ./athal_chr
 ```
 
 We can then move back out of the directory. The following commands will map the short reads in Day8.fastq to the genome using the transcriptome information from athal_genes.gtf and put the output into the Test8 directory inside the results directory.
@@ -369,7 +370,9 @@ We can look at the changes between samples by graphing the `log2.fold_change.`
 hist(gene_diff$log2.fold_change.)
 ```
 
-This is $log_2(\frac{Sample2}{Sample1})$. In other words, we divide the number of reads of one sample divided by the other, and then take the log (base-2) so that negative numbers represent higher expression in the denominator, and positive values represent higher expression in the numerator.
+This is $log_2(\frac{Sample2}{Sample1})$. In other words, we divide the number of reads of one sample divided by the other, and then take the log (base-2) so that negative numbers represent higher expression in the denominator, and positive values represent higher expression in the numerator. 
+
+Sample 1 is the first sample we entered into cufflinks (Test8), and Sample 2 is the second sample (Test16) in the cufflinks code above.
 
 The histogram shows a peak near 0. We can see some genes increased in expression and some decreased. However, if we look at the column indicating significance, there are only two genes which are significant, which we already know from our `grep` command.
 
@@ -385,11 +388,11 @@ We can unpack the command above by running what is inside each bracket. First, t
 order(gene_diff$p_value)
 ```
 
-Then `gene_diff` is rearranged based on the order of `p_value` and then we take only the first 10 rows of the resulting data frame using the head command. 
+Then `gene_diff` is rearranged based on the order of `p_value` and then we take only the first 5 rows of the resulting data frame using the head command. 
 
 A heat map requires a matrix with column and row names. We have to modify our `top_genes` data frame for the heat map.
 
-First, we only take the rows we need, `gene`, `value_1` and `value_2`. 
+First, we only take the columns we need: `gene`, `value_1` and `value_2`. 
 
 ```{r}
 mat_gene<-top_genes[,c("gene", "value_1", "value_2")]
@@ -457,6 +460,8 @@ with(subset(Ap_gene_diff, significant=="yes"), points(log2.fold_change., -log10(
 legend("topleft", pch = 1, col = c("black", "green", "red"), legend = c("No Test", "Tested", "Significant"))
 
 ```
+
+Make sure you understand these figures. The x-axis shows the $log_2(\frac{Sample2}{Sample1})$ as described above. The y-axis is $-log_10(p)$, which is the log of the p-value multiplied by negative 1. A larger value indicates a smaller p-value. For example p = 0.001 would be 3, p=0.0001 would be 4, etc.
 
 
 # Kallisto and other faster methods
@@ -589,7 +594,11 @@ $ awk '(NR==1) || ($4 > 0 ) ' abundance.tsv > check
 ```
 The first part command puts line one (`NR==1`) OR (`||`) any line where the fourth field is greater than zero (`$4 > 0`) from `abundance.tsv` into a file called `check`. 
 
-Actual statistical analysis using kallisto output is conducted using the "sleuth" package in R. 
+Actual statistical analysis using kallisto output is conducted using the `sleuth` package in R. 
 
 https://pachterlab.github.io/sleuth_walkthroughs/trapnell/analysis.html
+
+The next steps would be to use the `sleuth` package to explore the output created through kallisto. The reason we do it this way is that kallisto runs very fast but the command line is not so great for visualizing data. R is great for data visualization but it is very slow.
+
+Using `sleuth` you can investigate treatment differences (aka 'conditions') with multiple samples replicated per treatment. You can look at overall gene expression differences across samples for all of the sequenced genes rather than focusing on specific genes. 
 
