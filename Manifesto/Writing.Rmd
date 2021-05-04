@@ -129,6 +129,60 @@ Some great tips from an editor at Nature: https://twitter.com/MWClimateSci/statu
 
 
 
+# E-MAIL
+
+Professional correspondence is done almost exclusively by email and can be very tricky. When writing to friends or close colleagues it is okay to be short and informal. However, there are many cases when it is important to take a formal and professional tone. Examples include:
+
+  * Contacting someone for the first time
+  * Communicating with a reviewer, editor, committee member, dean, or other individuals with whom you should maintain a professional tone
+  * When discussing formal topics (e.g. peer review), even when that involves a close colleague with whom you might normally take an informal tone.
+
+Your formal correspondence should begin with:
+
+> Dear Dr. X,
+
+and end with a sign-off, like:
+
+> Sincerely Yours,
+
+Include your formal name and contact information. In most e-mail programs, you can make a 'signature' that will automatically add this to all emails that you write. Here is mine as an example:
+
+```
+
+--------------------------------------
+Dr. Robert I. Colautti
+Biology Department
+Queen's University
+Rm 4325a, Biosciences Complex 
+116 Barrie St.
+Kingston, ON
+Canada K7L 3N6
+robert.colautti@queensu.ca
+Phone: 613-533-2353
+Fax: 613-533-6617
+ORCID: 0000-0003-4213-0711
+Web: http://EcoEvoGeno.org
+Twitter: @colauttilab
+
+```
+
+This adds a professional tone to your email and also provides information about how to contact you and where to learn more about your research.
+
+## Tone
+
+Be careful with your wording. It is not unusual to spend an hour or more on the wording of an important email. 
+
+NEVER send an off-the-cuff or emotional email. Wait 24 hours until you can calm down and think rationally. Remember also that tone (e.g. sarcasm, jokes) do not translate well in the written form. What may seem like a friendly jab or joke can come off as an insult.
+
+## Assert yourself
+
+Another tricky problem with email is how to assert yourself without coming off as rude. Here is a good matrix to help with the wording of some common sensitive issues:
+
+![Email Like a Boss](EmailBoss.jpeg)
+
+
+
+
 
 
 
