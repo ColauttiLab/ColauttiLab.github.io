@@ -1,0 +1,167 @@
+---
+title: "Field Safety"
+output: html_document
+---
+
+# Lab Safety
+
+For Lab Safety, see on boarding for new students in the OnQ training modules. (LINK)
+
+# Field Safety
+
+Whether you are working in the field for a day or driving around North America for a month, it is important to be prepared and stay safe and comfortable. Personal comfort is crucial to maximize your ability to spend long days in the field collecting data. It is important that you read and understand all of the potential hazards you will face. These are outlined in your OCASP form and reproduced below. See also the field safety information on the [QUBS website](https://qubs.ca/booking/field-lab-safety)
+QUBS is a relatively safe environment but it is a very large property and many areas still do not have cell phone coverage. Of all the dangers listed below the one that is most often overlooked is the possibility of getting lost. It is easy to get distracted while working in the field, and lose track of where you are. For this reason, you should bring a GPS unit as a backup. You should always be prepared for the absolute worst-case scenario. Always have a fully loaded backpack in which you have prepared everything you need to spend one or two nights in the forest until you can find help.
+Field Gear
+
+
+## Essential Items:
+
+
+  * Large, refillable water bottles. About 0.5L to 1L of water for each hour in the field. I use large Nalgene bottles. For longer field work with a larger field crew you can bring a large ‘portable water container’ that can hold 10 to 20L of water. I suggest filling with half ice, half water (both available from QUBS main lodge).
+  * Light, breathable clothing that covers arms and legs. MEC and Columbia have good clothes that are light, quick-dry and UV resistant. They are a bit pricey but will last for years.
+  * Large, comfortable hiking backpack for gear
+  * Rain cover for backpack (keep contents dry in extreme rain)
+  * Basic first aid kit (at QUBS)
+  * Cell phone
+  * Large sun hat (bigger is better)
+  * Sunscreen (high SPF)
+  * Strong insect repellent with DEET or Premethrin (apply to clothing, not skin)
+  * Field maps and data sheets (from lab)
+  * Comfortable, waterproof hiking boots
+
+### A note about field clothes:
+
+  * In the spring, wear layers to stay warm in the morning/evening and remove layers as temperature warms
+  * Buy clothes with long sleeves, long pants (NOT shorts/t-shirts)
+  * Go for loose, breathable, quick-dry, uv-protected. You only need a few shirts/pants that you can wash regularly.
+  * QUBS has laundry facilities; if you are on the road watch/search for laundromats – buy/bring your own ziplock of laundry detergent.
+  * Get good, breathable light raincoat and rain pants
+  * Breathable thermal underwear (long pants + shirts)
+  * Outdoor stores like MEC, Atmosphere, Columbia are where you want to go to buy these.
+
+## Recommended
+
+Some additional gear is recommended, depending on type of fieldwork and the location you are working.
+
+  * Light raincoat and rain pants
+  * Utility belt – for holding basic tools
+  * Tick gaiters
+  * Headlamp with new batteries (in backpack)
+  * Soap and shampoo (if staying at station)
+  * Quick-dry camping towel (in backpack)
+  * Waterproof matches and firestarting material (in backpack)
+  * Candle (in backpack)
+  * Sleeping bag liners (x2) – portable and easy to wash
+  * Sleeping mat (for camping – not needed at QUBS)
+  * Tent + extra pegs (provided by lab – not needed at QUBS)
+  * Campstove (provided by lab – not needed at QUBS)
+  * Knife
+  * Multi-tool
+  * Allergy medication
+  * Mirror (keep in backpack for signaling)
+  * Binoculars
+  * Bear bell/noisemaker
+  * Very loud whistle (in backpack)
+  * Insect hat/nets – especially for face
+  * Compass (in backpack)
+  * GPS Unit
+  * Waterproofing spray – for tent, clothes, boots, etc.
+  * Nuts or other snacks in an airtight container – don’t attract bears with stinky foods
+  
+# Safety Hazards
+
+## Hazard: global pandemics
+
+**Risk**: During global pandemics (like COVID-19) potentially lethal diseases can be spread through casual or close contact with infected individuals.
+
+**Plan**: To minimize transmission, field crews should work as a self-isolated unit, limiting contact with other researchers and the public. All members should self-isolate for 2 weeks and carefully monitor symptoms before joining the field. If you experience any symptoms, self-isolate until they are gone.
+
+## Hazard: Arduous hikes & long working days
+
+**Risk**: Some field work or field courses will require long hikes to visit different habitats. Work days can span dawn to dusk and beyond. Certainly fatigue is a possibility, compromising judgment. Blisters may result from poor-fitting footwear.
+
+**Plan**: Appropriate footwear (e.g. hiking boots) should be worn at all times. Rest when needed, and ensure that all workers or course participants have clothing appropriate for the weather and sufficient water (see other hazards for details)
+
+## Hazard: Cold & wet conditions
+
+**Risk**: In winter day-time temperatures can sink to as cold as minus 20-25 centigrade and night-time colder still. Even in early May or late in the summer, night-time temperatures can sometimes approach 5 degrees or cooler, and with cold rains such weather can cause chills and even hypothermia is a possibility.
+
+**Plan**: In very extreme weather it is best to avoid going out at all. Field workers and class participants should work in pairs or groups so that should an issue arise help with evacuation is possible. All personnel should have weather-appropriate clothing available (e.g. in layers and with rain jacket) rated appropriately for seasonal conditions. Check the weather at Environment Canada (Search for Kemptville, Ontario to get some idea of local weather).
+
+## Hazard: Getting lost
+
+**Risk**: The Biology Station is large (>3400 hectares) and embedded within an even larger matrix that is underpopulated. Without adequate preparation there is a possibility of getting lost.
+
+**Plan**: Where possible, personnel should travel in groups of 2 or more and stick to recognized pathways where possible. Personnel should always carry a GPS unit with extra batteries (and make sure to mark their starting point) and refer to the topographical maps that we have available.
+
+## Hazard: Insect stings & bites
+
+**Risk**: During spring and summer field personnel there is a possibility of insect bites (mosquitoes and tabanid flies are common), or bee or wasp stings. Even personnel without history of allergic reaction may react because they have never before been exposed.
+
+**Plan**: At any sign of anaphylaxis one should contact medical facility for immediate evacuation via cell phone if there is signal or land-line from the lodge. Always carry benadryl as this may lessen the reaction. For researchers working far from roads or our facility it may be well to carry an epipen or two, although these require prescriptions.
+
+## Hazard: intense sun & heat
+
+**Risk**: Summer temperatures can exceed 30 degrees centigrade. Thus there is the possibility of dehydration and severe sunburn during some daily activities.
+
+**Plan**: All personnel should carry a minimum of 1 litre of water (and more of they are to be out the entire day), wear brimmed hats, and use sun block with appropriately high SPF (> 15). Sun glasses with polarizing lenses are useful.
+
+## Hazard: Roadside activities Possible vehicular accidents
+
+**Risk**: Some research or course/outreach activities may occur along roadsides (e.g. nocturnal amphibian call surveys) and inattentiveness can lead to accidents with oncoming traffic, and in the worst case death.
+
+**Plan**: Personnel should wear brightly coloured clothing and if operating at night especially carry head lamps or flash lights. Exiting from vehicles should be undertaken with care as sometimes people drive very quickly along Opinicon Road and other roads near QUBS. After leaving vehicles personnel should immediately proceed to the sides of the road, well in from the road’s edge. In all instances use common sense and do not try to carry heavy loads (i.e. distribute heavy loads among people).
+
+## Hazard: Ticks & Lyme Disease
+
+**Risk**: Ticks are becoming increasingly common at QUBS, including blacklegged ticks which carry the bacterium, Borrelia burgdorferi, which causes Lyme Disease. The first sign of infection is usually a circular rash. Other common symptoms include fatigue, chills and fever, headache, muscle and joint pain, and swollen lymph nodes. If untreated Lyme disease can cause nervous system disorders, additional skin rashes, arthritis, heart palpitations, and fatigue and general weakness. It is seldom fatal. Note that, as of 2012, about 2/3rd of the ticks in the QUBS area were Eastern Dog Ticks which do not carry Lyme Disease (Bruce Smith, pers. comm.).
+
+**Plan**: Personnel should wear long pants with the legs tucked, long-sleeved shirts that fit tightly at the wrist, and closed shoes and avoid sandals. Light-coloured clothing makes ticks more visible. Insect repellents containing DEET may help repel ticks. After being in the field it is wise to do a careful self-inspection for attached ticks. Prompt removal of attached ticks reduces the transmission of the Lyme disease causing bacterium. Carefully remove attached ticks using tweezers. Be sure to remove the entire tick including the mouth parts. This is best done using special tick-removal forceps not standard tweezers (several pairs of these are available in the First Aid Kits at QUBS). Be sure to save the tick in 95% or absolute alcohol for identification. It is also now possible to do PCR to determine whether the ticks are infected (and by what) and preservation in ethanol permits this. Note that only about 2/3 of the cases of Lyme Disease develop the diagnostic bulls-eye rash. There are other disease-causing organisms to be aware of {Ehrlichia spp. (causes ehrlichiosis), Anaplasma phagocytophilum(causes human granulocytic anaplasmosis), and Babesia microti (protozoan parasites that cause a hemolytic disease known as babesiosis.) - the last two are also primarily vectored by the black-legged tick, and white-footed deer mice are the reservoir host}. After removing ticks, wash the bite site with soap and water or disinfect the area with alcohol or antiseptic. Should symptoms arise personnel should contact a doctor as soon as possible. For more information see the Public Agency of Canada Fact Sheet.
+
+## Hazard: Poison ivy
+
+**Risk**: Poison ivy is a common plant at QUBS and can be found in forest understory, forest edges, fields, fence rows, and roadsides. All parts of poison ivy (leaves, stems, roots) contain a poisonous substance (urushiol) which typically causes inflammation, frequently with blisters and extreme itchiness.
+
+**Plan**: People working in the field should learn to identify the plant (see the Ontario Ministry of Agriculture, Food and Rural Affairs web site). Long pants and long-sleeved shirts can help minimize exposure, although cloths should be washed with detergent to remove When possible one should walk through along cleared pathways. If in contact with poison ivy one should gently wash the area with cool water and soap as soon as possible. Calamine lotion may help reduce itchiness.
+
+## Hazard: Bears
+
+**Risk**: Black bears have been sighted at QUBS albeit very rarely (see the Ontario Ministry of Natural Resources Fact Sheet). Black bears can cause injury or death but in the main are timid.
+
+**Plan**: To reduce the probability of contact with bears one can make noise when walking through wooded areas.This will alert bears to your presence. Be aware of your surroundings and do not wear music headphones in the field. Watch for signs of bear activity, like tracks, claw marks on trees, flipped-over rocks, or fresh bear scat. Field workers should not leave gear unattended (especially if there is food in it). If food is to be left behind behind, it should be hung it in a tree. If a bear is seen, back away slowly back away and change direction to avoid contact with the bear. Do not run. Do not linger around the bear or try to approach it.
+
+## Hazard: Lightning
+
+**Risk**: If you see a thunder storm approaching and have time to react/move, avoid elevated locales, tall, isolated trees, metal fences, and water. If you can see lightning or hear thunder, and if delay between seeing the lightning and hearing the thunder is less than 30 seconds then you are in danger according to the US National Oceanic and Atmospheric Administration (NOAA). Enclosed vehicle generally provide good shelter from lightning. The majority if individuals struck by lightening survive, although some 10% may not so the risk is real.
+
+**Plan**: If you are with an individual who has been struck by lightning, immediate first aid is imperative. Individuals who have been struck by lightning do not carry a charge. If you are within cell phone range then call 911 immediately. Start mouth-to-mouth resuscitation, and if the victim has no pulse, begin cardiac compressions. If the weather is cold and wet situations it is wise to put a boundary layer between the victim and the ground to reduce the probability of hypothermia. If you are in a watercraft and can see a storm approaching, go immediately go to shore. Do not go out onto the water if there is a storm approaching.
+
+## Hazard: Rough, sometimes steep terrain
+
+**Risk**: While certainly not the Rockies, QUBS does have some rugged terrain including some ridges and rock faces. Thus there is the possibility of twisted or broken ankles or falls causing other injuries.
+
+**Plan**: Visitors to QUBS, researchers and course participants should stick to well-marked trails, wear appropriate footwear (hiking boots with good ankle support) and where possible travel in groups of 2 or more so that should accident occur notification and evacuation is possible.
+
+## Hazard: Swimming & diving accidents
+
+**Risk**: Swimming during inclement weather or when water is extremely cold may result in drowning. Rocky shores and variable depths can lead to diving accidents that may cause spinal or brain injuries and even death.
+
+**Plan**: Swimming should occur only in designated area of station proper and not during storms. Swimming should be undertaken in pairs. Diving is discouraged save for from the single diving board appropriately placed over deep water.
+
+## Hazard: Giant hogweed
+
+**Risk**: This invasive plant from Asia is spreading rapidly throughout southern and central Ontario. Contact with its sap with subsequent exposure to light can result in painful blistering and rashes/dermatitis (wishing 48 hours). Contact with eyes has been reported to cause temporary and even permanent blindness although this as to be substantiated. For more information visit the OMAFRA page on this species.
+
+**Plan**: Wear protective clothing (long-sleeved shirts and long pants) and stay on pathways. If your skin comes in contact with the sap, wash thoroughly wish soap and water. If your eyes come into contact with sap then immediately flush with water. If you end up with photodermatitis or your eye comes into contact seek medical attention.
+
+## Hazard: Wild parsnip, cow parsnip
+
+**Risk**: This invasive plant native to Eurasia is spreading rapidly throughout southern and central Ontario. As with hogweed, contact with parsnip sap with subsequent exposure to light can result in painful blistering and rashes/dermatitis (wishing 48 hours). Contact with eyes has been reported to cause temporary and even permanent blindness although this as to be substantiated. Here is the City of Kingston page on this species.
+
+**Plan**: Similar to the precautions and other mitigation measures listed for giant hogweed. Wear protective clothing (long-sleeved shirts and long pants) and stay on pathways. If your skin comes in contact with the sap, wash thoroughly wish soap and water. If your eyes come into contact with sap then immediately flush with water. If you end up with photodermatitis or your eye comes into contact seek medical attention.
+
+## Hazard: Basic injuries (cuts, scrapes, twisted ankle, etc.)
+
+**Risk**: Working in the field can involve tools and manual labour that can sometimes result in cuts, scrapes, and other minor injuries that require minor medical attention.
+
+**Plan**: Field crews will wear appropriate safety equipment required for particular work (e.g. goggles, heavy work gloves) and will bring a fully-stocked first-aid kit into the field.
