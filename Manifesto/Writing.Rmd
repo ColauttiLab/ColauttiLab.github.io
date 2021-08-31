@@ -63,7 +63,7 @@ Think about the STRUCTURE of a good scientific paper, right from the beginning. 
   * Organize your thoughts from Stage 1 into a coherent flow. 
   * USING POINT-FORM Start with the main sections:
       + **Introduction** -- Set up your research for the reader. Provide background information and motivate/justify why you spent (or will spend) so much time on this project.
-      + **Methods** (or proposed methods) -- Summarize your experimental design and analysis so that the reader can follow what you did. More detailed methods, including R code, pictures, and experimental designs should usually be included as supplementary material (using R markdown).
+      + **Methods** (or proposed methods) -- Summarize your experimental design and analysis so that the reader can follow what you did. More detailed methods, including R code, pictures, and experimental designs should usually be included as supplementary material (using R markdown). 
       + **Results** (or expected/potential results) -- Hold the reader's hand and walk them through your findings. Anticipate what questions they might have and point out what results or analyses might address their questions.
       + **Discussion** -- Summarize the key findings again, then relate it to previous work. Avoid wild speculation, but cautiously walk the reader through what you think the results mean for answering the main questions you posed in the introduction.
 
@@ -82,7 +82,8 @@ ONLY AFTER you have completed stages 1-3 should you start writing. Despite layin
 
   * Spend time carefully crafting each sentence to be as clear as possible.
   * Edit sentences to be more concise. See examples online (e.g. [Purdue OWL](https://owl.english.purdue.edu/owl/resource/572/01/))
-  * Don't make your reader work harder than they have to. 
+  * Don't make your reader work harder than they have to
+  * Make sure your methods are complete. A competent scientist reading your methods should be able to [reproduce your experiment](https://www.youtube.com/watch?v=Ct-lOOUqmyY).
      
     * Long, drawn out sentences, many of which contain, among other things, lots of commas, sometimes interrupted by side thoughts (or unnecessary brackets), many of which are not necessary and needlessly break up a simple, single idea (so that you have to re-read the beginning and end of the sentence), are to be avoided.
     * Short sentences can be quite effective! 
