@@ -80,7 +80,7 @@ The ultimate goal of a research thesis in the Colautti Lab is publication in a t
 
 > "All happy families are alike; each unhappy family is unhappy in its own way." <br> -- Leo Tolstoy, _Anna Karenina_
 
-If you spend some time reading the top scientific journals, you will see that all good scientific studies are alike; they are the result of excellence in each of a number of areas, including:
+If you spend some time reading the top scientific journals, you will see that all good scientific studies are alike; they are the result of excellence in each of a number of areas. Each sub-par paper fails in its own unique way. Some  including:
 
 1. __Framing__ --- This means putting the whole study in context.Why is this study important? What questions does it address? What does it do that no other study has done before? Are hypotheses clearly laid out? What are there key predictions and what is the logic behind them?  A lot of this changes at the writing stage, after data has been collected and analyzed, but it is important to start thinking about it right at the beginning. A good understanding of the relevant historical and cutting-edge literature is crucial to finding a good frame for your study.
 
@@ -266,10 +266,31 @@ Instead of memorizing textbook definitions and anticipating test questions, your
 
 2. __Uber Standards__. Every aspect of your work is scrutinized, from the most mundane details of your experimental design and analysis, to your ability to think about the 'big picture' and what your research contributes to the scientific community.
 
-3. __Anna Karenina Marathon__. It is easy and very common to lose motivation or focus over the course of your project. If this happens, you probability of getting a publication will likely go down the toilet.
+3. __Anna Karenina Marathon__. It is easy and very common to lose motivation or focus over the course of your project. If this happens, your probability of getting a publication will dwindle. Find ways to support your mental and physical health to avoid 'boom and bust' cycles and a decline in motivations.
 
 4. __No 'Right' Answer__. Just a lot of questions to try to answer. In fact, sometimes the best thesis raises more questions than it answers. 
 
 5. __Science Comprehension__. You will develop a more intimate and deeper understanding of all aspects of science, including the importance of social interactions, the many paths to a successful study, and why so many published studies are unreliable.
 
 6. __New Friends__. You will meet many other students, faculty and postdocs who are as enthusiastic as you are about science. 
+
+# Getting Started:
+
+Make a timeline to help yourself stay on track. Be sure to include specific items like data collection, planning, lab/field experiments, writing, etc. A lot of these will be unique to your thesis but here are some things common to most:
+
+  [ ] Sign the graduate student contract
+  [ ] Background Reading
+  [ ] Thesis committee formation
+  [ ] Thesis proposal & presentation
+  [ ] Annual committee meeting (usually fall semester)
+  [ ] NSERC & OGS application deadlines (September)
+  [ ] Analysis (one per section/chapter)
+  [ ] Writing (one per section/chapter)
+  [ ] Editing (one per seciton/chapter)
+  [ ] Defence
+  [ ] Manuscript writing
+  
+On top of this, you will have to remember to leave enough time for other committments like TA responsibilities, coursework, online training (ethics, lab safety, WHMIS)
+  
+  
+  
