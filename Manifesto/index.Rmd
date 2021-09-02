@@ -278,17 +278,17 @@ Instead of memorizing textbook definitions and anticipating test questions, your
 
 Make a timeline to help yourself stay on track. Be sure to include specific items like data collection, planning, lab/field experiments, writing, etc. A lot of these will be unique to your thesis but here are some things common to most:
 
-  [ ] Sign the graduate student contract
-  [ ] Background Reading
-  [ ] Thesis committee formation
-  [ ] Thesis proposal & presentation
-  [ ] Annual committee meeting (usually fall semester)
-  [ ] NSERC & OGS application deadlines (September)
-  [ ] Analysis (one per section/chapter)
-  [ ] Writing (one per section/chapter)
-  [ ] Editing (one per seciton/chapter)
-  [ ] Defence
-  [ ] Manuscript writing
+- [ ] Sign the graduate student contract
+- [ ] Background Reading
+- [ ] Thesis committee formation
+- [ ] Thesis proposal & presentation
+- [ ] Annual committee meeting (usually fall semester)
+- [ ] NSERC & OGS application deadlines (September)
+- [ ] Analysis (one per section/chapter)
+- [ ] Writing (one per section/chapter)
+- [ ] Editing (one per seciton/chapter)
+- [ ] Defence
+- [ ] Manuscript writing
   
 On top of this, you will have to remember to leave enough time for other committments like TA responsibilities, coursework, online training (ethics, lab safety, WHMIS)
   
