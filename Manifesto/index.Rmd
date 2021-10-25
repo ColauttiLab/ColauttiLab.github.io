@@ -35,10 +35,12 @@ To be part of the lab, you must agree to four rules:
 We also follow the Biology Department's Code of Conduct:
 
 ```{r label, out.width = "85%", fig.cap = "Biology Code of Conduct", echo=FALSE}
-knitr::include_graphics("./BiologyCodeOfConduct.pdf")
+knitr::include_graphics("../Files/BiologyCodeOfConduct.pdf")
 ```
 
-[Download to Print](./BiologyCodeOfConduct.pdf)
+[Download to Print](../Files/BiologyCodeOfConduct.pdf)
+
+See also the Queen's University [Student Code of Conduct](../Files/StudentCodeOfConduct.pdf)
 
 # Keys to Success
 
