@@ -94,16 +94,21 @@ __Set up__ R Studio ([Free Desktop Version](https://www.rstudio.com/products/rst
 | Master Builder              | Custom [R Packages](./RCrashCourse/Package_tutorial.html) |
 
 
-## 7. Next-level coding
+## 7. More coding
+
+  * [Statistical Analysis in R](./RintroStats/1_Distributions.html)
+  * [Population Genetics in R](./PopGen/1_Introduction.html)
+  * [Maximum Liklihood & MCMC](./EcologyTutorials/maxLik_MCMC.html)
 
 ### Ecology
 
-  * Geographical maps in [R](./EcologyTutorials/mapping.html)
-  * GIS and Climate data in [R](./EcologyTutorials/GGMFS_climate.html)
+  * [Geographical maps in R](./EcologyTutorials/mapping.html)
+  * [GIS and Climate data in R](./EcologyTutorials/GGMFS_climate.html)
 
 ### Genomics
-  * _de novo_ [Genome Assembly](./NGS/deNovoTutorial.html)
-  * RNA alignment and Transcriptome [Analysis](./NGS/TuxedoTutorial.html)
+
+  * [_de novo_ Genome Assembly](./NGS/deNovoTutorial.html)
+  * [RNA alignment and Transcriptome Analysis](./NGS/TuxedoTutorial.html)
 
 ***
 
@@ -121,7 +126,7 @@ __Set up__ R Studio ([Free Desktop Version](https://www.rstudio.com/products/rst
 
 [BIOL 812](biol812.html) -- Applied Computation for Biologists
 
-## Other course material
+## Other sourse material
 
 __Gram Coop's PopGen notes__
 
