@@ -96,7 +96,7 @@ __Set up__ R Studio ([Free Desktop Version](https://www.rstudio.com/products/rst
 
 ## 7. More coding
 
-  * [Statistical Analysis in R](./RintroStats/1_Distributions.html)
+  * [Statistical Analysis in R](./RIntroStats/1_Distributions.html)
   * [Population Genetics in R](./PopGen/1_Introduction.html)
   * [Maximum Liklihood & MCMC](./EcologyTutorials/maxLik_MCMC.html)
 
