@@ -455,23 +455,24 @@ div.tocify {
 <p>There are many ways to do this. The best approaches are guided by a good biological understanding of the system, which might allow you to select a few ‘key’ predictors. You may also combine your knowledge of the system with a couple of common approaches.</p>
 <div id="feature-selection" class="section level2">
 <h2>Feature Selection</h2>
-<p>A <strong>Feature</strong> in ML-lingo is just a predictor, so ‘Feature Selection’ just means ‘choosing predictors’, and there are many approaches for automating this. Again, we should be using our biological knowledge of the system in order to select features/predictors, but sometimes there are so many potential predictors that we need to automate the task.</p>
+<p>A <strong>Feature</strong> in ML-lingo is just a predictor, so ‘Feature Selection’ just means ‘choosing predictors’, and there are many approaches for automating this. Again, we should be using our biological knowledge of the system in order to select features, but sometimes there are so many potential features that we need to automate the task.</p>
 <p>A very simple but powerful approach to feature selection is just to apply our linear models, and use the p-value as a cutoff to decide which features to include.</p>
 <p>You might be thinking ‘what about the False Discovery Rate (FDR) that we covered in the <a href="https://colauttilab.github.io/RIntroStats/4_AdvancedLM.html">Advanced LM Tutorial</a>?’</p>
 <p>We know that the more features we test, the more we expect to find are significant, just by chance.</p>
-<p>However, in the case of ML models, we are not so interest in the significance of any particular predictor. We aren’t formulating hypotheses based on those predictors. Instead, we are just using a cutoff for deciding which predictors we want to include and which we want to exclude.</p>
+<p>However, in the case of ML models, we are not so interest in the significance of any particular features. We aren’t formulating hypotheses based on those features. Instead, we are just using a cutoff for deciding which features we want to include and which we want to exclude.</p>
 </div>
 <div id="dimension-reduction" class="section level2">
 <h2>Dimension Reduction</h2>
-<p><strong>Dimensionality</strong> is just another fancy word for ‘number of predictors’. If we have 2 predictors, we have 2 dimensions of data, which we can plot in a simple x vs. y figure in ggplot. We can expand this idea to any number of predictors, it’s just more complicated to try to visualize those interactions.</p>
-<p>When 2 or more predictors are colinear or we expect some colinearity for biological reasons, then we can use dimension reduction methods. We saw a very rudamentary attempt to do this in the <a href="https://colauttilab.github.io/RIntroStats/9_GAM.html#Phenotypes">GAM Tutorial</a> when we just averaged measurements across years to get an average flowering time and an average size at flowering.</p>
+<p><strong>Dimensionality</strong> is just another fancy word for ‘number of features’. If we have 2 features, we have 2 dimensions of data, which we can plot in a simple x vs. y figure in ggplot. We can expand this idea to any number of features, it’s just more complicated to try to visualize those interactions.</p>
+<p>When 2 or more features are colinear or we expect some colinearity for biological reasons, then we can use dimension reduction methods. We saw a very rudamentary attempt to do this in the <a href="https://colauttilab.github.io/RIntroStats/9_GAM.html#Phenotypes">GAM Tutorial</a> when we just averaged measurements across years to get an average flowering time and an average size at flowering.</p>
 <p>Principal Components Analysis is a more common and more robust approach that is the basis for many ML models. This is covered in the <a href="https://colauttilab.github.io/RIntroML/2_PCA.html">PCA Tutorial</a></p>
 </div>
 </div>
 <div id="scaling" class="section level1">
 <h1>Scaling</h1>
 <p>Another important consideration for ML models is scaling. Scaling is important when our measurements are on different scales, which is true for most biological variables.</p>
-<p>Sometimes we do want to use unscaled variables. The basic rule of thumb is to only use unscaled data when you want to incorporate differences in variance among your predictors.</p>
+<p>Scaling usually involves to components that can vary across different features: <strong>mean</strong> and <strong>variance</strong>. Equations for scaling generally adjust for one or both of these.</p>
+<p>There are a few cases where we might want to use unscaled variables. The basic rule of thumb is to only use unscaled data when you want to incorporate differences in the mean and variance among your features.</p>
 <p>Recall in the <a href="https://colauttilab.github.io/RIntroStats/1_Distributions.html#z-score">Distributions Tutorial</a> that we can calculate a z-score by subtracting the mean and dividing by the standard deviation.</p>
 <p>The z-score is is a common scaling technique, but there are many others. Generally, the approaches standardize to the mean or max/min range:</p>
 <ul>
