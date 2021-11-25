@@ -405,7 +405,7 @@ div.tocify {
         <li><a href="index.html">Introduction</a></li> 
         <li><a href="2_PCA.html">PCA</a></li> 
         <li><a href="3_RDA.html">RDA</a></li> 
-        <li><a href="4_RDA.html">SVM</a></li>         
+        <li><a href="4_SVM.html">SVM</a></li>         
         <li><a href="5_Trees.html">Trees</a></li>
 
         <!-- <li><a href="2_LinearModels.html">Linear Models</a></li>
@@ -1159,7 +1159,7 @@ div.tocify {
 <p><span class="math display">\[COV_\gamma = (1-\gamma)COV + \gamma I \]</span></p>
 <p>Where COV is the covariance matrix and I is the identity matrix. The identity matrix is just a matrix with 1 along the diagonal. So gamma=1 sets the covariance matrix to the identity matrix.</p>
 <p>One BIG advantage of the RDA over LDA is that it can be applied to data where the number of features is much larger than the number of observations. The reason is that LDA (like PCA) works on the covariance matrix, which is undefined when Features &gt; Observations. Instead of the covariance (or correlation) matrix, the RDA uses a regularized covariance matrix.</p>
-<p>The important question is: how do we choose which values for <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\lamda\)</span>? The beauty of machine learning is that we can let the data tell us as part of the model training process.</p>
+<p>The important question is: how do we choose which values for <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\lambda\)</span>? The beauty of machine learning is that we can let the data tell us as part of the model training process.</p>
 <p>First, we’ll load the <code>klaR</code> and <code>caret</code> libraries, which include tools for rda and machine learning, respectively</p>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(klaR)</span>
 <span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code></pre></div>
