@@ -280,6 +280,8 @@ Instead of memorizing textbook definitions and anticipating test questions, your
 
 Make a timeline to help yourself stay on track. Be sure to include specific items like data collection, planning, lab/field experiments, writing, etc. A lot of these will be unique to your thesis but here are some things common to most:
 
+## Checklist
+
 - [ ] Sign the graduate student contract
 - [ ] Background Reading
 - [ ] Thesis committee formation
@@ -293,6 +295,33 @@ Make a timeline to help yourself stay on track. Be sure to include specific item
 - [ ] Manuscript writing
   
 On top of this, you will have to remember to leave enough time for other committments like TA responsibilities, coursework, online training (ethics, lab safety, WHMIS)
+  
+## Design Your Project
+
+There are lots of things to think about when designing your project. Simply writing things down and thinking about them helps to keep you focused and organized, and gets the creative juices flowering. Here are two approaches recommended in a [blog post by Dr. Kamoun](https://kamounlab.medium.com/gohrep-and-plesi-guides-to-navigate-through-your-research-projects-ae354a21f1bc). It's worth reading the whole thing, but here is a brief excerpt/summary:
+
+### GOHREP
+
+GOHREP stands for **GO**al, **H**hypotheis, **R**ationale, and **E**xperimental Plan:
+
+  1. **Goal** — here you write your main objective; what do you want to achieve in the project; achieving this goal is what defines the success of the project. After all, how would you ever reach your goals if you never write them down in the first place. Here, you can be somewhat general but not too vague.
+  2. **Hypothesis** — a hypothesis is a statement of a fact, an educated guess; it is central to scientific thinking so make sure you are familiar with the concept and read about it. The hypothesis needs to be specific, it is typically more specific than the overall goal.
+  3. **Rationale** — this is your logic for coming up with the hypothesis. The hypothesis rarely comes out of thin air but is the product of some background information or finding you have. Here, you describe the finding or observation that led you to make the educated guess of the hypothesis. Typically, the rationale is based on preliminary data.
+  4. **Experimental plan** — This is your to do list for the lab. Here, you write the approach and which specific experiments you will you undertake to challenge the hypothesis with the ultimate goal of achieving your objective. Please, note that a typical approach in science is to design experiments that aim at falsifying your hypothesis. You’ll be on the right track as long as your hypothesis stands these repeated experimental challenges; otherwise, no worries mate, you simply need to get back to the drawing board and come up with a new hypothesis.
+  
+### BBQ 
+
+BBQ is the **B**ig **B**iological **Q**uestion(s). How does your project fit into the 'big picture'? What is interesting about your research area, more broadly? Why do other people work in this area? 
+
+
+### PLESI
+
+PLESI stands for **PL**anning, **E**xecution, **S**coring, and **Interpretation**
+
+  1. **Planning** is figuring out what you are going to do and when, what to prioritize and what timeline you will try to follow.
+  2. **Execution** is getting things done according to the plan. The skills needed to execute are constantly changing so learn what you need to execute your plan.
+  3. **Scoring** is coding your data into a format that can be easily analyzed. If you have some R/programming background this will be obvious. If not, it's a good idea to take some time to learn. Start with the [R Crash Course](https://colauttilab.github.io/RCrashCourse/1_fundamentals.html) and then work through the [Intro to Linear Models](https://colauttilab.github.io/RIntroStats/1_Distributions.html) -- including all of the indivdual lessons across the top. **IMPORTANT**: Scoring also includes making keen observations; your experiment may not produce the results you expect, but could reveal something else of interest. Serendipity! 
+  
   
   
   
