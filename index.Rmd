@@ -127,19 +127,19 @@ Here is a current, comprehensive list of guided self-tutorials, organized by the
 
 ***
 
-# Course material
+<!-- # Course material -->
 
-## Colautti's courses
+<!-- ## Colautti's courses -->
 
-[2018 HPC Summer School @ Queens](HPC2018.html)
+<!-- [2018 HPC Summer School @ Queens](HPC2018.html) -->
 
-[2018 SETAC Short-Course](SETAC.html)
+<!-- [2018 SETAC Short-Course](SETAC.html) -->
 
-[BIOL 307](FieldMethods.html) -- Field Methods in Ecological and Environmental Genomics
+<!-- [BIOL 307](FieldMethods.html) -- Field Methods in Ecological and Environmental Genomics -->
 
-[BIOL 432](biol432.html) -- Introduction to Computation and Big Data in Biology
+<!-- [BIOL 432](biol432.html) -- Introduction to Computation and Big Data in Biology -->
 
-[BIOL 812](biol812.html) -- Applied Computation for Biologists
+<!-- [BIOL 812](biol812.html) -- Applied Computation for Biologists -->
 
 ## Other sourse material
 
@@ -148,8 +148,6 @@ __Gram Coop's PopGen notes__
   * [Release Notes](https://github.com/cooplab/popgen-notes/blob/master/release_popgen_notes.pdf)
   * [Main GitHub Site](https://github.com/cooplab/popgen-notes)
   
-***
-
 # Other resources
 
 __Public Website__
