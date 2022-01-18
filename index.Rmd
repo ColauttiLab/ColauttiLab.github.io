@@ -93,22 +93,37 @@ __Set up__ R Studio ([Free Desktop Version](https://www.rstudio.com/products/rst
 | Mega-mind                   | Resampling & Simulations in R [Pt.1](./EcologyTutorials/bootstrap.html) [Pt.2](./EcologyTutorials/simulations.html) [Pt.3](ColauttiLab.github.io/EcologyTutorials/maxLik_MCMC.html) |
 | Master Builder              | Custom [R Packages](./RCrashCourse/Package_tutorial.html) |
 
+## Complete Your Skillset
 
-## 7. More coding
+Here is a current, comprehensive list of guided self-tutorials, organized by theme.
 
-  * [Statistical Analysis in R](./RIntroStats/1_Distributions.html)
-  * [Population Genetics in R](./PopGen/1_Introduction.html)
-  * [Maximum Liklihood & MCMC](./EcologyTutorials/maxLik_MCMC.html)
+**NOTE**: Many of these links include multiple tutorials, which are linked at the top of the webpage.
 
-### Ecology
+### Basic Coding
 
-  * [Geographical maps in R](./EcologyTutorials/mapping.html)
-  * [GIS and Climate data in R](./EcologyTutorials/GGMFS_climate.html)
+  * [R Crash Course](https://colauttilab.github.io/RCrashCourse/1_fundamentals.html)
+  * [Python Crash Course](https://colauttilab.github.io/PythonCrashCourse/1_fundamentals.html)
+  * [Fundamental Unix](https://colauttilab.github.io/LinuxCrashCourse/Linux-Fundamentals.html)
 
-### Genomics
+### R Stats
 
-  * [_de novo_ Genome Assembly](./NGS/deNovoTutorial.html)
-  * [RNA alignment and Transcriptome Analysis](./NGS/TuxedoTutorial.html)
+  * [Statistical Models](https://colauttilab.github.io/RIntroStats/1_Distributions.html)
+  * [Introduction to Machine Learning](https://colauttilab.github.io/RIntroML/index.html)
+  * [Bootstrap, Simulations, ML & MCMC](https://colauttilab.github.io/EcologyTutorials/simulations.html)
+
+### Eco/Evo
+
+  * [Maps & Climate Data](https://colauttilab.github.io/EcologyTutorials/mapping.html)
+  * [The Dragon Phylogeny](https://colauttilab.github.io/DragonPhylogenyTutorial.html)
+  * [Population Genetics](https://colauttilab.github.io/PopGen/1_Introduction.html)
+
+### Genetics/Genomics/’Omics
+
+  * [Sanger Sequence Data](https://colauttilab.github.io/DNAbarcodes.html)
+  * [DNA Alignments](https://colauttilab.github.io/Alignments.html)
+  * [High-Throughput Sequencing (HTS)](https://colauttilab.github.io/NGS/deNovoTutorial.html)
+  * [Metabarcoding Analysis](https://colauttilab.github.io/Metabarcoding_Tutorial.html)
+
 
 ***
 
