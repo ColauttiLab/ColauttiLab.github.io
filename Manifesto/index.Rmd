@@ -15,7 +15,7 @@ First of all, congratulations on making it this far! Regardless of whether you a
 
 This manifesto is shaped by my own experences, which are summarized here: [About Me](./AboutMe.html)
 
-It was inspired by the works of other, particularly [Steve Stearns](http://stearnslab.yale.edu/some-modest-advice-graduate-students) advice and [Ray Huey's](./References/Huey_Reply.pdf) response, [John Thompson](./Reference/Thompson_Advice.pdf), and others. 
+It was inspired by the works of other, particularly [Steve Stearns](http://stearnslab.yale.edu/some-modest-advice-graduate-students) advice and [Ray Huey's](./References/Huey_Reply.pdf) response, [John Thompson](./References/Thompson_Advice.pdf), and others. 
 
 Other perspectives are well worth reading and reflecting upon, particularly with respect to similarities and differences in philosophy. Your experience and opinion will differ too, and that's okay. 
 
@@ -32,13 +32,7 @@ To be part of the lab, you must agree to four rules:
 
 # Biology Code of Conduct
 
-We also follow the Biology Department's Code of Conduct:
-
-```{r label, out.width = "85%", fig.cap = "Biology Code of Conduct", echo=FALSE}
-knitr::include_graphics("../Files/BiologyCodeOfConduct.pdf")
-```
-
-[Download to Print](../Files/BiologyCodeOfConduct.pdf)
+We also follow the [Biology Department Code of Conduct](../Files/BiologyCodeOfConduct.pdf)
 
 See also the Queen's University [Student Code of Conduct](../Files/StudentCodeOfConduct.pdf)
 
@@ -104,6 +98,16 @@ If you spend some time reading the top scientific journals, you will see that al
 Although this list roughly follows the order that these steps are developed, a good research thesis constantly revists each step. For example, updating or adding more experiments or analyses, or changing the questions to modify the framing. It is like a giant mental puzzle where the pieces are not completely formed and you want to make them fit as tightly as possible.
 
 # Roles and Expectations
+
+The roles of the graduate student and supervisor are laid out in the [Graduate Supervision Policy](../Files/Supervision_Roles_2022.pdf)
+
+Some key points from this document:
+  
+  1. The primary role of a graduate student is to **focus on learning and research**.
+  2. There are many policies that you need to read, which are linked in the document, especially the [Guide to Graduate Studies in Biology](https://biology.queensu.ca/academics/graduate/guide-to-grad-studies/) on the Biology Website
+  3. Discuss any circumstances that could affect performance or progress.
+  4. Keys to success: Mutual respect, open/honest communication, setting and attaining goals, timely feedback, maintaining wellness.
+
 
 ## Mentor/Advisor
 
