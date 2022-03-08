@@ -13,9 +13,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 To follow along with this tutorial, you will need a CAC account. Then do the following:
 
-1. Login to your CAC account
-2. Next, you will need to copy a large file to your working directory. This will take a few minutes so you shouldn't clog up the login node. Instead, request a short-term node using the command: `salloc -c 1`. It may take up to a few minutes before you are logged into a working node.
-3. Wait until you are logged in to a work node, then copy the file `biol432.tar` from `/global/project/biol432` to your local working directory.  For example, if you want to save it to your home directory:
+  1. Login to your CAC account
+  2. Set up the Standard Working Environment with the command below. You only need to do this once.
+
+```
+echo "module-version StdEnv/2020 default" >> $HOME/.modulerc
+```
+
+This uses the `echo` command to add a line (`>>`) to your `.modulerc` file in your home directory. From now on, the standard working environment will load whenever you log in with this account. This environment includes some basic modules needed to run some of the scripts below.
+
+  3. Next, you will need to copy a large file to your working directory. This will take a few minutes so you shouldn't clog up the login node. Instead, request a short-term node using the command: `salloc -c 1`. It may take up to a few minutes before you are logged into a working node.
+  4. Wait until you are logged in to a work node, then copy the file `biol432.tar` from `/global/project/biol432` to your local working directory.  For example, if you want to save it to your home directory:
 
 ```
 cp /global/project/biol432/biol432.tar ~
@@ -352,8 +360,6 @@ Platanus also has some nice features for dealing with heterzygous genomes. We wo
 #SBATCH --mem=18G
 #SBATCH -t 01:00:00
 
-module load nixpkgs
-module load gcc
 module load platanus
 
 platanus assemble -o Ap -t $SLURM_JOB_CPUS_PER_NODE \
@@ -416,8 +422,6 @@ Information about the first 'contig' is encoded in the name. Here you can see a 
 #SBATCH --mem 18G
 #SBATCH -t 01:00:00
 
-module load nixpkgs
-module load gcc
 module load platanus
 
 platanus scaffold -o Ap -c Ap_contig.fa -b Ap_contigBubble.fa \
@@ -447,7 +451,6 @@ Let's investigate by looking for overlap between different scaffolds. To do this
 Make a new bash script called blastscaf.sh to run the commands:
 
 ```{r, engine = 'bash', eval = FALSE}
-module load gcc
 module load blast+
 
 blastn -query Ap_scaffold.fa \
