@@ -451,14 +451,15 @@ Let's investigate by looking for overlap between different scaffolds. To do this
 Make a new bash script called blastscaf.sh to run the commands:
 
 ```{r, engine = 'bash', eval = FALSE}
-module load blast+
+module load gcc/9.3.0
+module load blast+/2.12.0
 
 blastn -query Ap_scaffold.fa \
 -subject Ap_scaffold.fa \
 -out scafBLAST.out -outfmt 6
 ```
 
-> Be sure to include the same headers as the previous bash scripts!
+> Be sure to include the same # headers as the previous bash scripts!
 
 __blastn__ is the blast tool for finding similarities between pairs of nucleotide sequences. In this case we are taking all of our scaffolds as the 'query' sequences and using the same sequences as our 'subject' sequence. This will just make a pairwise comparison of all of the scaffolds in the file. The _-outfmt 6_ specifies how we want the output to be displayed.
 
