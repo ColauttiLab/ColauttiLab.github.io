@@ -20,7 +20,9 @@ To follow along with this tutorial, you will need a CAC account. Then do the fol
 echo "module-version StdEnv/2020 default" >> $HOME/.modulerc
 ```
 
-This uses the `echo` command to add a line (`>>`) to your `.modulerc` file in your home directory. From now on, the standard working environment will load whenever you log in with this account. This environment includes some basic modules needed to run some of the scripts below.
+This uses the `echo` command, which is the Unix equivalent of `print`. Rather than printing to the screen, we use the double chevron (`>>`) to append this line to the end of your `.modulerc` file. This is a file in your home directory, which is the `$HOME/` part. Note that `>` would REPLACE the file with the new line, whereas `>>` APPENDS/ADDS the line to the file without deleting it. Since this file is read every time you log in, you only need to run this line once. 
+
+The command `module-version StdEnv/2020 default` is a module called the *2020 Standard Environment*, which is a set of basic modules needed to run some of the scripts below.
 
   3. Next, you will need to copy a large file to your working directory. This will take a few minutes so you shouldn't clog up the login node. Instead, request a short-term node using the command: `salloc -c 1`. It may take up to a few minutes before you are logged into a working node.
   4. Wait until you are logged in to a work node, then copy the file `biol432.tar` from `/global/project/biol432` to your local working directory.  For example, if you want to save it to your home directory:
@@ -426,8 +428,8 @@ module load platanus
 
 platanus scaffold -o Ap -c Ap_contig.fa -b Ap_contigBubble.fa \
 -t $SLURM_JOB_CPUS_PER_NODE \
--ip1 ./Hi5F.fq \
--ip2 ./Hi5R.fq
+-ip1 ./Hi5KbR.fq \
+-ip2 ./Hi5KbF.fq
 ```
 
 The _platanus scaffold_ command takes our contig file, which was created by _platanus assemble_, above. It also needs at least one set of mate-pair sequences. The other _bubble_ file was also created by _platanus assemble_ and would normally contain information about merged and removed 'bubbles'. Bubbles in the assembly occur in heterozygous genomes and in repeat regions where alternate assemblies are possible. However, our _bubble_ file is empty (no merged bubble sequences). This is a bit odd, and we'll come back to why this occurs for this data.
@@ -497,6 +499,7 @@ Instead of manually trying to align all of the contigs, we can use the program _
 Create a new bash script called redun.sh and include the following:
   
 ```{r, engine = 'bash', eval = FALSE}
+module load perl/5.30.2
 module load redundans
 
 redundans.py -v -i *.fq -f Ap_contig.fa -o redun --identity 1
