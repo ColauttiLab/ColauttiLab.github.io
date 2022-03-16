@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Setup
 
 1. Login to your CAC account
-2. If you haven't already copied and unpacked `biol432.tar`from the [de novo assembly tutorial](https://colauttilab.github.io/NGS/deNovoTutorial.html), do it now. 
+2. If you haven't already done the [de novo assembly tutorial](https://colauttilab.github.io/NGS/deNovoTutorial.html), you will need to copy and unpack the `biol432.tar`. 
 3. After you unpack the biol432 directory, there will be another compressed folder called `RNAseqTutorial.tar.gz`. Make sure you are in the directory containing this file when you go through the tutorial
 
 
@@ -159,11 +159,13 @@ In this tutorial, we will be using several pieces of software:
   promoter regions 
 4. __R__ and the package `ggplot2`.
 
-On the cluster, load the necessary software.
+On the cluster, load the necessary software. Some of the modules that we are loading (`nixpkgs/16.09` and `gcc/5.4.0`) allow us to upload the older version of tophat `tophat/2.1.1`. Sometimes, in order to run certain pipelines or to replicate analyses from published papers we need to revert to older versions of a package. Two common cases for this are when we get an error with a newer, less polished version of the software, or when we want to reproduce a pipeline by using the same software version.
 
 ```
 $ module load bowtie2
-$ module load tophat
+$ module load nixpkgs/16.09
+$ module load gcc/5.4.0
+$ module load tophat/2.1.1
 $ module load cufflinks
 $ module load samtools
 ```
@@ -470,6 +472,8 @@ kallisto, because it doesn't require time-consuming mapping to the genome, is mu
 
 We can put all the commands into a script to be run on the cluster in a few minutes.
 
+**Important Note:** To run this new script you will have to start a new CAC session, since some packages that we used for `tophat` (`nixpkgs/16.09` and `gcc/5.4.0`) conflict with the 2020 standard environment `StdEnv/2020`. You can certainly try to follow every package that needs to be unloaded and reloaded in order to run the new script. However, sometimes it is faster and easier to just quit the current session, start a new terminal window, restart your CAC session and reload only the necessary modules. 
+
 First, start up a bash script.
 
 ``` 
@@ -505,7 +509,9 @@ wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/735/GCF_000001735.3_TAIR
 kallisto also requires an index. We will load kallisto and make the index using the downloaded file.
 
 ```
-module load kallisto
+module load gcc/9.3.0
+module load StdEnv/2020
+module load kallisto/0.46.1
 kallisto index --index=A_thaliana GCF_000001735.3_TAIR10_rna.fna.gz
 ```
 kallisto requires directories for output to be made beforehand.
@@ -538,7 +544,9 @@ In the end, the script `kallisto.sh` will look like this.
 
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/735/GCF_000001735.3_TAIR10/GCF_000001735.3_TAIR10_rna.fna.gz
 
-module load kallisto
+module load gcc/9.3.0
+module load StdEnv/2020
+module load kallisto/0.46.1
 
 kallisto index --index=A_thaliana GCF_000001735.3_TAIR10_rna.fna.gz
 
