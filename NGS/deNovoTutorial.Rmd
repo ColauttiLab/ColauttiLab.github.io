@@ -78,8 +78,8 @@ $ ls -l *.fq
 __NOTE:__ Don't type the dollar sign , just everything after it. The dollar sign is to help you understand that this is something typed directly in the command line. Your command line before the dollar sign will probably say something like <strong>hpc1234@swlogin1</strong> where __hpc1234__ is your CAC login. The output will look something like this:
 
 ```{r, engine = 'bash', eval = FALSE}
--rw-r--r--  1 hpc3183 hpcg1540 508825089 Mar 26 00:09 Hi5F.fq
--rwxr-x---  1 hpc3183 hpcg1540 508825089 Mar 26 11:18 Hi5R.fq
+-rw-r--r--  1 hpc3183 hpcg1540 508825089 Mar 26 00:09 Hi5KbF.fq
+-rwxr-x---  1 hpc3183 hpcg1540 508825089 Mar 26 11:18 Hi5KbR.fq
 -rw-r--r--  1 hpc3183 hpcg1540 562452706 Mar 25 22:24 MiSeqF.fq
 -rw-r--r--  1 hpc3183 hpcg1540 562452706 Mar 25 22:24 MiSeqR.fq
 ```

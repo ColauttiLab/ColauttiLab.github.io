@@ -44,6 +44,7 @@
     </style>
 
 
+
 <style type="text/css">
   code {
     white-space: pre;
@@ -169,6 +170,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -430,7 +434,8 @@ div.tocify {
 <li>Set up the Standard Working Environment with the command below. You only need to do this once.</li>
 </ol>
 <pre><code>echo &quot;module-version StdEnv/2020 default&quot; &gt;&gt; $HOME/.modulerc</code></pre>
-<p>This uses the <code>echo</code> command to add a line (<code>&gt;&gt;</code>) to your <code>.modulerc</code> file in your home directory. From now on, the standard working environment will load whenever you log in with this account. This environment includes some basic modules needed to run some of the scripts below.</p>
+<p>This uses the <code>echo</code> command, which is the Unix equivalent of <code>print</code>. Rather than printing to the screen, we use the double chevron (<code>&gt;&gt;</code>) to append this line to the end of your <code>.modulerc</code> file. This is a file in your home directory, which is the <code>$HOME/</code> part. Note that <code>&gt;</code> would REPLACE the file with the new line, whereas <code>&gt;&gt;</code> APPENDS/ADDS the line to the file without deleting it. Since this file is read every time you log in, you only need to run this line once.</p>
+<p>The command <code>module-version StdEnv/2020 default</code> is a module called the <em>2020 Standard Environment</em>, which is a set of basic modules needed to run some of the scripts below.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>Next, you will need to copy a large file to your working directory. This will take a few minutes so you shouldn’t clog up the login node. Instead, request a short-term node using the command: <code>salloc -c 1</code>. It may take up to a few minutes before you are logged into a working node.</li>
 <li>Wait until you are logged in to a work node, then copy the file <code>biol432.tar</code> from <code>/global/project/biol432</code> to your local working directory. For example, if you want to save it to your home directory:</li>
@@ -474,8 +479,8 @@ div.tocify {
 <p>Short-read sequencing data are usually encoded in the FASTQ format, which is an ASCII text-based, human-readable file. Let’s take a look at the FASTQ Files in the <em>deNovo</em> directory. Using the <strong>list</strong> command and filtering for files ending in <strong>.fq</strong></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-l</span> <span class="pp">*</span>.fq</span></code></pre></div>
 <p><strong>NOTE:</strong> Don’t type the dollar sign , just everything after it. The dollar sign is to help you understand that this is something typed directly in the command line. Your command line before the dollar sign will probably say something like <strong><a href="mailto:hpc1234@swlogin1" class="email">hpc1234@swlogin1</a></strong> where <strong>hpc1234</strong> is your CAC login. The output will look something like this:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span>  1 hpc3183 hpcg1540 508825089 Mar 26 00:09 Hi5F.fq</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-rwxr-x---</span>  1 hpc3183 hpcg1540 508825089 Mar 26 11:18 Hi5R.fq</span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span>  1 hpc3183 hpcg1540 508825089 Mar 26 00:09 Hi5KbF.fq</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-rwxr-x---</span>  1 hpc3183 hpcg1540 508825089 Mar 26 11:18 Hi5KbR.fq</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span>  1 hpc3183 hpcg1540 562452706 Mar 25 22:24 MiSeqF.fq</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span>  1 hpc3183 hpcg1540 562452706 Mar 25 22:24 MiSeqR.fq</span></code></pre></div>
 <p>Note how there is no $ symbol, because you don’t type this. It is output printed after you type the first line.</p>
@@ -721,8 +726,8 @@ div.tocify {
 <span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="ex">platanus</span> scaffold <span class="at">-o</span> Ap <span class="at">-c</span> Ap_contig.fa <span class="at">-b</span> Ap_contigBubble.fa <span class="dt">\</span></span>
 <span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>-t <span class="va">$SLURM_JOB_CPUS_PER_NODE</span> <span class="dt">\</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>-ip1 ./Hi5F.fq <span class="dt">\</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>-ip2 ./Hi5R.fq</span></code></pre></div>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>-ip1 ./Hi5KbR.fq <span class="dt">\</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>-ip2 ./Hi5KbF.fq</span></code></pre></div>
 <p>The <em>platanus scaffold</em> command takes our contig file, which was created by <em>platanus assemble</em>, above. It also needs at least one set of mate-pair sequences. The other <em>bubble</em> file was also created by <em>platanus assemble</em> and would normally contain information about merged and removed ‘bubbles’. Bubbles in the assembly occur in heterozygous genomes and in repeat regions where alternate assemblies are possible. However, our <em>bubble</em> file is empty (no merged bubble sequences). This is a bit odd, and we’ll come back to why this occurs for this data.</p>
 <p>The scaffolding step should use the mate pair reads to identify the orientation of scaffolds and the distance between them. It will then combine them into a single <em>scaffold</em>, which is like a <em>contig</em> but with <em>N</em> (the character for an ambiguous sequence) filled into for the unknown sequence.</p>
 <p>Running the script may take a little bit of time so let’s skip to the output again:</p>
@@ -734,13 +739,14 @@ div.tocify {
 <h1>BLAST scaffolds to identify overlap</h1>
 <p>Let’s investigate by looking for overlap between different scaffolds. To do this we can use the <em>BLAST</em> tools. BLAST may be the most widely used tool in bioinformatics. A good way to learn about BLAST is to explore it through the web interface <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">Website</a></p>
 <p>Make a new bash script called blastscaf.sh to run the commands:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load blast+</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="ex">blastn</span> <span class="at">-query</span> Ap_scaffold.fa <span class="dt">\</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>-subject Ap_scaffold.fa <span class="dt">\</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>-out scafBLAST.out <span class="at">-outfmt</span> 6</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load gcc/9.3.0</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load blast+/2.12.0</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="ex">blastn</span> <span class="at">-query</span> Ap_scaffold.fa <span class="dt">\</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>-subject Ap_scaffold.fa <span class="dt">\</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>-out scafBLAST.out <span class="at">-outfmt</span> 6</span></code></pre></div>
 <blockquote>
-<p>Be sure to include the same headers as the previous bash scripts!</p>
+<p>Be sure to include the same # headers as the previous bash scripts!</p>
 </blockquote>
 <p><strong>blastn</strong> is the blast tool for finding similarities between pairs of nucleotide sequences. In this case we are taking all of our scaffolds as the ‘query’ sequences and using the same sequences as our ‘subject’ sequence. This will just make a pairwise comparison of all of the scaffolds in the file. The <em>-outfmt 6</em> specifies how we want the output to be displayed.</p>
 <p>After it has finished running, inspect the output file <em>scafBLAST.out</em>. You’ll see that it’s a tab-delimited data file. The column headers are not shown but are as follows:</p>
@@ -774,9 +780,10 @@ div.tocify {
 <h1>Connect overlapping contigs</h1>
 <p>Instead of manually trying to align all of the contigs, we can use the program <em>REDUNDANS</em> to automate the process of removing redundancy. The github site has a good overview of the program <a href="https://github.com/lpryszcz/redundans">Web Link</a>/</p>
 <p>Create a new bash script called redun.sh and include the following:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load redundans</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="ex">redundans.py</span> <span class="at">-v</span> <span class="at">-i</span> <span class="pp">*</span>.fq <span class="at">-f</span> Ap_contig.fa <span class="at">-o</span> redun <span class="at">--identity</span> 1</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load perl/5.30.2</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load redundans</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="ex">redundans.py</span> <span class="at">-v</span> <span class="at">-i</span> <span class="pp">*</span>.fq <span class="at">-f</span> Ap_contig.fa <span class="at">-o</span> redun <span class="at">--identity</span> 1</span></code></pre></div>
 <blockquote>
 <p>Be sure to include the same headers as the previous bash scripts!</p>
 </blockquote>
