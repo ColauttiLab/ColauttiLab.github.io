@@ -1,6 +1,6 @@
 ---
-title: " Tutorial"
-author: "Yihan Wu & Robert I. Colautti"
+title: "Differential Expression Tutorial"
+output: html_document
 editor_options: 
   chunk_output_type: console
 ---
