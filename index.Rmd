@@ -3,9 +3,9 @@ title: "Colautti Lab Resources"
 output: html_document
 ---
 
-# COVID UPDATE
+# COVID INFO
 
-## IMPORTANT INFORMATION FOR ANYONE WORKING IN THE LAB: [Queen's Return to Campus Guidelines](https://www.queensu.ca/vpfa/sites/webpublish.queensu.ca.vpfawww/files/files/Return_to_Campus_Guidelines.pdf) 
+## See [Queen's COVID-19 Information](https://www.queensu.ca/covidinfo/) 
 
 # Essentials
 

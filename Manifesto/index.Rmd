@@ -213,7 +213,7 @@ Everything will seem hard at first, and even the simplest tasks will take a long
 
 # Transferrable Skills
 
-There is currently a lot of discussion about the job market facing modern graduate students and the need for transferrable skills. It is helpful to keep these in mind when working through your thesis and applying for jobs. The skills most valuable both inside and outside of academia include:
+There is currently a lot of discussion about the job market facing modern graduate students and the need for transferable skills. It is helpful to keep these in mind when working through your thesis and applying for jobs. The skills most valuable both inside and outside of academia include:
 
 1. __Scientific communication__ -- Tends to focus on quantitative results and careful consideration of alternative hypotheses (e.g. peer-reviewed publication)
 2. __Public communication__ -- Requires simplifying complicated data, analyses and concepts. Analogies or specific examples are often helpful. Also requires careful consideration of the audience and why they should care about your research (e.g. press release for your paper). 
@@ -238,6 +238,16 @@ Perhaps more importantly, several skills that are highly valued by employers are
 
 As you work through your degree, look for opportunities to work on these, and make note of them in your document. When you ask somebody for a reference letter, you can point to these specific examples as a reminder of what you have learned and accomplished.
 
+## Benefits of a PhD
+
+Doing an advanced degree can be stressful. The workload and stress can sometimes cause us to forget the benefits of a degree. A recent (2022) [paper in eLife](https://elifesciences.org/articles/81075) from Franck Courchamp's group highlights the positive aspects of being a PhD student. 
+
+Figure 2 of the paper gives a nice overvew.
+
+![**The positive aspects of doing a PhD.**](https://iiif.elifesciences.org/lax:81075%2Felife-81075-fig2-v1.tif/full/,1500/0/default.jpg)
+
+
+> The three primary benefits of doing a PhD are acquiring expertise (pink circle), learning to work in a collaborative environment (blue), and developing communication skills for sharing knowledge (yellow). For each benefit, general aspects that apply to almost all doctoral students are shown in bold type in the small circle, and specific aspects that depend on, for example, the student’s supervisor or field of research are shown in plain type in the large circle. The large grey area contains more abstract and subjective ideas that are not discussed in the main text. It should be noted that this figure is conceptual, and that the aspects and ideas in it could be grouped in other, equally valid, ways.
 
 # Thesis vs. Coursework
 
