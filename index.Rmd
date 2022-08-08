@@ -141,9 +141,9 @@ Here is a current, comprehensive list of guided self-tutorials, organized by the
 
 <!-- [BIOL 812](biol812.html) -- Applied Computation for Biologists -->
 
-## Other sourse material
+## Other source material
 
-__Gram Coop's PopGen notes__
+__Graham Coop's PopGen notes__
 
   * [Release Notes](https://github.com/cooplab/popgen-notes/blob/master/release_popgen_notes.pdf)
   * [Main GitHub Site](https://github.com/cooplab/popgen-notes)
