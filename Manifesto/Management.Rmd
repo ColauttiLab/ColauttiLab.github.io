@@ -32,73 +32,102 @@ Fast forward to your time at Oxford and now you are struggle to pass your classe
 
 This is an anology for the modern world. But instead of successful Oxford students, you are constantly compared to images and videos on the internet of people who seem to be more sucessful, more beautiful, more relaxed than you.
 
-**More generally:** The desire to improve your situation has a negative effect on your mental heatlh, while the acceptance of a negative experience has a positive effect.
+**More generally:** The desire to improve your situation has a negative effect on your mental health, while the acceptance of a negative experience has a positive effect.
 
+# Management
 
-# Time Management
+Whether you are working on an Honours thesis for your BSc or the next paper for your postdoc, you are a manager. Nobody in the lab is more responsible for your project then you are. It can be difficult to make the transition from student to leader, so here are some tips.
 
-## What an Undergraduate does
-
-## What a Graduate Student Does
-1. Committee Meeting  
-    1 per year
-
-
-## What a PI Does
-
-### Research (40%)
-
-1. Annual review
-    + pre-tenure: annually 
-    + post-tenure: biannually
-
-2. Write or co-write grants
-    + ~ 3-10 applications per year
-    + ~ 4-24 weeks per grant
-
-3. Grant status/progress/final reports
-    + ~ 1x per grant year
-    + 1-3 weeks
-    
-4. Reviewing papers
-    + ~ 2-4 reviews per month
-    + ~ 3-10 hours per paper
-
-5. Writing papers
-    + ~ 2-10 papers per year
-    + 10s to 100s of hours per paper
-
-
-### Teaching (40%)
-
-1. Lectures
-    + 2-4 courses per year
-    + x3 hourse per week per course LECTURING 
-    
-2. Curriculum development and improvement
-    + 2-4 courses per year
-    + x10-20 weeks per course
-    
-3. Group discussions (e.g. journal club, R club, writing club)
-    + ~3 hours per week
-    
-4. Student meetings
-    + ~ 2-10 hours per week (lab meetings + one-on-one discussions)
-    
-5. Student committees
-    + Graduate students (from other labs) ~3-10 hr per meeting
-
-### Service (20%) 
-
-1. Faculty Committees
-    + ~ 4-10 hours per month
-    + additional tasks (new program development, ranking applications, writing reports, etc.)
-    
-2. Departmental meetings
-    + 2-3 hours per month
-
-# Project Managment
+## Project Managment
 
 Your thesis or independent study project is an opportunity to work on your project management skills. It can make a great line for your CV and you will impress an interviewer if you can explain how you oversaw a research project from initial conception to final submission (or, ideally, publication!)
 
 Planning is key. Research what other people have done, try to imagine yourself going through the motions. What do you need to prepare? What are some things that could go wrong and how can you help avoid or mitigate those problems?
+
+## Scheduling
+
+Make 3 schedules:
+
+  * Daily schedule, updated every day
+  * Weekly schedule of meetings and activities
+  * A semester-long schedule of key deadlines
+  
+First, add in your essential items (e.g. class time, teaching/TA responsibilities) and key deadlines.
+
+Next, identify your long-term goals for the semester, based on your 5-year and 10-year plan. Break these large projects and long-term goals into shorter SMART goals: **Specific**, **Measurable**, **Attainable**, **Realistic** and **Time-Bound**. Then, add time to your schedule to achieve these goals. Anything without a firm deadline tends to get pushed back unless you dedicate time to it.
+
+Finally, re-assess your schedule periodically. A schedule is not set in stone and needs to be updated in light of new developments, responsibilities, goals, etc.
+
+Be sure to include key deadlines like:
+
+  * Vanier Fellowship - early Oct
+  * NSERC PhD - mid Oct
+  * NSERC CGS-M – late Nov
+  * OGS – late April
+  * Tuition Refund (Oct 31 – full; Nov 30 – 50%; Dec 31 – 25%)
+  * BGSC Checklist: Committee Meetings, Research Proposal, Research Project Goals (e.g. data collection, analysis, writing)
+
+
+## BACKUP
+
+Backup is 100% essential. All the time and money that goes into collecting your data will be wasted if the data are lost. Data should always be stored in 3 locations:
+
+  1. Your computer
+  2. The 'cloud'
+  3. An external hard drive that is hidden somewhere far away from your computer
+  
+Not all files are of equal value. Set a folder on your computer that you can sync with an online service like **OneDrive**, **Dropbox**, or **Google Drive**. Set up auto-sync with the folder so that you don't have to worry about manually backing up the files to the cloud -- just the external hard drive.
+
+If you are working with large datasets like high-throughput sequence data, it should be stored on the CAC servers AND at least one external hard-drive (paid from grant money) until it can be archived to NCBI for publication. 
+
+## Meetings
+
+Don't underestimate the value of meetings -- with your committee, with your adviser, with your lab group. Schedule time to **prepare** for your meetings. Some things to consider:
+  
+  * Summarize accomplishments since the last meeting
+  * Outline of work plan for the next meeting
+  * A list of problems you encountered and what you did to address them
+  * Anything you need from the committee or adviser to move forward
+
+## Useful Habits
+
+There are a number of habits you can try. Here are some suggestions from past discussions with students. Not everything will work with your own personality and preferences. Try different options and see what works for you.  
+
+If you have trouble focusing: 
+
+  * Try moving to a new space for specific goals of reading, writing, coding, etc. (e.g. library, office, café, empty classroom)
+  * Try the Pomodoro method -- a set time of focused work (e.g. 25 minutes) followed by a short break (e.g. 5 minutes). Repeat. 
+  * Schedule dedicated reading and writing time, and stick to it!. 
+  * Set a reward system
+  * Avoid distraction! This one seems to be universal. Mute your phone notifications, email, avoid social media, news websites, etc. Set aside specific times of the day to do this.
+  * Take a break, like a real break! Maybe you are just mentally exhausted.
+  * Take ~ 30 minutes in the morning to organize and visualize all of your activities for the day
+  * Rethink your work and life schedule in terms of energy management, not just time management. For example, if certain activities energize you, put them at the beginning of the day, and put energy-draining activities at the end of the day. 
+  * Make a physical to-do list and take satisfaction in crossing things off (including 'make to-do list')
+  * Start with a short, easy task to get things moving
+
+## Some useful tools & tricks
+
+### CODING
+
+  * Use self-contained folders, e.g. R project folders. Include folders for data, output, and other organizing files. Include a README.md or .Rmd to keep careful notes about your data (e.g. variable names) and analyses (e.g. specific pipeline steps, code)
+
+### WRITING
+
+  * Pen & Paper 
+  * Microsoft Word
+  * Stickies (real & virtual)
+  * Text Edit
+  * Overleaf
+  * R Markdown/Bookdown
+  * Rocketbooks: Pen & Paper + app to save writing
+  * Remarkable (markable tablet with e-ink; ~$600?); cheaper versions plug into your computer USB to ‘screen mirror’ and capture notes
+  * Notion (online note taking app with some scrapbooking elements)
+
+
+
+
+
+
+
+
