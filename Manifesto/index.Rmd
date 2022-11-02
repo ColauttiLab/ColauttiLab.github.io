@@ -13,7 +13,7 @@ First of all, congratulations on making it this far! Regardless of whether you a
 
 > "Only a Sith deals in absolutes" -- Obi-wan Kenoboi
 
-This manifesto is shaped by my own experences, which are summarized here: [About Me](./AboutMe.html)
+This manifesto is shaped by my own experiences, which are summarized here: [About Me](./AboutMe.html)
 
 It was inspired by the works of other, particularly [Steve Stearns](http://stearnslab.yale.edu/some-modest-advice-graduate-students) advice and [Ray Huey's](./References/Huey_Reply.pdf) response, [John Thompson](./References/Thompson_Advice.pdf), and others. 
 
@@ -38,7 +38,7 @@ See also the Queen's University [Student Code of Conduct](../Files/StudentCodeOf
 
 # Keys to Success
 
-1. Read this Manifesto carefully. Take the time to absorb and think about the information. 
+1. Read this Manifesto carefully and regularly. Take the time to absorb and think about the information. 
   + By 'Read Carefully' I mean not just reading, but also making notes with a pen or pencil. The physical act of writing by hand will improve your memory. Then wait a week or two and then organize and type up your notes (a good chance to learn R-markdown). This will help to reinforce your learning.
 2. CAREFULLY read the requirements for completing your thesis. 
   + If you are a graduate student, these are in the [Guide to Grad Studies](https://biology.queensu.ca/academics/graduate/guide-to-grad-studies/) on the Biology website.
@@ -46,6 +46,7 @@ See also the Queen's University [Student Code of Conduct](../Files/StudentCodeOf
 3. Make a list of everything you have to do.
 4. Make a timeline with your best guess for completing each item on your list. Work backward from the deadline to set goalposts that help you stay on track. 
 5. Start [your reference letter](./index.html#your_reference_letter). Update it whenever you score a major achievement, develop a new skill, improve on one of the key characteristics, etc. Send this to me whenever you ask me for a reference letter. Never feel bad about asking for a reference letter!
+6. Take advantage of the [Academics 101](Academics101.pdf) online courses. This includes strategies for time management, notetaking, math, writing/editing, and other useful skills
 
 
 # Health & Time Management
@@ -336,6 +337,20 @@ PLESI stands for **PL**anning, **E**xecution, **S**coring, and **Interpretation*
   2. **Execution** is getting things done according to the plan. The skills needed to execute are constantly changing so learn what you need to execute your plan.
   3. **Scoring** is coding your data into a format that can be easily analyzed. If you have some R/programming background this will be obvious. If not, it's a good idea to take some time to learn. Start with the [R Crash Course](https://colauttilab.github.io/RCrashCourse/1_fundamentals.html) and then work through the [Intro to Linear Models](https://colauttilab.github.io/RIntroStats/1_Distributions.html) -- including all of the indivdual lessons across the top. **IMPORTANT**: Scoring also includes making keen observations; your experiment may not produce the results you expect, but could reveal something else of interest. Serendipity! 
   
-  
+# *Acknowledgements*
+
+These documents were written in collaboration with the following fantastic people:
+
+  * Mia Akbar
+  * Damian Bourne
+  * Aaron Dain
+  * Lisa Han
+  * Nicolai Hermann
+  * Andrew Le
+  * Charlotte Ngo
+  * Maria Jose Gomez Quijano
+  * Mabel Fuentes Vergara
+  * Sherise Vialva
+
   
   

@@ -1392,11 +1392,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -1618,7 +1622,7 @@ paths that you may choose to follow.</p>
 <blockquote>
 <p>“Only a Sith deals in absolutes” – Obi-wan Kenoboi</p>
 </blockquote>
-<p>This manifesto is shaped by my own experences, which are summarized
+<p>This manifesto is shaped by my own experiences, which are summarized
 here: <a href="./AboutMe.html">About Me</a></p>
 <p>It was inspired by the works of other, particularly <a href="http://stearnslab.yale.edu/some-modest-advice-graduate-students">Steve
 Stearns</a> advice and <a href="./References/Huey_Reply.pdf">Ray
@@ -1649,8 +1653,8 @@ Conduct</a></p>
 <div id="keys-to-success" class="section level1">
 <h1>Keys to Success</h1>
 <ol style="list-style-type: decimal">
-<li>Read this Manifesto carefully. Take the time to absorb and think
-about the information.</li>
+<li>Read this Manifesto carefully and regularly. Take the time to absorb
+and think about the information.</li>
 </ol>
 <ul>
 <li>By ‘Read Carefully’ I mean not just reading, but also making notes
@@ -1678,6 +1682,9 @@ letter</a>. Update it whenever you score a major achievement, develop a
 new skill, improve on one of the key characteristics, etc. Send this to
 me whenever you ask me for a reference letter. Never feel bad about
 asking for a reference letter!</li>
+<li>Take advantage of the <a href="Academics101.pdf">Academics 101</a>
+online courses. This includes strategies for time management,
+notetaking, math, writing/editing, and other useful skills</li>
 </ol>
 </div>
 <div id="health-time-management" class="section level1">
@@ -2497,6 +2504,23 @@ but could reveal something else of interest. Serendipity!</li>
 </ol>
 </div>
 </div>
+</div>
+<div id="acknowledgements" class="section level1">
+<h1><em>Acknowledgements</em></h1>
+<p>These documents were written in collaboration with the following
+fantastic people:</p>
+<ul>
+<li>Mia Akbar</li>
+<li>Damian Bourne</li>
+<li>Aaron Dain</li>
+<li>Lisa Han</li>
+<li>Nicolai Hermann</li>
+<li>Andrew Le</li>
+<li>Charlotte Ngo</li>
+<li>Maria Jose Gomez Quijano</li>
+<li>Mabel Fuentes Vergara</li>
+<li>Sherise Vialva</li>
+</ul>
 </div>
 
 
