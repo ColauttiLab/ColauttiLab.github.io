@@ -46,7 +46,7 @@ See also the Queen's University [Student Code of Conduct](../Files/StudentCodeOf
 3. Make a list of everything you have to do.
 4. Make a timeline with your best guess for completing each item on your list. Work backward from the deadline to set goalposts that help you stay on track. 
 5. Start [your reference letter](./index.html#your_reference_letter). Update it whenever you score a major achievement, develop a new skill, improve on one of the key characteristics, etc. Send this to me whenever you ask me for a reference letter. Never feel bad about asking for a reference letter!
-6. Take advantage of the [Academics 101](Academics101.pdf) online courses. This includes strategies for time management, notetaking, math, writing/editing, and other useful skills
+6. Take advantage of the [Academics 101](./Files/Academics101.pdf) online courses. This includes strategies for time management, notetaking, math, writing/editing, and other useful skills
 
 
 # Health & Time Management
