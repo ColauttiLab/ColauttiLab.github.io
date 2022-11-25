@@ -200,6 +200,7 @@ Faculty receive many requests for reference letters, often in waves that corresp
     * **Bad**: Thesis applied cutting-edge genomics tools
     * **Good**: I wrote a pipeline in Python to process 12TB of HTS data
     * **Good**: My thesis showed how climate change affects breeding grounds of an endangered mammal
+  3. **Be Professional**. Be sure to give enough lead time when requesting a reference letter -- typically > 4 weeks before the deadline. Include your CV, (unofficial) transcripts, and talking points. Also include some basic reminders -- when did your reference first get to know you and in what capacity? Which of their classes did you take? 
   4. **Reminders**. It's okay to send friendly reminders to your reference writer until they submit their letter. About once per week is good, until the final week, when more frequent reminders may be needed.
   5. **Don't be shy**. Put your best foot forward. If it feels too weird promoting yourself, try writing your talking points in the third person as if you are writing about somebody else. Focus the positive and report accomplishments, rather than superlatives. Don't under-sell your skills or focus on the negative. But don't bullshit either. Learning to highlight your accomplishments in a detached way is an important skill in any professional career! 
 
