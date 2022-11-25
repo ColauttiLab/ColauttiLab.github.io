@@ -143,75 +143,6 @@ As a __mentee__, your primary duties include:
     + __Analysis__ -- the details of a particular analysis (e.g. linear model in R) can be technical and straight-forward, but exploring your data and identifying the best tools to use can be more of an art form. Here again, paying attention to the analyses used by the leaders in your field will provide a good starting point.
     + __Communication__  -- whether __oral__ or __written__, there are a lot of great resources for learning about effective communication. Good science communicators spend most of their time planning and editing, rather than writing or laying out slides.
 
-# Your Reference Letter
-
-As you progress in your professional development, academic grades become less relevant. Instead, you are judged by your contributions and by the assessment of your peers. This can be tricky because you no longer get the kind of feedback that you get from a test score. Therefore, it is important to understand how you will be assessed and stay mindful of this in everything you do. As a general rule of thumb: aim for excellence and try at all times to think and act in a professional manner. 
-
-To really understand what it means to be a professional -- and why it takes so much time and focus -- it is helpful to think about your reference letter. For example, look carefully at the Ontario Graduate Scholarship form recreated below (emphasis added):
-
-## ONTARIO GRADUATE SCHOLARSHIP
-
-### Part 1: Ratings
-
-Carefully mark the category that best describes the candidate's academic performance __in relation to all students at a similar stage that you have previously evaluated__. If you know the candidate in a professional capacity please rank the candidate from that perspective. Please apply the strictest interpretations of the rankings indicated below. For example, the ranking of a candidate in the top category is expected to occur infrequently. Please check only one box per category.
-
-| Characteristic              | Top 2% | Top 5% | Top 10% | Top 20% | Top 50% | Lower 50% | Unable to Evaluate |
-|:----------------------------|:------:|:------:|:-------:|:-------:|:-------:|:---------:|:------------------:|
-| Background __preparation__      |o|o|o|o|o|o|o|
-| __Originality__                 |o|o|o|o|o|o|o|
-| Present __ability__ at research |o|o|o|o|o|o|o|
-| Research __potential__          |o|o|o|o|o|o|o|
-| __Industriousness__             |o|o|o|o|o|o|o|
-| __Judgement__                   |o|o|o|o|o|o|o|
-| Oral and written skills (__communication__)     |o|o|o|o|o|o|o|
-| Overall ability             |o|o|o|o|o|o|o|
-
-### Part 2: Academic Assessment Report
-
-This is a free-form reference letter where the above scores are justified, often with specific examples. This section would include particular achievements like:
-
-1. Any __awards or funding__ received
-2. __Mentoring & leadership__ experience
-3. Outstanding __technical abilities__ in the lab, field and/or analysis
-4. __Mentoring & project management__ experience
-4. Planning and _time management_ (e.g. staying on schedule or even ahead of schedule)
-5. __Challenges__ overcome (e.g. working through a difficult protocol or personal issues)
-6. Outstanding __service__ (e.g. graduate student representative)
-
-This section would also include words and phrases like 'friendly', 'enthusiastic', 'gets along with everyone'.
-
-
-## NSERC/CIHR SCHOLARSHIPS
-
-The level of competition for OGS is low relative to more valuable graduate student grants like the NSERC CGS, NSERC Vanier CGS. Here is an excerpt from NSERC's instructions to reviewers for the Vanier CGS scholarship.
-
-Selection committee members consider referee assessments as part of their overall review and to corroborate their evaluation of the application. The assessments therefore play a critical role in the review process. ResearchNet will ask referees to address each of the selection criteria in each of three categories:
-
-### 1. Academic Excellence
-
-(max 2250 characters) Provide an assessment of the candidate’s academic excellence as demonstrated by past academic results and by transcripts, awards and distinctions. Since the review committee is multidisciplinary, please provide an assessment that references the norms and expectations of the student’s discipline. If applicable, please also comment on results achieved outside of the university environment.
-
-### 2. Research Potential
-
-(max 2250 characters) Provide an assessment of the candidate’s research potential as demonstrated by their research history, interest in discovery, the proposed research and its potential contribution to the advancement of knowledge in the field and any anticipated outcomes. Include examples to support your assessment in comparison to the norms particular to the research area(s) (e.g. publication norms for the discipline etc.)
-
-### 3. Leadership
-
-(max 4500 characters) Provide an assessment of demonstrated and potential leadership ability. Because there is no opportunity to interview the students, please elaborate for the committee how the candidate has gone above and beyond the opportunities presented in order to achieve a goal, contribute to their community, or how they have taken on responsibility for others. Note that high achievement, while admirable, does not necessarily constitute leadership. Be sure therefore to provide context for the committee that illuminates how the candidate’s participation in activities (e.g., volunteer or work, sport or art, and any other participation) goes above and beyond active participation and becomes leadership.
-
-## Higher Standards
-
-The first thing you should note is that grading has changed from an absolute scale (e.g A-->F) to a relative scale. Most graduate students will successfully defend an thesis and achieve an A in all of their courses, but only 1 in 50 will be in the top 2%. To obtain fellowships you will need to be at least in the top 10% in each category, and the top 2% or 5% in most of them. Being average (top 50%) is not likely to be competitive.
-
-These are high standards, and you will only achieve them if you are passionate about your work and embrace the discomfort that comes from acknowledging your weaknesses and always pushing yourself to improve on them. 
-
-
-# Don't Panic!
-
-Everything will seem hard at first, and even the simplest tasks will take a long time. You will wonder how anyone ever gets anything done when it takes so long to do even the most basic things (e.g. write a carefully-worded email to a faculty member). I will tell you a big __secret__ about this: the more you do it, the faster it gets. The first time usually takes the longest, the hundredth or thousandth time is much faster. 
-
-> Summary: Aim for perfection, publish along the way
-
 # Transferrable Skills
 
 There is currently a lot of discussion about the job market facing modern graduate students and the need for transferable skills. It is helpful to keep these in mind when working through your thesis and applying for jobs. The skills most valuable both inside and outside of academia include:
@@ -249,6 +180,82 @@ Figure 2 of the paper gives a nice overvew.
 
 
 > The three primary benefits of doing a PhD are acquiring expertise (pink circle), learning to work in a collaborative environment (blue), and developing communication skills for sharing knowledge (yellow). For each benefit, general aspects that apply to almost all doctoral students are shown in bold type in the small circle, and specific aspects that depend on, for example, the student’s supervisor or field of research are shown in plain type in the large circle. The large grey area contains more abstract and subjective ideas that are not discussed in the main text. It should be noted that this figure is conceptual, and that the aspects and ideas in it could be grouped in other, equally valid, ways.
+
+# Your Reference Letter
+
+As you progress in your professional development, academic grades become less relevant. Instead, you are judged by your contributions and by the assessment of your peers. This can be tricky because you no longer get the kind of feedback that you get from a test score. Therefore, it is important to understand how you will be assessed and stay mindful of this in everything you do. As a general rule of thumb: aim for excellence and try at all times to think and act in a professional manner. 
+
+To really understand what it means to be a professional -- and why it takes so much time and focus -- it is helpful to think about your reference letter. For example, look carefully at the criteria for CIHR and NSERC scholarships:
+
+## Requesting References
+
+Faculty receive many requests for reference letters, often in waves that correspond to major application deadlines. Having a strong reference letter can be just as important as a strong CV, so supporting your letter writer can have a big impact on your chance of success. Here are some tips:
+
+  1. **Plan ahead**. It's never too early to plan for a major award (e.g. NSERC/CIHR/SSHRC) but at a minimum you should plan more than two months ahead, completing a solid draft of everything *before* you request a reference -- typically 4 weeks before the deadline.
+  2. **CV**. Put together a CV. A CV is like a Resume but focuses on accomplishments. Look at the scholarship criteria and organize your CV to put the most important accomplishments near the top.
+  3. **Review**. In addition to the specific and concrete accomplishments that go into your CV, make a list of the transferable skills that you have developed, and how your CV demonstrates these skills. If you have a skill that is not supported by your CV, maybe there is something you can add to support this skill.
+  3. **Talking Points**. Major scholarships have guidelines for your reference writers -- see the next section for examples. Make a list of talking points and send these your reference writer. Talking points are point-form statements drawing attention to particular aspects of your application that speak to particular evaluation criteria. For example, the guidelines below include three major sections of the reference letter, which you can use as headings in your talking points document. Be sure to **focus on evidence** -- use facts and examples, not superlatives. Don't just re-iterate what is already on your CV or transcripts without context: 
+    * **Bad**: Got an A+ in Biol 343
+    * **Good**: A+ in Biol 343 demonstrates mastery of coding and linear models for biological applications
+    * **Bad**: Thesis applied cutting-edge genomics tools
+    * **Good**: I wrote a pipeline in Python to process 12TB of HTS data
+    * **Good**: My thesis showed how climate change affects breeding grounds of an endangered mammal
+  4. **Reminders**. It's okay to send friendly reminders to your reference writer until they submit their letter. About once per week is good, until the final week, when more frequent reminders may be needed.
+  5. **Don't be shy**. Put your best foot forward. If it feels too weird promoting yourself, try writing your talking points in the third person as if you are writing about somebody else. Focus the positive and report accomplishments, rather than superlatives. Don't under-sell your skills or focus on the negative. But don't bullshit either. Learning to highlight your accomplishments in a detached way is an important skill in any professional career! 
+
+> Note: If you are asking Rob Colautti for a reference, the above are essential, particularly for requests close to the deadline.
+
+## CIHR Scholarships
+
+### 1. Academic Excellence
+
+(max 2250 characters) Provide an assessment of the candidate’s academic excellence as demonstrated by past academic results and by transcripts, awards and distinctions. Since the review committee is multidisciplinary, please provide an assessment that references the norms and expectations of the student’s discipline. If applicable, please also comment on results achieved outside of the university environment.
+
+### 2. Research Potential
+
+(max 2250 characters) Provide an assessment of the candidate’s research potential as demonstrated by their research history, interest in discovery, the proposed research and its potential contribution to the advancement of knowledge in the field and any anticipated outcomes. Include examples to support your assessment in comparison to the norms particular to the research area(s) (e.g. publication norms for the discipline etc.)
+
+### 3. Leadership
+
+(max 4500 characters) Provide an assessment of demonstrated and potential leadership ability. Because there is no opportunity to interview the students, please elaborate for the committee how the candidate has gone above and beyond the opportunities presented in order to achieve a goal, contribute to their community, or how they have taken on responsibility for others. Note that high achievement, while admirable, does not necessarily constitute leadership. Be sure therefore to provide context for the committee that illuminates how the candidate’s participation in activities (e.g., volunteer or work, sport or art, and any other participation) goes above and beyond active participation and becomes leadership.
+
+## NSERC Scholarships
+
+Provide a percentage rating and comments for the following three selection criteria—the applicant’s strengths and limitations should be assessed, including examples of the applicant’s accomplishments and contributions to support your assessment:
+
+### 1. Academic Excellence
+
+  * Academic excellence, as demonstrated by past academic results, transcripts, awards and distinctions:
+    * Rating: Top 2%, Top 5%, Top 10%, Top 25%, Below Top 25% or Unable to comment
+    * Provide a written assessment of the applicant’s skills, abilities, achievements, awards, experience and contributions related to this criterion; use concrete examples (2,400 characters maximum, including spaces)
+  
+### 2. Research Potential
+
+  * Research potential, as demonstrated by the applicant’s research history, their interest in discovery, the proposed research, its potential contribution to the advancement of knowledge in the field and any anticipated outcomes:
+    * Rating: Top 2%, Top 5%, Top 10%, Top 25%, Below Top 25% or Unable to comment
+    * Provide a written assessment of the applicant’s skills, abilities, achievements, awards, experience and contributions related to this criterion; use concrete examples (2,400 characters maximum, including spaces)
+
+### 3. Personal Skills
+
+  * Personal characteristics and interpersonal skills, as demonstrated by the applicant’s past professional and relevant extracurricular interactions and collaborations:
+    * Rating: Top 2%, Top 5%, Top 10%, Top 25%, Below Top 25% or Unable to comment
+    * Provide a written assessment of the applicant’s skills, abilities, achievements, awards, experience and contributions related to this criterion; use concrete examples (2,400 characters maximum, including spaces)
+
+## Other Scholarships
+
+There are many other awards that require reference letters. Be sure to look for the criteria for reference letters, similar to the criteria shown for CIHR and NSERC, above. Keep these criteria in mind when you are putting together your application.
+
+## Other considerations
+
+One thing you should note is that grading has changed from an absolute scale (e.g A-->F) to a relative scale. Most graduate students will successfully defend an thesis and achieve an A in all of their courses, but only 1 in 50 will be in the top 2%. To obtain fellowships you will need to be at least in the top 10% in each category, and the top 2% or 5% in most of them. Being average (top 50%) is not likely to be competitive.
+
+These are high standards, and you will only achieve them if you are passionate about your work and embrace the discomfort that comes from acknowledging your weaknesses and always pushing yourself to improve on them. 
+
+# Don't Panic!
+
+Everything will seem hard at first, and even the simplest tasks will take a long time. You will wonder how anyone ever gets anything done when it takes so long to do even the most basic things (e.g. write a carefully-worded email to a faculty member). I will tell you a big __secret__ about this: the more you do it, the faster it gets. The first time usually takes the longest, the hundredth or thousandth time is much faster. 
+
+> Summary: Aim for perfection, publish along the way
 
 # Thesis vs. Coursework
 
