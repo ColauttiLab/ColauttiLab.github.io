@@ -30,11 +30,13 @@ To be part of the lab, you must agree to four rules:
 3. Be __professional__
 4. Be __awesome__ and __have fun__!
 
-# Biology Code of Conduct
+# Code of Conduct
 
-We also follow the [Biology Department Code of Conduct](../Files/BiologyCodeOfConduct.pdf)
+Our code of conduct defines our values and shared responsibilities. It is a natural extension of the four rules outlined above.
 
-See also the Queen's University [Student Code of Conduct](../Files/StudentCodeOfConduct.pdf)
+![Code of Conduct](./CodeofConduct.jpg)
+
+See also follow the [Biology Department Code of Conduct](../Files/BiologyCodeOfConduct.pdf) and the Queen's University [Student Code of Conduct](../Files/StudentCodeOfConduct.pdf).
 
 # Keys to Success
 

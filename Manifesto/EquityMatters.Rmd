@@ -3,15 +3,25 @@ title: "Colautti Lab Manifesto <br> Equity, Diversity, Inclusion"
 output: html_document
 ---
 
-# Land Acknowledgment
+# Indigenization 
 
-If you aren't familiar with the diversity of Indigenous Peoples in North America, this map of [Territories by Land](https://www.whose.land/en) is a nice visualization.
+Canadians have a global reputation for being friendly and inviting, and standing up for peace and justice around the world. However, we share a dark and disturbing history defined by European colonialism, which we are only starting to address. As I write this reports are emerging of another unmarked grave site at a former residential school, this one in Brantford, Ontario, just 350 km from Kingston. 
 
-The Colautti Lab at Queen's University is situated on traditional Anishinaabe (Ah- nish-in-ah-bay) and Haudenosaunee (Ho-den-o-show-nee) territory. We are grateful to be able to live, learn and play on these lands.
+In 2021, the Canadian Government published a report of the [Truth and Reconciliation Commission](https://rcaanc-cirnac.gc.ca/eng/1450124405592/1529106060525), which provides a thorough accounting of this dark history and proposes a number of positive steps for the future. 
+
+At Queen's University, we have excellent training resources on decolonization and indigenization [Indigenous Community Research Partnerships](https://www.queensu.ca/equity/public/icrp0/). You can sign in with your student number or staff ID to access these modules.
+
+Land acknowledgements are a small step that we can make as descendants of colonists, to start to come to terms with our dark history. A land acknowledgement should be a personal reflection on our shared history. If you aren't familiar with the diversity of Indigenous Peoples in North America, this map of [Territories by Land](https://www.whose.land/en) is a nice visualization.
+
+Land acknowledgments should not be seen as empty platitudes, but rather an opportunity to learn more about our shared history. For me personally, it has been an opportunity to think deeply about our relationship with nature and what it means to live a meaningful life. In researching the Anishinabee, I came across the [Teachings of the Seven Grandfathers](https://nhbp-nsn.gov/seven-grandfather-teachings/), which provide an excellent roadmap for this journey.
+
+## Land Acknowledgement
+
+The Colautti Lab at Queen's University is situated on traditional [Anishinaabe](https://www.thecanadianencyclopedia.ca/en/article/anishinaabe) (Ah- nish-in-ah-bay) and [Haudenosaunee (Iroquois)](https://www.thecanadianencyclopedia.ca/en/article/iroquois) (Ho-den-o-show-nee) territory. We are grateful to be able to live, learn and play on these lands.
 
 By acknowledging our shared history, we recognize a long and storied past that began long before the earliest European colonies. We also acknowledge this territory’s significance for the Indigenous Peoples who lived, and continue to live, upon it and whose practices and spiritualities were tied to the land and continue to develop in relationship to the territory and its other inhabitants today.
 
-It is my understanding that this territory is included in the Dish With One Spoon Wampum Belt Covenant, an agreement between the Iroquois Confederacy and the Confederacy of the Ojibwe and Allied Nations to peaceably share and care for the resources around the Great Lakes. The Kingston Indigenous community continues to reflect the area’s Anishinaabek and Haudenosaunee roots. There is also a significant Métis community as well as First Peoples from other Nations across Turtle Island present here today.
+It is my understanding that this territory is included in the Dish With One Spoon Wampum Belt Covenant, an agreement between the Iroquois Confederacy and the Confederacy of the Ojibwe and Allied Nations to peaceably share and care for the resources around the Great Lakes. The Kingston Indigenous community continues to reflect the area’s Anishinaabek and Haudenosaunee roots. There is also a significant [Métis](https://www.thecanadianencyclopedia.ca/en/article/metis) community as well as First Peoples from other Nations across Turtle Island present here today.
 
 # Under-representation
 
@@ -52,7 +62,7 @@ Systemic barriers include any practices or policies that result in uneven access
 
 1. **Lack of Mentors** -- Our mentorship is shaped by our own experience in academia and these can leave us blind to the different challenges faced by mentees with different journeys. Even things that seem as innocuous as 'going out for beer' can be a barrier to people who don't drink for religious or other personal reasons. 
 
-2. Microagressions -- Incidents that seem minor on their own but can work together 
+2. **Microagressions** -- Incidents that seem minor on their own but have strong effects in aggregate. For more information, see [this 2023 presentation](./Files/Microaggression_workshop_2023_MJGQ.pdf) from PhD Student María José Gómez Quijano.  
 
 
 # Anti-racism
