@@ -1,7 +1,13 @@
 ---
 title: "Colautti Lab Manifesto <br> Equity, Diversity, Inclusion"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
+
+> "The data show very clearly, that we have been hiring for research excellence, but also for identity. It's just that the identity was white men."
+
+*Dr. Maydianne Andrade [(research website)](https://www.utsc.utoronto.ca/labs/andrade/), interviewed on [Quirks & Quarks, 27-Jan-2023](https://www.cbc.ca/radio/quirks/dec-12-spotting-steve-superbolts-and-megaflashes-hyperventilating-sober-and-more-1.5835976/maydianne-andrade-on-black-widow-spiders-and-fighting-for-racial-equity-in-science-1.5835987#:~:text=Andrade%2C%20an%20ecologist%20with%20the%20University%20of%20Toronto,extremism%2C%20in%20a%20funny%20kind%20of%20spidery%20way.)*
 
 # Indigenization 
 
