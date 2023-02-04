@@ -1,8 +1,6 @@
 ---
 title: "Colautti Lab Manifesto <br> Equity, Diversity, Inclusion"
-output:
-  html_document: default
-  pdf_document: default
+output: html_document
 ---
 
 > "The data show very clearly, that we have been hiring for research excellence, but also for identity. It's just that the identity was white men."
