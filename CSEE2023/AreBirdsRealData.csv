@@ -1,0 +1,1001 @@
+"IndID","Site","Family","Genus","Species","Egg_Size_g","N_Eggs","Overwinter_Survival","Body_Size_g","Duration","RepeatLen","PitchRange","AmplitudeRange","Ramping"
+"ID05484","SiteC","Parulidae","Setophaga ","petechia",7.3,6,0,18,242,12,28,110,94
+"ID05202","SiteC","Emberizidae","Emberiza","cirlus",2.99,2,1,21,305,10,31,73,186
+"ID02051","SiteC","Corvidae","Cyanocitta ","cristata",5.3,3,1,87,252,13,32,57,253
+"ID07045","SiteC","Paridae","Poecile","hudsonicus",NA,10,0,8,95,19,16,65,91
+"ID00477","SiteA","icteridae","dolichonyx","oryzivorus",2.68,8,0,39,244,9,24,122,191
+"ID05197","SiteA","Fringillidae","Eophona","personata",4.21,5,1,93,188,15,31,150,82
+"ID02602","SiteA","Emberizidae","Emberiza","affinis",3.28,5,1,13,259,10,34,64,196
+"ID08014","SiteA","Parulidae","Setophaga","coronata",8.05,2,0,10,260,12,25,112,108
+"ID07357","SiteA","calcariidae","plectrophenax","hyperboreus",2.98,4,1,38,203,11,27,162,192
+"ID06050","SiteA","Emberizidae","Emberiza","calandra",4.06,2,1,55,299,9,34,77,218
+"ID02317","SiteA","Emberizidae","Emberiza","cioides",3.17,7,1,18,314,11,33,65,211
+"ID07879","SiteB","Cardinalidae","Piranga","ludoviciana",3.67,6,1,29,235,13,19,159,90
+"ID04745","SiteB","Emberizidae","Emberiza","fucata",2.85,5,0,16,315,11,32,65,174
+"ID08970","SiteB","Cardinalidae","Passerina","versicolor",2.33,3,1,12,203,13,21,124,83
+"ID06365","SiteA","Parulidae","Setophaga ","petechia",7.37,3,1,18,243,12,26,124,125
+"ID02919","SiteA","Cardinalidae","Piranga","rubra",2.81,4,0,32,219,13,21,152,93
+"ID02764","SiteC","Cardinalidae","Passerina","caerulea",NA,2,1,33,230,13,22,138,78
+"ID08857","SiteA","icteridae","quiscalus ","quiscula",8.39,4,1,97,298,9,24,134,137
+"ID04234","SiteA","Fringillidae","Coccothraustes","coccothraustes",3.3,4,1,62,256,15,33,148,99
+"ID01122","SiteA","icteridae","euphagus","cyanocephalus",4.55,6,1,63,232,9,25,110,172
+"ID06684","SiteC","Emberizidae","Emberiza","cirlus",2.36,2,0,21,260,11,31,48,196
+"ID07670","SiteB","Emberizidae","Emberiza","melanocephala",2.87,3,1,27,292,11,32,58,193
+"ID05906","SiteB","Cardinalidae","Cardinalis","sinuatus",4.59,4,1,29,256,12,20,156,74
+"ID00673","SiteC","Parulidae","Seiurus ","aurocapilla",11.5,5,0,22,228,14,27,137,95
+"ID06572","SiteB","Fringillidae","Mycerobas","carnipes",3.32,3,1,69,212,14,32,124,113
+"ID02618","SiteA","Parulidae","Seiurus ","aurocapilla",10.11,7,0,23,248,14,28,110,86
+"ID03504","SiteA","Hirundinidae","Progne","subis",2.45,4,1,42,93,16,14,131,69
+"ID00544","SiteC","calcariidae","rhynchophanes","mccownii",2.33,2,1,21,247,11,28,142,177
+"ID00822","SiteC","Paridae","Poecile","atricapillus",0.64,5,0,14,70,19,19,51,113
+"ID00360","SiteB","icteridae","euphagus","carolinus",4.45,3,1,49,262,9,23,108,166
+"ID06429","SiteA","Corvidae","Pica","pica",8.79,3,1,247,262,14,29,72,228
+"ID09090","SiteB","icteridae","agelaioides","badius",4.1,2,1,48,301,10,22,124,196
+"ID09570","SiteC","Cardinalidae","Pheucticus","ludovicianus",NA,6,1,46,229,13,19,142,93
+"ID09078","SiteB","icteridae","euphagus","cyanocephalus",5.05,3,1,81,240,10,24,118,200
+"ID09929","SiteB","Cardinalidae","Piranga","rubra",3.77,2,1,31,246,13,22,141,94
+"ID07305","SiteC","Cardinalidae","Piranga","ludoviciana",2.92,3,1,32,220,12,21,137,96
+"ID06317","SiteB","icteridae","molothrus","ater",2.73,4,0,52,249,10,26,130,188
+"ID07838","SiteB","Fringillidae","Chlorophonia","callophrys",2.46,3,0,24,227,15,34,142,85
+"ID05707","SiteA","calcariidae","plectrophenax","nivalis ",3.26,3,0,34,208,12,29,125,196
+"ID04552","SiteA","icteridae","molothrus","ater",3.47,6,0,53,256,10,24,121,188
+"ID09727","SiteA","Cardinalidae","Cardinalis","cardinalis",5.52,4,1,41,225,12,21,156,107
+"ID04499","SiteB","Paridae","Poecile","hudsonicus",NA,9,0,9,85,19,20,65,102
+"ID05968","SiteB","Fringillidae","Mycerobas","carnipes",3.13,3,1,62,202,14,29,124,92
+"ID02760","SiteB","icteridae","euphagus","cyanocephalus",4.55,3,0,76,270,9,27,112,185
+"ID08448","SiteB","icteridae","quiscalus ","major",7.11,4,1,188,308,9,23,122,126
+"ID01863","SiteA","Cardinalidae","Pheucticus","ludovicianus",NA,4,0,42,229,12,21,140,94
+"ID05074","SiteB","Parulidae","Setophaga ","petechia",6.99,3,1,16,265,12,25,114,110
+"ID02042","SiteA","Cardinalidae","Passerina","caerulea",NA,5,1,31,252,12,22,135,75
+"ID00454","SiteB","Fringillidae","Chlorophonia","cyanea",3.22,2,0,10,205,14,35,133,124
+"ID04506","SiteA","Emberizidae","Emberiza","fucata",2.38,6,1,20,308,10,32,63,174
+"ID01326","SiteA","Emberizidae","Emberiza","melanocephala",2.87,5,1,32,275,10,33,59,188
+"ID04990","SiteA","Hirundinidae","Hirundo","rustica",1.57,6,1,18,79,16,16,114,76
+"ID00786","SiteB","Parulidae","Cardellina","canadensis",6.88,4,0,12,225,13,29,113,146
+"ID05490","SiteB","Hirundinidae","Hirundo","rustica",2.12,7,0,18,62,16,12,103,98
+"ID07856","SiteB","calcariidae","plectrophenax","nivalis ",3.28,7,1,35,207,11,31,125,163
+"ID00491","SiteA","calcariidae","plectrophenax","hyperboreus",2.83,5,0,37,208,10,29,145,151
+"ID02524","SiteA","icteridae","molothrus","rufoaxillaris",3.85,7,1,53,265,8,23,115,198
+"ID01191","SiteB","Emberizidae","Emberiza","cirlus",3.15,4,1,28,297,10,31,52,172
+"ID07319","SiteB","Fringillidae","Mycerobas","carnipes",3.22,2,1,59,198,14,32,134,69
+"ID01679","SiteA","Emberizidae","Emberiza","calandra",3.83,5,0,47,295,10,31,70,198
+"ID04033","SiteB","Fringillidae","Drepanis","coccinea",4.31,2,1,16,200,14,33,118,55
+"ID01320","SiteC","calcariidae","plectrophenax","hyperboreus",3.51,5,0,36,228,11,27,149,161
+"ID04151","SiteB","Emberizidae","Emberiza","calandra",4.26,5,1,56,311,10,35,65,168
+"ID02821","SiteA","icteridae","agelaioides","badius",3.83,4,1,36,278,10,24,104,166
+"ID09114","SiteB","Paridae","Poecile","gambeli ",NA,8,1,11,80,20,18,68,109
+"ID01995","SiteC","icteridae","quiscalus ","quiscula",5.65,7,1,113,271,9,26,118,153
+"ID08869","SiteC","Cardinalidae","Passerina","versicolor",2.46,2,1,12,223,12,20,138,109
+"ID06599","SiteC","Corvidae","Corvus ","brachyrhynchos",17,5,1,362,256,13,27,40,254
+"ID03672","SiteA","icteridae","agelaius","phoeniceus",4.45,4,1,61,247,10,22,118,176
+"ID03384","SiteC","Hirundinidae","Tachycineta","bicolor",1.56,6,1,17,135,17,11,122,113
+"ID03646","SiteB","icteridae","agelaius","phoeniceus",3.97,4,1,66,251,10,26,128,176
+"ID08410","SiteB","Corvidae","Cissa","chinensis",11.68,6,1,171,197,13,30,53,212
+"ID03643","SiteA","Hirundinidae","Tachycineta","bicolor",1.72,3,1,21,118,17,11,118,134
+"ID09234","SiteC","Hirundinidae","Petrochelidon","pyrrhonota ",2.37,3,1,21,104,16,11,119,140
+"ID06549","SiteA","Emberizidae","Emberiza","melanocephala",2.37,7,1,26,302,11,29,75,208
+"ID00919","SiteA","Hirundinidae","Hirundo","rustica",1.84,5,1,16,62,15,13,95,98
+"ID06111","SiteC","Cardinalidae","Pheucticus","melanocephalus",NA,2,1,43,192,12,21,142,114
+"ID05636","SiteB","Hirundinidae","Hirundo","rustica",2.12,5,1,15,51,15,13,112,115
+"ID00603","SiteA","calcariidae","plectrophenax","hyperboreus",3.18,4,1,46,204,11,27,149,173
+"ID02644","SiteA","Fringillidae","Coccothraustes","vespertinus",3.93,4,0,70,233,15,30,127,103
+"ID05928","SiteA","Parulidae","Mniotilta","varia",4.82,2,0,7,192,14,26,127,76
+"ID00888","SiteC","Cardinalidae","Cardinalis","sinuatus",3.86,2,1,36,222,12,21,158,76
+"ID06194","SiteA","icteridae","agelaioides","badius",3.29,3,0,42,286,11,25,112,179
+"ID02654","SiteC","icteridae","quiscalus ","quiscula",7.33,3,1,104,273,9,24,119,158
+"ID09705","SiteC","Paridae","Poecile","atricapillus",0.81,10,1,10,111,19,19,57,107
+"ID03276","SiteB","Fringillidae","Mycerobas","carnipes",4.36,3,1,64,206,15,32,142,60
+"ID04877","SiteB","Fringillidae","Chlorophonia","callophrys",2.98,2,1,26,213,15,34,150,90
+"ID09001","SiteB","Paridae","Poecile","hudsonicus",NA,9,1,8,89,20,16,50,109
+"ID05445","SiteC","Corvidae","Corvus","corax",27.71,4,0,1078,223,13,31,53,265
+"ID02288","SiteB","Cardinalidae","Pheucticus","melanocephalus",NA,4,1,43,231,13,19,139,108
+"ID00629","SiteC","Emberizidae","Emberiza","calandra",4.11,5,0,58,275,10,31,67,216
+"ID05918","SiteC","Fringillidae","Fringilla ","coelebs",2.26,5,1,27,260,13,33,118,111
+"ID03111","SiteA","Paridae","Poecile","hudsonicus",NA,6,0,8,102,19,16,52,113
+"ID07440","SiteB","Emberizidae","Emberiza","calandra",4.13,3,0,58,292,9,31,69,180
+"ID07724","SiteA","icteridae","agelaius","phoeniceus",4.33,3,1,56,226,11,26,114,189
+"ID08456","SiteA","Cardinalidae","Passerina","amoena",1.35,2,0,14,190,14,20,143,132
+"ID02948","SiteC","calcariidae","calcarius","pictus",1.89,4,1,26,230,10,28,148,188
+"ID03262","SiteB","Emberizidae","Emberiza","fucata",2.72,3,0,16,261,11,32,77,214
+"ID04564","SiteC","icteridae","dolichonyx","oryzivorus",2.84,5,1,28,288,9,23,122,215
+"ID04038","SiteA","Parulidae","Setophaga","nigrescens",5.64,6,0,9,235,12,25,127,82
+"ID01641","SiteC","Fringillidae","Coccothraustes","vespertinus",4.05,5,1,74,223,15,33,119,105
+"ID05414","SiteB","Fringillidae","Fringilla ","polatzeki",3.45,3,0,32,205,14,32,118,95
+"ID07501","SiteB","Fringillidae","Coccothraustes","coccothraustes",3.6,3,1,67,260,14,29,126,112
+"ID04648","SiteA","Emberizidae","Emberiza","bruniceps",2.45,4,1,28,327,10,31,69,169
+"ID05522","SiteB","icteridae","agelaioides","badius",3.6,5,1,51,295,10,25,105,149
+"ID06653","SiteC","icteridae","euphagus","cyanocephalus",5.05,6,1,71,273,10,26,127,201
+"ID07843","SiteB","Fringillidae","Chlorophonia","cyanea",3.27,3,1,12,208,15,35,154,91
+"ID01553","SiteC","Paridae","Poecile","gambeli ",NA,6,1,12,108,19,20,66,105
+"ID03121","SiteA","Cardinalidae","Pheucticus","melanocephalus",NA,3,1,33,209,13,20,143,73
+"ID06291","SiteB","icteridae","euphagus","carolinus",4.65,3,1,58,291,10,25,111,186
+"ID00527","SiteB","Fringillidae","Fringilla ","polatzeki",3.29,4,1,28,232,14,34,132,83
+"ID04982","SiteB","Emberizidae","Emberiza","lathami",2.97,3,1,19,284,11,30,66,217
+"ID06639","SiteC","Cardinalidae","Pheucticus","melanocephalus",NA,2,1,46,219,13,21,159,75
+"ID04083","SiteA","icteridae","agelaioides","badius",3.76,4,1,44,275,10,22,128,161
+"ID06403","SiteB","Fringillidae","Fringilla ","polatzeki",3.2,3,1,23,229,14,34,118,77
+"ID02639","SiteB","Emberizidae","Emberiza","bruniceps",3.24,5,1,31,294,10,34,78,220
+"ID08856","SiteB","Corvidae","Cyanocitta ","cristata",4.67,4,1,94,286,14,33,73,267
+"ID09318","SiteC","Emberizidae","Emberiza","jankowskii",2.29,8,1,23,270,10,34,74,209
+"ID05258","SiteA","Cardinalidae","Cardinalis","cardinalis",5.29,4,1,43,220,13,23,152,110
+"ID00429","SiteA","icteridae","euphagus","carolinus",4.06,4,1,67,260,9,23,126,148
+"ID06417","SiteA","Hirundinidae","Stelgidopteryx","serripennis",1.23,4,1,16,90,17,13,111,98
+"ID04414","SiteC","calcariidae","plectrophenax","nivalis ",3.66,6,0,37,204,11,29,146,162
+"ID02096","SiteB","icteridae","molothrus","ater",3.5,7,1,38,256,9,25,108,169
+"ID07528","SiteC","Fringillidae","Eophona","personata",5.34,4,1,88,202,16,30,126,73
+"ID04084","SiteC","calcariidae","calcarius","pictus",1.87,5,0,29,222,9,28,144,180
+"ID09795","SiteA","Parulidae","Seiurus ","aurocapilla",9.56,2,0,20,243,13,29,116,111
+"ID05113","SiteC","Hirundinidae","Tachycineta","bicolor",2.02,7,0,24,90,18,13,103,108
+"ID09981","SiteB","Corvidae","Corvus","corax",27.94,3,1,1004,195,12,34,69,232
+"ID08616","SiteC","Emberizidae","Emberiza","jankowskii",2.47,7,1,24,313,9,34,79,181
+"ID04201","SiteC","Hirundinidae","Tachycineta","bicolor",1.68,6,1,20,85,18,11,107,111
+"ID00171","SiteA","calcariidae","calcarius","lapponicus",2.82,3,1,32,232,11,28,140,144
+"ID08622","SiteC","Hirundinidae","Riparia","riparia",1.65,4,0,14,53,16,13,136,90
+"ID02170","SiteB","Paridae","Poecile","gambeli ",NA,8,0,10,110,20,18,47,85
+"ID02277","SiteB","Hirundinidae","Tachycineta","bicolor",1.63,4,1,19,134,17,14,109,103
+"ID02480","SiteB","icteridae","dolichonyx","oryzivorus",2.44,6,1,38,256,10,25,135,200
+"ID02538","SiteA","Parulidae","Cardellina","canadensis",6.55,6,0,12,230,14,25,132,131
+"ID08314","SiteB","Cardinalidae","Passerina","caerulea",NA,5,1,35,245,12,19,156,111
+"ID04383","SiteC","Fringillidae","Eophona","personata",3.92,3,1,72,204,15,30,127,115
+"ID04553","SiteA","Corvidae","Pica","pica",11.18,5,1,284,258,15,29,58,231
+"ID06344","SiteA","calcariidae","calcarius","pictus",2.07,5,1,26,231,10,31,149,136
+"ID08163","SiteB","Corvidae","Corvus","corax",29.29,7,1,1387,206,13,33,55,232
+"ID01211","SiteC","Hirundinidae","Tachycineta","bicolor",2.07,6,0,21,104,18,15,105,96
+"ID05473","SiteA","Paridae","Poecile","hudsonicus",NA,9,0,10,72,20,18,55,107
+"ID05118","SiteA","Emberizidae","Emberiza","jankowskii",2.06,8,0,23,292,10,35,57,172
+"ID03596","SiteB","Parulidae","Seiurus ","aurocapilla",10.56,5,0,18,244,14,26,135,111
+"ID03736","SiteB","Cardinalidae","Piranga","rubra",2.96,2,1,28,243,13,21,142,92
+"ID04129","SiteA","Hirundinidae","Stelgidopteryx","serripennis",1.53,9,0,17,99,16,14,98,125
+"ID03682","SiteA","Hirundinidae","Hirundo","rustica",2.16,5,0,15,62,16,14,107,121
+"ID06937","SiteA","Parulidae","Setophaga","coronata",7.23,5,0,12,251,13,27,119,91
+"ID05502","SiteA","Corvidae","Corvus ","brachyrhynchos",18.95,5,1,420,289,14,29,46,241
+"ID01447","SiteB","calcariidae","calcarius","pictus",2.26,3,0,29,211,10,28,140,146
+"ID03200","SiteB","calcariidae","calcarius","ornatus",2.34,3,1,21,214,10,27,145,146
+"ID01543","SiteA","Corvidae","Cissa","chinensis",11.03,6,0,160,233,13,33,65,256
+"ID03339","SiteB","Emberizidae","Emberiza","cia",2.44,3,0,27,330,9,32,62,185
+"ID05530","SiteC","Hirundinidae","Progne","subis",2.84,3,1,43,117,17,12,132,97
+"ID04448","SiteB","Cardinalidae","Passerina","versicolor",2.2,2,1,11,214,12,20,128,82
+"ID02111","SiteB","Fringillidae","Coccothraustes","coccothraustes",3.21,3,1,67,218,15,30,127,115
+"ID01792","SiteA","Emberizidae","Emberiza","fucata",2.94,5,1,14,264,11,34,64,199
+"ID06478","SiteB","Cardinalidae","Passerina","caerulea",NA,2,1,35,230,13,23,147,100
+"ID06920","SiteA","Fringillidae","Coccothraustes","vespertinus",4.1,3,1,63,237,15,32,137,121
+"ID06120","SiteA","Emberizidae","Emberiza","lathami",3.31,2,0,23,293,10,32,65,212
+"ID01246","SiteB","Corvidae","Garrulus","glandarius",11.72,7,1,197,215,12,28,53,223
+"ID03830","SiteA","calcariidae","rhynchophanes","mccownii",2.68,2,1,23,214,10,29,159,178
+"ID06851","SiteB","Cardinalidae","Cardinalis","cardinalis",4.95,2,1,38,250,12,25,148,73
+"ID02359","SiteC","Paridae","Poecile","hudsonicus",NA,9,0,8,72,19,20,74,105
+"ID00259","SiteC","Parulidae","Seiurus ","aurocapilla",10.46,4,1,17,261,13,29,110,112
+"ID04363","SiteC","Corvidae","Corvus ","brachyrhynchos",19.06,4,1,401,245,14,30,40,258
+"ID07133","SiteA","Fringillidae","Chlorophonia","callophrys",3.13,2,1,24,225,15,34,145,90
+"ID02188","SiteB","icteridae","agelaius","phoeniceus",3.67,2,1,64,265,10,24,114,178
+"ID04848","SiteA","Emberizidae","Emberiza","bruniceps",2.46,3,0,26,296,9,33,64,169
+"ID00304","SiteA","Cardinalidae","Cardinalis","sinuatus",4.88,4,1,37,250,12,23,157,91
+"ID06647","SiteB","Corvidae","Pica","pica",10.51,5,1,218,261,14,30,56,265
+"ID06686","SiteC","calcariidae","plectrophenax","hyperboreus",3.93,4,0,37,182,11,28,140,155
+"ID00449","SiteA","Parulidae","Setophaga ","petechia",7.77,3,1,18,266,12,29,132,75
+"ID09861","SiteC","Emberizidae","Emberiza","bruniceps",2.24,2,1,22,285,10,33,55,197
+"ID00215","SiteA","calcariidae","calcarius","pictus",1.7,4,1,33,245,10,28,128,169
+"ID01864","SiteA","Cardinalidae","Pheucticus","ludovicianus",NA,3,0,52,245,13,20,155,90
+"ID06615","SiteC","Corvidae","Corvus","corax",24.91,6,1,1149,238,12,32,63,247
+"ID04534","SiteB","icteridae","molothrus","ater",2.53,6,1,40,257,10,23,132,202
+"ID02161","SiteC","Cardinalidae","Piranga","ludoviciana",3.47,2,1,31,207,13,21,153,104
+"ID09276","SiteB","Cardinalidae","Passerina","versicolor",2.69,3,0,10,239,12,24,127,85
+"ID06826","SiteA","icteridae","agelaius","phoeniceus",3.64,3,1,77,226,10,23,130,178
+"ID05673","SiteC","Corvidae","Pica","pica",10.83,6,1,216,217,14,32,70,225
+"ID03118","SiteA","calcariidae","rhynchophanes","mccownii",2.47,3,0,25,247,11,27,149,163
+"ID07713","SiteC","Fringillidae","Coccothraustes","vespertinus",3.94,3,1,61,253,14,31,128,130
+"ID08100","SiteB","Fringillidae","Eophona","personata",5.47,3,1,88,223,15,33,143,61
+"ID01119","SiteB","Cardinalidae","Piranga","ludoviciana",3.6,5,1,32,208,13,18,151,98
+"ID04153","SiteA","Emberizidae","Emberiza","cirlus",2.76,4,1,26,278,10,32,63,176
+"ID07757","SiteB","Cardinalidae","Passerina","caerulea",NA,5,0,25,254,12,19,141,115
+"ID00268","SiteA","icteridae","euphagus","carolinus",5.67,3,0,54,280,9,22,121,185
+"ID00774","SiteB","Emberizidae","Emberiza","cirlus",2.66,3,1,26,282,10,34,63,198
+"ID09110","SiteB","Paridae","Poecile","gambeli ",NA,5,0,12,70,19,17,65,91
+"ID05795","SiteB","Fringillidae","Eophona","personata",5.53,2,1,69,188,15,32,139,64
+"ID09484","SiteC","Emberizidae","Emberiza","cirlus",2.44,3,1,24,294,11,31,58,175
+"ID01229","SiteB","Fringillidae","Chlorophonia","callophrys",2.68,3,1,26,216,14,32,134,83
+"ID05476","SiteA","Fringillidae","Drepanis","coccinea",3.08,2,1,18,206,15,33,133,107
+"ID01022","SiteB","Cardinalidae","Passerina","amoena",1.41,6,1,14,216,14,22,132,125
+"ID04001","SiteC","Hirundinidae","Riparia","riparia",1.92,5,1,16,67,16,15,130,113
+"ID04925","SiteB","Fringillidae","Drepanis","coccinea",4.08,2,0,16,219,15,32,137,96
+"ID03775","SiteC","Cardinalidae","Passerina","versicolor",2.65,4,0,11,241,13,23,140,99
+"ID04047","SiteB","Cardinalidae","Piranga","flava",3.85,5,1,34,203,14,20,153,125
+"ID09515","SiteB","Emberizidae","Emberiza","melanocephala",3.37,5,1,29,294,11,32,49,193
+"ID05857","SiteA","Emberizidae","Emberiza","cia",3.19,6,0,26,320,9,31,54,213
+"ID08707","SiteB","calcariidae","calcarius","lapponicus",2.34,7,1,27,231,10,27,140,150
+"ID08967","SiteB","Cardinalidae","Cardinalis","cardinalis",5.15,3,1,38,240,12,24,162,101
+"ID09413","SiteC","calcariidae","calcarius","pictus",2.35,5,1,28,213,10,27,133,159
+"ID09609","SiteB","Cardinalidae","Piranga","flava",3.46,4,1,42,197,14,20,135,100
+"ID07267","SiteB","Cardinalidae","Passerina","caerulea",NA,4,1,28,221,12,20,153,88
+"ID09478","SiteA","Parulidae","Setophaga ","petechia",8.05,6,0,13,237,13,28,123,109
+"ID01538","SiteC","calcariidae","calcarius","ornatus",1.73,3,0,18,239,9,27,152,165
+"ID00674","SiteC","icteridae","xanthocephalus","xanthocephalus",4.47,3,1,67,305,9,20,121,183
+"ID00085","SiteC","Hirundinidae","Tachycineta","bicolor",1.82,5,0,23,83,17,15,104,97
+"ID04131","SiteB","Cardinalidae","Piranga","flava",3.42,6,0,31,253,14,21,142,101
+"ID03645","SiteC","Corvidae","Corvus ","brachyrhynchos",13.81,4,0,460,282,14,30,39,261
+"ID00904","SiteC","Fringillidae","Mycerobas","carnipes",3.02,4,1,47,195,14,32,141,60
+"ID02025","SiteB","icteridae","molothrus","rufoaxillaris",4.78,4,1,72,232,9,24,109,193
+"ID03292","SiteA","Hirundinidae","Riparia","riparia",1.43,4,0,13,67,17,11,130,98
+"ID00913","SiteC","Fringillidae","Chlorophonia","cyanea",3.15,2,0,13,230,14,32,153,78
+"ID08787","SiteC","Parulidae","Setophaga","nigrescens",7.58,3,0,9,250,12,25,102,91
+"ID00349","SiteA","Corvidae","Cissa","chinensis",10.59,4,1,163,235,14,30,41,228
+"ID08568","SiteB","icteridae","quiscalus ","quiscula",7.72,6,1,108,296,8,27,115,180
+"ID03064","SiteA","Emberizidae","Emberiza","affinis",3.95,3,0,15,273,10,33,62,188
+"ID01332","SiteA","Emberizidae","Emberiza","cirlus",3.12,4,1,23,256,11,32,64,197
+"ID03154","SiteB","Fringillidae","Drepanis","coccinea",4.47,4,0,14,200,14,33,123,71
+"ID03733","SiteB","Fringillidae","Chlorophonia","cyanea",2.91,2,0,11,203,14,34,152,121
+"ID04533","SiteB","Parulidae","Cardellina","canadensis",7.47,2,1,9,232,14,28,129,141
+"ID08087","SiteC","Fringillidae","Chlorophonia","callophrys",2.62,4,1,30,207,15,32,149,87
+"ID06763","SiteA","Paridae","Poecile","gambeli ",NA,4,0,13,93,20,17,58,96
+"ID07475","SiteA","Fringillidae","Fringilla ","coelebs",2.51,6,0,19,228,14,33,118,119
+"ID02586","SiteB","Parulidae","Cardellina","canadensis",6.44,3,0,13,227,14,27,123,140
+"ID09530","SiteA","Fringillidae","Chlorophonia","callophrys",2.24,2,1,23,235,15,33,143,78
+"ID03055","SiteA","Emberizidae","Emberiza","affinis",3.37,4,0,18,285,9,30,57,206
+"ID08278","SiteA","Corvidae","Garrulus","glandarius",8.08,5,0,188,211,12,27,38,201
+"ID06988","SiteB","Cardinalidae","Passerina","caerulea",NA,6,0,33,238,12,22,132,96
+"ID05524","SiteB","icteridae","agelaius","phoeniceus",4.2,3,0,54,229,11,22,122,214
+"ID00890","SiteB","Parulidae","Setophaga","coronata",6.5,6,0,12,271,13,29,133,131
+"ID04290","SiteC","icteridae","molothrus","rufoaxillaris",4.38,4,1,52,265,8,24,131,161
+"ID09916","SiteA","icteridae","euphagus","cyanocephalus",4.62,5,1,64,247,9,23,116,184
+"ID06867","SiteA","Fringillidae","Coccothraustes","abeilleii",3.25,4,1,12,255,15,30,133,120
+"ID02785","SiteB","icteridae","euphagus","cyanocephalus",4.99,7,1,58,244,10,23,117,172
+"ID09127","SiteA","Fringillidae","Fringilla ","coelebs",2.33,3,1,22,255,13,32,134,63
+"ID05974","SiteA","Emberizidae","Emberiza","cia",2.67,5,1,23,280,9,35,77,159
+"ID04403","SiteB","Hirundinidae","Stelgidopteryx","serripennis",1.27,4,1,17,81,17,11,100,104
+"ID09799","SiteA","Cardinalidae","Piranga","flava",3.39,5,1,40,205,13,18,141,81
+"ID07227","SiteC","icteridae","molothrus","ater",2.59,5,1,45,248,10,23,106,186
+"ID05404","SiteB","Cardinalidae","Passerina","versicolor",2.67,3,1,11,245,13,21,131,109
+"ID00780","SiteB","Emberizidae","Emberiza","calandra",4.38,4,1,56,317,10,32,70,208
+"ID03627","SiteA","calcariidae","rhynchophanes","mccownii",2.44,4,0,27,242,11,28,151,164
+"ID00299","SiteC","Fringillidae","Coccothraustes","coccothraustes",3.6,2,1,63,244,14,31,135,111
+"ID05438","SiteB","Cardinalidae","Piranga","rubra",3.05,5,0,29,199,13,21,142,95
+"ID02908","SiteA","icteridae","quiscalus ","major",7.07,4,1,174,288,9,27,129,161
+"ID05550","SiteA","Emberizidae","Emberiza","melanocephala",2.78,6,1,27,317,10,31,59,178
+"ID09220","SiteC","Cardinalidae","Cardinalis","sinuatus",3.62,3,1,36,247,12,24,159,99
+"ID00471","SiteB","Fringillidae","Chlorophonia","callophrys",2.54,2,0,29,258,15,32,154,106
+"ID03781","SiteC","Cardinalidae","Passerina","ciris",1.34,3,0,16,216,12,20,141,113
+"ID04989","SiteB","Fringillidae","Fringilla ","polatzeki",3.8,2,1,27,236,13,35,132,97
+"ID02321","SiteB","Cardinalidae","Piranga","ludoviciana",3.71,4,1,33,202,12,22,137,113
+"ID00378","SiteB","Paridae","Baeolophus","biclor",NA,5,1,21,112,19,23,53,119
+"ID09474","SiteA","Corvidae","Cissa","chinensis",9.81,4,1,135,242,13,33,47,253
+"ID08988","SiteA","Fringillidae","Chlorophonia","callophrys",2.67,2,1,30,201,15,35,129,116
+"ID07861","SiteA","Fringillidae","Fringilla ","polatzeki",3.02,2,1,30,214,14,36,110,93
+"ID05745","SiteA","icteridae","quiscalus ","major",8.78,3,1,228,267,9,26,142,168
+"ID08552","SiteC","Cardinalidae","Passerina","caerulea",NA,5,1,26,220,12,23,139,90
+"ID05311","SiteC","Parulidae","Mniotilta","varia",4.62,3,0,9,213,13,27,120,100
+"ID09605","SiteB","Fringillidae","Fringilla ","coelebs",2.11,6,0,21,215,14,32,135,113
+"ID05535","SiteA","Paridae","Baeolophus","biclor",NA,3,1,20,99,18,22,43,121
+"ID03969","SiteB","Parulidae","Cardellina","canadensis",6.78,6,0,12,243,13,28,116,146
+"ID01006","SiteC","Fringillidae","Mycerobas","carnipes",3.52,4,1,51,173,14,33,135,61
+"ID01356","SiteB","icteridae","agelaioides","badius",4,4,1,45,251,10,25,116,194
+"ID07615","SiteB","Emberizidae","Emberiza","fucata",2.34,2,1,16,286,11,33,59,182
+"ID06485","SiteB","calcariidae","calcarius","lapponicus",2.63,4,0,28,227,11,25,146,139
+"ID04734","SiteA","Paridae","Poecile","atricapillus",0.69,12,0,13,60,18,21,61,79
+"ID07778","SiteB","Parulidae","Setophaga","nigrescens",6.79,4,0,10,246,13,26,105,98
+"ID08573","SiteB","Parulidae","Setophaga","nigrescens",6.78,3,1,9,258,13,24,124,93
+"ID02690","SiteB","Hirundinidae","Stelgidopteryx","serripennis",1.65,7,0,15,110,16,11,96,127
+"ID04288","SiteA","Parulidae","Setophaga","nigrescens",8.35,4,0,10,279,12,26,104,96
+"ID09882","SiteC","Emberizidae","Emberiza","fucata",2.39,4,1,14,310,11,32,65,201
+"ID00179","SiteC","Cardinalidae","Cardinalis","sinuatus",4.87,2,0,38,213,13,24,136,121
+"ID03300","SiteB","icteridae","molothrus","ater",3.21,7,1,54,237,10,23,110,164
+"ID09464","SiteA","Emberizidae","Emberiza","melanocephala",2.66,4,1,26,295,11,31,66,192
+"ID09160","SiteA","Cardinalidae","Pheucticus","ludovicianus",NA,4,1,44,253,13,19,157,120
+"ID08634","SiteC","icteridae","euphagus","carolinus",3.97,4,1,65,256,10,23,113,189
+"ID08497","SiteB","Fringillidae","Fringilla ","polatzeki",2.69,3,1,31,232,14,32,137,120
+"ID04952","SiteA","Fringillidae","Chlorophonia","cyanea",4.18,3,0,11,230,14,35,148,95
+"ID00899","SiteA","Fringillidae","Coccothraustes","coccothraustes",4.22,3,1,55,216,15,31,145,129
+"ID00442","SiteC","Cardinalidae","Cardinalis","sinuatus",4.42,2,0,36,253,13,21,134,106
+"ID06595","SiteC","Hirundinidae","Stelgidopteryx","serripennis",1.41,9,0,14,95,17,11,97,125
+"ID08912","SiteA","Corvidae","Pica","pica",8.62,4,1,283,244,14,30,51,259
+"ID02384","SiteA","Emberizidae","Emberiza","calandra",4.28,4,1,51,271,10,32,61,202
+"ID08956","SiteA","calcariidae","plectrophenax","nivalis ",3.58,8,1,39,196,12,30,150,169
+"ID01375","SiteA","Emberizidae","Emberiza","cirlus",2.38,2,1,27,258,11,32,51,175
+"ID00200","SiteA","icteridae","dolichonyx","oryzivorus",2.71,3,0,37,264,10,24,111,170
+"ID08389","SiteA","Hirundinidae","Tachycineta","bicolor",1.55,4,1,22,99,17,13,111,118
+"ID05218","SiteA","Hirundinidae","Hirundo","rustica",1.55,7,0,16,69,15,16,121,94
+"ID05424","SiteA","Cardinalidae","Cardinalis","sinuatus",4.86,4,1,27,215,12,22,140,90
+"ID02500","SiteB","Paridae","Poecile","hudsonicus",NA,6,0,8,83,19,20,72,69
+"ID06281","SiteC","Fringillidae","Coccothraustes","abeilleii",3.43,6,0,10,250,15,30,130,93
+"ID09903","SiteC","Hirundinidae","Hirundo","rustica",1.78,5,1,19,86,16,15,115,91
+"ID06199","SiteA","Emberizidae","Emberiza","affinis",2.96,5,0,15,298,9,32,77,192
+"ID01593","SiteC","Emberizidae","Emberiza","lathami",2.58,5,0,20,305,10,34,53,221
+"ID07813","SiteB","Hirundinidae","Hirundo","rustica",2.05,3,0,15,95,15,14,104,114
+"ID06773","SiteB","Emberizidae","Emberiza","bruniceps",2.56,2,1,30,301,10,31,69,216
+"ID09454","SiteC","Cardinalidae","Pheucticus","ludovicianus",NA,5,0,37,243,12,22,159,105
+"ID05570","SiteC","icteridae","molothrus","rufoaxillaris",4.72,4,1,51,225,8,27,131,208
+"ID02215","SiteC","icteridae","euphagus","cyanocephalus",5.05,3,1,82,230,9,23,126,194
+"ID04279","SiteC","Cardinalidae","Piranga","flava",4.21,4,1,43,200,14,19,140,118
+"ID03375","SiteC","Emberizidae","Emberiza","lathami",3.31,5,1,19,291,11,32,78,231
+"ID03280","SiteC","icteridae","molothrus","rufoaxillaris",4.79,3,1,66,279,9,27,110,196
+"ID00503","SiteC","Paridae","Poecile","gambeli ",NA,9,0,10,100,20,18,48,70
+"ID00089","SiteB","Cardinalidae","Passerina","ciris",1.39,2,1,19,225,13,21,144,77
+"ID00012","SiteA","Fringillidae","Mycerobas","carnipes",3.8,3,1,64,209,15,30,147,103
+"ID00733","SiteB","calcariidae","rhynchophanes","mccownii",2.55,5,0,24,231,11,30,164,189
+"ID04217","SiteB","Corvidae","Pica","pica",9.81,7,1,208,258,14,30,70,248
+"ID02650","SiteA","Hirundinidae","Riparia","riparia",1.9,6,1,14,87,17,14,132,121
+"ID00748","SiteA","Cardinalidae","Pheucticus","ludovicianus",NA,6,0,40,233,13,21,143,120
+"ID07886","SiteB","Paridae","Poecile","gambeli ",NA,7,0,13,95,20,18,58,74
+"ID06382","SiteA","calcariidae","rhynchophanes","mccownii",2.58,5,0,25,232,11,27,157,166
+"ID00409","SiteA","icteridae","xanthocephalus","xanthocephalus",3.62,2,1,59,288,8,21,124,176
+"ID09670","SiteC","calcariidae","rhynchophanes","mccownii",2.28,5,1,25,226,11,28,163,173
+"ID01963","SiteB","Corvidae","Cyanocitta ","cristata",5.97,3,1,83,262,14,30,79,233
+"ID05798","SiteA","Corvidae","Cissa","chinensis",11.42,6,1,164,225,14,30,49,246
+"ID06531","SiteB","Cardinalidae","Pheucticus","melanocephalus",NA,2,1,35,240,13,23,138,120
+"ID01395","SiteC","Parulidae","Cardellina","canadensis",6.77,5,1,11,233,13,29,138,153
+"ID04118","SiteC","Emberizidae","Emberiza","affinis",3.63,5,1,13,289,9,32,63,164
+"ID02430","SiteB","Parulidae","Cardellina","canadensis",8.43,4,0,11,238,14,28,134,150
+"ID07729","SiteC","Fringillidae","Coccothraustes","vespertinus",3.61,4,1,52,263,14,32,120,117
+"ID03851","SiteC","icteridae","dolichonyx","oryzivorus",2.17,5,0,40,237,10,24,120,201
+"ID00696","SiteA","icteridae","agelaioides","badius",4.39,4,1,38,284,11,23,106,190
+"ID05363","SiteC","icteridae","euphagus","carolinus",4.48,3,1,62,261,9,22,122,201
+"ID01663","SiteA","calcariidae","calcarius","pictus",1.86,5,1,31,199,10,31,131,176
+"ID09964","SiteA","Fringillidae","Coccothraustes","abeilleii",3.53,5,0,8,236,15,34,132,101
+"ID04768","SiteB","Emberizidae","Emberiza","affinis",4.04,4,0,19,267,9,34,54,187
+"ID02685","SiteC","Emberizidae","Emberiza","lathami",2.76,6,1,20,283,10,34,75,209
+"ID08930","SiteA","calcariidae","calcarius","pictus",2.24,4,1,33,225,9,31,151,145
+"ID07913","SiteB","Cardinalidae","Piranga","rubra",3.7,4,1,32,231,13,23,135,118
+"ID01610","SiteC","Cardinalidae","Passerina","ciris",1.57,6,1,17,207,13,18,132,129
+"ID01711","SiteA","Hirundinidae","Tachycineta","bicolor",1.61,7,0,17,110,18,15,109,124
+"ID02341","SiteB","Cardinalidae","Passerina","ciris",1.27,3,1,16,222,12,19,132,96
+"ID00325","SiteC","Cardinalidae","Passerina","amoena",1.51,4,1,15,186,14,18,152,100
+"ID03702","SiteC","Fringillidae","Fringilla ","polatzeki",2.8,2,1,31,226,14,35,115,112
+"ID09472","SiteC","Fringillidae","Fringilla ","polatzeki",2.9,3,0,28,240,14,36,119,79
+"ID06814","SiteC","Corvidae","Corvus","corax",32.65,4,1,1146,232,12,30,67,255
+"ID01450","SiteA","calcariidae","plectrophenax","nivalis ",2.72,5,1,28,188,11,30,152,182
+"ID00363","SiteA","Fringillidae","Eophona","personata",5.22,4,1,73,226,15,34,126,82
+"ID02775","SiteC","Fringillidae","Fringilla ","polatzeki",3.7,2,1,31,208,14,32,130,123
+"ID04868","SiteA","Cardinalidae","Piranga","ludoviciana",3.82,2,1,26,214,13,19,134,81
+"ID09262","SiteA","Emberizidae","Emberiza","calandra",4.11,5,1,42,264,9,34,79,219
+"ID09946","SiteA","Paridae","Baeolophus","biclor",NA,3,1,21,109,18,23,50,127
+"ID06421","SiteA","icteridae","molothrus","ater",3.25,3,1,48,278,10,24,106,161
+"ID06203","SiteC","Cardinalidae","Cardinalis","cardinalis",4.11,2,0,47,213,13,24,137,104
+"ID03389","SiteC","Fringillidae","Mycerobas","carnipes",4.36,5,1,47,194,15,32,141,82
+"ID01710","SiteB","Parulidae","Cardellina","canadensis",8.78,4,1,13,242,13,28,114,152
+"ID08973","SiteB","calcariidae","plectrophenax","nivalis ",2.87,5,1,34,187,12,27,132,191
+"ID06100","SiteC","calcariidae","calcarius","lapponicus",2.27,5,0,22,216,10,26,129,163
+"ID07428","SiteB","Parulidae","Mniotilta","varia",4.15,3,1,7,198,14,26,124,100
+"ID06307","SiteB","icteridae","molothrus","rufoaxillaris",4.16,6,1,66,266,9,27,121,179
+"ID08412","SiteB","Parulidae","Cardellina","canadensis",6.07,5,1,12,218,14,28,137,165
+"ID01298","SiteA","Fringillidae","Coccothraustes","vespertinus",3.45,5,1,73,239,15,32,146,137
+"ID09669","SiteB","Emberizidae","Emberiza","calandra",4.1,4,0,52,276,9,33,52,216
+"ID03273","SiteC","Cardinalidae","Piranga","rubra",3.85,5,1,31,245,12,19,159,144
+"ID07866","SiteA","Paridae","Poecile","gambeli ",NA,7,0,11,62,20,18,64,87
+"ID03231","SiteB","Emberizidae","Emberiza","cia",2.32,5,1,25,284,9,35,51,177
+"ID08919","SiteC","Corvidae","Cissa","chinensis",9.03,7,0,131,230,14,31,55,239
+"ID03141","SiteA","Emberizidae","Emberiza","melanocephala",2.9,5,0,27,323,10,32,76,216
+"ID06178","SiteB","Corvidae","Cissa","chinensis",8.01,6,0,159,243,13,30,43,213
+"ID02015","SiteB","Cardinalidae","Passerina","versicolor",2.69,2,0,12,229,12,20,141,128
+"ID08942","SiteB","Hirundinidae","Progne","subis",3.12,5,1,52,121,17,14,114,98
+"ID08607","SiteA","Emberizidae","Emberiza","lathami",2.63,3,0,20,307,11,34,59,228
+"ID03583","SiteA","Cardinalidae","Piranga","ludoviciana",3.78,3,1,29,235,13,21,143,120
+"ID01615","SiteA","Cardinalidae","Cardinalis","cardinalis",4.57,2,1,45,197,13,22,156,62
+"ID00143","SiteA","Hirundinidae","Stelgidopteryx","serripennis",1.49,7,1,17,68,17,15,112,126
+"ID06040","SiteC","Cardinalidae","Passerina","versicolor",2.55,3,0,14,246,12,22,127,115
+"ID04450","SiteA","Fringillidae","Chlorophonia","cyanea",2.96,2,0,11,253,14,34,138,110
+"ID05865","SiteC","Fringillidae","Coccothraustes","vespertinus",4.34,2,1,64,227,15,30,122,93
+"ID05439","SiteC","Emberizidae","Emberiza","cirlus",2.44,4,0,23,287,10,30,58,212
+"ID06308","SiteB","Corvidae","Cissa","chinensis",10.35,4,0,183,232,13,29,67,246
+"ID07411","SiteA","Fringillidae","Coccothraustes","coccothraustes",3.74,6,1,60,217,15,29,130,131
+"ID02628","SiteB","Corvidae","Cyanocitta ","cristata",5.36,4,1,93,277,14,33,57,234
+"ID02976","SiteA","Parulidae","Cardellina","canadensis",7.03,5,0,12,225,14,29,120,123
+"ID00101","SiteC","Fringillidae","Mycerobas","carnipes",3.72,4,1,63,182,15,30,135,66
+"ID00187","SiteA","Emberizidae","Emberiza","bruniceps",2.27,3,1,21,297,10,34,72,184
+"ID07019","SiteC","Corvidae","Corvus","corax",26.09,7,1,986,247,12,30,57,250
+"ID06085","SiteC","Corvidae","Corvus ","brachyrhynchos",19.76,4,1,433,234,14,31,44,234
+"ID05810","SiteC","Emberizidae","Emberiza","lathami",3.06,4,1,20,274,11,34,56,204
+"ID02952","SiteC","Fringillidae","Mycerobas","carnipes",3.2,3,1,67,182,14,32,139,96
+"ID02194","SiteB","calcariidae","calcarius","ornatus",1.75,3,1,20,215,10,27,145,141
+"ID03160","SiteB","calcariidae","calcarius","lapponicus",2.38,4,1,25,256,10,27,141,177
+"ID05614","SiteC","Corvidae","Corvus ","brachyrhynchos",17.33,7,1,390,243,13,29,42,259
+"ID08305","SiteB","icteridae","euphagus","cyanocephalus",5.11,3,1,75,220,9,24,133,178
+"ID02576","SiteB","calcariidae","calcarius","lapponicus",2.34,5,1,26,253,11,28,139,187
+"ID05913","SiteC","Paridae","Poecile","gambeli ",NA,5,1,13,88,20,19,63,72
+"ID08724","SiteC","Emberizidae","Emberiza","calandra",4.45,5,1,46,317,9,32,59,191
+"ID01403","SiteB","Hirundinidae","Riparia","riparia",1.51,3,1,16,47,16,11,125,118
+"ID04797","SiteB","Corvidae","Corvus ","brachyrhynchos",20.15,3,1,378,251,13,27,49,253
+"ID03611","SiteB","Emberizidae","Emberiza","melanocephala",3.37,6,1,23,308,10,30,56,211
+"ID08281","SiteB","calcariidae","rhynchophanes","mccownii",2.15,5,1,26,196,10,27,158,171
+"ID07551","SiteC","Fringillidae","Coccothraustes","coccothraustes",4.2,5,1,65,225,15,31,141,98
+"ID01193","SiteC","Emberizidae","Emberiza","affinis",4.24,4,0,16,267,10,31,51,177
+"ID02405","SiteB","Paridae","Poecile","gambeli ",NA,4,1,13,73,19,18,59,92
+"ID07588","SiteC","Emberizidae","Emberiza","lathami",2.83,4,0,23,300,11,32,69,205
+"ID05606","SiteC","Fringillidae","Eophona","personata",4.55,3,1,86,201,16,30,131,92
+"ID08387","SiteA","icteridae","quiscalus ","major",9.04,2,1,167,275,10,24,131,142
+"ID01923","SiteB","Hirundinidae","Riparia","riparia",2.02,4,0,15,64,16,14,114,88
+"ID05403","SiteC","Fringillidae","Coccothraustes","abeilleii",4.32,4,0,11,249,15,30,134,131
+"ID03574","SiteB","Cardinalidae","Cardinalis","sinuatus",4.11,3,1,29,202,12,23,147,81
+"ID08134","SiteB","Cardinalidae","Piranga","flava",4.12,6,0,31,212,14,21,139,120
+"ID07289","SiteB","Paridae","Poecile","hudsonicus",NA,10,1,7,95,20,18,51,107
+"ID05483","SiteB","Cardinalidae","Passerina","caerulea",NA,5,0,26,212,12,21,147,91
+"ID02794","SiteB","Cardinalidae","Cardinalis","cardinalis",4.04,4,1,41,195,13,24,160,86
+"ID02452","SiteB","icteridae","quiscalus ","major",8.14,3,1,181,308,9,23,134,142
+"ID00626","SiteA","Cardinalidae","Cardinalis","sinuatus",4.36,2,1,28,223,13,22,140,98
+"ID03696","SiteB","Parulidae","Seiurus ","aurocapilla",8.6,4,1,17,229,13,27,128,131
+"ID01352","SiteC","Hirundinidae","Petrochelidon","pyrrhonota ",1.87,4,1,26,78,17,15,128,127
+"ID01274","SiteC","Hirundinidae","Riparia","riparia",1.91,6,0,19,81,16,14,117,77
+"ID08353","SiteB","icteridae","quiscalus ","quiscula",8.25,6,1,124,289,8,25,114,157
+"ID08521","SiteA","Paridae","Poecile","hudsonicus",NA,6,1,10,74,19,18,61,99
+"ID03044","SiteC","icteridae","euphagus","cyanocephalus",4.49,5,1,66,235,10,23,114,166
+"ID09437","SiteA","Hirundinidae","Stelgidopteryx","serripennis",1.58,4,1,13,89,17,13,103,109
+"ID04032","SiteC","icteridae","quiscalus ","quiscula",7.98,6,1,137,270,9,24,135,137
+"ID01480","SiteA","Cardinalidae","Passerina","ciris",1.75,3,1,18,201,12,22,128,117
+"ID08107","SiteA","Cardinalidae","Piranga","flava",3.22,5,1,39,232,13,22,138,82
+"ID02806","SiteC","Emberizidae","Emberiza","lathami",3.18,4,1,24,316,11,33,60,231
+"ID01619","SiteC","Fringillidae","Coccothraustes","coccothraustes",4.28,3,1,52,208,14,31,128,134
+"ID02527","SiteA","calcariidae","calcarius","pictus",2.16,5,1,25,240,10,28,126,148
+"ID00190","SiteA","Hirundinidae","Tachycineta","bicolor",1.86,5,1,23,129,18,11,116,126
+"ID02813","SiteB","Parulidae","Cardellina","canadensis",8.4,6,1,10,261,13,29,118,153
+"ID03509","SiteC","Emberizidae","Emberiza","fucata",2.73,3,0,14,318,10,34,57,173
+"ID05702","SiteB","Cardinalidae","Passerina","versicolor",2.56,4,0,10,230,12,23,126,97
+"ID04679","SiteC","calcariidae","rhynchophanes","mccownii",2.62,4,0,25,214,11,31,167,188
+"ID09888","SiteA","Corvidae","Cyanocitta ","cristata",5.52,5,1,89,291,13,30,73,218
+"ID08354","SiteB","calcariidae","rhynchophanes","mccownii",2.58,3,1,24,229,11,31,160,167
+"ID00628","SiteC","calcariidae","rhynchophanes","mccownii",2.33,3,1,25,237,10,28,160,176
+"ID03694","SiteB","Cardinalidae","Passerina","amoena",1.22,5,1,16,217,13,22,143,132
+"ID09846","SiteB","Fringillidae","Coccothraustes","vespertinus",4.27,3,1,69,219,14,34,126,135
+"ID02999","SiteB","Emberizidae","Emberiza","affinis",3.84,3,1,15,274,9,33,55,165
+"ID06310","SiteB","Cardinalidae","Cardinalis","cardinalis",5.01,3,1,49,205,13,22,146,117
+"ID08113","SiteC","Parulidae","Mniotilta","varia",4,3,1,7,248,14,25,120,83
+"ID02210","SiteC","Corvidae","Corvus ","brachyrhynchos",14.45,3,1,428,253,13,28,36,228
+"ID00937","SiteA","icteridae","molothrus","rufoaxillaris",4.59,5,1,52,255,8,26,106,180
+"ID01852","SiteB","Hirundinidae","Hirundo","rustica",1.99,4,0,20,51,16,13,114,75
+"ID04859","SiteA","Fringillidae","Coccothraustes","coccothraustes",3.91,5,1,50,249,15,29,125,105
+"ID02428","SiteC","calcariidae","rhynchophanes","mccownii",2.81,3,1,22,250,11,27,161,159
+"ID03720","SiteC","Fringillidae","Fringilla ","polatzeki",2.79,3,1,34,225,13,34,128,72
+"ID07846","SiteA","calcariidae","plectrophenax","nivalis ",3.12,3,1,31,224,12,27,146,153
+"ID03151","SiteB","Parulidae","Setophaga ","petechia",7.35,5,0,18,272,12,27,121,116
+"ID00389","SiteB","calcariidae","calcarius","pictus",1.83,6,1,24,241,9,28,151,142
+"ID04917","SiteB","Paridae","Baeolophus","biclor",NA,8,0,24,58,18,24,60,129
+"ID01223","SiteB","Fringillidae","Coccothraustes","vespertinus",3.46,2,1,62,224,15,33,140,125
+"ID03317","SiteB","Paridae","Poecile","gambeli ",NA,6,0,10,72,20,21,49,86
+"ID07520","SiteB","Cardinalidae","Passerina","caerulea",NA,2,1,36,243,13,23,150,77
+"ID02253","SiteA","Parulidae","Cardellina","canadensis",8.2,3,1,10,216,14,26,122,119
+"ID09837","SiteB","Emberizidae","Emberiza","cirlus",2.77,2,1,22,292,11,30,52,166
+"ID05225","SiteC","calcariidae","calcarius","pictus",1.81,2,0,30,231,10,29,139,142
+"ID05107","SiteC","Parulidae","Mniotilta","varia",4.91,3,0,7,209,13,28,137,71
+"ID02487","SiteA","icteridae","dolichonyx","oryzivorus",2.83,7,0,35,257,9,23,120,198
+"ID03685","SiteB","Corvidae","Pica","pica",10.25,4,1,251,245,14,31,69,254
+"ID09689","SiteB","Paridae","Poecile","atricapillus",0.71,9,0,14,68,19,20,69,135
+"ID09835","SiteB","Cardinalidae","Pheucticus","ludovicianus",NA,5,1,37,251,13,20,164,81
+"ID05004","SiteB","calcariidae","plectrophenax","nivalis ",3.42,6,1,34,225,11,30,133,197
+"ID06618","SiteB","Parulidae","Cardellina","canadensis",6.74,5,1,13,255,14,26,123,134
+"ID07686","SiteB","icteridae","quiscalus ","quiscula",5.94,3,1,116,259,9,24,134,128
+"ID02589","SiteB","Fringillidae","Chlorophonia","callophrys",2.43,3,1,27,248,15,34,137,109
+"ID02267","SiteA","Cardinalidae","Piranga","ludoviciana",3.03,4,1,29,213,12,22,161,94
+"ID09518","SiteA","Fringillidae","Mycerobas","carnipes",3.77,3,1,52,218,14,33,148,81
+"ID09039","SiteA","Corvidae","Cissa","chinensis",9.03,4,1,144,206,14,33,54,241
+"ID06603","SiteA","Cardinalidae","Cardinalis","cardinalis",4.59,3,0,50,226,13,22,145,92
+"ID01451","SiteA","icteridae","xanthocephalus","xanthocephalus",4.7,3,1,55,300,8,21,107,201
+"ID07314","SiteB","Paridae","Baeolophus","biclor",NA,8,1,18,86,19,24,39,75
+"ID08008","SiteA","Corvidae","Garrulus","glandarius",10.95,5,1,149,215,13,30,32,225
+"ID00777","SiteC","Cardinalidae","Piranga","rubra",2.91,3,1,26,227,12,22,160,130
+"ID04735","SiteB","Fringillidae","Eophona","personata",5.15,5,1,77,217,15,30,138,77
+"ID07709","SiteA","Paridae","Poecile","hudsonicus",NA,6,1,8,92,20,17,61,77
+"ID00984","SiteB","Cardinalidae","Passerina","ciris",1.48,2,1,15,212,13,20,144,133
+"ID03916","SiteC","icteridae","molothrus","ater",3.24,6,0,52,230,10,23,123,212
+"ID01810","SiteC","Emberizidae","Emberiza","affinis",3.54,2,1,16,290,9,33,72,216
+"ID09847","SiteA","Parulidae","Setophaga","coronata",6.83,6,0,15,239,12,25,123,131
+"ID00102","SiteB","Cardinalidae","Piranga","rubra",3.45,2,1,34,205,13,21,147,138
+"ID05781","SiteC","Paridae","Poecile","hudsonicus",NA,7,0,8,93,19,16,69,100
+"ID01698","SiteA","Cardinalidae","Pheucticus","ludovicianus",NA,4,0,49,217,12,19,149,134
+"ID05915","SiteC","icteridae","euphagus","carolinus",5.52,5,1,61,274,10,25,110,171
+"ID08735","SiteC","Parulidae","Mniotilta","varia",4.7,6,0,8,235,14,27,121,101
+"ID08828","SiteA","calcariidae","rhynchophanes","mccownii",2.82,5,1,21,247,10,29,162,156
+"ID08393","SiteA","Cardinalidae","Passerina","ciris",1.79,2,0,13,210,12,20,141,81
+"ID04411","SiteB","Parulidae","Setophaga","nigrescens",7.16,4,0,7,267,12,23,113,84
+"ID04252","SiteB","Cardinalidae","Piranga","flava",4.59,2,0,40,200,13,19,134,93
+"ID09041","SiteB","calcariidae","plectrophenax","nivalis ",2.88,7,1,43,227,11,27,145,191
+"ID08725","SiteA","Hirundinidae","Petrochelidon","pyrrhonota ",2.25,4,0,21,107,17,13,117,106
+"ID02329","SiteA","icteridae","molothrus","rufoaxillaris",4.05,3,1,52,237,8,23,124,186
+"ID02744","SiteA","Fringillidae","Chlorophonia","cyanea",3.99,3,1,14,220,15,31,151,103
+"ID01435","SiteB","Fringillidae","Coccothraustes","coccothraustes",3.37,3,1,68,211,15,33,129,126
+"ID03981","SiteA","Corvidae","Corvus","corax",27.23,5,1,1358,237,13,33,74,226
+"ID00998","SiteA","Hirundinidae","Stelgidopteryx","serripennis",1.65,4,1,15,86,16,14,121,124
+"ID09321","SiteC","Fringillidae","Mycerobas","carnipes",3.72,3,0,61,197,14,31,145,77
+"ID06894","SiteA","Paridae","Baeolophus","biclor",NA,7,1,26,84,19,24,56,126
+"ID09567","SiteA","icteridae","quiscalus ","major",9.24,2,1,220,271,10,25,126,147
+"ID07749","SiteB","icteridae","xanthocephalus","xanthocephalus",5.29,4,1,56,267,8,24,128,168
+"ID06697","SiteA","Fringillidae","Fringilla ","polatzeki",3.66,2,1,30,228,14,36,131,91
+"ID04728","SiteC","Fringillidae","Chlorophonia","cyanea",2.96,4,1,13,202,14,34,143,130
+"ID07312","SiteB","Hirundinidae","Stelgidopteryx","serripennis",1.77,4,1,16,107,16,12,104,84
+"ID06380","SiteB","Hirundinidae","Progne","subis",2.62,7,0,50,87,17,11,114,78
+"ID01542","SiteC","calcariidae","plectrophenax","hyperboreus",3.15,3,1,39,217,10,31,149,196
+"ID05938","SiteA","calcariidae","calcarius","lapponicus",2.52,6,1,29,264,10,25,149,161
+"ID05070","SiteA","Hirundinidae","Tachycineta","bicolor",1.88,3,1,24,85,17,12,99,129
+"ID05704","SiteB","Fringillidae","Chlorophonia","cyanea",3.12,3,0,12,208,15,33,136,116
+"ID09239","SiteB","Emberizidae","Emberiza","bruniceps",2.77,3,0,28,328,9,34,53,168
+"ID06780","SiteC","Fringillidae","Drepanis","coccinea",3.3,4,1,14,184,14,34,119,55
+"ID07572","SiteB","Cardinalidae","Piranga","ludoviciana",3.04,3,1,24,219,13,18,140,93
+"ID01626","SiteC","Fringillidae","Eophona","personata",4.25,5,1,92,201,15,32,140,85
+"ID05536","SiteC","calcariidae","calcarius","lapponicus",2.77,7,0,29,218,11,28,151,174
+"ID01370","SiteC","icteridae","quiscalus ","major",7.34,4,1,230,270,9,24,143,152
+"ID06671","SiteB","Fringillidae","Eophona","personata",4.12,3,0,93,171,16,31,131,93
+"ID06664","SiteA","Parulidae","Setophaga","nigrescens",7.29,3,0,8,254,12,27,120,110
+"ID02513","SiteB","Paridae","Poecile","gambeli ",NA,6,1,10,105,19,19,67,110
+"ID07712","SiteC","Emberizidae","Emberiza","lathami",2.54,6,0,19,268,10,33,57,200
+"ID08423","SiteC","Parulidae","Setophaga","coronata",8.18,5,1,14,267,12,29,124,119
+"ID08019","SiteC","Paridae","Poecile","gambeli ",NA,7,1,12,80,20,18,54,96
+"ID04944","SiteB","calcariidae","calcarius","pictus",1.78,3,1,31,230,9,31,146,192
+"ID09726","SiteC","Corvidae","Garrulus","glandarius",11.01,4,1,195,191,12,29,48,199
+"ID09294","SiteC","Paridae","Baeolophus","biclor",NA,6,1,25,102,18,20,41,94
+"ID02894","SiteC","Fringillidae","Fringilla ","polatzeki",2.88,4,1,27,230,14,34,122,80
+"ID09227","SiteB","icteridae","molothrus","rufoaxillaris",4.33,3,1,67,266,8,27,114,197
+"ID03436","SiteA","Fringillidae","Fringilla ","coelebs",2.64,5,1,27,243,13,33,136,74
+"ID02648","SiteB","Cardinalidae","Pheucticus","ludovicianus",NA,3,1,41,240,13,19,149,98
+"ID02841","SiteB","Fringillidae","Coccothraustes","abeilleii",4.29,4,1,11,233,15,33,136,120
+"ID07018","SiteC","Fringillidae","Chlorophonia","cyanea",3.64,4,1,13,216,14,35,129,126
+"ID02302","SiteB","Emberizidae","Emberiza","fucata",3.12,6,1,21,287,10,31,69,196
+"ID09780","SiteB","Parulidae","Setophaga","coronata",5.67,6,1,11,253,12,26,112,121
+"ID02708","SiteB","Corvidae","Pica","pica",10.01,4,1,227,236,14,30,67,227
+"ID05790","SiteB","Hirundinidae","Tachycineta","bicolor",1.73,5,0,23,128,17,15,105,133
+"ID06116","SiteB","Parulidae","Mniotilta","varia",3.76,5,0,9,228,13,25,140,115
+"ID02683","SiteB","icteridae","quiscalus ","major",9.04,3,1,222,275,10,24,134,166
+"ID07864","SiteB","calcariidae","calcarius","lapponicus",3.07,6,1,27,261,10,29,150,147
+"ID07884","SiteA","Emberizidae","Emberiza","lathami",3.29,2,1,20,305,10,34,78,231
+"ID06295","SiteB","icteridae","agelaius","phoeniceus",4.62,5,1,72,240,10,26,137,194
+"ID05013","SiteC","calcariidae","calcarius","pictus",1.64,4,1,34,202,9,30,137,139
+"ID06648","SiteA","calcariidae","calcarius","lapponicus",2.46,6,0,22,230,11,28,124,181
+"ID00135","SiteA","icteridae","quiscalus ","major",9.29,2,1,211,301,10,24,137,142
+"ID02719","SiteA","Paridae","Poecile","hudsonicus",NA,7,1,8,71,20,18,70,66
+"ID08436","SiteB","Paridae","Baeolophus","biclor",NA,7,0,19,54,18,22,51,89
+"ID01601","SiteA","icteridae","euphagus","cyanocephalus",5.12,2,1,82,273,9,26,120,184
+"ID02592","SiteB","Corvidae","Cyanocitta ","cristata",4.49,6,0,80,262,14,33,69,269
+"ID01603","SiteC","icteridae","dolichonyx","oryzivorus",2.98,5,1,37,260,10,24,131,207
+"ID09591","SiteA","Emberizidae","Emberiza","cioides",2.37,2,1,25,275,11,30,78,193
+"ID01339","SiteA","Fringillidae","Drepanis","coccinea",3.63,3,0,16,227,15,32,126,72
+"ID08030","SiteC","Parulidae","Setophaga","nigrescens",6.15,4,0,9,237,12,24,126,76
+"ID03638","SiteA","Corvidae","Cissa","chinensis",11.59,3,1,180,207,14,32,65,245
+"ID08034","SiteC","icteridae","molothrus","ater",3.27,3,0,38,268,10,26,118,160
+"ID06484","SiteC","Fringillidae","Coccothraustes","vespertinus",3.3,4,0,55,248,14,32,128,85
+"ID07636","SiteA","calcariidae","plectrophenax","nivalis ",3.49,4,1,32,183,11,31,149,151
+"ID00585","SiteB","calcariidae","rhynchophanes","mccownii",2.24,4,1,22,223,11,28,150,174
+"ID06555","SiteB","icteridae","agelaioides","badius",3.68,4,0,51,263,10,21,108,172
+"ID05540","SiteC","Corvidae","Cissa","chinensis",8.69,4,1,140,248,14,29,52,212
+"ID07642","SiteA","Fringillidae","Coccothraustes","abeilleii",4.28,4,1,9,256,15,30,146,77
+"ID00636","SiteC","Fringillidae","Eophona","personata",5.63,5,1,66,228,15,31,150,78
+"ID04788","SiteC","calcariidae","rhynchophanes","mccownii",2.6,3,1,29,206,11,28,155,159
+"ID07569","SiteA","Corvidae","Cissa","chinensis",11.33,4,0,152,222,14,29,42,246
+"ID06268","SiteB","Fringillidae","Chlorophonia","cyanea",4.12,4,0,13,231,15,32,147,95
+"ID08868","SiteC","Emberizidae","Emberiza","cioides",2.84,3,1,23,294,10,30,74,166
+"ID00884","SiteC","Hirundinidae","Tachycineta","bicolor",2.04,7,0,18,98,18,12,113,115
+"ID06110","SiteC","Emberizidae","Emberiza","cioides",2.31,5,1,20,295,11,30,74,177
+"ID04170","SiteA","Emberizidae","Emberiza","jankowskii",2.64,6,1,21,266,9,32,62,208
+"ID09617","SiteC","calcariidae","rhynchophanes","mccownii",2.14,2,1,24,239,11,28,158,185
+"ID08886","SiteC","calcariidae","plectrophenax","hyperboreus",3.45,6,1,37,190,10,30,153,155
+"ID02136","SiteB","icteridae","molothrus","rufoaxillaris",4.7,4,1,56,258,9,25,123,173
+"ID09150","SiteC","Emberizidae","Emberiza","jankowskii",2.31,5,0,21,293,9,33,71,189
+"ID00417","SiteC","Cardinalidae","Cardinalis","sinuatus",3.75,4,0,29,241,12,22,159,114
+"ID01696","SiteB","Parulidae","Setophaga","coronata",6.37,5,0,11,268,13,27,128,118
+"ID08478","SiteC","icteridae","agelaioides","badius",3.34,3,0,53,282,11,23,110,149
+"ID09808","SiteA","Parulidae","Seiurus ","aurocapilla",9.03,6,0,17,226,13,29,116,86
+"ID03529","SiteB","Emberizidae","Emberiza","bruniceps",2.27,5,1,29,326,9,34,52,188
+"ID09975","SiteB","calcariidae","calcarius","pictus",2.16,3,1,31,197,9,27,145,140
+"ID03533","SiteC","Fringillidae","Chlorophonia","callophrys",2.72,2,1,28,219,14,34,143,108
+"ID00534","SiteA","Parulidae","Setophaga","nigrescens",6.72,5,0,9,249,13,27,114,123
+"ID08181","SiteC","calcariidae","calcarius","pictus",2.16,5,0,27,246,9,31,143,174
+"ID08287","SiteC","Parulidae","Setophaga","coronata",7.45,6,0,12,265,12,27,123,120
+"ID05816","SiteA","Emberizidae","Emberiza","calandra",4.05,5,1,58,286,10,34,52,196
+"ID06875","SiteA","Paridae","Poecile","atricapillus",0.62,6,0,11,74,19,18,46,81
+"ID01555","SiteB","Corvidae","Pica","pica",9.58,4,1,194,264,14,31,65,239
+"ID03592","SiteB","Cardinalidae","Piranga","rubra",3.51,5,1,34,208,12,21,142,143
+"ID09015","SiteC","Paridae","Baeolophus","biclor",NA,4,1,25,55,18,21,64,106
+"ID04889","SiteC","Corvidae","Garrulus","glandarius",10.23,5,1,197,214,13,28,35,256
+"ID03310","SiteA","Hirundinidae","Riparia","riparia",1.89,6,0,13,83,17,15,136,85
+"ID00207","SiteB","Hirundinidae","Tachycineta","bicolor",1.45,6,1,21,85,18,13,104,131
+"ID04005","SiteA","Parulidae","Setophaga","coronata",5.69,5,1,10,224,12,25,134,123
+"ID03319","SiteA","Parulidae","Setophaga","coronata",7.44,3,1,15,219,13,25,112,128
+"ID04814","SiteB","Fringillidae","Eophona","personata",5.03,2,1,94,178,16,33,145,106
+"ID03146","SiteC","calcariidae","calcarius","lapponicus",3.25,7,1,29,236,11,25,149,194
+"ID00574","SiteA","Hirundinidae","Petrochelidon","pyrrhonota ",2.62,2,1,20,76,17,12,129,107
+"ID03061","SiteA","Paridae","Baeolophus","biclor",NA,6,1,26,73,18,22,49,130
+"ID04930","SiteB","calcariidae","plectrophenax","hyperboreus",3.86,3,0,37,181,11,31,139,168
+"ID09254","SiteB","Cardinalidae","Pheucticus","ludovicianus",NA,2,1,54,231,12,19,152,106
+"ID08840","SiteC","Emberizidae","Emberiza","calandra",3.55,3,1,54,290,9,34,70,192
+"ID01783","SiteA","Paridae","Poecile","gambeli ",NA,4,0,11,92,20,17,64,80
+"ID00132","SiteB","Fringillidae","Mycerobas","carnipes",3.75,3,1,66,197,15,30,149,92
+"ID06631","SiteB","Hirundinidae","Petrochelidon","pyrrhonota ",1.92,3,1,26,85,17,11,117,126
+"ID03795","SiteC","Emberizidae","Emberiza","lathami",2.84,3,0,23,300,11,30,58,187
+"ID00952","SiteB","calcariidae","plectrophenax","hyperboreus",3.87,4,1,45,183,10,30,139,185
+"ID04266","SiteB","Corvidae","Pica","pica",9.94,5,1,229,245,14,30,74,268
+"ID00867","SiteA","Paridae","Poecile","gambeli ",NA,7,0,11,75,20,18,56,97
+"ID04650","SiteB","Parulidae","Seiurus ","aurocapilla",8.82,5,1,18,246,13,28,133,99
+"ID02884","SiteA","icteridae","quiscalus ","quiscula",7.01,5,1,105,260,8,24,133,165
+"ID04515","SiteB","Parulidae","Setophaga ","petechia",6.95,6,1,19,281,13,28,120,101
+"ID07242","SiteA","Fringillidae","Fringilla ","polatzeki",2.94,2,1,34,243,13,34,117,116
+"ID03971","SiteA","Hirundinidae","Riparia","riparia",1.92,5,1,15,58,16,14,135,129
+"ID00573","SiteA","Cardinalidae","Piranga","flava",4.04,5,0,39,241,13,19,137,98
+"ID08344","SiteA","Parulidae","Seiurus ","aurocapilla",7.77,2,1,19,218,13,27,124,125
+"ID03418","SiteB","Emberizidae","Emberiza","cioides",2.2,3,0,18,315,10,31,69,221
+"ID05047","SiteB","Hirundinidae","Progne","subis",3.34,4,0,46,97,17,10,138,105
+"ID03687","SiteB","icteridae","molothrus","rufoaxillaris",4.77,3,1,58,263,9,27,121,174
+"ID02204","SiteC","Corvidae","Corvus","corax",28.67,7,1,1377,219,12,32,49,233
+"ID01791","SiteA","Emberizidae","Emberiza","lathami",2.81,3,1,27,289,11,31,73,223
+"ID01396","SiteC","Corvidae","Cissa","chinensis",9.13,6,1,183,213,14,29,67,233
+"ID08907","SiteC","Cardinalidae","Piranga","flava",4.61,3,1,37,211,13,21,151,107
+"ID06139","SiteB","icteridae","dolichonyx","oryzivorus",2.39,4,1,31,242,9,24,121,217
+"ID04291","SiteC","Hirundinidae","Hirundo","rustica",1.71,6,0,18,82,16,14,103,91
+"ID01196","SiteA","Fringillidae","Eophona","personata",5.09,4,1,81,207,16,30,144,73
+"ID01013","SiteC","calcariidae","calcarius","pictus",2.37,3,1,29,222,9,29,149,137
+"ID00945","SiteC","Emberizidae","Emberiza","calandra",4.11,3,0,57,290,10,32,64,172
+"ID00898","SiteB","Emberizidae","Emberiza","affinis",3.73,3,1,17,309,9,33,58,199
+"ID09522","SiteA","Corvidae","Garrulus","glandarius",10.16,6,1,191,224,13,27,28,221
+"ID02202","SiteB","Cardinalidae","Passerina","amoena",1.46,3,0,15,192,13,22,141,126
+"ID07059","SiteC","Cardinalidae","Cardinalis","sinuatus",4.82,4,0,32,202,13,20,151,116
+"ID01740","SiteB","Corvidae","Corvus ","brachyrhynchos",20.22,4,1,479,263,13,30,38,267
+"ID07155","SiteC","calcariidae","rhynchophanes","mccownii",2.18,4,0,27,234,10,29,151,184
+"ID09911","SiteB","Cardinalidae","Passerina","versicolor",2.67,4,1,10,226,12,22,135,136
+"ID04521","SiteA","Emberizidae","Emberiza","cia",2.92,6,1,22,284,9,33,70,161
+"ID01039","SiteC","Parulidae","Seiurus ","aurocapilla",10.08,6,1,20,260,13,28,128,103
+"ID08011","SiteB","calcariidae","rhynchophanes","mccownii",2.45,3,1,30,231,10,30,155,162
+"ID09738","SiteA","Cardinalidae","Pheucticus","melanocephalus",NA,2,1,38,225,12,23,135,72
+"ID00611","SiteA","calcariidae","plectrophenax","hyperboreus",2.86,2,1,43,204,11,27,149,165
+"ID01148","SiteC","Cardinalidae","Piranga","flava",3.36,4,1,40,229,14,20,156,83
+"ID05556","SiteA","Fringillidae","Chlorophonia","cyanea",2.87,2,1,15,240,14,33,141,111
+"ID04726","SiteB","Hirundinidae","Petrochelidon","pyrrhonota ",2.44,4,1,29,111,16,14,112,104
+"ID08802","SiteC","Emberizidae","Emberiza","lathami",2.93,3,0,27,310,10,31,71,176
+"ID04901","SiteB","calcariidae","calcarius","ornatus",2.33,6,1,21,229,9,27,140,147
+"ID03990","SiteC","Cardinalidae","Passerina","caerulea",NA,3,1,32,204,13,19,139,127
+"ID08246","SiteC","Fringillidae","Eophona","personata",5.47,2,1,94,186,16,31,143,69
+"ID06853","SiteC","calcariidae","calcarius","lapponicus",2.27,4,1,26,219,10,29,134,176
+"ID07277","SiteA","calcariidae","plectrophenax","nivalis ",3.51,4,1,31,190,11,30,145,149
+"ID09120","SiteB","Corvidae","Cyanocitta ","cristata",6.37,5,0,99,249,14,33,72,228
+"ID03199","SiteC","Fringillidae","Fringilla ","polatzeki",3.49,4,0,24,244,13,32,133,90
+"ID02791","SiteA","Emberizidae","Emberiza","cia",2.92,4,1,24,283,9,32,74,216
+"ID09717","SiteB","Paridae","Poecile","hudsonicus",NA,4,1,8,82,20,17,52,106
+"ID00701","SiteA","Corvidae","Corvus","corax",29.84,7,1,1114,222,13,34,59,265
+"ID03432","SiteB","Emberizidae","Emberiza","cirlus",2.85,4,0,25,273,11,31,66,212
+"ID07366","SiteB","Fringillidae","Coccothraustes","abeilleii",3.3,6,0,11,233,16,32,127,88
+"ID02455","SiteA","Hirundinidae","Tachycineta","bicolor",1.77,3,0,23,110,17,12,117,95
+"ID01637","SiteB","calcariidae","plectrophenax","nivalis ",3.31,6,1,34,195,12,31,126,189
+"ID07611","SiteB","Parulidae","Seiurus ","aurocapilla",9.32,5,1,19,261,13,28,137,114
+"ID02261","SiteB","Cardinalidae","Passerina","ciris",1.58,3,1,17,214,13,18,131,131
+"ID08303","SiteB","Fringillidae","Drepanis","coccinea",3.84,2,0,17,232,15,31,116,75
+"ID05545","SiteA","Cardinalidae","Cardinalis","sinuatus",3.95,3,1,30,233,13,23,161,81
+"ID04578","SiteC","Parulidae","Setophaga","coronata",7.4,3,0,12,220,12,26,124,93
+"ID05395","SiteB","calcariidae","plectrophenax","hyperboreus",3.12,4,1,37,206,10,30,149,164
+"ID07780","SiteC","Corvidae","Corvus ","brachyrhynchos",15.75,4,0,490,238,13,29,54,270
+"ID07454","SiteC","Parulidae","Seiurus ","aurocapilla",11.55,7,1,17,262,14,26,126,125
+"ID09574","SiteA","Emberizidae","Emberiza","fucata",2.83,4,0,17,310,11,33,59,175
+"ID01264","SiteA","Emberizidae","Emberiza","melanocephala",3.3,8,0,27,308,10,32,62,167
+"ID06842","SiteB","Cardinalidae","Pheucticus","melanocephalus",NA,4,1,37,229,12,23,147,96
+"ID00209","SiteB","Corvidae","Garrulus","glandarius",9.54,4,1,193,220,13,29,39,198
+"ID04644","SiteA","calcariidae","rhynchophanes","mccownii",2.29,3,1,26,222,10,27,165,175
+"ID02213","SiteC","icteridae","molothrus","ater",3.23,5,1,46,278,10,25,123,199
+"ID04937","SiteB","Fringillidae","Drepanis","coccinea",4.21,1,0,16,227,15,32,132,88
+"ID02495","SiteC","Parulidae","Mniotilta","varia",4.61,5,0,7,216,13,24,139,79
+"ID05034","SiteC","Hirundinidae","Petrochelidon","pyrrhonota ",1.78,6,0,25,75,17,13,128,115
+"ID07117","SiteC","Fringillidae","Drepanis","coccinea",4.06,2,1,14,229,14,34,136,107
+"ID07545","SiteB","Emberizidae","Emberiza","affinis",3.29,5,0,18,263,10,33,50,216
+"ID05872","SiteB","Parulidae","Seiurus ","aurocapilla",10.69,3,1,17,256,14,29,120,120
+"ID01915","SiteC","Fringillidae","Fringilla ","polatzeki",2.91,2,1,33,252,14,34,116,82
+"ID06775","SiteC","Cardinalidae","Pheucticus","ludovicianus",NA,3,1,36,203,12,18,158,126
+"ID02547","SiteA","Corvidae","Cyanocitta ","cristata",6.05,3,1,86,267,14,32,72,254
+"ID00864","SiteC","Cardinalidae","Pheucticus","melanocephalus",NA,4,1,40,199,13,19,151,102
+"ID08640","SiteB","icteridae","dolichonyx","oryzivorus",2.94,4,0,41,265,9,23,117,207
+"ID05688","SiteC","Emberizidae","Emberiza","cia",2.8,5,0,20,288,10,31,71,186
+"ID02112","SiteC","Emberizidae","Emberiza","lathami",2.67,5,0,21,303,11,34,55,206
+"ID01697","SiteC","Fringillidae","Drepanis","coccinea",4.21,2,1,14,233,14,34,131,111
+"ID08150","SiteA","icteridae","dolichonyx","oryzivorus",2.69,7,0,28,242,9,22,133,213
+"ID01741","SiteA","icteridae","molothrus","ater",3.25,5,1,41,239,9,23,111,194
+"ID07437","SiteA","Emberizidae","Emberiza","cia",2.66,6,1,26,295,9,35,59,217
+"ID07725","SiteA","Corvidae","Cyanocitta ","cristata",4.47,4,1,72,248,13,30,80,220
+"ID07997","SiteC","Cardinalidae","Passerina","caerulea",NA,4,1,25,235,12,21,138,114
+"ID03783","SiteC","Cardinalidae","Piranga","ludoviciana",3.98,6,0,29,241,13,20,155,99
+"ID01431","SiteB","Fringillidae","Coccothraustes","vespertinus",4.11,5,0,64,263,14,32,125,118
+"ID07734","SiteB","Cardinalidae","Passerina","ciris",1.71,5,0,17,247,12,21,131,96
+"ID09002","SiteA","Corvidae","Corvus","corax",28.73,3,1,1365,239,12,33,64,277
+"ID00125","SiteC","Emberizidae","Emberiza","affinis",3.13,5,1,14,287,10,31,68,165
+"ID00107","SiteA","Emberizidae","Emberiza","fucata",2.65,4,0,21,318,11,31,61,212
+"ID00438","SiteA","Cardinalidae","Piranga","flava",3.75,5,1,41,201,14,18,131,82
+"ID04114","SiteB","Hirundinidae","Progne","subis",2.78,7,0,41,99,16,10,112,91
+"ID08727","SiteA","Cardinalidae","Pheucticus","ludovicianus",NA,3,1,49,244,13,21,159,102
+"ID03615","SiteC","Cardinalidae","Piranga","rubra",3.85,3,0,27,230,12,19,136,114
+"ID01330","SiteB","Fringillidae","Coccothraustes","coccothraustes",3.17,7,1,57,236,15,33,136,85
+"ID09380","SiteB","calcariidae","calcarius","ornatus",2.04,4,1,23,204,9,30,151,180
+"ID05243","SiteC","calcariidae","plectrophenax","nivalis ",3.32,6,0,32,196,12,27,150,188
+"ID07074","SiteC","icteridae","molothrus","rufoaxillaris",4.03,4,0,65,278,9,23,121,213
+"ID01576","SiteB","Parulidae","Setophaga ","petechia",8.76,5,1,19,258,13,25,129,96
+"ID07476","SiteB","Corvidae","Corvus","corax",29.93,5,1,1151,231,13,32,51,255
+"ID08375","SiteA","calcariidae","calcarius","pictus",2.31,3,1,26,202,9,27,133,171
+"ID07171","SiteA","icteridae","dolichonyx","oryzivorus",2.66,4,0,40,289,10,23,113,186
+"ID01831","SiteB","Emberizidae","Emberiza","lathami",2.34,3,1,24,295,11,30,60,183
+"ID00486","SiteC","Paridae","Poecile","gambeli ",NA,7,1,9,111,20,17,64,79
+"ID07833","SiteB","Fringillidae","Chlorophonia","cyanea",3.33,3,0,13,238,14,35,132,83
+"ID05001","SiteB","icteridae","molothrus","rufoaxillaris",4.31,5,0,54,237,8,24,128,174
+"ID03790","SiteA","Emberizidae","Emberiza","fucata",2.49,4,0,20,302,10,31,62,203
+"ID08355","SiteC","Corvidae","Corvus ","brachyrhynchos",13.61,3,1,407,288,14,29,39,250
+"ID01887","SiteB","icteridae","molothrus","ater",2.78,6,1,47,244,9,25,131,167
+"ID03883","SiteC","Fringillidae","Mycerobas","carnipes",4.26,5,1,59,215,14,33,131,81
+"ID00858","SiteC","calcariidae","rhynchophanes","mccownii",2.51,5,1,22,198,10,30,159,171
+"ID07368","SiteC","Paridae","Poecile","hudsonicus",NA,8,0,8,78,20,16,66,69
+"ID01907","SiteC","Corvidae","Cissa","chinensis",8.56,3,1,190,220,13,32,65,260
+"ID08379","SiteB","Paridae","Poecile","gambeli ",NA,7,1,13,110,19,17,67,101
+"ID06404","SiteC","Hirundinidae","Stelgidopteryx","serripennis",1.29,5,1,12,112,17,13,121,126
+"ID02867","SiteB","Fringillidae","Chlorophonia","cyanea",3.54,2,0,11,209,14,35,147,77
+"ID09310","SiteC","Hirundinidae","Petrochelidon","pyrrhonota ",2.43,3,0,26,99,17,12,131,138
+"ID04933","SiteB","Hirundinidae","Riparia","riparia",1.37,7,0,14,72,16,15,127,80
+"ID04196","SiteC","Cardinalidae","Piranga","ludoviciana",3.84,2,1,24,229,12,21,146,80
+"ID00440","SiteA","Emberizidae","Emberiza","bruniceps",3.3,5,1,28,292,10,32,55,169
+"ID00264","SiteA","Fringillidae","Fringilla ","polatzeki",2.67,4,0,24,243,14,32,122,105
+"ID07519","SiteA","Hirundinidae","Stelgidopteryx","serripennis",1.78,6,0,17,106,17,15,114,80
+"ID06017","SiteB","Emberizidae","Emberiza","cioides",2.72,3,1,24,309,10,33,73,205
+"ID01631","SiteA","Emberizidae","Emberiza","calandra",4.39,5,1,40,266,9,32,57,208
+"ID04085","SiteC","Emberizidae","Emberiza","cirlus",2.19,3,1,20,313,11,30,67,194
+"ID00338","SiteB","icteridae","quiscalus ","quiscula",8.05,3,1,136,287,8,24,112,131
+"ID09908","SiteB","Emberizidae","Emberiza","melanocephala",3.34,6,0,23,269,10,30,72,175
+"ID07905","SiteB","Parulidae","Setophaga","coronata",7.8,6,0,11,266,12,27,127,108
+"ID03073","SiteB","Cardinalidae","Passerina","amoena",1.38,4,0,17,225,14,21,149,119
+"ID07657","SiteA","calcariidae","plectrophenax","nivalis ",2.65,7,0,32,227,11,28,151,168
+"ID03556","SiteC","Cardinalidae","Passerina","ciris",1.39,5,0,13,238,12,22,134,120
+"ID07128","SiteC","Emberizidae","Emberiza","cia",3.29,3,0,26,290,9,32,61,184
+"ID05528","SiteA","Cardinalidae","Passerina","ciris",1.66,4,0,15,220,12,19,137,109
+"ID01019","SiteB","Fringillidae","Mycerobas","carnipes",3.94,4,1,56,181,14,30,123,60
+"ID01068","SiteA","Emberizidae","Emberiza","cirlus",2.32,4,0,26,256,10,33,55,186
+"ID02604","SiteB","Emberizidae","Emberiza","cirlus",3.16,5,0,20,259,11,34,63,201
+"ID01865","SiteA","Fringillidae","Coccothraustes","vespertinus",3.2,3,1,62,237,14,31,142,135
+"ID05056","SiteB","Cardinalidae","Passerina","ciris",1.46,5,0,18,228,12,20,148,100
+"ID02237","SiteC","Fringillidae","Chlorophonia","cyanea",3.88,3,1,14,237,15,35,150,122
+"ID09272","SiteA","Cardinalidae","Piranga","flava",3.88,3,1,45,225,13,21,134,78
+"ID06508","SiteB","Fringillidae","Mycerobas","carnipes",3.45,2,1,51,210,14,30,146,85
+"ID04447","SiteB","Parulidae","Setophaga","nigrescens",6.61,6,1,9,248,13,23,100,102
+"ID05431","SiteB","Cardinalidae","Piranga","ludoviciana",2.99,5,1,31,203,13,19,140,102
+"ID04340","SiteB","Cardinalidae","Passerina","ciris",1.46,2,0,14,241,13,20,132,120
+"ID07228","SiteB","Cardinalidae","Piranga","rubra",3.7,3,1,27,207,13,22,140,90
+"ID00024","SiteC","Emberizidae","Emberiza","fucata",2.38,3,1,18,299,10,31,56,185
+"ID07764","SiteB","Parulidae","Setophaga","nigrescens",6.03,6,1,7,274,12,27,116,120
+"ID09573","SiteB","Paridae","Poecile","gambeli ",NA,9,0,12,104,20,19,62,68
+"ID01486","SiteB","Cardinalidae","Piranga","flava",3.21,3,1,43,196,14,20,156,95
+"ID03576","SiteC","Hirundinidae","Hirundo","rustica",1.61,7,0,18,96,16,16,116,96
+"ID02179","SiteB","Paridae","Poecile","gambeli ",NA,8,1,11,70,20,20,50,110
+"ID06338","SiteA","icteridae","xanthocephalus","xanthocephalus",4.22,4,1,59,252,9,22,110,184
+"ID01345","SiteC","Parulidae","Setophaga","coronata",7.01,2,0,15,238,13,27,119,128
+"ID04380","SiteC","Hirundinidae","Progne","subis",2.89,5,1,58,106,17,14,127,86
+"ID02154","SiteB","Cardinalidae","Passerina","versicolor",1.91,2,0,13,206,12,20,139,122
+"ID06262","SiteA","Hirundinidae","Progne","subis",2.54,3,1,40,95,17,13,114,91
+"ID07436","SiteC","Cardinalidae","Passerina","ciris",1.43,3,0,19,226,13,20,146,102
+"ID01087","SiteC","Fringillidae","Mycerobas","carnipes",3.32,4,1,53,198,14,32,148,103
+"ID04869","SiteA","Cardinalidae","Piranga","flava",4.03,5,1,45,204,13,19,141,117
+"ID01094","SiteB","Paridae","Poecile","hudsonicus",NA,10,0,9,113,20,20,65,85
+"ID04881","SiteC","Hirundinidae","Hirundo","rustica",1.99,5,1,21,59,15,12,106,77
+"ID06354","SiteB","Hirundinidae","Hirundo","rustica",1.6,5,1,15,76,16,12,104,104
+"ID07262","SiteC","Paridae","Poecile","atricapillus",0.66,9,0,13,95,18,19,44,115
+"ID07081","SiteA","Fringillidae","Drepanis","coccinea",4.41,2,0,16,186,15,35,125,105
+"ID05744","SiteC","Fringillidae","Coccothraustes","coccothraustes",4.09,4,1,55,206,15,30,134,88
+"ID04967","SiteA","Cardinalidae","Passerina","versicolor",2.54,2,0,13,203,13,23,144,124
+"ID04884","SiteB","Emberizidae","Emberiza","jankowskii",2.69,3,1,24,287,9,31,74,180
+"ID09505","SiteB","Cardinalidae","Passerina","caerulea",NA,4,0,37,208,12,21,132,86
+"ID08471","SiteC","Emberizidae","Emberiza","affinis",3.03,3,0,16,285,9,33,74,165
+"ID06598","SiteA","Emberizidae","Emberiza","cioides",3.06,5,1,19,322,11,29,58,163
+"ID00380","SiteA","Cardinalidae","Piranga","flava",3.92,3,0,39,198,14,22,135,80
+"ID01674","SiteB","icteridae","euphagus","carolinus",5.49,6,1,60,250,10,23,114,160
+"ID06007","SiteC","Cardinalidae","Passerina","versicolor",2.68,3,1,10,246,13,24,148,128
+"ID05102","SiteB","Hirundinidae","Tachycineta","bicolor",1.53,4,0,21,133,18,13,114,109
+"ID02212","SiteC","icteridae","agelaius","phoeniceus",3.64,4,0,55,262,11,22,122,160
+"ID00199","SiteB","Fringillidae","Eophona","personata",3.83,4,1,94,200,16,30,136,95
+"ID03112","SiteC","Parulidae","Cardellina","canadensis",6.08,4,0,12,235,13,29,135,144
+"ID03636","SiteB","Fringillidae","Fringilla ","polatzeki",3.19,2,1,33,220,13,36,132,71
+"ID07534","SiteA","icteridae","xanthocephalus","xanthocephalus",3.63,3,1,64,267,8,23,116,193
+"ID00014","SiteC","Emberizidae","Emberiza","jankowskii",2.87,3,0,21,278,9,35,72,184
+"ID00747","SiteB","Fringillidae","Fringilla ","polatzeki",3.19,2,0,24,214,14,32,116,72
+"ID08702","SiteA","Cardinalidae","Passerina","caerulea",NA,3,0,36,236,12,19,145,119
+"ID07452","SiteA","Hirundinidae","Progne","subis",3.47,7,1,44,119,16,12,132,49
+"ID01155","SiteA","Emberizidae","Emberiza","fucata",2.2,6,1,18,301,11,31,83,214
+"ID09545","SiteC","Parulidae","Setophaga","coronata",6.59,6,0,13,239,13,27,118,116
+"ID05328","SiteB","Hirundinidae","Tachycineta","bicolor",1.76,6,1,23,134,17,15,124,112
+"ID07923","SiteA","Emberizidae","Emberiza","cia",2.42,3,1,27,302,9,31,57,171
+"ID08542","SiteA","calcariidae","calcarius","ornatus",1.96,3,1,17,197,10,30,139,159
+"ID05135","SiteA","icteridae","agelaius","phoeniceus",4.03,4,1,75,272,11,25,125,184
+"ID07051","SiteC","Hirundinidae","Hirundo","rustica",2.18,5,0,18,74,16,14,114,71
+"ID08682","SiteC","Corvidae","Garrulus","glandarius",11.76,6,1,183,215,13,28,30,202
+"ID00437","SiteC","Fringillidae","Chlorophonia","callophrys",3.28,3,1,28,250,15,32,131,94
+"ID03250","SiteC","icteridae","quiscalus ","major",6.52,3,1,228,305,9,26,143,126
+"ID02868","SiteA","Cardinalidae","Piranga","rubra",3.85,2,1,28,217,12,20,148,144
+"ID09201","SiteA","Emberizidae","Emberiza","cioides",2.83,3,0,25,301,10,33,81,189
+"ID03735","SiteA","calcariidae","plectrophenax","hyperboreus",3.11,4,1,46,237,11,28,162,195
+"ID01232","SiteA","Corvidae","Cissa","chinensis",11.58,7,1,141,195,13,32,59,230
+"ID08191","SiteA","Parulidae","Setophaga","nigrescens",6.9,2,1,7,239,12,24,115,122
+"ID02144","SiteB","Hirundinidae","Tachycineta","bicolor",1.67,3,0,20,103,18,15,105,105
+"ID05054","SiteB","Emberizidae","Emberiza","bruniceps",2.46,2,0,31,312,10,30,63,218
+"ID06698","SiteA","Fringillidae","Coccothraustes","abeilleii",4.32,4,1,10,216,15,30,126,88
+"ID05106","SiteB","calcariidae","rhynchophanes","mccownii",2.16,2,0,21,218,11,31,157,184
+"ID07596","SiteA","calcariidae","calcarius","ornatus",1.92,4,0,20,253,9,29,134,174
+"ID04516","SiteB","Hirundinidae","Hirundo","rustica",2.03,5,0,16,55,15,14,98,79
+"ID08054","SiteB","Corvidae","Corvus ","brachyrhynchos",18.74,4,1,535,280,13,30,42,245
+"ID07126","SiteB","Parulidae","Setophaga","coronata",6.74,6,1,12,266,13,29,119,85
+"ID04846","SiteC","Fringillidae","Coccothraustes","vespertinus",3.34,2,1,55,211,14,33,124,87
+"ID03265","SiteA","Cardinalidae","Cardinalis","sinuatus",3.95,2,0,27,254,12,23,149,75
+"ID07416","SiteC","Emberizidae","Emberiza","cioides",3.05,5,0,19,316,10,30,77,195
+"ID02047","SiteA","Hirundinidae","Riparia","riparia",1.59,3,1,18,69,17,12,115,125
+"ID04902","SiteA","calcariidae","calcarius","lapponicus",2.74,4,0,26,231,11,25,144,141
+"ID09508","SiteA","calcariidae","calcarius","pictus",1.64,4,1,25,239,9,31,141,160
+"ID08987","SiteB","Paridae","Poecile","hudsonicus",NA,4,0,8,74,20,17,70,100
+"ID09136","SiteB","Emberizidae","Emberiza","bruniceps",3.02,3,1,28,292,9,30,63,184
+"ID09448","SiteA","Fringillidae","Fringilla ","coelebs",2.33,6,0,23,205,13,33,120,90
+"ID07012","SiteA","Fringillidae","Fringilla ","polatzeki",3.65,1,1,24,249,13,35,110,116
+"ID04871","SiteA","calcariidae","calcarius","ornatus",1.64,3,0,19,231,9,29,152,159
+"ID04928","SiteA","Corvidae","Corvus","corax",32.98,6,1,997,246,12,34,50,230
+"ID08038","SiteA","Parulidae","Setophaga","coronata",8.07,5,0,13,220,12,25,133,108
+"ID04959","SiteA","icteridae","molothrus","ater",2.76,7,1,51,286,10,26,111,164
+"ID09572","SiteA","Fringillidae","Chlorophonia","cyanea",3.68,4,0,14,253,14,33,141,95
+"ID08703","SiteC","icteridae","molothrus","ater",3.1,7,0,44,249,10,23,108,208
+"ID06035","SiteC","Emberizidae","Emberiza","bruniceps",2.99,5,0,26,278,10,30,56,223
+"ID08466","SiteA","Fringillidae","Chlorophonia","callophrys",2.88,2,1,24,236,15,32,145,99
+"ID02898","SiteA","Hirundinidae","Progne","subis",2.93,4,1,47,121,16,11,129,47
+"ID08539","SiteA","Parulidae","Seiurus ","aurocapilla",10.39,5,1,18,224,14,26,112,94
+"ID04117","SiteA","icteridae","molothrus","ater",3.24,7,0,46,285,9,25,131,160
+"ID03588","SiteB","Corvidae","Pica","pica",8.06,5,0,243,249,14,30,73,234
+"ID09938","SiteA","Cardinalidae","Passerina","amoena",1.28,4,1,15,217,14,22,150,116
+"ID03397","SiteC","Emberizidae","Emberiza","lathami",3,4,0,26,301,11,32,72,212
+"ID06753","SiteA","Corvidae","Pica","pica",9.64,6,0,222,241,15,32,67,254
+"ID09547","SiteB","icteridae","quiscalus ","major",8.98,3,1,163,268,9,24,124,121
+"ID00499","SiteC","Corvidae","Cissa","chinensis",8.16,6,1,160,191,14,32,64,225
+"ID05705","SiteC","icteridae","agelaioides","badius",3.76,3,1,50,256,11,21,123,147
+"ID07022","SiteA","Hirundinidae","Riparia","riparia",1.95,5,1,18,81,16,13,134,91
+"ID08754","SiteA","Emberizidae","Emberiza","calandra",3.89,3,1,59,300,9,31,54,216
+"ID04138","SiteC","Hirundinidae","Petrochelidon","pyrrhonota ",1.84,2,1,27,116,17,11,110,134
+"ID02798","SiteB","icteridae","quiscalus ","major",8.1,1,1,179,268,9,24,142,132
+"ID04262","SiteA","Corvidae","Corvus ","brachyrhynchos",19.32,5,1,525,275,14,28,37,243
+"ID06349","SiteA","calcariidae","calcarius","ornatus",2.16,3,1,18,199,9,29,136,177
+"ID05396","SiteA","calcariidae","calcarius","ornatus",2.24,6,1,22,235,10,27,145,156
+"ID00060","SiteB","Emberizidae","Emberiza","fucata",2.92,3,1,20,303,11,30,77,173
+"ID09305","SiteA","Fringillidae","Chlorophonia","cyanea",3.49,3,0,12,237,15,32,141,77
+"ID06135","SiteB","Paridae","Baeolophus","biclor",NA,4,0,26,85,19,20,63,75
+"ID03278","SiteA","Paridae","Baeolophus","biclor",NA,5,0,24,56,18,23,44,107
+"ID01604","SiteC","Cardinalidae","Passerina","caerulea",NA,5,1,37,249,12,19,152,125
+"ID08124","SiteC","Paridae","Poecile","hudsonicus",NA,8,1,10,102,19,19,64,91
+"ID07917","SiteB","icteridae","euphagus","cyanocephalus",3.88,6,1,82,234,10,27,115,160
+"ID00951","SiteB","Corvidae","Pica","pica",10.41,8,1,201,221,14,31,50,274
+"ID04943","SiteC","Cardinalidae","Piranga","rubra",2.87,5,1,32,217,12,20,142,88
+"ID08203","SiteC","Corvidae","Pica","pica",8.18,6,1,250,267,14,30,55,262
+"ID01494","SiteA","Parulidae","Mniotilta","varia",4.62,6,0,8,228,14,28,127,115
+"ID03710","SiteB","Hirundinidae","Hirundo","rustica",1.78,6,0,16,43,15,12,116,115
+"ID05390","SiteB","Cardinalidae","Passerina","amoena",1.14,5,0,14,233,14,21,154,126
+"ID04052","SiteB","Emberizidae","Emberiza","melanocephala",3.09,3,1,27,305,10,31,56,210
+"ID09801","SiteA","icteridae","quiscalus ","major",9.14,2,1,228,281,9,24,122,120
+"ID06125","SiteA","Emberizidae","Emberiza","calandra",4.01,3,1,55,311,9,33,74,173
+"ID06795","SiteB","Fringillidae","Coccothraustes","abeilleii",3.65,6,0,9,247,15,34,145,121
+"ID03210","SiteC","Fringillidae","Eophona","personata",5.18,4,1,71,192,16,34,143,109
+"ID02675","SiteB","Paridae","Poecile","gambeli ",NA,5,0,11,65,19,19,57,64
+"ID09281","SiteB","Cardinalidae","Piranga","ludoviciana",3.56,5,0,23,248,13,20,136,115
+"ID02004","SiteC","Cardinalidae","Piranga","flava",4.31,3,1,45,215,14,20,149,99
+"ID05697","SiteA","Paridae","Poecile","atricapillus",0.76,12,0,12,110,19,20,47,87
+"ID00905","SiteB","icteridae","euphagus","cyanocephalus",5.01,5,1,78,274,10,26,116,182
+"ID05267","SiteA","Cardinalidae","Passerina","amoena",1.44,3,0,16,186,14,21,144,127
+"ID05552","SiteA","Emberizidae","Emberiza","melanocephala",2.47,5,0,33,274,11,30,49,195
+"ID07401","SiteB","Cardinalidae","Piranga","ludoviciana",2.77,5,1,33,256,12,20,154,91
+"ID08196","SiteB","Fringillidae","Eophona","personata",5.37,4,1,91,197,16,30,130,79
+"ID00122","SiteC","icteridae","euphagus","carolinus",4.6,6,1,50,264,9,26,119,177
+"ID05442","SiteC","Corvidae","Garrulus","glandarius",10.42,4,1,160,192,13,31,54,230
+"ID00851","SiteC","Fringillidae","Fringilla ","coelebs",2.6,5,1,22,241,13,34,124,80
+"ID08541","SiteC","Fringillidae","Coccothraustes","coccothraustes",3.96,3,1,62,250,15,29,151,126
+"ID09426","SiteA","icteridae","molothrus","rufoaxillaris",4.49,6,1,59,274,9,24,109,196
+"ID04000","SiteA","Emberizidae","Emberiza","jankowskii",2.5,6,1,22,288,9,35,76,219
+"ID03347","SiteC","Hirundinidae","Progne","subis",2.45,4,0,42,129,17,11,119,66
+"ID01424","SiteA","calcariidae","plectrophenax","nivalis ",2.87,8,1,31,232,11,30,150,170
+"ID06321","SiteC","Parulidae","Setophaga","nigrescens",7.35,5,0,9,289,13,23,124,125
+"ID04171","SiteB","Corvidae","Cyanocitta ","cristata",5.68,4,1,72,288,14,32,67,255
+"ID08667","SiteC","Hirundinidae","Tachycineta","bicolor",1.81,4,0,21,105,18,13,102,122
+"ID09103","SiteA","Hirundinidae","Tachycineta","bicolor",2.09,7,0,17,96,17,11,101,127
+"ID09580","SiteA","Paridae","Poecile","atricapillus",0.62,7,1,12,81,19,19,58,101
+"ID01460","SiteC","icteridae","euphagus","carolinus",5.71,6,1,68,252,9,25,120,175
+"ID09184","SiteB","icteridae","xanthocephalus","xanthocephalus",5.03,2,1,58,308,8,21,119,151
+"ID06741","SiteA","icteridae","molothrus","rufoaxillaris",4.58,6,1,57,246,9,25,126,172
+"ID09196","SiteA","icteridae","agelaioides","badius",3.44,2,1,48,280,11,22,128,168
+"ID06235","SiteB","calcariidae","plectrophenax","hyperboreus",3.88,6,0,40,207,11,30,158,195
+"ID02929","SiteB","Cardinalidae","Cardinalis","cardinalis",4.59,2,1,43,209,12,24,149,80
+"ID02385","SiteA","Emberizidae","Emberiza","calandra",4.11,2,1,55,292,9,31,79,180
+"ID07070","SiteC","Emberizidae","Emberiza","cia",2.32,5,1,22,283,9,33,65,203
+"ID00113","SiteC","calcariidae","rhynchophanes","mccownii",2.4,5,1,25,220,10,31,143,154
+"ID09976","SiteA","Cardinalidae","Cardinalis","cardinalis",5.87,2,0,46,217,12,22,146,79
+"ID07097","SiteA","Cardinalidae","Passerina","ciris",1.33,5,1,17,210,12,18,133,101
+"ID09901","SiteB","Hirundinidae","Tachycineta","bicolor",2.14,3,1,16,122,17,12,113,139
+"ID06607","SiteC","Emberizidae","Emberiza","melanocephala",2.82,7,0,26,299,10,31,66,172
+"ID05300","SiteB","Cardinalidae","Cardinalis","sinuatus",4.54,3,1,34,258,13,22,146,107
+"ID01665","SiteB","Emberizidae","Emberiza","fucata",2.29,4,1,17,271,11,34,76,200
+"ID01241","SiteB","Parulidae","Cardellina","canadensis",7.35,4,1,10,217,13,26,126,152
+"ID08553","SiteA","icteridae","molothrus","rufoaxillaris",4.54,4,1,58,248,9,24,104,180
+"ID00959","SiteC","Parulidae","Setophaga ","petechia",8.76,6,1,17,268,12,29,118,79
+"ID06154","SiteA","Hirundinidae","Progne","subis",2.98,7,0,52,91,17,13,117,75
+"ID03828","SiteC","icteridae","xanthocephalus","xanthocephalus",5.16,4,0,68,277,9,22,127,188
+"ID03747","SiteC","icteridae","molothrus","ater",2.44,4,1,49,237,9,23,118,170
+"ID08099","SiteB","icteridae","dolichonyx","oryzivorus",2.49,3,1,41,267,10,24,113,173
+"ID08705","SiteB","Cardinalidae","Piranga","flava",3.76,6,1,40,227,14,21,137,95
+"ID06124","SiteB","icteridae","molothrus","ater",3.51,4,1,45,267,10,24,120,207
+"ID06162","SiteB","Emberizidae","Emberiza","melanocephala",2.89,3,1,24,315,11,32,52,196
+"ID01499","SiteB","Cardinalidae","Passerina","ciris",1.68,2,1,19,215,13,22,131,97
+"ID02736","SiteC","Hirundinidae","Stelgidopteryx","serripennis",1.44,6,1,14,95,16,15,115,101
+"ID03031","SiteB","calcariidae","calcarius","pictus",2.15,4,1,27,243,9,31,130,146
+"ID06545","SiteC","Fringillidae","Mycerobas","carnipes",3.34,4,1,51,214,15,32,147,72
+"ID04112","SiteB","Cardinalidae","Piranga","rubra",3.58,4,0,23,245,12,20,137,99
+"ID06144","SiteB","Fringillidae","Chlorophonia","cyanea",2.99,4,1,15,238,15,33,144,83
+"ID08593","SiteA","Fringillidae","Chlorophonia","cyanea",3.98,4,0,12,244,15,32,156,121
+"ID01912","SiteB","Emberizidae","Emberiza","lathami",3.01,4,1,20,323,10,31,54,193
+"ID01579","SiteA","Hirundinidae","Tachycineta","bicolor",1.9,4,1,18,110,18,12,104,89
+"ID08551","SiteA","icteridae","quiscalus ","major",7.2,4,1,188,297,10,24,130,136
+"ID07248","SiteA","Emberizidae","Emberiza","affinis",3.43,3,0,14,305,9,30,61,204
+"ID00194","SiteB","icteridae","quiscalus ","major",8.44,2,1,161,257,10,26,133,127
+"ID07793","SiteC","Fringillidae","Drepanis","coccinea",4.13,3,1,18,179,14,35,114,67
+"ID03626","SiteC","Emberizidae","Emberiza","cioides",2.49,5,0,22,314,10,31,78,175
+"ID04149","SiteC","icteridae","quiscalus ","quiscula",7.36,4,0,102,260,8,27,114,135
+"ID07847","SiteA","calcariidae","rhynchophanes","mccownii",2.29,5,1,27,208,10,27,167,192
+"ID07911","SiteA","calcariidae","calcarius","pictus",1.81,3,0,30,247,9,29,133,143
+"ID09117","SiteC","Corvidae","Cyanocitta ","cristata",5.79,4,1,96,272,14,30,74,269
+"ID02347","SiteA","Emberizidae","Emberiza","fucata",2.71,6,0,14,285,10,31,83,164
+"ID01432","SiteC","Emberizidae","Emberiza","bruniceps",3.18,4,1,21,313,10,33,69,186
+"ID07921","SiteA","Paridae","Poecile","hudsonicus",NA,9,1,8,65,19,16,65,100
+"ID01313","SiteC","Paridae","Baeolophus","biclor",NA,9,0,25,68,18,21,46,95
+"ID03236","SiteC","Corvidae","Cissa","chinensis",11.51,7,1,159,227,13,31,66,239
+"ID05944","SiteC","Emberizidae","Emberiza","calandra",3.43,5,1,55,288,9,33,57,171
+"ID06688","SiteB","Hirundinidae","Progne","subis",2.67,3,1,40,126,16,11,128,61
+"ID06419","SiteB","Corvidae","Garrulus","glandarius",11.08,2,1,158,199,13,31,54,215
+"ID02243","SiteC","Corvidae","Corvus","corax",31.89,7,1,1236,232,13,32,50,227
+"ID04810","SiteC","Cardinalidae","Pheucticus","melanocephalus",NA,2,1,35,231,12,23,151,98
+"ID08227","SiteA","Cardinalidae","Passerina","ciris",1.33,3,1,15,250,13,19,148,106
+"ID09411","SiteB","Parulidae","Setophaga ","petechia",9.72,3,1,17,269,13,27,128,77
+"ID01834","SiteA","Cardinalidae","Passerina","ciris",1.25,2,1,14,213,12,18,150,79
+"ID05510","SiteC","Emberizidae","Emberiza","lathami",3.17,3,1,25,274,11,32,52,190
+"ID05407","SiteC","Paridae","Poecile","atricapillus",0.75,9,0,10,79,18,20,56,85
+"ID00154","SiteA","icteridae","agelaioides","badius",4.31,3,1,53,263,10,22,107,179
+"ID07096","SiteB","Cardinalidae","Passerina","ciris",1.34,3,1,14,239,13,21,131,100
+"ID02649","SiteC","icteridae","euphagus","carolinus",4.27,3,1,56,235,10,26,120,184
+"ID00216","SiteC","Corvidae","Cyanocitta ","cristata",6.41,3,1,82,257,14,31,77,228
+"ID01754","SiteC","Parulidae","Seiurus ","aurocapilla",11.41,5,0,18,209,13,28,121,136
+"ID08586","SiteB","Hirundinidae","Progne","subis",3.26,7,1,53,132,17,11,135,77
+"ID02912","SiteC","Fringillidae","Coccothraustes","vespertinus",3.68,3,1,63,225,15,32,121,108
+"ID00411","SiteB","Fringillidae","Fringilla ","coelebs",2.56,3,0,22,261,13,36,139,83
+"ID09661","SiteA","Parulidae","Seiurus ","aurocapilla",8.78,6,1,16,212,13,28,134,96
+"ID05275","SiteA","Fringillidae","Coccothraustes","vespertinus",3.55,4,0,54,240,14,31,146,84
+"ID04866","SiteC","Hirundinidae","Tachycineta","bicolor",1.59,3,1,20,101,18,15,111,118
+"ID06863","SiteA","Hirundinidae","Stelgidopteryx","serripennis",1.71,4,1,12,96,16,13,115,113
+"ID09621","SiteC","Emberizidae","Emberiza","lathami",2.6,4,1,22,270,10,31,65,199
+"ID07423","SiteB","Emberizidae","Emberiza","cia",3.1,4,1,19,301,10,31,59,174
+"ID05405","SiteC","Fringillidae","Coccothraustes","vespertinus",3.51,4,0,76,249,14,31,142,125
+"ID06502","SiteA","Paridae","Poecile","atricapillus",0.57,8,0,14,91,19,17,50,123
+"ID01254","SiteA","Emberizidae","Emberiza","cirlus",2.44,3,0,24,279,10,34,75,177
+"ID01635","SiteB","Cardinalidae","Passerina","amoena",1.28,5,1,14,216,13,22,137,107
+"ID08262","SiteC","Hirundinidae","Tachycineta","bicolor",1.79,3,1,20,125,18,12,109,139
+"ID04236","SiteA","Fringillidae","Fringilla ","coelebs",2.56,3,1,27,208,13,32,128,87
+"ID06469","SiteB","Emberizidae","Emberiza","jankowskii",2,4,1,21,271,9,34,67,180
+"ID06679","SiteC","Corvidae","Corvus","corax",27.86,6,1,1013,197,12,33,73,248
+"ID00826","SiteC","Cardinalidae","Passerina","versicolor",2.25,3,1,13,205,13,20,148,135
+"ID05080","SiteB","calcariidae","calcarius","pictus",2.32,5,1,30,204,10,30,149,143
+"ID00047","SiteC","Emberizidae","Emberiza","affinis",4.02,2,1,14,285,10,32,54,210
+"ID00737","SiteC","Cardinalidae","Piranga","ludoviciana",2.88,4,1,25,236,12,19,154,114
+"ID00519","SiteB","Fringillidae","Eophona","personata",4.68,3,1,75,217,16,33,138,66
+"ID01916","SiteC","icteridae","molothrus","rufoaxillaris",3.48,6,0,71,238,8,23,120,208
+"ID04030","SiteA","Cardinalidae","Pheucticus","ludovicianus",NA,6,0,46,204,12,22,164,101
+"ID02068","SiteC","Cardinalidae","Piranga","flava",3.52,4,1,44,238,14,21,154,93
+"ID09398","SiteB","icteridae","quiscalus ","major",9.69,4,1,200,306,9,23,125,117
+"ID03103","SiteA","Cardinalidae","Cardinalis","sinuatus",4.18,3,1,36,247,12,24,146,77
+"ID00717","SiteB","Emberizidae","Emberiza","lathami",3.16,5,1,23,291,11,32,70,220
+"ID05868","SiteB","calcariidae","calcarius","ornatus",1.7,5,1,21,214,10,29,142,196
+"ID07716","SiteB","Hirundinidae","Tachycineta","bicolor",2.09,5,1,24,92,18,13,123,124
+"ID04304","SiteC","Hirundinidae","Tachycineta","bicolor",2.08,5,1,19,119,17,11,115,96
+"ID04733","SiteB","Fringillidae","Fringilla ","coelebs",2.19,3,1,25,244,13,35,115,101
+"ID02815","SiteB","Corvidae","Cyanocitta ","cristata",6.22,5,1,71,269,13,29,69,240
+"ID07752","SiteA","Cardinalidae","Passerina","versicolor",2.52,3,1,11,233,13,23,137,81
+"ID04264","SiteA","Cardinalidae","Piranga","rubra",3.52,2,1,34,214,12,23,155,108
+"ID01437","SiteA","Fringillidae","Eophona","personata",5.01,3,1,93,199,16,33,140,92
+"ID04116","SiteC","Fringillidae","Coccothraustes","vespertinus",3.65,4,1,53,214,14,32,122,95
+"ID00028","SiteB","calcariidae","rhynchophanes","mccownii",2.69,3,1,23,204,10,28,145,201
+"ID00963","SiteC","Cardinalidae","Piranga","ludoviciana",3.02,5,1,31,209,13,18,135,109
+"ID06012","SiteB","Emberizidae","Emberiza","jankowskii",2.55,7,1,23,258,9,33,73,209
+"ID03671","SiteA","Emberizidae","Emberiza","melanocephala",2.37,8,1,29,319,11,29,72,163
+"ID07322","SiteC","Fringillidae","Fringilla ","coelebs",2,2,1,24,205,13,33,125,94
+"ID03755","SiteC","Corvidae","Pica","pica",8.82,4,1,235,270,15,31,49,234
+"ID00108","SiteC","Hirundinidae","Hirundo","rustica",1.91,6,0,21,64,15,14,95,78
+"ID04483","SiteB","calcariidae","plectrophenax","hyperboreus",3.92,3,1,34,222,11,31,142,206
+"ID09195","SiteB","Fringillidae","Mycerobas","carnipes",3.77,2,1,58,221,14,30,124,100
+"ID02698","SiteC","icteridae","quiscalus ","major",7.84,2,1,185,297,10,25,139,161
+"ID01515","SiteA","Hirundinidae","Progne","subis",2.41,4,1,53,127,16,13,115,55
+"ID05298","SiteC","Cardinalidae","Pheucticus","melanocephalus",NA,2,1,40,214,12,19,153,124
+"ID06640","SiteB","Fringillidae","Eophona","personata",4.09,5,1,96,203,15,31,145,87
+"ID02273","SiteB","Parulidae","Mniotilta","varia",3.84,5,0,7,207,14,28,132,93
+"ID06357","SiteC","Fringillidae","Drepanis","coccinea",4.25,3,0,13,220,15,31,115,84
+"ID03340","SiteC","Parulidae","Setophaga ","petechia",9.68,5,1,17,234,13,29,129,100
+"ID08141","SiteA","icteridae","molothrus","ater",3.55,7,1,36,238,10,26,125,201
+"ID05682","SiteC","icteridae","molothrus","ater",2.79,5,1,47,247,10,25,110,187
+"ID02767","SiteB","calcariidae","plectrophenax","hyperboreus",3.95,5,0,44,213,10,28,154,149
+"ID02393","SiteB","Emberizidae","Emberiza","cia",3.46,5,1,26,327,10,34,58,214
+"ID07798","SiteA","calcariidae","plectrophenax","hyperboreus",3.13,4,1,40,234,10,29,143,170
+"ID08449","SiteC","Emberizidae","Emberiza","affinis",3.9,3,0,14,292,10,32,54,182
