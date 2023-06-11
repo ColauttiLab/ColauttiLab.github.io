@@ -1,0 +1,14 @@
+---
+title: "CSEE 2023 Key Links"
+author: "AZ2CH Teaching Team"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+TEST:
+
+<https://colauttilab.gitub.io/CSEE2023/AreBirdsRealData.csv>
