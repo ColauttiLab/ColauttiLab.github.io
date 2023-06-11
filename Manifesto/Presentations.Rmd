@@ -127,8 +127,25 @@ Be sure to use high-quality, high-resolution photos for posters -- you need to z
 
 With very few exceptions, you should use vector images for most graphs. Some exceptions can be made if your graph contains a raster image (e.g. map) or if you have too many data points (>>100,000). You can use the svg() function in R to output to an open-source vector format with the .svg extension.
 
-
 See the [Youtube Video on Images](https://www.youtube.com/watch?v=MELKuexR3sQ)
+
+# Conference Preparation
+
+You have a killer presentation prepared, now what?
+
+## Check file size
+
+First, check the file size. If you are using a lot of high-quality photos you may find that your file size is dozens to hundreds of megabytes. Here's a tip to create a smaller version for presentations (be sure to save it as a new file):
+
+![Make smaller files](./Smaller_Powerpoint.png)
+
+## Make backups of backups
+
+Next, what happens if you you email your presentation and the organizers lose it, or the file gets corrupted? Answer, prepare multiple backups. From Powerpoint you can 'Save As' a PDF file for backup. Then, save both your Powerpoint and PDF files to an external thumb drive and bring it with you. Finally, save it somewhere that you can access online, like DropBox, Google Drive, or OneDrive.
+
+## Practice, practice, practice
+
+Practice your talk as much as possible. You don't need to memorize a script, but record yourself and then watch it. Wherever you are using a lot of 'ums' or 'aws' or slowing down too much, that is a good indication that you need to think of a short and succinct way to explain something. Choose your words carefully! Inaccuracies and ambiguities give the impression that you haven't been careful analyzing and interpreting your data.
 
 # Other Tips
 
