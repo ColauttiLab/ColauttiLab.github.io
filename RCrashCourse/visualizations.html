@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Crash Course for Biologists, 2nd Edition</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./favicon.ico" rel="icon">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HZY3MS2C2R"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HZY3MS2C2R', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="https://EcoEvoGeno.org" class="navbar-brand navbar-brand-logo">
+    <img src="./ColauttiLabLogo.png" alt="Colautti Lab logo" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="https://EcoEvoGeno.org">
+    <span class="navbar-title">R Crash Course for Biologists, 2nd Edition</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction">    
+        <li>
+    <a class="dropdown-item" href="./index.html">
+ <span class="dropdown-text">Book Info</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./preface.html">
+ <span class="dropdown-text">Preface</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-basics" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Basics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-basics">    
+        <li>
+    <a class="dropdown-item" href="./fundamentals.html">
+ <span class="dropdown-text">R Fundamentals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./visualizations.html">
+ <span class="dropdown-text">Quick Visualizations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./rmarkdown.html">
+ <span class="dropdown-text">R Markdown</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-more-graphs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">More Graphs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-more-graphs">    
+        <li>
+    <a class="dropdown-item" href="./customizations.html">
+ <span class="dropdown-text">Basic Customization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./advanced_vis.html">
+ <span class="dropdown-text">Advanced Visualizations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./multiplot.html">
+ <span class="dropdown-text">Multi-plot Graphs</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Advanced</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced">    
+        <li>
+    <a class="dropdown-item" href="./datascience.html">
+ <span class="dropdown-text">Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./flowcontrol.html">
+ <span class="dropdown-text">Flow Control</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./regex.html">
+ <span class="dropdown-text">Regular Expressions I</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./regex2.html">
+ <span class="dropdown-text">Regular Expressions II</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./customfunctions.html">
+ <span class="dropdown-text">Custom Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./matrices.html">
+ <span class="dropdown-text">Matrices</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./conclusion.html"> 
+<span class="menu-text">Conclusion</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#quick-visualizations" id="toc-quick-visualizations" class="nav-link active" data-scroll-target="#quick-visualizations">Quick Visualizations</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#graphical-concepts" id="toc-graphical-concepts" class="nav-link" data-scroll-target="#graphical-concepts">Graphical Concepts</a>
+  <ul class="collapse">
+  <li><a href="#vector-vs-raster" id="toc-vector-vs-raster" class="nav-link" data-scroll-target="#vector-vs-raster">Vector <em>vs</em> Raster</a></li>
+  <li><a href="#resolution-vs-dimension" id="toc-resolution-vs-dimension" class="nav-link" data-scroll-target="#resolution-vs-dimension">Resolution <em>vs</em> Dimension</a></li>
+  <li><a href="#screen-vs-print" id="toc-screen-vs-print" class="nav-link" data-scroll-target="#screen-vs-print">Screen <em>vs</em> Print</a></li>
+  <li><a href="#accessibility" id="toc-accessibility" class="nav-link" data-scroll-target="#accessibility">Accessibility</a></li>
+  </ul></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a>
+  <ul class="collapse">
+  <li><a href="#data-setup" id="toc-data-setup" class="nav-link" data-scroll-target="#data-setup">Data Setup</a></li>
+  </ul></li>
+  <li><a href="#basic-graphs" id="toc-basic-graphs" class="nav-link" data-scroll-target="#basic-graphs">Basic Graphs</a>
+  <ul class="collapse">
+  <li><a href="#one-continuous" id="toc-one-continuous" class="nav-link" data-scroll-target="#one-continuous">One Continuous</a></li>
+  <li><a href="#one-categorical" id="toc-one-categorical" class="nav-link" data-scroll-target="#one-categorical">One Categorical</a></li>
+  <li><a href="#two-continuous" id="toc-two-continuous" class="nav-link" data-scroll-target="#two-continuous">Two Continuous</a></li>
+  <li><a href="#two-categorical" id="toc-two-categorical" class="nav-link" data-scroll-target="#two-categorical">Two Categorical</a></li>
+  <li><a href="#categorical-by-continuous" id="toc-categorical-by-continuous" class="nav-link" data-scroll-target="#categorical-by-continuous">Categorical by Continuous</a></li>
+  <li><a href="#done" id="toc-done" class="nav-link" data-scroll-target="#done">Done!</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="quick-visualizations" class="level1">
+<h1>Quick Visualizations</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Visualizing data is a key step in any analysis. R provides powerful and flexible graphing tools, whether you are just starting to investigate the structure of your data, or polishing off the perfect figure for publication in a ‘tabloid’ journal like <em>Science</em> (<a href="https://www.science.org/journal/science" class="uri"><em>https://www.science.org/journal/science</em></a>) or <em>Nature</em> (<a href="https://www.nature.com/" class="uri"><em>https://www.nature.com/</em></a>).</p>
+<p>In this tutorial, you will learn how to make quick graphs with the <code>ggplot()</code> function from the <code>ggplot2</code> package. We will go over some options for customizing the look and layout that will allow you to produce professional-grade graphs. In the next chapter you will learn some additional tricks and resources for developing your graphing skills even further.</p>
+<p>By the time you are finished these two self-tutorials, you will have all the resources you need to make <strong>publication-ready graphics</strong>!</p>
+<p>Both <code>ggplot</code> functions come from the <code>ggplot2</code> package. It was developed by R Superstar Hadley Wickham and the team at <code>posit.co</code>, who also made <em>R Studio</em>, <em>Quarto</em>, <code>shiny</code>, <code>dplyr</code>, and the rest of the <em>Tidyverse</em> (<a href="https://www.tidyverse.org/" class="uri"><em>https://www.tidyverse.org/</em></a>) universe of helpful R packages.</p>
+<blockquote class="blockquote">
+<p><strong>Question:</strong> What happened to ggplot1?</p>
+</blockquote>
+<p>Once you have mastered these tutorials, you might want to continue to expand your <code>ggplot</code> repertoire by reading through additional examples in the <code>ggplot2</code> documentation: <a href="http://docs.ggplot2.org/current/" class="uri"><em>http://docs.ggplot2.org/current/</em></a></p>
+<p><strong>WARNING</strong>: There is a learning curve for graphing in R! Learning visualizations in R can feel like a struggle at first, and you may ask yourself: <em>Is it worth my time?</em></p>
+<p>If you already have experience making figures with point-and-click graphics programs, you may ask yourself: <em>Why deal with all these coding errors when I can just generate a quick figure in a different program?</em></p>
+<p>There are a few good reasons to invest the time to get over the learning curve and use R for all your graphing needs.</p>
+<ol type="1">
+<li>You will get much faster with practice.</li>
+<li>You have much more control over every aspect of your figure.</li>
+<li>Your visualization will be <strong>reproducible</strong>, meaning anyone with the data and the code can reproduce every aspect of your figure, right down to each individual data point the formatting of each axis label.</li>
+</ol>
+<p>The third point is worth some extra thought. Everybody makes mistakes, whether you are graphing with R or a point-and-click graphics program. If you make a mistake in a point-and-click program, you may produce a graph that is incorrect with no way to check! If you make an error in R you will either get an error message telling you, or you will have reproducible code that you can share with somebody who can check your work – even if that <em>somebody</em> is you, six months in the future. In this way, <strong>reproducibility is quality</strong> – an attractive but non-reproducible figure is a low-quality figure.</p>
+<p>In addition to quality and scientific rigour, there is a more practical reason to value reproducible code. Consider what happens as you collect new data or find a mistake in your original data that needs to be corrected. With a point-and-click program you have to make the graph all over again. With R, you just rerun the code with the new input and get the updated figures and analyses! Later, we will learn how to incorporate code for figures along with statistical analysis into fully reproducible reports with output as <code>.html</code> (Website), <code>.pdf</code> (Adobe Acrobat), and <code>.docx</code> (Microsoft Word)</p>
+</section>
+<section id="graphical-concepts" class="level2">
+<h2 class="anchored" data-anchor-id="graphical-concepts">Graphical Concepts</h2>
+<p>Before we dive into coding for visualizations, there are a few universal graphing concepts that are important to understand in order to create publication-ready graphics in R: file formats, pixel dimension, screen vs print colours, and accessibility.</p>
+<section id="vector-vs-raster" class="level3">
+<h3 class="anchored" data-anchor-id="vector-vs-raster">Vector <em>vs</em> Raster</h3>
+<p>There are many different <strong>file formats</strong> that you can use to save individual graphs. Each format has a different suffix or extension in the file name like <code>.jpg</code>, <code>.png</code>, or <code>.pdf</code>. Once saved, you can send these to graphics programs for minor tweaks, or you can send them directly to academic journals for final publication.</p>
+<p>Importantly, file formats for visualizations fall into two main classes: <strong>Raster</strong> and <strong>Vector</strong>.</p>
+<p><strong>Raster</strong> files save graphs in a 2-dimensional grid of data corresponding to pixel location and colour. Imagine breaking up your screen into a large <code>data.frame</code> object with each pixel represented by a cell, and the value of each cell holding information about the colour and intensity of the pixel. You are probably quite familiar with this ‘pixel art’ format if you’ve ever worked with a digital photo or played a retro video game made before 1993. Some popular Raster file types include <em>JPEG/JPG, PNG, TIFF, and BMP</em>.</p>
+<p><strong>Vector</strong> files save information about shapes. Instead of tracking every single pixel, the data are encoded as coloured points mapped onto a two-dimensional plane, with points connected by straight or curved lines. To generate the image, the computer must plot out all of the points and lines, and then translate that information to pixels that display on your screen.</p>
+<p>If you’ve ever drawn a shape in a program like Microsoft Powerpoint or Adobe Illustrator, you might have some sense of how this works. Some popular vector formats include <em>SVG, PDF, EPS, AI, PS</em>.</p>
+<p><strong>So, why does this matter?</strong></p>
+<p>In most cases, you should save your visualizations as <strong>vector</strong> files. <em>SVG</em> is a good choice, because it can be interpreted by web browsers and it is not proprietary. <em>PDF</em> and <em>EPS</em> are proprietary, from the <em>Adobe</em> company. But they are commonly used by publishers and can be viewed on most computers after installing free software.</p>
+<p>Saving your graphs as a <em>vector</em> format allows you (or the journal proof editor) to easily scale your image while maintaining crisp, clear lines. This is because the shapes themselves are tracked, so scaling just expands or contracts the x- and y-axes.</p>
+<p>In contrast, if you expand a <em>raster</em> file, your computer has to figure out how to expand each pixel. This introduces blurriness or other artifacts. You have seen some images that look ‘pixelated’ – this happens when you try to expand the size of a lower-resolution figure. This also happens when a program compresses an image to save space – the computer program is trying to reduce the data content by reducing the dimensionality of the image.</p>
+<p>In summary, <strong>vector</strong> images are generally a better format to use when saving your figures because you can rescale to any size and the lines will always be clean and clear. There are a few important exceptions, however.</p>
+<ol type="1">
+<li><p><strong>Photographs</strong> – Photographs captured by a camera are saved in the <em>Raster</em> format and cannot be converted to vector without significant loss of information.</p></li>
+<li><p><strong>Grid Data</strong> – Raster data are convenient for plotting data that occurs in a grid. This includes most spatial data that is broken up into a geographic grid. However, you may often want to use the vector format for mapping/GIS data so that the overlapping geographical features (e.g.&nbsp;borders, lakes, rivers) remain in the vector format, even if an underlying data layer is a raster object (e.g.&nbsp;global surface temperature in 1 × 1 km squares).</p></li>
+<li><p><strong>Large Data</strong> – With some large data applications (e.g.&nbsp;‘omics’ datasets) a graphing data set may have many millions or even billions of data points or lines. In these cases, the <strong>vector</strong> file would be too big to use in publication (e.g.&nbsp;several gigabytes) or even too big to open on standard laptop or desktop computers. In this case you might opt for a high-resolution <em>Raster</em> file. On the other hand, you could graph your data using a representative subset of data or using a density grid with colours corresponding to the density of points. In each case, you would keep the <em>vector</em> format to maintain clean lines for the graph axes and labels, even though some of the data is in the raster format.</p></li>
+</ol>
+<p><em>The bottom line</em>: you generally want to save your graphics as <em>SVG</em> or <em>PDF</em> files if you plan to publish them.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/ggmfs.png" class="img-fluid figure-img" alt="Raster map of temperature (blue) overlain with vector drawings of sampling locations (red), scaled by population size, from the Global Garlic Mustard Field Survey"></p>
+<figcaption>Raster map of temperature (blue) overlain with vector drawings of sampling locations (red), scaled by population size, from the Global Garlic Mustard Field Survey</figcaption>
+</figure>
+</div>
+</section>
+<section id="resolution-vs-dimension" class="level3">
+<h3 class="anchored" data-anchor-id="resolution-vs-dimension">Resolution <em>vs</em> Dimension</h3>
+<p>In cases where you do need to use raster images in a publication, pay careful attention to the image’s <strong>pixel dimension</strong>. You have probably heard about image <em>resolution</em>: For example, a 2 megapixel camera is better than a 1 megapixel camera; a 200 dpi (dots per inch) printer is better than 50 dpi. But when creating and saving raster images, it’s not just the <strong>resolution</strong> that matters, the image <strong>size</strong> also determines the quality of the final image. The <strong>size</strong> and <strong>resolution</strong> of an image jointly determine its <strong>pixel dimension</strong>.</p>
+<blockquote class="blockquote">
+<p><strong>Example</strong>: An image with 200 dpi that is 1 x 3 inches will have the same pixel dimension of an image with 100 dpi that is 2 x 6 inches. These images will look exactly the same if they are printed at the same size. The pixel dimension, not the resolution <em>per se</em> determines how crisp or pixelated an image looks.</p>
+</blockquote>
+</section>
+<section id="screen-vs-print" class="level3">
+<h3 class="anchored" data-anchor-id="screen-vs-print">Screen <em>vs</em> Print</h3>
+<p>Another important consideration is the intended audience and whether they will likely view your figures on a computer screen or printed page (or both). Each pixel of your screen has tiny lights that determine the specific colour that is reproduced. The pixels <em>emit</em> different wavelengths from your screen, which overlap in our eyes to produce the different colours that we see. In contrast, printed images get their colour from combinations of ink, which <em>absorb</em> different wavelengths of colour. This is a key distinction! One important consequence of this difference is that your computer monitor can produce a broader range of colours and intensities than a printed page, and therefore some colours on your computer monitor can look very different in print. In print, the intensity of colours are limited by the intensity of the Cyan, Magenta and Yellow inks that are used to reproduce the images. This is called <strong>CMYK printing</strong>.</p>
+<p>Some programs like <em>Adobe Illustrator</em> have options to limit the screen to display only those colours that can be reproduced with CMYK printing.</p>
+</section>
+<section id="accessibility" class="level3">
+<h3 class="anchored" data-anchor-id="accessibility">Accessibility</h3>
+<p>Another important consideration about your choice of colours involves your audience. Remember that many cultures have particular intuitions about colours that can cause confusion if your choice does not match these expectations. For example, in Western European cultures, the red spectrum colours (red, orange, yellow) are often associated with ‘hot’ or ‘danger’ while blue spectrum (blue, cyan, purple) are more associated with ‘cold’ or ‘calm’. Given these biases, imagine how confusing it would be to look at a weather map that used blue for hot temperatures and red for cool temperatures.</p>
+<p>In addition to <strong>cultural biases</strong>, a significant portion of the population has some form of <strong>colour-blindness</strong> that limits their ability to see certain colours. This article in Nature has a good explanation with tips for making inclusive figures: <a href="https://www.nature.com/articles/d41586-021-02696-z" class="uri"><em>https://www.nature.com/articles/d41586-021-02696-z</em></a></p>
+<p>The Simulated Colour Blind Palettes Figure shows a simulation of colour blindness, written in R. Note how certain reds and blue/purple are indistinguishable. A good strategy is to use different <strong>intensity</strong> as well as different <strong>spectra</strong>.</p>
+<blockquote class="blockquote">
+<p><strong>Note</strong>: If you are reading a black-and-white version of this book, this link will take you to a colour version of the image:</p>
+</blockquote>
+<p><a href="https://github.com/ColauttiLab/RCrashCourse_Book/blob/master/images/colorblind.png" class="uri"><em>https://github.com/ColauttiLab/RCrashCourse_Book/blob/master/images/colorblind.png</em></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/colorblind.png" class="img-fluid figure-img" alt="Simulated colourblind palettes."></p>
+<figcaption>Simulated colourblind palettes.</figcaption>
+</figure>
+</div>
+<p>There is also a more practical reason for this. It is common for scientists and students to print your manuscript or published article in black-and-white to read on public transit or during a group discussion. If you choose colours and shading that can be interpreted properly in black and white, then you will avoid confusion with this significant portion of your audience. The <code>viridis</code> package is a good tool for this. See: <a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html" class="uri"><em>https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html</em></a></p>
+</section>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<p>Install the <code>ggplot2</code> package using the <code>install.packages()</code> function the first time you want to use it. This installs it on your local computer, so you only need to do it once – though it is a good idea to re-install periodically to update to the most recent version.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once it is installed, you still need to load it with the <code>library</code> function if you want to use it in your code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="data-setup" class="level3">
+<h3 class="anchored" data-anchor-id="data-setup">Data Setup</h3>
+<p>We will again be working with the <code>FallopiaData.csv</code> dataset, which can be downloaded here: <a href="https://colauttilab.github.io/RCrashCourse/FallopiaData.csv" class="uri"><em>https://colauttilab.github.io/RCrashCourse/FallopiaData.csv</em></a></p>
+<p>Save this text file to a folder called <code>Data</code> inside your project folder. Be sure to save it as <code>FallopiaData.csv</code> and make sure the <code>.csv</code> is included at the end of the name.</p>
+<p>Remember that you can find your current working folder with the <code>getwd()</code> function. You may want to make a new R Project directory as discussed in the <em>R Fundamentals</em> chapter.</p>
+<p>Now load the <em>.csv</em> file into R as a <code>data.frame</code> object:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>MyData<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">"./Data/FallopiaData.csv"</span>, <span class="at">header=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Alternatively, you can load the file right from the internet:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>MyData<span class="ot">&lt;-</span><span class="fu">read.csv</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://colauttilab.github.io/RCrashCourse/FallopiaData.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This dataset comes from the research group of Dr.&nbsp;Oliver Bossdorf at the University of Tübingen in Tübingen, Germany. It was published as part of a paper by Parepa and Bossdof <em>Testing for allelopathy in invasive plants: it all depends on the substrate!</em> (Biological Invasions, 2016), which you can find here: <a href="https://doi.org/10.1007/s10530-016-1189-z" class="uri"><em>https://doi.org/10.1007/s10530-016-1189-z</em></a></p>
+<blockquote class="blockquote">
+<p><strong>Note</strong>: Tübingen is a historic university in wonderful little town on the Neckar River. Let’s inspect the <code>data.frame</code> that was created from the data, to see what kind of data we are working with.</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/tuebingen.jpg" class="img-fluid figure-img" alt="Punting on the Neckar river in Tübingen"></p>
+<figcaption>Punting on the Neckar river in Tübingen</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(MyData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   123 obs. of  13 variables:
+ $ PotNum      : int  1 2 3 5 6 7 8 9 10 11 ...
+ $ Scenario    : chr  "low" "low" "low" "low" ...
+ $ Nutrients   : chr  "low" "low" "low" "low" ...
+ $ Taxon       : chr  "japon" "japon" "japon" "japon" ...
+ $ Symphytum   : num  9.81 8.64 2.65 1.44 9.15 ...
+ $ Silene      : num  36.4 29.6 36 21.4 23.9 ...
+ $ Urtica      : num  16.08 5.59 17.09 12.39 5.19 ...
+ $ Geranium    : num  4.68 5.75 5.13 5.37 0 9.05 3.51 9.64 7.3 6.36 ...
+ $ Geum        : num  0.12 0.55 0.09 0.31 0.17 0.97 0.4 0.01 0.47 0.33 ...
+ $ All_Natives : num  67 50.2 61 40.9 38.4 ...
+ $ Fallopia    : num  0.01 0.04 0.09 0.77 3.4 0.54 2.05 0.26 0 0 ...
+ $ Total       : num  67.1 50.2 61.1 41.7 41.8 ...
+ $ Pct_Fallopia: num  0.01 0.08 0.15 1.85 8.13 1.12 3.7 0.61 0 0 ...</code></pre>
+</div>
+</div>
+<p>The data come from a plant competition experiment involving two invasive species from the genus <em>Fallopia</em>. These species were grown in planting pots in competition with several other species. The first four columns give information about the pot and treatments (<code>Taxon</code> = species of <em>Fallopia</em>. The rest give biomass measurements for each species. Each column name is the genus of a plant grown in the same pot.</p>
+</section>
+</section>
+<section id="basic-graphs" class="level2">
+<h2 class="anchored" data-anchor-id="basic-graphs">Basic Graphs</h2>
+<p>Think back to the <em>R Fundamentals</em> Chapter, and you will hopefully recall the different data types represented by the columns of our data. For graphing purposes, there are really just two main types of data: <strong>categorical</strong> and <strong>continuous</strong>. Putting these together in different combinations with <code>ggplot()</code> gives us different default graph types.</p>
+<p>Each <code>ggplot()</code> function requires two main components:</p>
+<ol type="1">
+<li><p>The <code>ggplot()</code> function defines the input data structure. This usually includes a nested <em>aesthetic</em> function <code>aes()</code> to define the plotting variables and a <code>data=</code> parameter to define the input data.</p></li>
+<li><p>the <code>geom_&lt;name&gt;()</code> function defines the output geometry</p></li>
+</ol>
+<p>Note that the <code>&lt;name&gt;</code> denotes a variable name that differs depending on the geography used to map the data. A detailed example of a complex ggplot graph is covered in more detail in the next chapter. For now, we’ll look at the most common visualizations, organized by input data type.</p>
+<p>Specifically, we’ll consider effective graphs for visualizing one or two variables, each of which may be categorical or continuous.</p>
+<section id="one-continuous" class="level3">
+<h3 class="anchored" data-anchor-id="one-continuous">One Continuous</h3>
+<p>Usually when we only have a single continuous variable to graph, then we are interested in looking at the frequency distribution of values. This is called a <strong>frequency histogram</strong>. The frequency histogram shows the distribution of data – how many observations (y-axis) for a particular range of values or <em>bins</em> (x-axis).</p>
+<p>It is very common to plot histograms for all of your variables before running any kind of statistical model to check for outliers and the distribution type. This is covered in the book <em>R STATS Crash Course for Biologists</em>. Looking at the histograms is a good way to look for potential coding errors (e.g.&nbsp;outliers) and whether data are generally normal or should be transformed to meet the assumptions of our statistical models.</p>
+<p><strong>Histogram</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Total), <span class="at">data=</span>MyData) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizations_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Note the two main components of our code: the <code>ggplot()</code> function defines the input data and the <code>geom_histogram()</code> function provides the mapping function.</p>
+<p>Also note the warning message about <code>binwidth</code> in <code>stat_bin()</code>. This is not a problem, it is just R telling us that it chose a default value that may not be idea. We can try different values of <code>binwidth=</code> in the <code>geom_histogram()</code> function to specify the width of the bins along the x-axis. We’ll look at this in more detail later.</p>
+<p>You can also see we get a warning message about <code>stat_bin()</code>. With R we can distinguish <em>warning</em> messages from <em>error</em> messages.</p>
+<p><strong>Error messages</strong> represent bigger problems and generally occur when the function doesn’t run at all. For example, if we wrote <code>total</code> instead of <code>Total</code>, we would get an error because R is looking for a column in <code>MyData</code> called <code>total</code>, which is not the same as <code>Total</code> with a capital <em>T</em>.</p>
+<p><strong>Warning messages</strong> don’t necessarily prevent the function from running, as in this case. However, it is still important to read the warning and understand if it is ok to ignore it. In this case, it is suggesting a different <code>binwidth</code> parameter. We’ll come back to this later when we explore some of the different parameter options.</p>
+<p><strong>Density</strong></p>
+<p>A <em>density</em> geom is another way to graph the frequency distribution. Instead of bars, a smoothed curve is fit across the bins, and instead of ‘count’ data, an estimate of the probability is shown on the y-axis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Total), <span class="at">data=</span>MyData) <span class="sc">+</span> <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizations_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Notice that the y-axis says ‘density’, not probability? This curve is called a <strong>probability density function</strong> and we can calculate the probability of observing a value between two points along the x-axis by calculating the area under the curve for those two points. For example, integrating the total area under the curve should equal to a probability of 1.</p>
+</section>
+<section id="one-categorical" class="level3">
+<h3 class="anchored" data-anchor-id="one-categorical">One Categorical</h3>
+<p>If we input one variable that is <em>categorical</em> rather than <em>continuous</em>, then we are often most interested in looking at the sample size for each group in the category. In a classic ANOVA for example, you want to make sure you have a similar number of observations for each group.</p>
+<p>Instead of <code>geom_histogram()</code> we use <code>geom_bar()</code></p>
+<p><strong>Bar Graph</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Scenario), <span class="at">data=</span>MyData) <span class="sc">+</span> <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizations_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="two-continuous" class="level3">
+<h3 class="anchored" data-anchor-id="two-continuous">Two Continuous</h3>
+<p>If we have two continuous variables, we are most often interested in the classic <strong>bivariate plot</strong>, sometimes called a <strong>scatter plot</strong>.</p>
+<p>The bivariate plot or scatter plot is the ‘meat and potatoes’ of data visualization. By plotting two variables we can see if they are independent (‘shotgun’ pattern) or have some degree of correlation (oval sloped up or down). We can also look for outliers, which would be seen as isolated points that are far away from the main ‘cloud’ of points.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Silene, <span class="at">y=</span>Total), <span class="at">data=</span>MyData) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizations_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="two-categorical" class="level3">
+<h3 class="anchored" data-anchor-id="two-categorical">Two Categorical</h3>
+<p>Plotting two categorical variables is not so useful. Instead, we are better off making a summary table as described in detail the <em>Data Science Chapter</em>. Or, we can use the <code>length</code> function with <code>aggregate()</code> as introduced in the previous chapter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(Total <span class="sc">~</span> Nutrients<span class="sc">:</span>Scenario, <span class="at">data=</span>MyData, length) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Nutrients     Scenario Total
+1      high      extreme    26
+2      high fluctuations    24
+3      high      gradual    25
+4      high         high    23
+5       low          low    25</code></pre>
+</div>
+</div>
+<p>OR we can use the handy <code>table()</code> function if we want to summarize the variables as rows and columns:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(MyData<span class="sc">$</span>Scenario,MyData<span class="sc">$</span>Nutrients)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              
+               high low
+  extreme        26   0
+  fluctuations   24   0
+  gradual        25   0
+  high           23   0
+  low             0  25</code></pre>
+</div>
+</div>
+<p>In this case we can see that there is only one class of the “Low” <em>Nutrient</em> treatment, but four classes of “High” Nutrient treatments. In other words, all of the rows with “Low” Nutrient treatment also have the “Low” Scenario, and NONE of the rows with “High” Nutrient treatment have “Low” in the Scenario treatment. However, all groups have similar sample size of about 25. This is because the experiment compared low vs high nutrients, but also looked at different ways that high nutrients could be delivered.</p>
+</section>
+<section id="categorical-by-continuous" class="level3">
+<h3 class="anchored" data-anchor-id="categorical-by-continuous">Categorical by Continuous</h3>
+<p>If we have a categorical and a continuous variable, we usually want to see the distribution of points for the two variables. There are a few ways to do this:</p>
+<section id="box-plot" class="level4">
+<h4 class="anchored" data-anchor-id="box-plot">Box Plot</h4>
+<p>The box plot is a handy way to quickly inspect a few important characteristics of the data:</p>
+<ol type="1">
+<li><strong>median</strong>: middle horizontal line (i.e.&nbsp;the 50th percentile)</li>
+<li><strong>hinges</strong>: top and bottom of the boxes showing the 75th and 25th percentiles, respectively</li>
+<li><strong>whiskers</strong>: vertical lines showing the highest and lowest values (excluding outliers, if present)</li>
+<li><strong>outliers</strong>: points showing outlier values more than 1.5 times the inter-quartile range (i.e.&nbsp;1.5 times the distance from the 25th to 75th percentiles). Note that not all data sets will have outlier points.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Nutrients, <span class="at">y=</span>Total), <span class="at">data=</span>MyData) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizations_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="violin-plot" class="level4">
+<h4 class="anchored" data-anchor-id="violin-plot">Violin Plot</h4>
+<p><em>Violin plots</em> or <em>Density strips</em> are another popular way to plot these type of data. The ‘violin’ or ‘density’ refers to the smoothed frequency distribution, which is similar the the <code>geom_histogram</code> we saw above, but imagine fitting a smoothed line along the top of each bar, and then turning it on its side and mirroring the image.</p>
+<p>It can be very helpful to include both the violin and boxplot <em>geoms</em> on the same graph:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Nutrients, <span class="at">y=</span>Total), <span class="at">data=</span>MyData) <span class="sc">+</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span> <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizations_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="dotplot" class="level4">
+<h4 class="anchored" data-anchor-id="dotplot">Dotplot</h4>
+<p>The dotplot stacks points of similar value. It’s particularly useful for smaller datasets where the smooting of the density function may be unreliable. There are a couple of options here:</p>
+<ol type="1">
+<li>You can use dotplots for individual variables</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Total), <span class="at">data=</span>MyData) <span class="sc">+</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizations_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Or for continuous-by-categorical (but note the extra parameters)</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Nutrients, <span class="at">y=</span>Total), <span class="at">data=</span>MyData) <span class="sc">+</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binaxis=</span><span class="st">"y"</span>, <span class="at">binwidth=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizations_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="done" class="level3">
+<h3 class="anchored" data-anchor-id="done">Done!</h3>
+<p>That’s it! That’s all you need to start exploring your data! Load your data frame, and plot different combinations of variables to look at the distribution of values or the relationship between your variables.</p>
+<p>Once you are comfortable producing these plots with different data types, you might start thinking about how to improve the appearance of your graphs. Once you understand these basic data types, you can explore how to customize and improve their appearance.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>R Crash Course for Biologists</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p><a href="https://EcoEvoGeno.org/">Robert I Colautti</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

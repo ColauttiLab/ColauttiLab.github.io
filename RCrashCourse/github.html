@@ -192,7 +192,7 @@ gtag('config', 'G-HZY3MS2C2R', { 'anonymize_ip': true});
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -211,7 +211,21 @@ gtag('config', 'G-HZY3MS2C2R', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#book-info" id="toc-book-info" class="nav-link active" data-scroll-target="#book-info">Book Info</a></li>
+  <li><a href="#version-control" id="toc-version-control" class="nav-link active" data-scroll-target="#version-control">Version Control</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#repository" id="toc-repository" class="nav-link" data-scroll-target="#repository">Repository</a></li>
+  <li><a href="#readme.md" id="toc-readme.md" class="nav-link" data-scroll-target="#readme.md">Readme.md</a></li>
+  <li><a href="#github-account" id="toc-github-account" class="nav-link" data-scroll-target="#github-account">GitHub Account</a></li>
+  <li><a href="#install-git" id="toc-install-git" class="nav-link" data-scroll-target="#install-git">Install Git</a></li>
+  <li><a href="#step-1-github-repo" id="toc-step-1-github-repo" class="nav-link" data-scroll-target="#step-1-github-repo">Step 1: GitHub Repo</a></li>
+  <li><a href="#step-2-r-project" id="toc-step-2-r-project" class="nav-link" data-scroll-target="#step-2-r-project">Step 2: R Project</a></li>
+  </ul></li>
+  <li><a href="#git-tab" id="toc-git-tab" class="nav-link" data-scroll-target="#git-tab"><code>Git</code> tab</a>
+  <ul class="collapse">
+  <li><a href="#commit" id="toc-commit" class="nav-link" data-scroll-target="#commit">Commit</a></li>
+  <li><a href="#branches" id="toc-branches" class="nav-link" data-scroll-target="#branches">Branches</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -221,14 +235,109 @@ gtag('config', 'G-HZY3MS2C2R', { 'anonymize_ip': true});
 
 
 
-<section id="book-info" class="level1 unnumbered">
-<h1 class="unnumbered">Book Info</h1>
-<p>This website contains the complete text of the second edition of <em>R Crash Course for Biologists: An introduction to R for bioinformatics and biostatistics</em>.</p>
-<p>This is the first book in the Quantitative Biology Series, based on lecture from Dr.&nbsp;Robert I. Colautti given at Queen’s University in Canada (Lab website: <a href="https://EcoEvoGeno.org" class="uri">https://EcoEvoGeno.org</a>).</p>
-<p>This text is offered free of charge, but please consider purchasing e-book and/or print versions of this textbook to support development of future content.</p>
-<p>If you can’t afford any of the above, please consider donating your time to provide an honest review: <a href="mailto:colauttilab@gmail.com" class="email">colauttilab@gmail.com</a>. Please let us know what you liked, what worked well, and anything that you think can be improved.</p>
+<section id="version-control" class="level1">
+<h1>Version Control</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Take a moment to reflect on everything you learned if you got this far! Congratulations, it really is impressive!</p>
+<p>Now it’s time to learn how to show off your skill to the rest of the world, keep track of important analyses, and collaborate with other R coders. In this chapter you’ll create and maintain your own code <em>repository</em> on a (free) website called GitHub. You’ll learn how to use GitHub with R Studio to create, modify, and maintain your code online.</p>
+<p>As your coding skills continue to develop, repositories will become crucial for sharing and collaborating on projects. For example, the repository for your a thesis or peer-reviewed manuscript may include many different data sets, R programs, and R markdown documents. As your projects get more complicated with multiple collaborators, it can help to have <em>Version Control</em> to decide which changes to keep and which to exclude.</p>
+</section>
+<section id="repository" class="level2">
+<h2 class="anchored" data-anchor-id="repository">Repository</h2>
+<p>A <em>repository</em>, sometimes shortened to just <em>repo</em>, is just a hard drive somewhere that stores your code. <em>GitHub</em> (<em><a href="https://GitHub.com" class="uri">https://GitHub.com</a></em>) is a website that makes it easy to create and manage your repositories, and decide which ones to make available to the public. The word GitHub comes from a programming tool called <em>git</em>, which provides a protocol for communicating between your computer and your online repository.</p>
+<p>Git and GitHub are useful for sharing code and collaborating on projects. But you can use your GitHub site as an online CV or Resume to raise your profile and get noticed by potential employers. For example, here is a link to my GitHub site: <em><a href="https://github.com/colauttilab" class="uri">https://github.com/colauttilab</a></em></p>
+<p>And here is an example of a public repository for a published paper on SARS-CoV-2 genome evolution during the early stages of the COVID-19 pandemic: <em><a href="https://github.com/ColauttiLab/SARS-CoV_Phylogenomics" class="uri">https://github.com/ColauttiLab/SARS-CoV_Phylogenomics</a></em></p>
+<p>If you go to the SARS-Cov-2 repository, you’ll see a list of folders and files that make up the GitHub repository. Think of this as your Project Folder in R. Later, we’ll see how to use special protocols to sync this folder to your computer, and decide which changes to keep or reject.</p>
+</section>
+<section id="readme.md" class="level2">
+<h2 class="anchored" data-anchor-id="readme.md">Readme.md</h2>
+<p>Take note of one specific file, called <code>Readme.md</code>. All repositories should include a well-documented readme file.</p>
+<p>If you scroll down, you’ll see a description of the analysis pipeline, including a flowchart diagram and some additional notes. This is all generated from the <code>Readme.md</code> file. The <code>md</code> stands for ‘markdown’ and it is very similar to the R markdown (<code>.Rmd</code>) format discussed in the first part of this book. That’s because R markdown is built on the markdown language. The main difference is that a regular markdown file won’t render R code. However, you can still use different text formatting (including a special font for code), and add images and hyperlinks.</p>
+</section>
+<section id="github-account" class="level2">
+<h2 class="anchored" data-anchor-id="github-account">GitHub Account</h2>
+<p>Now that you understand the basics, Make a (free) account at <em><a href="https://GitHub.com" class="uri">https://GitHub.com</a></em></p>
+<p>You will need to choose a unique user name. Take some time to add a headshot or picture that represents you, and add some basic details to your profile. Just taking a few minutes to do this will help your account stand out from the many other generic accounts on GitHub. Remember that this is your public-facing profile that might be seen by potential collaborators, employers, or recruiters, so keep it professional.</p>
+</section>
+<section id="install-git" class="level2">
+<h2 class="anchored" data-anchor-id="install-git">Install Git</h2>
+<p>The <code>git</code> program will help us communicate with GitHub to update our files, or search for updates submitted by other users. You can downoad it at <em><a href="http://git-scm.com/downloads" class="uri">http://git-scm.com/downloads</a></em></p>
+<p>Be sure to quit R and R Studio before you install <code>git</code>. After it is installed, open R Studio and choose <strong><code>Global Options</code></strong> from the <strong><code>Tools</code></strong> menu. Then, click on <strong>Git/SVN</strong> on the left and the <strong>Enable version control interface for RStudio projects</strong> at the top.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/globaloptions.png" class="img-fluid figure-img" alt="Global Options Menu"></p>
+<figcaption>Global Options Menu</figcaption>
+</figure>
+</div>
+<p>You may also need to specify the location of your <strong>Git executable</strong> by clicking the <strong><code>Browse</code></strong> button. Here, you should link to the <code>git</code> (OSX) or <code>git.exe</code> (Windows) that you installed. If you have trouble locating the follow, try this</p>
+<ul>
+<li>(<strong>Windows</strong>): Search for ‘Command Prompt’ from your Start Menu and type: <code>where git</code></li>
+<li>(<strong>Mac OS &amp; Linux</strong>): Open the ‘Terminal’ window and type: <code>which git</code></li>
+</ul>
+<p>That’s it! Now you should be ready to set up your repository.</p>
+</section>
+<section id="step-1-github-repo" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-github-repo">Step 1: GitHub Repo</h2>
+<p>open a web browser and navigate to your GitHub website. It should be something like <em>github.com/username</em> where username is the GitHub user name you chose when you set up your account.</p>
+<p>Click on <strong><code>Repositories</code></strong> near the top of your github page, then click the green button that says <strong><code>New</code></strong> and give your repository a name that you can easily remember.</p>
+<p>Add a short description, and select the options to add a <code>README</code> and <code>.gitignore</code> file.</p>
+<p>You may select a license if you would like to protect your code. You should do this when writing original code, but for now we are just creating a repository to explore how GitHub works.</p>
+<p>Finally, click <strong><code>Create repository</code></strong> and copy the full web address for your repository. It should be a web link that starts with <code>GitHub.com</code> and end with <code>.git</code>. This is the link that R Studio will use to sync your GitHub repository with your local computer.</p>
+</section>
+<section id="step-2-r-project" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-r-project">Step 2: R Project</h2>
+<p>Create a new project in R Studio from the menu <strong><code>File--&gt;New Project</code></strong> but be sure to select <strong><code>Version Control</code></strong> and then click <strong><code>Git</code></strong> – note that it is written sideways with a red ‘i’ and green ‘t’.</p>
+<p>Paste the GitHub link into the <strong><code>Repository URL:</code></strong> field. This tells R Studio where to find the repository on GitHub.</p>
+<blockquote class="blockquote">
+<p><strong>Note</strong>: If your repository URL didn’t copy properly, you can just add <code>.git</code> to the end of the web link for your repository. For example, if your repository is <em><a href="https://GitHub.com/username/FirstRepo" class="uri">https://GitHub.com/username/FirstRepo</a></em> then the link in R Studio should be <em><a href="https://GitHub.com/username/FirstRepo.git" class="uri">https://GitHub.com/username/FirstRepo.git</a></em></p>
+</blockquote>
+<p>Use the <strong><code>Browse</code></strong> button to choose where you would like to save the project file on your local computer.</p>
+<p>You can leave <strong><code>Project Directory Name</code></strong> alone so that the project folder name on your computer matches the repository name on GitHub. You can change it, but this may cause you confusion later.</p>
+</section>
+</section>
+<section id="git-tab" class="level1">
+<h1><code>Git</code> tab</h1>
+<p>R Studio has a specific <code>Git</code> tab for managing repositories with <code>git</code>. By default, it is usually one of the tabs in the top-right window of R Studio, in the same window as <code>Environment and History</code>. However, it may have moved if you changed your R Studio settings.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/gittab.png" class="img-fluid figure-img" alt="Close-up view of the Git Tab in R Studio"></p>
+<figcaption>Close-up view of the Git Tab in R Studio</figcaption>
+</figure>
+</div>
+<p>The <code>Git</code> tab will probably be empty when you first set up your project following the steps in the previous section.</p>
+<p>The first thing you should do, right away, is click on the blue down arrow labelled <em>Pull</em> . You may be prompted to enter or confirm your password, and then R Studio will download or ‘pull’ the latest versions of the files in your repository from GitHub to your computer. It’s good practice to do this first, before you start editing, to make sure you are working with the latest file versions.</p>
+<p>The rest of the git menu might look a bit complicated, but are just three main buttons at the top of the Git tab that you should know: <em>Pull</em>, <em>Commit</em> and <em>Push</em>. To understand what these mean, let’s first think about how we will typically work with an online repository.</p>
+<p>Right now, you have a project folder on your computer that is a copy of the repository you made on GitHub. In git lingo, we say that these are the same <em>version</em>. If you start making changes on your computer, your <em>version</em> of the repository will change on your computer, but not on GitHub. There are some good reasons not to have things synchronized. First, you may want to work somewhere without stable internet access. Second, you might want to try out different things on your computer, but then clean them up before you release them back to the public. You may also have several people working on the same files, in which case you may want to review all the changes and decide which changes will be rolled back into the official version on GitHub.</p>
+<p>The <em>Pull</em>, <em>Commit</em> and <em>Push</em> commands are used to manage the different versions that can exist on different computers.</p>
+<ul>
+<li><p><strong>Pull</strong> – use this to pull the latest files and commits from GitHub.It’s generally good practice to pull changes every time you work on a project, to make sure you are working with the latest version.</p></li>
+<li><p><strong>Commit</strong> – use this to commit the changes you make. Commits are like pressing ‘save’ on your computer, except that each commit gets a unique code, which makes it possible for you to roll back to previous commits.</p></li>
+<li><p><strong>Push</strong> – use this to push your commits to GitHub. It’s generally a good idea to do this when you are done working on the project for a while. This will allow your collaborators to pull your changes from GitHub before they start working on their piece.</p></li>
+</ul>
+<p>Now, try making changes to your <code>README.md</code> file. For example, you apply what you learned in the R Markdown chapter to add a header:</p>
+<pre><code># My First Repo</code></pre>
+<p>Now watch the <code>Git</code> tab and save the changes on your computer. You should see the <code>README.md</code> appear in the window, telling you that changes have been made to the file on your computer. Note that this didn’t appear until <em>after</em> you saved the changes.</p>
+<p>These changes are saved on your computer, but not on GitHub. To change the GitHub version to match this version, we need to first <em>Commit</em> or confirm that we want to document these changes, then <em>Push</em> or upload the changes to GitHub.</p>
+<section id="commit" class="level2">
+<h2 class="anchored" data-anchor-id="commit">Commit</h2>
+<p>To commit changes, click on the check box under the <strong><code>Staged</code></strong> column for the files you want to commit. In this case, there is just one. Then, click the <strong><code>Commit</code></strong> button in the menu bar of the <code>Git</code> window.</p>
+<p>A new window will pop up to show you the changes you have made. Additions are highlighted in green and deletions are highlighted in red. You also have to add a short note in the text box under <strong><code>Commit message</code></strong> to explain what changes were made. This can be anything and it doesn’t have to be long, but it will help you keep track of the different versions of your code.</p>
+<p>After reviewing the changes and adding a commit message, click the <code>Commit</code> button. You might choose to do this separately for different files, so that each one can have its own commit message. Finally, click the <code>Push</code> button to upload the changes to GitHub.</p>
+<blockquote class="blockquote">
+<p><strong>Note</strong>: It can take a few minutes for the GitHub website to update these changes. You also might have to refresh your browser to see the changes.</p>
+</blockquote>
+</section>
+<section id="branches" class="level2">
+<h2 class="anchored" data-anchor-id="branches">Branches</h2>
+<p>You can think of a git repository as a sort of timeline, with each commit saved as a separate point along the timeline, or <em>branch</em>. You can see these past versions in R Studio with the <em><code>History</code></em> button in the <code>Git</code> tab.</p>
+<p>If you find that you’ve made a fatal mistake, you revert back to a previous version along the branch.</p>
+<p>If two or more people work on the same files, they create different <em>branches</em> that each have an origin and an endpoint. Changes in these branches can be <em>merged</em> back to the <em>main</em> (or sometimes <em>master</em>) branch.</p>
+<p>Each version has its own unique ID code, called a Secure Hash Algorithm (<em>SHA</em>) code. This can be helpful with reproducibility since your main branch can change, but each commit is unique. You can see SHA, commit notes, and the version author for each commit in the <code>History</code> window.</p>
+<p>And that’s really all you need to know. Like everything else in this book, it can take a bit of practice and a lot of mistakes to get a good understanding of git and GitHub. However, I’ve found it to be an invaluable tool and I use it regularly for my students’ theses and peer-reviewed manuscripts, as well as my ‘lab resourses’ website (Colauttilab.GitHub.io) and this book!</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

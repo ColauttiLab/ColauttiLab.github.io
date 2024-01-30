@@ -192,7 +192,7 @@ gtag('config', 'G-HZY3MS2C2R', { 'anonymize_ip': true});
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -211,7 +211,11 @@ gtag('config', 'G-HZY3MS2C2R', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#book-info" id="toc-book-info" class="nav-link active" data-scroll-target="#book-info">Book Info</a></li>
+  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
+  <ul class="collapse">
+  <li><a href="#why-this-book" id="toc-why-this-book" class="nav-link" data-scroll-target="#why-this-book">Why this book?</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -221,14 +225,36 @@ gtag('config', 'G-HZY3MS2C2R', { 'anonymize_ip': true});
 
 
 
-<section id="book-info" class="level1 unnumbered">
-<h1 class="unnumbered">Book Info</h1>
-<p>This website contains the complete text of the second edition of <em>R Crash Course for Biologists: An introduction to R for bioinformatics and biostatistics</em>.</p>
-<p>This is the first book in the Quantitative Biology Series, based on lecture from Dr.&nbsp;Robert I. Colautti given at Queen’s University in Canada (Lab website: <a href="https://EcoEvoGeno.org" class="uri">https://EcoEvoGeno.org</a>).</p>
-<p>This text is offered free of charge, but please consider purchasing e-book and/or print versions of this textbook to support development of future content.</p>
-<p>If you can’t afford any of the above, please consider donating your time to provide an honest review: <a href="mailto:colauttilab@gmail.com" class="email">colauttilab@gmail.com</a>. Please let us know what you liked, what worked well, and anything that you think can be improved.</p>
+<section id="preface" class="level1 unnumbered">
+<h1 class="unnumbered">Preface</h1>
+<p><strong>Think of a Biologist</strong>. Who do you see? Take a minute to write down some characteristics in your mind. Try to be specific: gender, skin, age, height, hair, clothes, personality. Who do you see?</p>
+<p>Now think of a <em>computer programmer</em> or <em>data scientist</em>. Write down their characteristics. How do these people differ in your mind? Can you imagine them being the same person? Can you picture yourself in both roles?</p>
+<p>The goal of this book is to bridge these two worlds. In writing this book, I assume you are a practising biologist or a student of biology, or you are just motivated by biological phenomena. It doesn’t matter if you are a recent high school graduate entering into a biology undergraduate program, a graduate student embarking on an independent research dissertation, or a senior scientist with specialized expertise in the science of life. As long as you are interested in learning how to code, this book is written for you.</p>
+<p>The goal of this book is to provide a ‘how-to’ guide to connect you to the world of data science. We focus on the fundamentals of the R programming language and its applications in biology. In writing this book, I assume you do not have much coding experience. Whether you are a new biology student or a seasoned professional, this book was written for you.</p>
+<p>There are many great introductions to the R coding language available in print and online. But these tend to be general and abstract, sometimes going on tangents that are not so relevant to what you want to do as a biologist. What makes this book different, is that it is written with the biologist in mind. Specifically, my goal was to write the book that I wish I had had as an undergraduate student learning how to collect and analyze data. With the benefit of hindsight, I’ve tried to cut out all the programming details that haven’t been of much use to me as a data scientist, and focus on the most common methods. I’ve tried to connect to biological questions and examples as much as possible, without getting too side-tracked with biological details. This decision-making progress is based on my research and teaching experience in a range of topics in Biology and Health Sciences at Queen’s University – Environmental Science, Epidemiology, Genomics, Ecology, and Evolution.</p>
+<p>A comprehensive coding volume would require thousands of printed pages and take decades to master. In choosing the content for this book, I have focused on everything that I wish I knew when I first started learning to program in R. Many of the functions and packages included here were not available when I started, but have some exceptional functionality. I will continue to add new tricks and techniques that I find useful.</p>
+<section id="why-this-book" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-book">Why this book?</h2>
+<p>Maybe you are curious about coding for data analysis but you aren’t sure if you want to invest the time and energy you will need to become competent in these methods. Many students in biology programs do not receive strong quantitative skills training in math, statistics, or computer science. In fact, many of us choose to go into biology programs because we are scared of the quantitative focus of the ‘hard’ sciences like physics and chemistry. Only much later do we realize how valuable these skills can be for investigating biological phenomena. Modern biology is defined by ‘big data’ sources including high-throughput sequencing, real-time environmental measurements, satellite imaging, animal tracking, and monitoring human health. Along with more traditional data types, these data are increasingly made available in online databases that are too big to navigate manually. Coding is not simply helpful to biologists – it’s becoming essential.</p>
+<p>To help demonstrate the tremendous value of coding, I focus on examples drawn from real biological studies. I try to provide real-world examples of how one can apply programming tools and techniques to curate, analyze, and visualize biological data. These tend to be areas in which I have researched and published papers – opportunities that were presented to me because of my ability to analyze data in a reproducible and open framework. However, a key theme of this book is that these skills are highly transferable, not only across the biological sciences but to other disciplines.</p>
+<p>Here are a few examples of the diversity of data, analyses, and visualizations in my own collaborations, which all use data analysis and visualizations in R:</p>
+<ol type="1">
+<li><p>A paper examining rapid evolution of flowering: <a href="https://doi.org/10.1126/science.1242121" class="uri"><em>https://doi.org/10.1126/science.1242121</em></a></p></li>
+<li><p>A <em>de novo</em> genome assembly: <a href="https://doi.org/10.1093/g3journal/jkab339" class="uri"><em>https://doi.org/10.1093/g3journal/jkab339</em></a></p></li>
+<li><p>A meta-analysis of evolution of invasive species: <a href="https://doi.org/10.1111/mec.13162" class="uri"><em>https://doi.org/10.1111/mec.13162</em></a></p></li>
+<li><p>Tracking COVID-19 outbreaks using whole-genome sequencing: <a href="https://doi.org/10.1038/s41598-021-83355-1" class="uri"><em>https://doi.org/10.1038/s41598-021-83355-1</em></a></p></li>
+<li><p>A study of metabolites in nasal swabs that can differentiate COVID-19 from other viral infections in human patients: <a href="https://www.nature.com/articles/s41598-022-14050-y" class="uri"><em>https://www.nature.com/articles/s41598-022-14050-y</em></a></p></li>
+<li><p>An analysis of 3,429 herbarium images and &gt;1 million weather records to reconstruct evolution of an invasive plant: <a href="https://www.pnas.org/doi/full/10.1073/pnas.2107584119" class="uri"><em>https://www.pnas.org/doi/full/10.1073/pnas.2107584119</em></a></p></li>
+<li><p>A model of species range limits: <a href="https://royalsocietypublishing.org/doi/full/10.1098/rstb.2021.0020" class="uri"><em>https://royalsocietypublishing.org/doi/full/10.1098/rstb.2021.0020</em></a></p></li>
+</ol>
+</section>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<p>This book was written at Queen’s University in Kingston, Ontario, Canada, originally known as Katarowki, part of the traditional lands of the Anishinaabe and Haudenosaunee. I am very grateful that fate has brought me to this land to learn the Teaching of the Seven Grandfathers. When you need a break from coding, I encourage you to look up the Anishinaabe tradition of the Teaching of the Seven Grandfathers. Remember that coding is a superpower, and as your coding skills improve, you will have the responsibility to use your powers for the good of others.</p>
+<p>This book was written at Queen’s University, but it began in 2009, when I first learned to code in R and began to collect resources and make notes to help teach these tools to others. In 2015, I converted these personal notes into a course at the University of Tübingen in southern Germany. I’m grateful to my friend and colleague, Dr.&nbsp;Oliver Bossdorf for encouraging me to develop and deliver that course. In 2017 I added new modules and developed a website of self-tutorials for a fourth year at Queen’s University called <em>Introduction to Computation and Big Data in Biology</em>. Over the next four years this content was revised and refined for a third year course on biostatistics and three graduate-level courses. In 2022 I separated these notes into four books, the first of which became the <em>R Crash Course for Biologists</em>. Feedback from dozens of graduate and undergraduate students helped me to understand which concepts were most difficult to new learners. The following graduate provided especially detailed and helpful feedback: Mia Akbar, María José Gómez Quijano, Charlotte Ngo, Claire Smith, Mike Vermeulen, and Sherise Vialva. The courses I’ve taught require a lot of work from students in the form of weekly quizzes and assignments. As such, the Dr.&nbsp;Brian Cumming deserves much credit for supporting these courses with Teaching Assistants to help me develop and deliver the content effectively. A special thanks to my partner in life and academia, Dr.&nbsp;Sarah Yakimowski, who provided support and feedback on a wide range of aspects from basic teaching philosophy to the cover design and layout. And a final thanks to you, the reader, for your interest in this book. I hope you find it useful, and I hope you will let me know what you think via email <a href="mailto:robert.colautti@queensu.ca" class="email"><em>robert.colautti@queensu.ca</em></a> or social media.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -192,7 +192,7 @@ gtag('config', 'G-HZY3MS2C2R', { 'anonymize_ip': true});
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -211,7 +211,19 @@ gtag('config', 'G-HZY3MS2C2R', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#book-info" id="toc-book-info" class="nav-link active" data-scroll-target="#book-info">Book Info</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link active" data-scroll-target="#notes">NOTES:</a>
+  <ul class="collapse">
+  <li><a href="#quarto-pdf-options" id="toc-quarto-pdf-options" class="nav-link" data-scroll-target="#quarto-pdf-options">Quarto pdf options</a></li>
+  <li><a href="#quarto-book-instructions" id="toc-quarto-book-instructions" class="nav-link" data-scroll-target="#quarto-book-instructions">Quarto book instructions</a></li>
+  <li><a href="#pandoc-formatting-options-httpspandoc.orgmanual.htmltemplate-syntax" id="toc-pandoc-formatting-options-httpspandoc.orgmanual.htmltemplate-syntax" class="nav-link" data-scroll-target="#pandoc-formatting-options-httpspandoc.orgmanual.htmltemplate-syntax">Pandoc formatting options: https://pandoc.org/MANUAL.html#template-syntax</a>
+  <ul class="collapse">
+  <li><a href="#fonts" id="toc-fonts" class="nav-link" data-scroll-target="#fonts">FONTS</a></li>
+  <li><a href="#favorites" id="toc-favorites" class="nav-link" data-scroll-target="#favorites">Favorites</a></li>
+  <li><a href="#add-an-index-takes-a-long-time" id="toc-add-an-index-takes-a-long-time" class="nav-link" data-scroll-target="#add-an-index-takes-a-long-time">Add an index (takes a long time)</a></li>
+  <li><a href="#toc" id="toc-toc" class="nav-link" data-scroll-target="#toc">TOC</a></li>
+  <li><a href="#headerfooter" id="toc-headerfooter" class="nav-link" data-scroll-target="#headerfooter">header/footer</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -221,14 +233,54 @@ gtag('config', 'G-HZY3MS2C2R', { 'anonymize_ip': true});
 
 
 
-<section id="book-info" class="level1 unnumbered">
-<h1 class="unnumbered">Book Info</h1>
-<p>This website contains the complete text of the second edition of <em>R Crash Course for Biologists: An introduction to R for bioinformatics and biostatistics</em>.</p>
-<p>This is the first book in the Quantitative Biology Series, based on lecture from Dr.&nbsp;Robert I. Colautti given at Queen’s University in Canada (Lab website: <a href="https://EcoEvoGeno.org" class="uri">https://EcoEvoGeno.org</a>).</p>
-<p>This text is offered free of charge, but please consider purchasing e-book and/or print versions of this textbook to support development of future content.</p>
-<p>If you can’t afford any of the above, please consider donating your time to provide an honest review: <a href="mailto:colauttilab@gmail.com" class="email">colauttilab@gmail.com</a>. Please let us know what you liked, what worked well, and anything that you think can be improved.</p>
+<section id="notes" class="level1">
+<h1>NOTES:</h1>
+<p>!!Disable Dropbox!! It interferes with permissions when knitting books</p>
+<section id="quarto-pdf-options" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-pdf-options">Quarto pdf options</h2>
+<p>https://quarto.org/docs/reference/formats/pdf.html</p>
+</section>
+<section id="quarto-book-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-book-instructions">Quarto book instructions</h2>
+<p>https://quarto.org/docs/books/</p>
+<ul>
+<li><p><a href="https://quarto.org/docs/books/book-structure.html">Book Structure</a> delves into different ways to structure a book (numbered and unnumbered chapters/sections, creating multiple parts, adding appendices, etc.)</p></li>
+<li><p><a href="https://quarto.org/docs/books/book-crossrefs.html">Book Crossrefs</a> explains how to create cross references to sections, figures, tables, equations and more within books.</p></li>
+<li><p><a href="https://quarto.org/docs/books/book-output.html">Book Output</a> covers customizing the style and appearance of your book in the various output format as well as how to provide navigation and other tools for readers.</p></li>
+<li><p><a href="https://quarto.org/docs/reference/projects/books.html">Book Options</a> provides a comprehensive reference to all of the available book options.</p></li>
+<li><p><a href="https://quarto.org/docs/projects/code-execution.html">Code Execution</a> provides tips for optimizing the rendering of books with large numbers of documents or expensive computations.</p></li>
+<li><p><a href="https://quarto.org/docs/publishing/">Publishing Websites</a> enumerates the various options for publishing your book as a website including GitHub Pages, Netlify, and RStudio Connect.</p></li>
+</ul>
+</section>
+<section id="pandoc-formatting-options-httpspandoc.orgmanual.htmltemplate-syntax" class="level2">
+<h2 class="anchored" data-anchor-id="pandoc-formatting-options-httpspandoc.orgmanual.htmltemplate-syntax">Pandoc formatting options: https://pandoc.org/MANUAL.html#template-syntax</h2>
+<section id="fonts" class="level3">
+<h3 class="anchored" data-anchor-id="fonts">FONTS</h3>
+<ul>
+<li>use system fonts in brackets, e.g.: pdf: mainfont: “Century Schoolbook” monofont: “Consolas” sansfont: “Arial Black” mathfont: “Lucida Bright”</li>
+</ul>
+</section>
+<section id="favorites" class="level3">
+<h3 class="anchored" data-anchor-id="favorites">Favorites</h3>
+</section>
+<section id="add-an-index-takes-a-long-time" class="level3">
+<h3 class="anchored" data-anchor-id="add-an-index-takes-a-long-time">Add an index (takes a long time)</h3>
+<p>pdf: documentclass: scrreprt include-in-header: text: |</p>
+<p>include-after-body: text: | </p>
+<p>BUT: Requires adding after every word to index :(</p>
+</section>
+<section id="toc" class="level3">
+<h3 class="anchored" data-anchor-id="toc">TOC</h3>
+<p>Fix an issue with section numbers overlapping section titles in the table of contents.</p>
+pdf: include-in-header: text: |
+</section>
+<section id="headerfooter" class="level3">
+<h3 class="anchored" data-anchor-id="headerfooter">header/footer</h3>
+remove headers/footers from pages between chapters by adding this text to the include-in-header command:
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

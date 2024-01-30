@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Crash Course for Biologists, 2nd Edition</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./favicon.ico" rel="icon">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HZY3MS2C2R"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HZY3MS2C2R', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="https://EcoEvoGeno.org" class="navbar-brand navbar-brand-logo">
+    <img src="./ColauttiLabLogo.png" alt="Colautti Lab logo" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="https://EcoEvoGeno.org">
+    <span class="navbar-title">R Crash Course for Biologists, 2nd Edition</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction">    
+        <li>
+    <a class="dropdown-item" href="./index.html">
+ <span class="dropdown-text">Book Info</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./preface.html">
+ <span class="dropdown-text">Preface</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-basics" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Basics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-basics">    
+        <li>
+    <a class="dropdown-item" href="./fundamentals.html">
+ <span class="dropdown-text">R Fundamentals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./visualizations.html">
+ <span class="dropdown-text">Quick Visualizations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./rmarkdown.html">
+ <span class="dropdown-text">R Markdown</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-more-graphs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">More Graphs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-more-graphs">    
+        <li>
+    <a class="dropdown-item" href="./customizations.html">
+ <span class="dropdown-text">Basic Customization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./advanced_vis.html">
+ <span class="dropdown-text">Advanced Visualizations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./multiplot.html">
+ <span class="dropdown-text">Multi-plot Graphs</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Advanced</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced">    
+        <li>
+    <a class="dropdown-item" href="./datascience.html">
+ <span class="dropdown-text">Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./flowcontrol.html">
+ <span class="dropdown-text">Flow Control</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./regex.html">
+ <span class="dropdown-text">Regular Expressions I</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./regex2.html">
+ <span class="dropdown-text">Regular Expressions II</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./customfunctions.html">
+ <span class="dropdown-text">Custom Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./matrices.html">
+ <span class="dropdown-text">Matrices</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./conclusion.html"> 
+<span class="menu-text">Conclusion</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#advice" id="toc-advice" class="nav-link" data-scroll-target="#advice">Advice</a></li>
+  <li><a href="#use-ai" id="toc-use-ai" class="nav-link" data-scroll-target="#use-ai">Use AI</a></li>
+  <li><a href="#learn-by-doing" id="toc-learn-by-doing" class="nav-link" data-scroll-target="#learn-by-doing">Learn by Doing!</a></li>
+  <li><a href="#what-to-expect" id="toc-what-to-expect" class="nav-link" data-scroll-target="#what-to-expect">What to Expect</a></li>
+  <li><a href="#translational-coding" id="toc-translational-coding" class="nav-link" data-scroll-target="#translational-coding">Translational Coding</a></li>
+  </ul></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a>
+  <ul class="collapse">
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
+  <li><a href="#r-studio" id="toc-r-studio" class="nav-link" data-scroll-target="#r-studio">R Studio</a></li>
+  <li><a href="#console" id="toc-console" class="nav-link" data-scroll-target="#console">Console</a>
+  <ul class="collapse">
+  <li><a href="#r-script" id="toc-r-script" class="nav-link" data-scroll-target="#r-script">R Script</a></li>
+  </ul></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In Biology, there are two dominant programming languages: <strong>Python</strong> and <strong>R</strong>. Thousands of hours have been wasted arguing the merits of one programming language over another. The truth is that there is a lot of similarity and it’s very easy to move from one to the other.</p>
+<p>There are many other programming languages used in Biology. <strong>C/C#/C++</strong> and <strong>Java</strong> are popular in computer science because they provide a high level of control, but this comes at a cost of abstraction and a steeper learning curve. Bash programming in <strong>Unix/Linux/GNU</strong> is all but necessary for high-performance computing on remote servers, but in biology it is most often used to automate file management and to run programs written in other languages. <strong>Julia</strong> is gaining momentum for mathematical modellers, but it is still in its infancy. <strong>PERL</strong> was popular for bioinformatics but it has been all but replaced by <strong>Python</strong>.</p>
+<p>We focus on <strong>R</strong> because it is more commonly used in published statistical analyses in Biology, and it is a bit easier to learn. As you will see, it is very easy to walk through the fundamentals and generate graphs and statistical analyses with just a few hours of practice. This comes at a cost of slower run-times and less flexibility than Python, but this is usually not a problem for beginners. In fact, it is possible to use R to run Python code (or C++ or many other languages). More importantly, concepts like data objects, function and packages are conceptually very similar between R and Python, making it easy to move from one language to the other. The truth is that they are both good languages and anyone who tells you that language A is better than B is simply showing their ignorance about language B.</p>
+<section id="advice" class="level2">
+<h2 class="anchored" data-anchor-id="advice">Advice</h2>
+<p>If you’ve completed a few years of any undergraduate program in biology, then you’ve probably developed a good approach to study various subjects in Biology. Maybe it involves reading the textbook, attending lectures, and making notes that you review before the big test. Coding is different.</p>
+<p>If this is your first attempt to learn how to code, then it’s important to understand HOW to learn to code. You won’t learn by reading this textbook. You need to take <strong>participate</strong> and actively take control of your learning by typing along with the examples in this book.</p>
+<p>Consider that R is a programming <em>language</em>. When I teach this content at the senior undergraduate and junior graduate level, I often begin with a poll of students to see who has learned to speak more than one language. I then ask:</p>
+<p><strong>Question</strong>: How did you become fluent in a second language?</p>
+<p>Some common themes in the answers tend to be:</p>
+<ul>
+<li>Immerse yourself</li>
+<li>Study, read, listen</li>
+<li>Try something new, fail, correct errors, repeat</li>
+<li>Practice, practice, practice!</li>
+</ul>
+<p>How do you become fluent in a programming language? Pretty much the same way:</p>
+<ul>
+<li>Immerse yourself</li>
+<li>Study, read, and <strong>type everything out</strong>!</li>
+<li>Try something new, fail, correct errors, repeat</li>
+<li>Practice, practice, practice!</li>
+</ul>
+<p>Learning a new language is not easy. Learning a programming language is not easy either. Here are a few specific tips to become fluent in R:</p>
+<ol type="1">
+<li><p><strong>Get organized and PLAN</strong>. Use a personal calender and schedule sufficient time to deal with error messages. This is important to accept, though it can be difficult: troubleshooting your code often takes more time than planning and writing it, especially when you are starting to learn.</p></li>
+<li><p><strong>Apply what you learn</strong>. You will start to develop a toolbox of coding techniques from day one. Look for opportunities to apply them whenever you can. Try to re-frame small projects or tasks in terms of what you can address with your R toolkit. Even if it takes a lot longer to code than to use other methods, the extra time will reinforce your coding skills, saving time in the long run. Take time to think about what coding tools you can apply.</p></li>
+<li><p><strong>Experiment</strong>. Try new things, make mistakes, solve problems.</p></li>
+<li><p><strong>Devote time</strong>. Set aside large blocks of time (2+ hours), to <strong>immerse yourself</strong> in your coding lessons or project.</p></li>
+<li><p><strong>Focus</strong>. Eliminate distractions. Turn off your notifications. Put your phone and computer on ‘airplane mode’. Do whatever it takes to work without interruption. Get some good headphones with white noise or instrumental sounds (no lyrics) to block out distractions. Here are some things I listen to, depending on mood:</p></li>
+</ol>
+<ul>
+<li>Baroque/Classical</li>
+<li>Smooth Jazz</li>
+<li>Electronic (ambient, house, lofi)</li>
+<li><a href="https://coffitivity.com/" class="uri"><em>https://coffitivity.com/</em></a></li>
+</ul>
+<ol start="6" type="1">
+<li><strong>Learn to Troubleshoot</strong>.</li>
+</ol>
+<ul>
+<li><p>If you get stuck, Google: “How do I ______ in R”. Look for answers from a website called <em>Stack Overflow</em>: (<a href="https://stackoverflow.com/" class="uri"><em>https://stackoverflow.com/</em></a>)</p></li>
+<li><p>If you can’t figure out what an error means, paste it into Google. Again, look for answers from <em>Stack Overflow</em>.</p></li>
+</ul>
+<ol start="7" type="1">
+<li><p><strong>Socialize</strong>. Find a coding support group or find a few others to form your own group. Discuss problems and successes. Read other people’s code to see how they tackle problems. Rarely is there one single ‘right’ way to code something.</p></li>
+<li><p><strong>Git ’er done</strong>. When you are starting out, the ‘right’ way to code is whatever it takes to get the code to do what you want. Don’t let perfection be the enemy of the good: messy code that works is 100% better than efficient code that never runs.</p></li>
+<li><p><strong>Improve</strong>. As you get more comfortable you can start to think about cleaner, clearer, more efficient ways to code. As you advance, look for ways to do the same thing faster and with fewer lines of code.</p></li>
+<li><p><strong>Embrace Failure</strong>. I can’t stress this enough. Even after 10+ years of programming experience, I often make mistakes, and a decent amount of my time is spent dealing with error messages and unexpected output. Every error is a learning opportunity. This is time well spent.</p></li>
+<li><p><strong>Read</strong> the documentation for the function or package you are using. Don’t worry if you don’t understand everything. Be sure to take the time to read it slowly and try to understand as much as you can. Try searching online for terms or phrases that are not familiar to you. You will come across these again in the future, so you are investing time now for future payoff. In addition to the built-in help in R, often the repository on <em>The Comprehensive R Archinve Network (CRAN)</em> (<a href="https://cran.r-project.org/" class="uri"><em>https://cran.r-project.org/</em></a>) or <em>Bioconductor</em> (<a href="https://www.bioconductor.org/" class="uri"><em>https://www.bioconductor.org/</em></a>) will include <em>vignettes</em> or <em>tutorials</em> as pdf files with worked examples.</p></li>
+<li><p><strong>Use AI Effectively</strong>. With the rise of Large Language Models (LLMs) and other forms of artificial intelligence (AI), it’s time re-think how we teach and learn coding. We’ll expand on this in the next section.</p></li>
+</ol>
+</section>
+<section id="use-ai" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai">Use AI</h2>
+<p>The rapid advancement of <em>Artificial Intelligence</em> (AI), particularly <em>Large Language Models</em> (LLMs) like <em>GPT-4</em>, is having a profound effect on the way that we work and learn. Just as LLMs can help with writing and research, they can also be used to write and edit code. Programs like <em>ChatGPT</em>, and <em>Bing Copilot</em> use the GPT-4 LLM, others like <em>Code Llama</em>, and <em>StarCoder</em> have different LLMS, but all can write effective code (. There is no question that LLMs and other forms of AI will continue to develop into indispensable tools for biological research. If you are reading this book to learn how to code, these tools can act like a personal tutor or to help you learn to code faster and more effectively, and potentially introduce you to new techniques. It’s likely these tools will only get better in the future, so it’s worth incorporating them into your learning process now.</p>
+<p>As of this writing, there are two major issues with LLMs that can interfere with your learning. The first one is a recurring theme in this book: The best way to learn to code is to write code yourself, type everything out, try different things, make mistakes, and learn how to fix them. Struggling through is the best way to learn. This can be a slow and tedious proces, but it is an important baseline for learning. LLMs are not programmed to help you learn, they are just fancy statistical models that have no vested interest in your learning or career goals. You can ask a LLM to write code for you, but I strongly suggest you avoid that when you are first learning how to code. Instead, try to use LLMs like a tutor by asking questions that inform your own understanding. Some specific tips are provided below.</p>
+<p>Apart from hindering your learning, the second major issue with LLMs is that they will often give you bullshit without warning. Computer scientists say these models ‘<em>hallucinate</em>’, but a more accurate term is ‘<em>bullshit</em>’. The word <em>bullshit</em> has a technical definition thanks to Harry G. Frankfurt in his 2005 philosophy book <em>On Bullshit</em>. Briefly, he points out that bullshit is similar to a lie except that there is no regard for the truth. Whereas a liar is aware of the truth and tries to direct people away from it, a bullshitter will happily mix truth with misinformation and disinformation to achieve their goals.</p>
+<p>In <em>Calling Bullshit: The Art of Skepticism in a Data-Driven World</em>, Carl Bergstrom and Jevin West apply the concept to data analysis, showing how even accurate data can be misrepresented or misleading by choices made by the person analyzing and presenting them. They also provide strategies for detecting bullshit in data analysis in a very entertaining way with minimal jargon. I highly recommend this book. I also recommend Frankfurt’s book, which a small pocket-sized book. Both are easy to read.</p>
+<p>In a 2023 article for Undark Magazine, Carl Bergstrom and Brandon Ogbunu argue that ‘bullshiting’ is a more accurate term than ‘hallucinating’ for ChatGPT:</p>
+<blockquote class="blockquote">
+<p>“When AI chatbots flood the world with false facts, confidently asserted, they’re not breaking down, glitching out, or hallucinating. No, they’re bullshitting.”</p>
+</blockquote>
+<p>Despite the issues with LLMs, it’s likely that these models will only improve, and future coders will use AI regularly in their workflows. Therefore, it’s worth learning how to use LLMs to write effective code. The key for you at this point is to use AI to save you time and effort, without it getting in the way of your learning by doing your hard work for you, or by teaching you bullshit. Here are some tips when you are first starting to learn to code:</p>
+<ul>
+<li><strong>DO</strong> Try to figure it out yourself, ask AI for help only when you get stuck.</li>
+<li><strong>DO</strong> Ask AI for help interpreting warning or error messages in your code.</li>
+<li><strong>DO</strong> Read the R help yourself. It’s difficult at first, but it gets easier. Ask AI for help with terms or concepts that you don’t understand in the R help.</li>
+<li><strong>DO</strong> Ask AI for feedback on your code, but don’t use code that you don’t understand, and read the code carefully with your bullshit detectors turned up to 11.</li>
+<li><strong>DO</strong> Ask AI to explain code to you, as you would ask a tutor.</li>
+<li><strong>DON’T</strong> Ask AI which packages or functions you should use. Unless you like to spend lots of time memorizing functions and package names, the best way to learn them is by forcing yourself to think about what you know and how you can apply it for a given problem.</li>
+<li><strong>DON’T</strong> Ask AI to write code for you. Not only will it make it affect your ability to learn to write effective code, it may produce complete bullshit.</li>
+</ul>
+</section>
+<section id="learn-by-doing" class="level2">
+<h2 class="anchored" data-anchor-id="learn-by-doing">Learn by Doing!</h2>
+<p>As you work through these self-tutorials, don’t just read them. I can’t stress this enough: take the time to type out the commands in your R (Studio) console and make sure you get the same output. The simple act of typing it out will send messages to your brain saying “hey, this is an important thing to remember.” If you get an error, even better! Read the error carefully, then compare what you typed to what is in the tutorial. Once you find what is different, you will learn what that error means.</p>
+<p>About 70-90% of coding time is dealing with errors, and the same is true for learning to code. This can be difficult for us to accept because our experience in a typical biology course is quite different.</p>
+</section>
+<section id="what-to-expect" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-expect">What to Expect</h2>
+<p>Learning to code is a lifelong journey. There is always more to learn and new ways to improve. The beginning of your journey might be broken up into three overlapping stages, depending on the level of training you have already received:</p>
+<ol type="1">
+<li><p><strong>Utter bewilderment</strong> – reading code is like reading a foreign language. All these letters and symbols are meaningless to you.</p></li>
+<li><p><strong>Understanding</strong> – you can look at a function and have a decent idea of what it does and how to use it, but you don’t understand most of the parameters. You usually rely on default parameters.</p></li>
+<li><p><strong>Competence</strong> – you can write your own code from scratch, without needing to look up examples, and you are able to carefully review and apply parameters. You rarely trust default parameters, especially for more complicated functions.</p></li>
+<li><p><strong>Expertise</strong> – you write your own functions and help others to troubleshoot code, analysis pipelines, etc. Maybe you even have your own published R package or algorithms.</p></li>
+</ol>
+<p>Don’t confuse <em>understanding</em> with <em>competence</em> – this is a common mistake that students make. It’s relatively easy to learn how to understand code that is shown to you, but it’s quite another skill to learn the names and parameters of useful functions and apply them to solve problems or answer questions. That doesn’t mean you need to memorize every function – though memorization can help. A good strategy to move from understanding to competence is to take the extra time and make the effort to type out the code that is shown to you, even when you can look at it and understand what it does. As noted earlier, the act of typing out the code is what will help to solidify it in your brain.</p>
+</section>
+<section id="translational-coding" class="level2">
+<h2 class="anchored" data-anchor-id="translational-coding">Translational Coding</h2>
+<p>There is often a mismatch between the knowledge acquired through a university degree and the skills that employers need in their workforce. That is, newly minted university students have a lot of knowledge and skills for learning, but often struggle with goals laid out by employers or in entrepreneurial endeavours or thesis/dissertation research.</p>
+<p>In the computing world, the disconnect between learning and application can happen when students have acquired knowledge of coding algorithms and tools, but learn to apply these tools only when working within a ‘sandbox’ created for teaching purposes. The sandbox is a clean and well-groomed programming environment with pre-loaded software and examples, curated by the educator. The sandbox lacks the messiness and ambiguity that define real-world applications, and the student never faces these uncomfortable but highly relevant challenges. The sandbox approach is commonly used in both university settings and online courses (e.g.&nbsp;Udemy, Coursera, Datacamp, Skillshare).</p>
+<p>A typical teaching sandbox will probably include pre-installed software with ‘clean’ data defined by a well-defined data structure without errors or missing observations. It will probably have a clear and singular path from problem to solution. This approach has the advantage of efficiency – both for the educator and for the learner. The learner can be guided to move efficiently through key learning objectives while minimizing unexpected bugs or problems that can slow progress and take significant time for educators to deal with. The sandbox creates a more homogeneous experience that is more efficient for tracking progress and assigning grades. The trade-off is that sandbox learning does a poor job preparing you for the messy realities of coding with real data in the real world.</p>
+<p>An alternative to the sandbox approach is <em>translational coding</em>, which borrows the term from <em>translational medicine</em>. <strong>Translational medicine</strong> is a multidisciplinary hybrid between research and application that directly connects medical researchers to the needs of patients. By analogy, <strong>translational coding</strong> tries to directly connect coding skills and tools to the needs of potential employers.</p>
+<p>This will not be pleasant for you, the learner, at first. The sandbox approach is popular with learners because it is relatively quick and painless with minimal time needed for researching, planning, debugging, and other forms of problem solving. There is value to learning to work quickly and efficiently, but there is also value in learning to deal with problems that arise in the real-world. This includes dealing with errors at every stage, from installing software to problems hidden among thousands of lines of data or code. This can be frustrating at first, and it will absolutely slow down your progress. There are three key things to remember when this happens:</p>
+<ol type="1">
+<li><p>Every error, problem, or roadblock is a <strong>learning opportunity</strong>. Every problem and assignment will have specific goals and challenges that are explicitly laid out by the tutorial, assignment or practice problem. These are the challenges that every learner must overcome to complete the task. In addition, there are <em>implicit</em> challenges that may be unique or shared by only a few learners – a particular typo in the code, an error importing or saving, an unidentified error in your dataset. These implicit problems may feel ‘unfair’ because not every learner has to deal with the same problems at the same time. Over time however, these will tend to average out so that everyone will make similar mistakes, albeit at different times.</p></li>
+<li><p>You can learn to <strong>budget your time</strong> to deal with these implicit, unforeseen errors. And this is an important and highly-transferrable skill! Start a problem or assignment as soon as possible. Give yourself time to take a break and come back to a problem when you get stuck. When you estimate how long an assignment will take, don’t just look at the <em>explicit</em> goals. Remember to also add time for the <em>implicit</em> challenges, which will take much longer to complete.</p></li>
+<li><p><strong>Time devoted to a new problem pays off in the future</strong>. Most of your time will be spent the first time you encounter a problem. If you take the time to read the error or warning, think about it, and investigate it, then you will know how to recognize and deal with it in the future. In this way, implicit challenges tend to balance out among learners over time. Some learners will encounter a problem early and struggle while others move ahead, until they encounter the same problem, evening the playing field.</p></li>
+</ol>
+<p>The most important thing is to <strong>embrace the challenge</strong>! Don’t let yourself get discouraged.</p>
+<p>Now, let’s get set up to start coding in R.</p>
+</section>
+</section>
+<section id="setup" class="level1">
+<h1>Setup</h1>
+<section id="r" class="level2">
+<h2 class="anchored" data-anchor-id="r">R</h2>
+<p>Before you begin these tutorials, you should install the latest version of R: (<a href="https://cran.r-project.org/" class="uri"><em>https://cran.r-project.org/</em></a>)</p>
+<p>Versions are available for Windows, MacOS and Linux operating systems. Immediately we can see one of the advantages of learning to code in R – we can move code across computing platforms quite easily, as long as R is installed there.</p>
+</section>
+<section id="r-studio" class="level2">
+<h2 class="anchored" data-anchor-id="r-studio">R Studio</h2>
+<p>You should also install R Studio: (<a href="https://rstudio.com/products/rstudio/download/#download" class="uri"><em>https://rstudio.com/products/rstudio/download/#download</em></a>)</p>
+<p>R Studio is an <strong>Integrated Development Environment (IDE)</strong>. Once you install R Studio, go ahead and run the program.</p>
+<p>You will see several helpful <em>tabs</em>, probably arranged across four windows. Several windows have more than one tab at the top, which you can click to access. Here is a quick overview of the more useful ones (some of this will make more sense after you work through the first few chapters of the tutorial):</p>
+<ul>
+<li><strong>Environment</strong> keeps track of all of the objects in your programming environment.</li>
+<li><strong>History</strong> keeps track of the code you have run.</li>
+<li><strong>Files</strong> similar to the Finder (MacOS) or File Explorer (Windows), starting with the <em>working directory</em>.</li>
+<li><strong>Plots</strong> are where your plots are created.</li>
+<li><strong>Packages</strong> show which packages you have installed, and which have been loaded.</li>
+<li><strong>Help</strong> provides documentation for R functions.</li>
+<li><strong>Console</strong> is important enough to get its own section.</li>
+</ul>
+</section>
+<section id="console" class="level2">
+<h2 class="anchored" data-anchor-id="console">Console</h2>
+<p>The <strong>console</strong> is one of the most important tabs in <em>R Studio</em>. It’s usually the main tab that opens on the left when you first start R Studio. You’ll see a little chevron (<code>&gt;</code>) with a cursor after it. This is the R Console, which is the part of <em>R Studio</em> that actually runs the R program. Everything in this window shows you what would happen if you ran the code outside of R Studio, for example on a high perfomance computing cluster like the ones maintained by <em>Compute Canada</em>, <em>Microsoft Azure</em>, <em>Amazon Web Services</em>, or Queen’s University’s own <em>Centre for Advanced Computing</em>. Everything in R studio is built around helping you to perform tasks in R, as shown through the R Console.</p>
+<section id="r-script" class="level3">
+<h3 class="anchored" data-anchor-id="r-script">R Script</h3>
+<p>To run an R script, you can just type functions into the console. However, it is very hard to keep track of everything you do if you only use the console. In R Studio you can click <strong><code>File--&gt;New File--&gt;R Script</code></strong>. This will open a new tab window called <strong>Untitled</strong>. This is called a <strong>script</strong>, but it’s really just a text file, with a <strong>.R</strong> suffix, that you can use to keep track of your R program. Try typing something into your R script – don’t worry for now if it is just some random text. Note that you can <strong>Save</strong> this file.</p>
+<p>Nothing happens (yet). To run the script, you have to send the text from the script tab to the console tab. There are a few ways you could do this:</p>
+<ol type="1">
+<li><p>Copy and paste manually. This works fine, but there are more efficient options.</p></li>
+<li><p>Highlight the code you want to run and click the <strong>Run</strong> button on the top-right corner of the script tab. The run button sends the highlighted text from the script to the console.</p></li>
+<li><p>If you click the <strong>Run</strong> button without highlighting text, it will send whatever text is on the same <em>line</em> as your cursor.</p></li>
+<li><p>If you press <strong>Ctl + Enter</strong> (Windows) or <strong>Cmd + Return</strong> (Mac) it will do the same thing – this is the shortcut for the <strong>Run</strong> button.</p></li>
+<li><p>There are other options if you press the tiny triangle next to the <strong>Run</strong> button, including <strong>Run All</strong>.</p></li>
+<li><p><strong>Ctl/Cmd + Shift + Enter/Return</strong> is a shortcut for <strong>Run All</strong>.</p></li>
+</ol>
+</section>
+</section>
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">Packages</h2>
+<p>Packages in R contain functions – small programs that contain functions you can use. A few are loaded automatically when you start R, including the <code>stats</code> and <code>base</code> packages. One really good package is called <code>tidyverse</code>. The <code>tidyverse</code> package contains a lot of useful functions for working with different types of data, including visualizations. You’ll need to make sure you are connected to the internet and that your connection to the internet won’t be interrupted during the download.</p>
+<blockquote class="blockquote">
+<p>WARNING! This may take a long time to run</p>
+</blockquote>
+<p>To install the packages, open R Studio and look for the <strong>Console</strong> tab. Type this into your console:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, install <code>devtools</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>install.packages()</code> function downloads the package and saves it on your computer. You only need to do this one time, though you may want to do it periodically to update to the latest version of the package.</p>
+<p>Once a package is installed on your computer, it will be available to run in R with the <code>library()</code> command. You’ll see examples of this throughout the book.</p>
+<p>That’s it!</p>
+<p>Now, let’s get coding…</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>R Crash Course for Biologists</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p><a href="https://EcoEvoGeno.org/">Robert I Colautti</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

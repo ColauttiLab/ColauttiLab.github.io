@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Crash Course for Biologists, 2nd Edition</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./favicon.ico" rel="icon">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HZY3MS2C2R"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HZY3MS2C2R', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="https://EcoEvoGeno.org" class="navbar-brand navbar-brand-logo">
+    <img src="./ColauttiLabLogo.png" alt="Colautti Lab logo" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="https://EcoEvoGeno.org">
+    <span class="navbar-title">R Crash Course for Biologists, 2nd Edition</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction">    
+        <li>
+    <a class="dropdown-item" href="./index.html">
+ <span class="dropdown-text">Book Info</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./preface.html">
+ <span class="dropdown-text">Preface</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-basics" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Basics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-basics">    
+        <li>
+    <a class="dropdown-item" href="./fundamentals.html">
+ <span class="dropdown-text">R Fundamentals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./visualizations.html">
+ <span class="dropdown-text">Quick Visualizations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./rmarkdown.html">
+ <span class="dropdown-text">R Markdown</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-more-graphs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">More Graphs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-more-graphs">    
+        <li>
+    <a class="dropdown-item" href="./customizations.html">
+ <span class="dropdown-text">Basic Customization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./advanced_vis.html">
+ <span class="dropdown-text">Advanced Visualizations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./multiplot.html">
+ <span class="dropdown-text">Multi-plot Graphs</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Advanced</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced">    
+        <li>
+    <a class="dropdown-item" href="./datascience.html">
+ <span class="dropdown-text">Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./flowcontrol.html">
+ <span class="dropdown-text">Flow Control</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./regex.html">
+ <span class="dropdown-text">Regular Expressions I</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./regex2.html">
+ <span class="dropdown-text">Regular Expressions II</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./customfunctions.html">
+ <span class="dropdown-text">Custom Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./matrices.html">
+ <span class="dropdown-text">Matrices</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./conclusion.html"> 
+<span class="menu-text">Conclusion</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#regular-expressions-ii" id="toc-regular-expressions-ii" class="nav-link active" data-scroll-target="#regular-expressions-ii">Regular Expressions II</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#regex-in-r-studio" id="toc-regex-in-r-studio" class="nav-link" data-scroll-target="#regex-in-r-studio">Regex in R Studio</a></li>
+  <li><a href="#scraping" id="toc-scraping" class="nav-link" data-scroll-target="#scraping">Scraping</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#transect-data" id="toc-transect-data" class="nav-link" data-scroll-target="#transect-data">Transect Data</a>
+  <ul class="collapse">
+  <li><a href="#challenge" id="toc-challenge" class="nav-link" data-scroll-target="#challenge">Challenge</a></li>
+  </ul></li>
+  <li><a href="#genbank" id="toc-genbank" class="nav-link" data-scroll-target="#genbank">Genbank</a>
+  <ul class="collapse">
+  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge</a></li>
+  </ul></li>
+  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a>
+  <ul class="collapse">
+  <li><a href="#transects" id="toc-transects" class="nav-link" data-scroll-target="#transects">Transects</a></li>
+  <li><a href="#genbank-1" id="toc-genbank-1" class="nav-link" data-scroll-target="#genbank-1">Genbank</a></li>
+  </ul></li>
+  <li><a href="#more-exercises" id="toc-more-exercises" class="nav-link" data-scroll-target="#more-exercises">More Exercises</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="regular-expressions-ii" class="level1">
+<h1>Regular Expressions II</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In this chapter, we look at specific applications and examples of regular expressions. This includes some tips for practicing regular expressions in R Studio, gathering data from online websites, and practice exercises with DNA data.</p>
+</section>
+<section id="regex-in-r-studio" class="level2">
+<h2 class="anchored" data-anchor-id="regex-in-r-studio">Regex in R Studio</h2>
+<p>As noted above, there is a steep learning curve to understanding regular expressions. Getting clean Regex code to do what you want can often come down to trial-and-error. Sometimes, it’s impractical to run code and look at the output to see if your Regex code is doing what you want it to do. In R Studio, you test your regular expression in a text file, using the <strong>Find</strong> command from the <strong>Edit</strong> menu in R Studio (or Ctl + F on Windows or Cmd + F on MacOS).</p>
+<p>Try opening a text file in R Studio and select Find from the Edit Menu. You’ll see some check boxes at the bottom of the search bar. One of these boxes is <strong>Regex</strong>. If you check this box (and uncheck all other boxes) you can use the Find command to highlight the text that is selected for your Regex command. Just make sure to use one escape character (<code>\</code>) for the search bar.</p>
+<blockquote class="blockquote">
+<p>Recall that the double escape characters (<code>\\</code>) are specific to the R search string parameter of the regex functions (e.g., <code>sub</code>, <code>gsub</code>)</p>
+</blockquote>
+</section>
+<section id="scraping" class="level2">
+<h2 class="anchored" data-anchor-id="scraping">Scraping</h2>
+<p>Scraping is a method for collecting data from online sources. In R, we can use the functions <code>readLines</code> and <code>curl()</code>, both from the <code>curl</code> library, to copy data from websites. We can do this because websites with the <code>.html</code> or <code>.xml</code> extension are a special kind of text files.</p>
+<p>For more advanced applications, we might want to use the <code>rvest</code> package, which is designed for <code>html</code> and <code>xml</code> files. However, we’ll focus here on <code>curl()</code> because we can apply regular expressions to any text files to extract information of interest. Here’s an example where we will scrape a record for the Green Fluorescent Protein (GFP) from the Protein Data Bank (PDB). Note that this is a file with the extension <code>.pdb</code> but this is a human-readable text file that can be opened in any text editor</p>
+<p>First, we’ll import the text into an R object.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(curl) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using libcurl 7.84.0 with Schannel</code></pre>
+</div>
+</div>
+<p>You will have to use <code>install.packages("curl")</code> to download this package to your computer. You only need to do this once but you will have to use <code>library(curl)</code> whenever you want to use the functions, as explained in the <em>R Fundamentals</em> Chapter.</p>
+<p>Now we can download a file to play with.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Prot<span class="ot">&lt;-</span><span class="fu">readLines</span>(<span class="fu">curl</span>(<span class="st">"http://www.rcsb.org/pdb/files/1ema.pdb"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Download this link to your computer and open with a text file to see what it looks like.</p>
+<p>This hint is a simple trick to understand what kind of file(s) you are working with.</p>
+<p>This is a tab-delimited file, which we could import as a data frame using <code>read.delim</code> but we’ll keep it this way to practice our regular expressions.</p>
+<p>The <code>Prot</code> object we have made is a simple vector of strings, with each cell corresponding to a different row of text:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(Prot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2363</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"TITLE"</span>,Prot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+<p>We can pull out the amino acid sequences, which are rows that start with the word ‘ATOM’</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>AAseq<span class="ot">&lt;-</span>Prot[<span class="fu">grep</span>(<span class="st">"^ATOM"</span>,Prot)]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(AAseq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1717</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>AAseq[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ATOM      1  N   SER A   2      28.888   9.409  52.301  1.00 85.05           N  "</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Challenge</strong>: Try to apply what you have learned about regular expressions to isolate the 3-letter amino acid code.</p>
+</blockquote>
+<p>There are several ways we could do this. Take the time to think about it and give it a try.</p>
+<p>Here’s one good option, since we know it’s a tab-delimited file with the amino acid in the 4th column:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"ATOM</span><span class="sc">\\</span><span class="st">t</span><span class="sc">\\</span><span class="st">w+</span><span class="sc">\\</span><span class="st">t</span><span class="sc">\\</span><span class="st">w+</span><span class="sc">\\</span><span class="st">t(</span><span class="sc">\\</span><span class="st">w+).*"</span>,<span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>,AAseq[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ATOM      1  N   SER A   2      28.888   9.409  52.301  1.00 85.05           N  "</code></pre>
+</div>
+</div>
+<p>That didn’t work. Sometimes the ‘tabs’ are actually just multiple ‘spaces’</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>AAchain<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">"ATOM</span><span class="sc">\\</span><span class="st">s+</span><span class="sc">\\</span><span class="st">w+</span><span class="sc">\\</span><span class="st">s+</span><span class="sc">\\</span><span class="st">w+</span><span class="sc">\\</span><span class="st">s+(</span><span class="sc">\\</span><span class="st">w+).*"</span>,<span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>,AAseq)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>AAchain[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "SER" "SER" "SER" "SER" "SER" "SER" "LYS" "LYS" "LYS" "LYS" "LYS" "LYS"
+ [13] "LYS" "LYS" "LYS" "GLY" "GLY" "GLY" "GLY" "GLU" "GLU" "GLU" "GLU" "GLU"
+ [25] "GLU" "GLU" "GLU" "GLU" "GLU" "GLU" "GLU" "GLU" "GLU" "GLU" "LEU" "LEU"
+ [37] "LEU" "LEU" "LEU" "LEU" "LEU" "LEU" "PHE" "PHE" "PHE" "PHE" "PHE" "PHE"
+ [49] "PHE" "PHE" "PHE" "PHE" "PHE" "THR" "THR" "THR" "THR" "THR" "THR" "THR"
+ [61] "GLY" "GLY" "GLY" "GLY" "VAL" "VAL" "VAL" "VAL" "VAL" "VAL" "VAL" "VAL"
+ [73] "VAL" "VAL" "VAL" "VAL" "VAL" "VAL" "PRO" "PRO" "PRO" "PRO" "PRO" "PRO"
+ [85] "PRO" "ILE" "ILE" "ILE" "ILE" "ILE" "ILE" "ILE" "ILE" "LEU" "LEU" "LEU"
+ [97] "LEU" "LEU" "LEU" "LEU"</code></pre>
+</div>
+</div>
+<p>Now we have a handy vector of amino acids representing our protein.</p>
+</section>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<p>Let’s try practising with a couple of examples.</p>
+</section>
+<section id="transect-data" class="level2">
+<h2 class="anchored" data-anchor-id="transect-data">Transect Data</h2>
+<p>Regular expressions are also useful with data objects</p>
+<p>Imagine you have a repeated measures design. 3 transects (A-C) and 3 positions along each transect (1-3). We can simulate this data by generating dandom numbers in a data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Transect<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">Species=</span>letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>],</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">A1=</span><span class="fu">rnorm</span>(<span class="dv">20</span>), <span class="at">A2=</span><span class="fu">rnorm</span>(<span class="dv">20</span>), <span class="at">A3=</span><span class="fu">rnorm</span>(<span class="dv">20</span>),</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">B1=</span><span class="fu">rnorm</span>(<span class="dv">20</span>), <span class="at">B2=</span><span class="fu">rnorm</span>(<span class="dv">20</span>) ,<span class="at">B3=</span><span class="fu">rnorm</span>(<span class="dv">20</span>),</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">C1=</span><span class="fu">rnorm</span>(<span class="dv">20</span>), <span class="at">C2=</span><span class="fu">rnorm</span>(<span class="dv">20</span>), <span class="at">C3=</span><span class="fu">rnorm</span>(<span class="dv">20</span>))</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Transect)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Species         A1         A2         A3          B1          B2          B3
+1       a -0.4762919 -0.8771969 -2.4134562  1.09793390 -0.22686803  0.93908458
+2       b  0.5931594  0.2868677 -1.0057155 -0.48245954 -1.26291078 -0.13815786
+3       c  0.5233956  0.3531411 -0.3127597  0.28584890 -0.03140898 -0.17422685
+4       d -0.1398728 -0.1236981 -0.1956281 -0.01232568  0.41402493  0.02370992
+5       e  0.8294952 -0.5536721  0.7487573 -0.43119837  0.90706270  2.10488473
+6       f  1.0231336  0.2370539 -0.4418742 -0.97054591 -0.49717235  0.38836569
+          C1         C2         C3
+1 -1.3588022 -0.3143200 -1.1155445
+2 -0.7981804  0.2417494  0.2025241
+3 -0.3029387 -1.2293938 -0.2851082
+4  0.2644057 -1.3592029 -0.5699135
+5 -0.1300611  0.3638732 -1.7787850
+6 -0.7249635 -0.2156055 -0.9796530</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Tip</strong>: the object <code>letters</code> in the code above contains lower-case letter, while <code>LETTERS</code> contains upper case.</p>
+</blockquote>
+<section id="challenge" class="level3">
+<h3 class="anchored" data-anchor-id="challenge">Challenge</h3>
+<p>Use your knowledge f regular expressions with subsetting data outlined in the <em>R Fundamentals</em> Chapter to do the following:</p>
+<ol type="1">
+<li>Subset only the columns that have an “A” in their name</li>
+<li>Subset the rows of data for species “d”</li>
+</ol>
+<p>Take the time to do this on your own. It will take you a while and you might make a lot of mistakes along the way. That’s all part of the learning process. The longer you struggle, the faster you will learn.</p>
+<p>Now here is a more challenging example:</p>
+</section>
+</section>
+<section id="genbank" class="level2">
+<h2 class="anchored" data-anchor-id="genbank">Genbank</h2>
+<p>Here is a line of code to import DNA from genbank. (The one line is broken up into three physical lines to make it easier to read)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Lythrum_18S<span class="ot">&lt;-</span><span class="fu">scan</span>(</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://colauttilab.github.io/RCrashCourse/sequence.gb"</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">what=</span><span class="st">"character"</span>,<span class="at">sep=</span><span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This is the sequence of the 18S subunit from the ribosome gene of <em>Lythrum salicaria</em> (from Genbank)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Lythrum_18S)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "LOCUS       AF206955                1740 bp    DNA     linear   PLN 18-APR-2003"
+ [2] "DEFINITION  Lythrum salicaria 18S ribosomal RNA gene, complete sequence."       
+ [3] "ACCESSION   AF206955"                                                           
+ [4] "VERSION     AF206955.1"                                                         
+ [5] "KEYWORDS    ."                                                                  
+ [6] "SOURCE      Lythrum salicaria"                                                  
+ [7] "  ORGANISM  Lythrum salicaria"                                                  
+ [8] "            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;" 
+ [9] "            Spermatophyta; Magnoliopsida; eudicotyledons; Gunneridae;"          
+[10] "            Pentapetalae; rosids; malvids; Myrtales; Lythraceae; Lythrum."      
+[11] "REFERENCE   1  (bases 1 to 1740)"                                               
+[12] "  AUTHORS   Soltis,P.S., Soltis,D.E. and Chase,M.W."                            
+[13] "  TITLE     Direct Submission"                                                  
+[14] "  JOURNAL   Submitted (19-NOV-1999) School of Biological Sciences, Washington"  
+[15] "            State University, Pullman, WA 99164-4236, USA"                      
+[16] "FEATURES             Location/Qualifiers"                                       
+[17] "     source          1..1740"                                                   
+[18] "                     /organism=\"Lythrum salicaria\""                           
+[19] "                     /mol_type=\"genomic DNA\""                                 
+[20] "                     /db_xref=\"taxon:13129\""                                  
+[21] "                     /note=\"Lythrum salicaria L.\""                            
+[22] "     rRNA            1..1740"                                                   
+[23] "                     /product=\"18S ribosomal RNA\""                            
+[24] "ORIGIN      "                                                                   
+[25] "        1 gtcatatgct tgtctcaaag attaagccat gcatgtgtaa gtatgaacaa attcagactg"    
+[26] "       61 tgaaactgcg aatggctcat taaatcagtt atagtttgtt tgatggtatc tgctactcgg"    
+[27] "      121 ataaccgtag taattctaga gctaatacgt gcaacaaacc ccgacttctg gaagggacgc"    
+[28] "      181 atttattaga taaaaggtcg acgcgggctt tgcccgatgc tctgatgatt catgataact"    
+[29] "      241 tgacggatcg cacggccatc gtgccggcga cgcatcattc aaatttctgc cctatcaact"    
+[30] "      301 ttcgatggta ggatagtggc ctaccatggt gtttacgggt aacggagaat tagggttcga"    
+[31] "      361 ttccggagag ggagcctgag aaacggctac cacatccaag gaaggcagca ggcgcgcaaa"    
+[32] "      421 ttacccaatc ctgacacggg gaggtagtga caataaataa caatactggg ctctttgagt"    
+[33] "      481 ctggtaattg gaatgagtac aatctaaatc ccttaacgag gatccattgg agggcaagtc"    
+[34] "      541 tggtgccagc agccgcggta attccagctc caatagcgta tatttaagtt gttgcagtta"    
+[35] "      601 aaaagctcgt agttggacct tgggttgggt cgaccggtcc gcctttggtg tgcaccgatc"    
+[36] "      661 ggctcgtccc ttctaccggc gatgcgcgcc tggccttaat tggccgggtc gttcctccgg"    
+[37] "      721 tgctgttact ttgaagaaat tagagtgctc aaagcaagca ttagctatga atacattagc"    
+[38] "      781 atgggataac attataggat tccgatccta ttatgttggc cttcgggatc ggagtaatga"    
+[39] "      841 ttaacaggga cagtcggggg cattcgtatt tcatagtcag aggtgaaatt cttggattta"    
+[40] "      901 tgaaagacga acaactgcga aagcatttgc caaggatgtt ttcattaatc aagaacgaaa"    
+[41] "      961 gttgggggct cgaagacgat cagataccgt cctagtctca accataaacg atgccgacca"    
+[42] "     1021 gggatcagcg aatgttactt ttaggacttc gctggcacct tatgagaaat caaagttttt"    
+[43] "     1081 gggttccggg gggagtatgg tcgcaaggct gaaacttaaa ggaattgacg gaagggcacc"    
+[44] "     1141 accaggagtg gagcctgcgg cttaatttga ctcaacacgg ggaaacttac caggtccaga"    
+[45] "     1201 catagtaagg attgacagac tgagagctct ttcttgattc tatgggtggt ggtgcatggc"    
+[46] "     1261 cgttcttagt tggtggagcg atttgtctgg ttaattccgt taacgaacga gacctcagcc"    
+[47] "     1321 tgctaactag ctatgtggag gtacacctcc acggccagct tcttagaggg actatggccg"    
+[48] "     1381 cttaggccaa ggaagtttga ggcaataaca ggtctgtgat gcccttagat gttctgggcc"    
+[49] "     1441 gcacgcgcgc tacactgatg tattcaacga gtctatagcc ttggccgaca ggcccgggta"    
+[50] "     1501 atctttgaaa tttcatcgtg atggggatag atcattgcaa ttgttggtct tcaacgagga"    
+[51] "     1561 attcctagta agcgcgagtc atcagctcgc gttgactacg tccctgccct ttgtacacac"    
+[52] "     1621 cgcccgtcgc tcctaccgat tgaatggtcc ggtgaaatgt tcggatcgcg gcgacgtggg"    
+[53] "     1681 cgcttcgtcg ccgacgacgt cgcgagaagt ccattgaacc ttatcattta gaggaaggag"    
+[54] "//"                                                                             </code></pre>
+</div>
+</div>
+<p>Notice that each line is read in as a separate cell in a vector, with sequences beginning with a number ending with 1. We can take advantage of this to extract just the sequence data</p>
+<section id="challenge-1" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-1">Challenge</h3>
+<p>Before we move on, try to do the following:</p>
+<ol type="1">
+<li>Isolate only the rows containing DNA sequences. This should include</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Removing all of the characters that are not a, t, g, or c.</li>
+<li>Combining separate cells/lines into a single string. You can do this with using the <code>paste()</code> function with the <code>collapse=""</code> parameter</li>
+</ol>
+<!-- -->
+<ol start="2" type="1">
+<li>Convert lower-case to upper-case. To do this, you can use:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"([actg])"</span>,<span class="st">"</span><span class="sc">\\</span><span class="st">U</span><span class="sc">\\</span><span class="st">1"</span>,Seq,<span class="at">perl=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>\\U\\\1</code> means “paste brackets as upper-case”, and is only available as a <strong>Perl</strong> command, which is accessible in <code>gsub()</code> with the <code>perl=T</code> parameter.</p>
+<ol start="3" type="1">
+<li><p>Replace start codons (ATG) with <code>--&gt;START--&gt;ATG</code></p></li>
+<li><p>Insert <code>&gt;--STOP--|</code> after any stop codons (TAA or TAG or TGA).</p></li>
+</ol>
+<p>Take the time to struggle with this and try different combinations until you find a way through. The more you struggle, the faster you will learn.</p>
+<p>A cool thing about regular expressions is that there is rarely a single right answer, especially for complicated problems. When you are ready, Continue on to see one possible solution.</p>
+</section>
+</section>
+<section id="solutions" class="level2">
+<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
+<section id="transects" class="level3">
+<h3 class="anchored" data-anchor-id="transects">Transects</h3>
+<p>Subset only transect A for the first 3 species:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>Transect[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="fu">grep</span>(<span class="st">"A"</span>,<span class="fu">names</span>(Transect))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          A1         A2         A3
+1 -0.4762919 -0.8771969 -2.4134562
+2  0.5931594  0.2868677 -1.0057155
+3  0.5233956  0.3531411 -0.3127597</code></pre>
+</div>
+</div>
+<p>Subset the data for the species <code>"d"</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>Transect[<span class="fu">grep</span>(<span class="st">"d"</span>,Transect<span class="sc">$</span>Species),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Species         A1         A2         A3          B1        B2         B3
+4       d -0.1398728 -0.1236981 -0.1956281 -0.01232568 0.4140249 0.02370992
+         C1        C2         C3
+4 0.2644057 -1.359203 -0.5699135</code></pre>
+</div>
+</div>
+</section>
+<section id="genbank-1" class="level3">
+<h3 class="anchored" data-anchor-id="genbank-1">Genbank</h3>
+<p>First, isolate the DNA sequence:</p>
+<ol type="1">
+<li>Use <code>.*</code> with <code>()</code> to delete everything before the DNA sequence</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Seq<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">".*(1 [gatc])"</span>,<span class="st">""</span>,Lythrum_18S)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Use the <code>.*</code> and space with <code>+</code> to eliminate all text before the sequence</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>Seq<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">".*ORIGIN +"</span>,<span class="st">""</span>,<span class="fu">paste</span>(Seq,<span class="at">collapse=</span><span class="st">""</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Eliminate spaces and the two <code>//</code> at the end</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>Seq<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">" |//"</span>,<span class="st">""</span>,Seq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Capital letters look nicer, but requires a PERL qualifier <code>\\U</code> in the replacement string. This is not standard in R regular expressions, but can be accessed with <code>perl=T</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>Seq<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">"([actg])"</span>,<span class="st">"</span><span class="sc">\\</span><span class="st">U</span><span class="sc">\\</span><span class="st">1"</span>,Seq,<span class="at">perl=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now that we have our formatted DNA sequence string, we can highlight start codons.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>ORFs<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">"ATG"</span>,<span class="st">"</span><span class="sc">\n</span><span class="st"> &lt;ATG&gt;--&gt;START--&gt;"</span>,Seq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And stop codons too.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>ORFs<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">"(TAA|TAG|TGA)"</span>,<span class="st">"&lt;</span><span class="sc">\\</span><span class="st">1&gt;--STOP--| </span><span class="sc">\n</span><span class="st">"</span>,Seq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note the addition of the newline character (<code>\n</code>) to make the output more readable. To see the final modified string, use the <code>cat()</code> function to print the string directly, rather than creating an object containing the string:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(ORFs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>(<em>Output not shown</em>)</p>
+</section>
+</section>
+<section id="more-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="more-exercises">More Exercises</h2>
+<p>Here are some more exercises to practice your skills. No solutions are given, but you will know if you are correct if you get the desired output.</p>
+<ol type="1">
+<li><strong>Email Spammer</strong>: Consider a vector of email addresses scraped from the internet.</li>
+</ol>
+<ul>
+<li>robert ‘dot’ colautti ‘at’ queensu ‘dot’ ca</li>
+<li>chris.eckert[at]queensu.ca</li>
+<li>lonnie.aarssen at queensu.ca</li>
+</ul>
+<p>Use regular expressions to convert all email addresses to the standard format: name@queensu.ca</p>
+<ol start="2" type="1">
+<li><strong>Genetic Simulation</strong>: Start by creating a random sequence of DNA. Think way back to the <em>R Fundamentals</em> Chapter to find a function that can randomly sample from 4 base pairs to create vector of 1,000 bases.</li>
+</ol>
+<p>Once you have your vector, try collapsing it into a single element (i.e., a string with 1,000 characters).</p>
+<blockquote class="blockquote">
+<p><strong>Hint</strong>: You can do this with the <code>paste()</code> command. You just need one special parameter.</p>
+</blockquote>
+<p>Now, try each of the following challenges:</p>
+<ul>
+<li>Replace T with U.</li>
+<li>Find all start codons (AUG) and stop codons (UAA, UAG, UGA).</li>
+<li>Find all open reading frames (hint: consider each sequence beginning with AUG and ending with a stop codon; how do you know if both sequences are in the same reading frame?).</li>
+<li>Count the length (number of bases) for all open reading frames.</li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Regex Golf</strong></li>
+</ol>
+<p>Have fun! <a href="https://alf.nu/RegexGolf" class="uri"><em>https://alf.nu/RegexGolf</em></a></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>R Crash Course for Biologists</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p><a href="https://EcoEvoGeno.org/">Robert I Colautti</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

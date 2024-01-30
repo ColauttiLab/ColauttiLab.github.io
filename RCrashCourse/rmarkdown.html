@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Crash Course for Biologists, 2nd Edition</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./favicon.ico" rel="icon">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HZY3MS2C2R"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HZY3MS2C2R', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="https://EcoEvoGeno.org" class="navbar-brand navbar-brand-logo">
+    <img src="./ColauttiLabLogo.png" alt="Colautti Lab logo" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="https://EcoEvoGeno.org">
+    <span class="navbar-title">R Crash Course for Biologists, 2nd Edition</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction">    
+        <li>
+    <a class="dropdown-item" href="./index.html">
+ <span class="dropdown-text">Book Info</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./preface.html">
+ <span class="dropdown-text">Preface</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-basics" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Basics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-basics">    
+        <li>
+    <a class="dropdown-item" href="./fundamentals.html">
+ <span class="dropdown-text">R Fundamentals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./visualizations.html">
+ <span class="dropdown-text">Quick Visualizations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./rmarkdown.html">
+ <span class="dropdown-text">R Markdown</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-more-graphs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">More Graphs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-more-graphs">    
+        <li>
+    <a class="dropdown-item" href="./customizations.html">
+ <span class="dropdown-text">Basic Customization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./advanced_vis.html">
+ <span class="dropdown-text">Advanced Visualizations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./multiplot.html">
+ <span class="dropdown-text">Multi-plot Graphs</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Advanced</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced">    
+        <li>
+    <a class="dropdown-item" href="./datascience.html">
+ <span class="dropdown-text">Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./flowcontrol.html">
+ <span class="dropdown-text">Flow Control</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./regex.html">
+ <span class="dropdown-text">Regular Expressions I</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./regex2.html">
+ <span class="dropdown-text">Regular Expressions II</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./customfunctions.html">
+ <span class="dropdown-text">Custom Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./matrices.html">
+ <span class="dropdown-text">Matrices</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./conclusion.html"> 
+<span class="menu-text">Conclusion</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#r-markdown" id="toc-r-markdown" class="nav-link active" data-scroll-target="#r-markdown">R Markdown</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#cheat-sheet" id="toc-cheat-sheet" class="nav-link" data-scroll-target="#cheat-sheet">Cheat Sheet</a></li>
+  <li><a href="#create" id="toc-create" class="nav-link" data-scroll-target="#create">Create</a></li>
+  <li><a href="#yaml-header" id="toc-yaml-header" class="nav-link" data-scroll-target="#yaml-header">YAML Header</a></li>
+  <li><a href="#markdown-elements" id="toc-markdown-elements" class="nav-link" data-scroll-target="#markdown-elements">Markdown Elements</a></li>
+  <li><a href="#basic-elements" id="toc-basic-elements" class="nav-link" data-scroll-target="#basic-elements">Basic elements</a>
+  <ul class="collapse">
+  <li><a href="#plain-text" id="toc-plain-text" class="nav-link" data-scroll-target="#plain-text">Plain text</a></li>
+  <li><a href="#formatted-text" id="toc-formatted-text" class="nav-link" data-scroll-target="#formatted-text">Formatted Text</a></li>
+  </ul></li>
+  <li><a href="#headers" id="toc-headers" class="nav-link" data-scroll-target="#headers">Headers</a></li>
+  <li><a href="#other-elements" id="toc-other-elements" class="nav-link" data-scroll-target="#other-elements">Other Elements</a></li>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
+  <li><a href="#images" id="toc-images" class="nav-link" data-scroll-target="#images">Images</a></li>
+  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists">Lists</a></li>
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables">Tables</a></li>
+  <li><a href="#tables-1" id="toc-tables-1" class="nav-link" data-scroll-target="#tables-1">Tables</a></li>
+  <li><a href="#embed-r-code" id="toc-embed-r-code" class="nav-link" data-scroll-target="#embed-r-code">Embed R Code</a>
+  <ul class="collapse">
+  <li><a href="#code-chunk-names" id="toc-code-chunk-names" class="nav-link" data-scroll-target="#code-chunk-names">Code Chunk Names</a></li>
+  <li><a href="#code-chunk-parameters" id="toc-code-chunk-parameters" class="nav-link" data-scroll-target="#code-chunk-parameters">Code Chunk Parameters</a></li>
+  </ul></li>
+  <li><a href="#dynamic-tables" id="toc-dynamic-tables" class="nav-link" data-scroll-target="#dynamic-tables">Dynamic Tables</a></li>
+  <li><a href="#embed-graphs" id="toc-embed-graphs" class="nav-link" data-scroll-target="#embed-graphs">Embed Graphs</a></li>
+  <li><a href="#content-as-tabs" id="toc-content-as-tabs" class="nav-link" data-scroll-target="#content-as-tabs">Content as Tabs</a></li>
+  <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations">Equations</a></li>
+  <li><a href="#r-notebooks" id="toc-r-notebooks" class="nav-link" data-scroll-target="#r-notebooks">R Notebooks</a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="r-markdown" class="level1">
+<h1>R Markdown</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>By now you have mastered the fundamentals of base R, visualizations, and data science!</p>
+<p>R Markdown is a powerful format for quickly making high-quality reports of your analysis. You can embed code and all kinds of output, including graphs, and output them to a Word Document, PDF or website. In fact, this entire book was written in <em>R Markdown</em>!</p>
+<p>Here we’ll cover just the basics, but a complete guide to R Markdown is available online from <em>Yihui Xie, J. J. Allaire and Garrett Grolemund</em> (<a href="https://bookdown.org/yihui/rmarkdown/" class="uri"><em>https://bookdown.org/yihui/rmarkdown/</em></a>). You can also check out the R Markdown documents that we use to make our tutorial websites on our GitHub Pages (the website files have .html extension and the R Markdown files have the same name with .Rmd extensions):</p>
+<ul>
+<li>Colautti Lab Resources Website: (<a href="https://colauttilab.github.io/" class="uri"><em>https://colauttilab.github.io/</em></a>)</li>
+<li>Colautti Lab GitHub Repository: (<a href="https://github.com/ColauttiLab/ColauttiLab.github.io" class="uri"><em>https://github.com/ColauttiLab/ColauttiLab.github.io</em></a>)</li>
+</ul>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<p>Before beginning this tutorial, make sure you have installed these packages:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'rmarkdown'</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'dplyr'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'knitr'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>These should be installed with R Studio, but you may want to re-install them if you are working with an older version. You may have to quit and restart R Studio a few times during this process.</p>
+</section>
+<section id="cheat-sheet" class="level2">
+<h2 class="anchored" data-anchor-id="cheat-sheet">Cheat Sheet</h2>
+<p>There is a very handy 2-page ‘cheat sheet’ <em><a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf</a></em>, which you can also access through R Studio under the <em>Help</em> menu: <code>Help -&gt; Cheatsheets</code>. There are several other links here too, including <code>ggplot</code> and <code>dplyr</code>.</p>
+</section>
+<section id="create" class="level2">
+<h2 class="anchored" data-anchor-id="create">Create</h2>
+<p>So far, you’ve been working through the command line in a <code>.R</code> program file. As discussed in the <em>R Fundamentals</em> Chapter, the benefit of programming in a <code>.R</code> file is that we can share the program and associated files with other computers, including high-performance servers.</p>
+<p>An R Markdown file is another special text file, with a <code>.Rmd</code> extension. It’s useful for generating reports with embedded code and visualizations. I use it as a virtual notepad when analyzing new data, and later convert it to Online Supplementary Material for published papers. The utility of the <code>.Rmd</code> file is easiest to understand by example.</p>
+<p>Because an R Markdown file is just a text file with a <code>.Rmd</code> extension, we could just make a new text file and save it with the <code>.Rmd</code> extension. However, in RStudio, we can make a new R markdown file from the menu: <code>File-&gt; New-&gt; R Markdown</code></p>
+<p>Choose <code>Document</code> from the left-hand side menu, give it a title, and make sure <code>html</code> is selected.</p>
+<p>Then click <code>OK</code></p>
+<p>Very few elements are needed for a basic markdown file, and examples of these elements are provided within the R Markdown file that R Studio sets up for you.</p>
+<p>At the top of this window is a little icon that says ‘Knit’. The <strong>Knit</strong> icon, knits together your text file into a rendered html document.</p>
+<p>Try clicking the <em>knit</em> icon to generate a report using the default text in the R Markdown file. Note that you may have to save a copy of your R Markdown file first. A new file will open in a web browser. Take a moment to compare the output file with the input R Markdown.</p>
+<p>If you want to output this as a pdf file, then you can simply choose <code>Print</code>, and then <code>Print to PDF</code> in your web browser. You can also make pdf files directly from R Studio, but you might run into problems depending on your file content and format.</p>
+<p>We’ll stick with the html version for now, and walk through some of the main components available to you.</p>
+</section>
+<section id="yaml-header" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-header">YAML Header</h2>
+<p>Every R Markdown file starts with a <strong>YAML header</strong>, which contains some basic information about the file. A YAML header is generated automatically when you make a new .Rmd file in RStudio, but not all elements are needed. Depending on what options you choose, it might look something like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Untitled"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"Robert I. Colautti"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"January 20, 2019"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> html_document</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>There are other options available for YAML, and you can includes a separate <code>_output.yml</code> to set other aspects of the layout.</p>
+<p>Here are some additional formatting options. Replace the <code>output: html_document</code> line above:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  html_document<span class="sc">:</span> <span class="co"># Add options for html output</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span> true <span class="co"># Add table of contents (TOC)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    number_sections<span class="sc">:</span> true <span class="co"># Add section numbers</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    toc_float<span class="sc">:</span> <span class="co"># Have TOC floating at the side</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      collapsed<span class="sc">:</span> false <span class="co"># Expand subsections</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="markdown-elements" class="level2">
+<h2 class="anchored" data-anchor-id="markdown-elements">Markdown Elements</h2>
+<p>The <em>Markdown</em> in R Markdown refers to the <strong>Markdown protocol</strong> (<em><a href="https://en.wikipedia.org/wiki/Markdown" class="uri">https://en.wikipedia.org/wiki/Markdown</a></em>)</p>
+<p>This is a non-proprietary system that was designed to quickly and easily encode formatted documents and websites in a simple text document.</p>
+<p>The main advantage of R Markdown (<code>.Rmd</code>) over regular Markdown (<code>.md</code>) is the ability to easily print, format, and execute embedded R code for graphs, tables, and calculations.</p>
+<p>We’ll look at some basic Markdown elements and then we’ll see how to embed R code for professional, reproducible reports.</p>
+</section>
+<section id="basic-elements" class="level2">
+<h2 class="anchored" data-anchor-id="basic-elements">Basic elements</h2>
+<section id="plain-text" class="level3">
+<h3 class="anchored" data-anchor-id="plain-text">Plain text</h3>
+<p>Plain text is converted into paragraph format.</p>
+<p>To start a new paragraph, press <em>enter</em> twice. This is important – if you only press enter once, then the two paragraphs will knit together into the same paragraph.</p>
+<p>Similarly, if you inlcude more than two lines between paragraphs, these will be ignored when you render the R Markdown document.</p>
+<p>Try adding paragraphs of text separated by pressing enter 1, 2 and 3 times. Then, knit to html to see how these are rendered in the final output.</p>
+</section>
+<section id="formatted-text" class="level3">
+<h3 class="anchored" data-anchor-id="formatted-text">Formatted Text</h3>
+<p>You can format text with <code>*</code> or <code>_</code></p>
+<p><code>*italics*</code> or <code>_italics_</code>: <em>italics</em></p>
+<p><code>**bold**</code> or <code>__bold__</code>: <strong>bold</strong></p>
+<p>Use greater-than sign for block quotes, eg. <code>&gt; TIP: quote</code></p>
+<blockquote class="blockquote">
+<p>TIP: quote</p>
+</blockquote>
+</section>
+</section>
+<section id="headers" class="level2">
+<h2 class="anchored" data-anchor-id="headers">Headers</h2>
+<p>Add headers with up to six hash marks (<code>#</code>). Each additional <code>#</code> denotes a sub-heading of the previous (sub)heading.</p>
+<h1>
+<code># Header 1</code>
+</h1>
+<h2 class="anchored">
+<code>## Sub-Header = Header 2</code>
+</h2>
+<h3 class="anchored">
+<code>### Sub-Sub Header = Header 3</code>
+</h3>
+<h4 class="anchored">
+<code>#### Sub-Sub-Sub Header = Header 4</code>
+</h4>
+</section>
+<section id="other-elements" class="level2">
+<h2 class="anchored" data-anchor-id="other-elements">Other Elements</h2>
+<p>Use two dashes (<code>--</code>) for short–dash (a.k.a. ‘n-dash’).</p>
+<p>Use three dashes (<code>---</code>) for long — dash (a.k.a. m-dash).</p>
+</section>
+<section id="links" class="level2">
+<h2 class="anchored" data-anchor-id="links">Links</h2>
+<p>Links have a special format. The text you want the user to see goes in square brackets, followed immediately by the file or html link in regular brackets, with no space in between. You can use both web links and relative path links.</p>
+<p><code>[Colautti Lab Website](https://colauttilab.github.io/)</code></p>
+<p>This should produce a link if you are reading this electronically:</p>
+<p><a href="https://colauttilab.github.io/">Colautti Lab Website</a></p>
+<p>You can also use this with relative path names, for example to link a file in a folder called <code>images</code> inside of the project folder:</p>
+<p><code>[Linked .png file](./images/ColauttiLabLogo.png)</code></p>
+<p>Again, this should produce a link if you are reading this electronically. However, you will get an error if you try to include this in your R Markdown file.</p>
+<blockquote class="blockquote">
+<p><strong>Question</strong>: Why will you get an error?</p>
+</blockquote>
+<p><strong>Answer</strong>: This file is not in your working directory. You will need to create an image and save it as <code>ColauttiLabLogo.png</code> inside a directory called <code>images</code>, which is also inside of the working directory that contains your <code>.Rmd</code> file.</p>
+</section>
+<section id="images" class="level2">
+<h2 class="anchored" data-anchor-id="images">Images</h2>
+<p>Instead of linking, you can embed the image directly by adding an exclamation point. The text in square brackets becomes the figure caption.</p>
+<p><code>![Linked .png file](./images/ColauttiLabLogo.png)</code>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/ColauttiLabLogo.png" class="img-fluid figure-img" alt="Linked .png file"></p>
+<figcaption>Linked .png file</figcaption>
+</figure>
+</div>
+<p>Note that R Markdown added a figure number for me, based on the chapter and the number of previous images. This doesn’t include the graphs that were created with embedded R code, only images that were embedded with <code>![]()</code>.</p>
+</section>
+<section id="lists" class="level2">
+<h2 class="anchored" data-anchor-id="lists">Lists</h2>
+<p>Lists are easy to create, simply start a line with <code>*</code> or <code>+</code> for <em>unordered</em> lists or a number for <em>ordered</em> lists. Add tab characters for sub-lists:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> Unordered list item <span class="dv">1</span>  </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> Item <span class="dv">2</span>  </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span> sub item <span class="fl">2.1</span>  </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">*</span> sub item <span class="fl">2.2</span>  </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> Item <span class="dv">3</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Unordered list item 1</li>
+<li>Item 2
+<ul>
+<li>sub item 2.1</li>
+<li>sub item 2.2</li>
+</ul></li>
+<li>Item 3</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> Ordered list item <span class="dv">1</span>  </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> Item <span class="dv">2</span>  </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span> sub item <span class="fl">2.1</span>  </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">*</span> sub item <span class="fl">2.2</span>  </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> Item <span class="dv">3</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li>Ordered list item 1<br>
+</li>
+<li>Item 2<br>
+</li>
+</ol>
+<ul>
+<li>sub item 2.1<br>
+</li>
+<li>sub item 2.2<br>
+</li>
+</ul>
+<ol start="3" type="1">
+<li>Item 3</li>
+</ol>
+<p>The fun thing about ordered lists is the numbers you use don’t really matter – R Markdown will automatically start at 1 and increase for each item.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> Ordered list item <span class="dv">1</span>  </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> Item <span class="dv">2</span>  </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span> sub item <span class="fl">2.1</span>  </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">*</span> sub item <span class="fl">2.2</span>  </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> Item <span class="dv">3</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li>Ordered list item 1<br>
+</li>
+<li>Item 2<br>
+</li>
+</ol>
+<ul>
+<li>sub item 2.1<br>
+</li>
+<li>sub item 2.2<br>
+</li>
+</ul>
+<ol type="1">
+<li>Item 3</li>
+</ol>
+<p>This is a nice feature in early drafts of your R Markdown, to which you might later add, rename, or reorganize the order. You can just leave the numbers and not waste effort renumber each time.</p>
+</section>
+<section id="tables" class="level2">
+<h2 class="anchored" data-anchor-id="tables">Tables</h2>
+<p>Tables are added using a line of horizontal dashes to separate the title of the table, then a row of header names separated by pipes to define the header row. Finally, we add another line of dashes with pipes to indicate the relative column widths. The data goes underneath, with pipes separating each column.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Tables </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-----------------------</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Date  <span class="sc">|</span> Length  <span class="sc">|</span> Width</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="sc">------</span><span class="er">|</span><span class="sc">---------</span><span class="er">|</span><span class="sc">------</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="dv">09</span><span class="sc">/</span><span class="dv">09</span><span class="sc">/</span><span class="dv">09</span> <span class="sc">|</span> <span class="dv">14</span> <span class="sc">|</span> <span class="dv">27</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">/</span><span class="dv">09</span><span class="sc">/</span><span class="dv">09</span> <span class="sc">|</span> <span class="dv">15</span> <span class="sc">|</span> <span class="dv">29</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="dv">11</span><span class="sc">/</span><span class="dv">09</span><span class="sc">/</span><span class="dv">09</span> <span class="sc">|</span> <span class="dv">16</span> <span class="sc">|</span> <span class="dv">31</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Produces this output:</p>
+</section>
+<section id="tables-1" class="level2">
+<h2 class="anchored" data-anchor-id="tables-1">Tables</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Length</th>
+<th>Width</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>09/09/09</td>
+<td>14</td>
+<td>27</td>
+</tr>
+<tr class="even">
+<td>10/09/09</td>
+<td>15</td>
+<td>29</td>
+</tr>
+<tr class="odd">
+<td>11/09/09</td>
+<td>16</td>
+<td>31</td>
+</tr>
+</tbody>
+</table>
+<p>Now that we have written some basic markdown elements, we can generate our R markdown report to see what they look like. Click on the <em>knit</em> button and compare the input with what you have typed in your R mardown file.</p>
+</section>
+<section id="embed-r-code" class="level2">
+<h2 class="anchored" data-anchor-id="embed-r-code">Embed R Code</h2>
+<p>You can format text to look like code using the back-tick character.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># `Use single tick mark to invoke code formatted text.`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <strong>Back Tick</strong> is a strange looking character usually located on the same key as the tilde (<code>~</code>) on English keyboards. Don’t confuse the back tick with the single quotation mark.</p>
+<p>You can incorporate blocks of R code using three <em>back ticks</em> with <em>r</em> in curly brackets. Write some code, then add three more tick marks to signal the end of the code chunk. By defaule, your code will run when you convert your R Markdown to html, showing the output. This is a great way to include graphs and the output of statistical models.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#   ```{r}</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;your code goes here&gt;&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   ```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>Ctl-Alt-i</code> is a nice shortcut in R Studio for adding code chunks quickly.</p>
+<section id="code-chunk-names" class="level3">
+<h3 class="anchored" data-anchor-id="code-chunk-names">Code Chunk Names</h3>
+<p>You can name your code chunks by adding a name right after the <code>r</code> separated only by a space. Naming code chunks is very handy for troubleshooting. When you <em>knit</em> your file, the name of each chunk is listed in the <em>Render</em> tab in R Studio. If there is an error, you can see which code chunk is causing the error. Note that the name cannot contain spaces, and it can be followed by a comma to specify options for the code chunk.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ```{r code-chunk-name, eval=F}`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="code-chunk-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="code-chunk-parameters">Code Chunk Parameters</h3>
+<p>You can use different options for your R code chunks, as shown on the R Markdown cheat sheet. The default is to both print the code AND show the output, but these can be changed with options. The three options I use most commonly are:</p>
+<ul>
+<li><p><code>eval=F</code> – Don’t <em>evaluate</em> the code. The code will be shown, but it won’t be run so no objects or output will be created.</p></li>
+<li><p><code>echo=F</code> – Don’t <em>echo</em> the code. Don’t show the code, but run it and include any output, plots, messages and warnings.</p></li>
+<li><p><code>include=F</code> – Don’t <em>include</em> the code in the rendered document. Run the code to create any objects and load libraries, but don’t show the code or any output, plots, messages or warnings.</p></li>
+</ul>
+</section>
+</section>
+<section id="dynamic-tables" class="level2">
+<h2 class="anchored" data-anchor-id="dynamic-tables">Dynamic Tables</h2>
+<p>Making tables from data is a bit more complicated. For example, if we wanted to summarize the <code>FallopiaData.csv</code> data, we could read in the file and then summarize with dplyr as we did in the <em>Data Science</em> Chapter.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.3.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Fallo<span class="ot">&lt;-</span><span class="fu">read.csv</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://colauttilab.github.io/RCrashCourse/FallopiaData.csv"</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>SumTable<span class="ot">&lt;-</span>Fallo <span class="sc">%&gt;%</span> </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Taxon,Scenario,Nutrients) <span class="sc">%&gt;%</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Mean=</span><span class="fu">mean</span>(Total), <span class="at">SD=</span><span class="fu">sd</span>(Total)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Mean))</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(SumTable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 5
+# Groups:   Taxon, Scenario [10]
+   Taxon Scenario     Nutrients  Mean    SD
+   &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
+ 1 bohem high         high       60.3  8.68
+ 2 japon gradual      high       59.7  9.57
+ 3 bohem fluctuations high       58.4  9.20
+ 4 bohem extreme      high       58.3  7.34
+ 5 bohem gradual      high       57.5  9.34
+ 6 japon extreme      high       57.2 10.9 
+ 7 japon high         high       56.4  8.20
+ 8 japon fluctuations high       56.4 13.7 
+ 9 japon low          low        52.0  8.29
+10 bohem low          low        48.0  8.86</code></pre>
+</div>
+</div>
+<p>The output is legible but not very attractive for a final report. To make it look better, we can use the <code>kable</code> function from the <code>knitr</code> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'knitr' was built under R version 4.3.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(SumTable, <span class="at">caption =</span> <span class="st">"Summary Table"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Summary Table</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Taxon</th>
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Nutrients</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">SD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">bohem</td>
+<td style="text-align: left;">high</td>
+<td style="text-align: left;">high</td>
+<td style="text-align: right;">60.28091</td>
+<td style="text-align: right;">8.677075</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">japon</td>
+<td style="text-align: left;">gradual</td>
+<td style="text-align: left;">high</td>
+<td style="text-align: right;">59.72917</td>
+<td style="text-align: right;">9.565376</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bohem</td>
+<td style="text-align: left;">fluctuations</td>
+<td style="text-align: left;">high</td>
+<td style="text-align: right;">58.36455</td>
+<td style="text-align: right;">9.202334</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">bohem</td>
+<td style="text-align: left;">extreme</td>
+<td style="text-align: left;">high</td>
+<td style="text-align: right;">58.30917</td>
+<td style="text-align: right;">7.337015</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bohem</td>
+<td style="text-align: left;">gradual</td>
+<td style="text-align: left;">high</td>
+<td style="text-align: right;">57.46154</td>
+<td style="text-align: right;">9.338311</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">japon</td>
+<td style="text-align: left;">extreme</td>
+<td style="text-align: left;">high</td>
+<td style="text-align: right;">57.23643</td>
+<td style="text-align: right;">10.903133</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">japon</td>
+<td style="text-align: left;">high</td>
+<td style="text-align: left;">high</td>
+<td style="text-align: right;">56.44833</td>
+<td style="text-align: right;">8.204091</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">japon</td>
+<td style="text-align: left;">fluctuations</td>
+<td style="text-align: left;">high</td>
+<td style="text-align: right;">56.43692</td>
+<td style="text-align: right;">13.724906</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">japon</td>
+<td style="text-align: left;">low</td>
+<td style="text-align: left;">low</td>
+<td style="text-align: right;">52.02917</td>
+<td style="text-align: right;">8.287938</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">bohem</td>
+<td style="text-align: left;">low</td>
+<td style="text-align: left;">low</td>
+<td style="text-align: right;">47.98077</td>
+<td style="text-align: right;">8.862164</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The output of this code is shown in the Summary Table. Contrast the formatting from the <code>kable()</code> function with the standard R output from <code>print()</code>.</p>
+</section>
+<section id="embed-graphs" class="level2">
+<h2 class="anchored" data-anchor-id="embed-graphs">Embed Graphs</h2>
+<p>Use R code to embed graphs.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>)), <span class="at">binwidth=</span><span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rmarkdown_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="content-as-tabs" class="level2">
+<h2 class="anchored" data-anchor-id="content-as-tabs">Content as Tabs</h2>
+<p>Rendering an html has additional features that won’t show up in a <code>pdf</code>. The code below will produce tabs in your knit html file.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Tabs by Group {.tabset}</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="do">### Treatment Group</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> Treatment <span class="dv">1</span> explanation</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> Treatment <span class="dv">2</span> explanation</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> Treatment <span class="dv">3</span> explanation</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="do">### Histogram</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co">#```{r}</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co">#library(ggplot2)</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot() + </span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co">#  geom_histogram(aes(rnorm(100)),binwidth=0.2)</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co">#```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The output of this code is shown in the figure.</p>
+<p><img src="./images/taboutput.jpg" class="img-fluid" alt="Tabs created in html using {.tabset} with ## headers. The “Plot 1” tab contains embedded R code to produce a histogram graph. Both the code and graph are shown by default">{fig-alt=“Tabs created in html using {.tabset} with ## headers. The”Plot 1” tab contains embedded R code to produce a histogram graph. Both the code and graph are shown by default”}</p>
+</section>
+<section id="equations" class="level2">
+<h2 class="anchored" data-anchor-id="equations">Equations</h2>
+<p>Insert equations using LaTeX equations. LaTeX is a system for converting basic text files to formated documents.</p>
+<p>Use single dollar signs for in-line equations, like <code>$Y = X$</code>, which will print as <span class="math inline">\(Y = X\)</span> on the same line as the text.</p>
+<ol start="2" type="1">
+<li>Use double dollar signs on a new line for full-line equations, like <code>$$Y = X$$</code>:</li>
+</ol>
+<p><span class="math display">\[Y = X \]</span></p>
+<p>which isolates the equation on its own line, and centers it.</p>
+<p>You can use a variety of Greek letters by using the backslash character <code>\</code>. For upper-case Greek letters, just use an upper-case letter in the spelling. For example:</p>
+<ul>
+<li><code>\lambda</code>(<span class="math inline">\(\lambda\)</span>) OR <code>\Lambda</code> (<span class="math inline">\(\Lambda\)</span>)</li>
+<li><code>\gamma</code>(<span class="math inline">\(\gamma\)</span>) OR <code>\Gamma</code>(<span class="math inline">\(\Gamma\)</span>)</li>
+<li><code>\delta</code>(<span class="math inline">\(\delta\)</span>) OR <code>\Delta</code>(<span class="math inline">\(\Delta\)</span>)</li>
+</ul>
+<p>Omicron can be <code>\omicron</code> or simply the letter o, with no backslash <code>o</code> (<span class="math inline">\(o\)</span>). Note that some LaTeX characters, like omicron, do not have capital versions (e.g., <code>\Omicron</code> does not produce a Greek character).</p>
+<p>There are numerous other options but below is a quick rundown of some of the commonly used scripts.</p>
+<table class="table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 26%">
+<col style="width: 24%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Script</th>
+<th>Description</th>
+<th>Code</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>\infty</code></td>
+<td>Infinity</td>
+<td><code>\infty</code></td>
+<td><span class="math inline">\(\infty\)</span></td>
+</tr>
+<tr class="even">
+<td><code>_</code></td>
+<td>Subscript</td>
+<td><code>X_i</code></td>
+<td><span class="math inline">\(X_i\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>^</code></td>
+<td>Superscript</td>
+<td><code>X^2</code></td>
+<td><span class="math inline">\(X^2\)</span></td>
+</tr>
+<tr class="even">
+<td><code>'</code></td>
+<td>First order derivative</td>
+<td><code>f'(x)</code></td>
+<td><span class="math inline">\(f'(x)\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>''</code></td>
+<td>Second order derivative</td>
+<td><code>s'(x)</code></td>
+<td><span class="math inline">\(s'(x)\)</span></td>
+</tr>
+<tr class="even">
+<td><code>\sim</code></td>
+<td>Predict</td>
+<td><code>Y \sim X</code></td>
+<td><span class="math inline">\(Y \sim X\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>\times</code></td>
+<td>Multiply</td>
+<td><code>X \times Y</code></td>
+<td><span class="math inline">\(X \times Y\)</span></td>
+</tr>
+<tr class="even">
+<td><code>\pm</code></td>
+<td>Plus or minus</td>
+<td><code>X \pm Y</code></td>
+<td><span class="math inline">\(X \pm Y\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>\neq</code></td>
+<td>Note equal</td>
+<td><code>X \neq Y</code></td>
+<td><span class="math inline">\(X \neq Y\)</span></td>
+</tr>
+<tr class="even">
+<td><code>\leq</code></td>
+<td>Less than or equal</td>
+<td><code>X \leq Y</code></td>
+<td><span class="math inline">\(X \leq Y\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>\geq</code></td>
+<td>Greater than or equal</td>
+<td><code>X \geq Y</code></td>
+<td><span class="math inline">\(X \geq Y\)</span></td>
+</tr>
+<tr class="even">
+<td><code>{}</code></td>
+<td>Group together</td>
+<td><code>X_{subscript}</code></td>
+<td><span class="math inline">\(X_{subscript}\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>\sqrt</code></td>
+<td>Square root</td>
+<td><code>\sqrt{x^2y^2}</code></td>
+<td><span class="math inline">\(\sqrt{x^2y^2}\)</span></td>
+</tr>
+<tr class="even">
+<td><code>\frac</code></td>
+<td>Fraction</td>
+<td><code>\frac{X+1}{X-1}</code></td>
+<td><span class="math inline">\(\frac{X+1}{X-1}\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>\sum</code></td>
+<td>Sum</td>
+<td><code>\sum_{x=1}^{K}</code></td>
+<td><span class="math inline">\(\sum_{x=1}^{K}\)</span></td>
+</tr>
+<tr class="even">
+<td><code>\prod</code></td>
+<td>Product</td>
+<td><code>\prod_{x=1}^{K}</code></td>
+<td><span class="math inline">\(\prod_{x=1}^{K}\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>\int</code></td>
+<td>Integral</td>
+<td><code>\int_{0}^{\infty}</code></td>
+<td><span class="math inline">\(\int_{0}^{\infty}\)</span></td>
+</tr>
+<tr class="even">
+<td><code>\lim</code></td>
+<td>Limit</td>
+<td><code>\lim_{x \to \infty}</code></td>
+<td><span class="math inline">\(\lim_{x \to \infty}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Note in particular, the use of curly brackets to group items together in superscripts, subscripts, fractions and square root. Also note the <em>simulate</em> (<code>\sim</code>) character, which is the <em>tilde</em> (<code>~</code>) used in statistical models and other R functions like <code>facet_grid()</code> and <code>aggregate()</code>.</p>
+<p>Here are some more sophisticated examples to show how to create more complex equations. Again, try reproducing these in R markdown. If you don’t get the same output, then check to see what is different with your code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span><span class="er">$</span>Y_i \sim \alpha <span class="sc">+</span> \beta_1 X_i <span class="sc">+</span> \epsilon_i<span class="sc">$</span><span class="er">$</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>will produce a linear model equation:</p>
+<p><span class="math display">\[Y_i \sim \alpha + \beta_1 X_i + \epsilon_i\]</span></p>
+<p>and</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span><span class="er">$</span>sum_{n<span class="ot">=</span><span class="dv">1</span>}<span class="sc">^</span>{\infty} <span class="dv">2</span><span class="sc">^</span>{<span class="sc">-</span>n} <span class="ot">=</span> <span class="dv">1</span><span class="sc">$</span><span class="er">$</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>will produce:</p>
+<p><span class="math display">\[\sum_{n=1}^{\infty} 2^{-n} = 1\]</span></p>
+<p>Note the use of special characters with the backslash <code>\</code>, along with subscripts <code>_</code> and superscripts <code>^</code> with text in curly brackets <code>{}</code>.</p>
+<p>That’s all you need to know to produce professional reports with R and R Markdown!</p>
+</section>
+<section id="r-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="r-notebooks">R Notebooks</h2>
+<p><em>R Notebook</em> files are a unique type of R Markdown file, but include subtle differences that probably won’t matter much to you at this point in your coding journey. You could create a notebook file in similar ways to R markdown, the easiest being to select <code>File --&gt; New File --&gt; R Notebook</code> from the R Studio menu. However, I suggest you don’t, for reasons that will become clear below.</p>
+<p>Saving an R notebook file adds the extension <code>.nb</code> to tell R Studio that it’s a notebook file. For example, if you had an R markdown file called <code>MyAnalysis.Rmd</code> the R notebook version would save as <code>MyAnalysis.Rmd.nb</code>. Additionally, an html file is created whenever you save the notebook file, whereas you have to manually ‘knit’ an R markdown file to produce an html output.</p>
+<p>When you knit a <code>.Rmd</code> document, you re-run all of the code, whereas the <code>.Rmd.nb</code> only updates the code that has changed. This can cause confusion if you change one part of the code but forget to update it, whereas knitting the whole document is a safer approach for new coders, and established coders like me who are very prone to typos and other errors. The disadvantage of knitting the whole document each time is that it takes longer. However, you can also break up a large analysis into separate Rmd files. There is also a better alternative to notebooks, as described in the next section.</p>
+</section>
+<section id="quarto" class="level2">
+<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
+<p>Quarto is a recent addition to R Studio that also is based in R markdown but has a number of additional features. Again, I suggest you avoid using at this point because it has features that hide the underlying R Markdown code, which will make it harder for you to remember. As with R Markdown and R Notebooks, you can create a quarto file from the <code>File --&gt; New File</code> menu. However, you have two types of Quarto files: Documents and Presentations.</p>
+<p>Although they are based in R Markdown, they have additional commands that make quarto files different enough to get their own file extension: <code>.qmd</code> instead of <code>.Rmd</code>. The main advantage of Quarto is that it provides real-time rendering of the document inside of the R Studio window. When you open a Quarto file in R Studio, you will see options for <em>Source</em> and <em>Visual</em> at the top of the text editor window. <em>Source</em> shows the underlying code, whereas <em>Visual</em> gives the real-time document rendering. This means that you get an idea of the format and appearance of the document without having to save or knit the file each time.</p>
+<p>At this stage of your learning, I suggest you avoid using Quarto and focus on R Markdown. Once you master R Markdown and the rest of this book, then you might want to move to Quarto and learn the additional coding options. At least for now, avoid using the <em>Visual</em> option with real-time rendering while you are coding a document. If you aren’t seeing the underlying code, then you are going to have trouble learning and retaining it.</p>
+<blockquote class="blockquote">
+<p>My advice at this stage is to keep it simple. Focus on learning R Markdown first. As you get more comfortable coding, you could move to more advanced tools like Quarto.</p>
+</blockquote>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>R Crash Course for Biologists</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p><a href="https://EcoEvoGeno.org/">Robert I Colautti</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Crash Course for Biologists, 2nd Edition</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./favicon.ico" rel="icon">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HZY3MS2C2R"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HZY3MS2C2R', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="https://EcoEvoGeno.org" class="navbar-brand navbar-brand-logo">
+    <img src="./ColauttiLabLogo.png" alt="Colautti Lab logo" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="https://EcoEvoGeno.org">
+    <span class="navbar-title">R Crash Course for Biologists, 2nd Edition</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction">    
+        <li>
+    <a class="dropdown-item" href="./index.html">
+ <span class="dropdown-text">Book Info</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./preface.html">
+ <span class="dropdown-text">Preface</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-basics" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Basics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-basics">    
+        <li>
+    <a class="dropdown-item" href="./fundamentals.html">
+ <span class="dropdown-text">R Fundamentals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./visualizations.html">
+ <span class="dropdown-text">Quick Visualizations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./rmarkdown.html">
+ <span class="dropdown-text">R Markdown</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-more-graphs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">More Graphs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-more-graphs">    
+        <li>
+    <a class="dropdown-item" href="./customizations.html">
+ <span class="dropdown-text">Basic Customization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./advanced_vis.html">
+ <span class="dropdown-text">Advanced Visualizations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./multiplot.html">
+ <span class="dropdown-text">Multi-plot Graphs</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Advanced</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced">    
+        <li>
+    <a class="dropdown-item" href="./datascience.html">
+ <span class="dropdown-text">Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./flowcontrol.html">
+ <span class="dropdown-text">Flow Control</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./regex.html">
+ <span class="dropdown-text">Regular Expressions I</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./regex2.html">
+ <span class="dropdown-text">Regular Expressions II</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./customfunctions.html">
+ <span class="dropdown-text">Custom Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./matrices.html">
+ <span class="dropdown-text">Matrices</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./conclusion.html"> 
+<span class="menu-text">Conclusion</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#advanced-visualizations" id="toc-advanced-visualizations" class="nav-link active" data-scroll-target="#advanced-visualizations">Advanced Visualizations</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  <li><a href="#rules-of-thumb" id="toc-rules-of-thumb" class="nav-link" data-scroll-target="#rules-of-thumb">Rules of Thumb</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a>
+  <ul class="collapse">
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#inspect" id="toc-inspect" class="nav-link" data-scroll-target="#inspect">Inspect</a></li>
+  <li><a href="#absolute-value" id="toc-absolute-value" class="nav-link" data-scroll-target="#absolute-value">Absolute Value</a></li>
+  <li><a href="#missing-values" id="toc-missing-values" class="nav-link" data-scroll-target="#missing-values">Missing Values</a></li>
+  </ul></li>
+  <li><a href="#measuring-selection" id="toc-measuring-selection" class="nav-link" data-scroll-target="#measuring-selection">Measuring Selection</a>
+  <ul class="collapse">
+  <li><a href="#dont-panic" id="toc-dont-panic" class="nav-link" data-scroll-target="#dont-panic">Don’t Panic!</a></li>
+  <li><a href="#relative-fitness" id="toc-relative-fitness" class="nav-link" data-scroll-target="#relative-fitness">Relative Fitness</a></li>
+  <li><a href="#trait-value" id="toc-trait-value" class="nav-link" data-scroll-target="#trait-value">Trait Value</a></li>
+  <li><a href="#s-vs-beta" id="toc-s-vs-beta" class="nav-link" data-scroll-target="#s-vs-beta"><span class="math inline">\(s\)</span> vs <span class="math inline">\(\beta\)</span></a></li>
+  </ul></li>
+  <li><a href="#distribution-plots" id="toc-distribution-plots" class="nav-link" data-scroll-target="#distribution-plots">Distribution Plots</a>
+  <ul class="collapse">
+  <li><a href="#aes" id="toc-aes" class="nav-link" data-scroll-target="#aes"><code>aes()</code></a></li>
+  <li><a href="#layers" id="toc-layers" class="nav-link" data-scroll-target="#layers">Layers</a></li>
+  <li><a href="#geom_-and-stat_" id="toc-geom_-and-stat_" class="nav-link" data-scroll-target="#geom_-and-stat_"><code>geom_</code> and <code>stat_</code></a></li>
+  <li><a href="#bivariate-geom" id="toc-bivariate-geom" class="nav-link" data-scroll-target="#bivariate-geom">Bivariate <code>geom</code></a></li>
+  <li><a href="#geom_smooth" id="toc-geom_smooth" class="nav-link" data-scroll-target="#geom_smooth"><code>geom_smooth()</code></a></li>
+  </ul></li>
+  <li><a href="#full-ggplot" id="toc-full-ggplot" class="nav-link" data-scroll-target="#full-ggplot">Full <code>ggplot</code></a>
+  <ul class="collapse">
+  <li><a href="#separate-data" id="toc-separate-data" class="nav-link" data-scroll-target="#separate-data">Separate Data</a></li>
+  </ul></li>
+  <li><a href="#bootstrap" id="toc-bootstrap" class="nav-link" data-scroll-target="#bootstrap">Bootstrap</a>
+  <ul class="collapse">
+  <li><a href="#data-setup" id="toc-data-setup" class="nav-link" data-scroll-target="#data-setup">Data Setup</a></li>
+  <li><a href="#for-loop" id="toc-for-loop" class="nav-link" data-scroll-target="#for-loop"><code>for(){}</code> Loop</a></li>
+  <li><a href="#ci" id="toc-ci" class="nav-link" data-scroll-target="#ci">95% CI</a></li>
+  </ul></li>
+  <li><a href="#plot-data" id="toc-plot-data" class="nav-link" data-scroll-target="#plot-data">Plot Data</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="advanced-visualizations" class="level1">
+<h1>Advanced Visualizations</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Before continuing with this tutorial/chapter, you should be familiar with the basics of ggplot from the previous chapters, and you should have lots of practice making graphs with different formatting options.</p>
+<p>In this chapter, we look at some important <em>rules of thumb</em> for making professional and effective visualizations. Then, we will work through a detailed example with more advanced options for visualizations with the <code>ggplot</code> function. This includes everything you will need to make professional-grade figures.</p>
+<p>The <code>ggplot</code> <em>cheat sheet</em> may be useful for you, both for this chapter and in the future when making your own figures. A <em>cheat sheet</em> is a printable file that provides a good summary and quick-reference guide for a particular function or activity. In this case, the <code>ggplot</code> <em>cheat sheet</em> provides a quick summary of a lot of the main graph types and parameters in the <code>ggplot2</code> library. It can be found along with other useful cheat sheets on the <em>Posit</em> website: <em><a href="https://posit.co/resources/cheatsheets/" class="uri">https://posit.co/resources/cheatsheets/</a></em></p>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<p>First, we’ll load the <code>ggplot2</code> library and set a custom plotting theme as described in the previous chapter.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"http://bit.ly/theme_pub"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_pub</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>source</code> function loads an external file, in this case from the internet. The file is just a script saved as .R file with a custom function defining different aspects of the graph (e.g.&nbsp;text size, line width, etc.) You can open the link in a web browser or download and open in a text editor to see the script</p>
+<p>The <code>theme_set()</code> function sets our custom theme (<code>theme_pub</code>) as the default plotting theme. Since the theme is a function in R, we need to include the brackets, even though twe don’t want to change anything in the function: <code>theme_pub()</code></p>
+</section>
+<section id="rules-of-thumb" class="level2">
+<h2 class="anchored" data-anchor-id="rules-of-thumb">Rules of Thumb</h2>
+<p>Before we dig into the code, it’s worth reviewing some more general graphical concepts. Standards of practice for published graphs in professional journals can vary depending on format (e.g.&nbsp;print vs online), audience, and historical precedent. Nevertheless, there are a number of useful ‘rules of thumb’ to keep in mind. These are not hard and fast rules but helpful for new researchers who aren’t sure how or where to start. In making decisions, always think of your audience and remember that the main goal is to communicate information as clearly and efficientl as possible.</p>
+<p><strong>1. Minimize ‘ink’</strong></p>
+<p>In the old days, when most papers were actually printed and mailed to journal subscribers, black ink was expensive and printing in colour was very expensive. Printing is still expensive but of course most research articles are available online where there is no additional cost for colour or extra ink. However, the concept of minimizing ink (or pixels) can go a long way toward keeping a graph free from clutter and unnecessary distraction.</p>
+<p><strong>2. Use space wisely</strong></p>
+<p>Empty space is not necessarily bad, but ask yourself if it is necessary and what you want the reader to take away. Consider the next two graphs:</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In the first example, the Y-axis is scaled to the data. In the second case, Y-axis scaled between 0 and 100.</p>
+<blockquote class="blockquote">
+<p><strong>Question</strong>: What are the benefits/drawbacks of scaling the axes? When might you choose to use one over the other?</p>
+</blockquote>
+<p><strong>3. Choose a colour palette</strong></p>
+<p>Colour has three basic components:</p>
+<ol type="a">
+<li><strong>Hue</strong> – the relative proportion of red vs green vs blue light</li>
+<li><strong>Saturation</strong> – how vivid the colour is</li>
+<li><strong>Brightness</strong> – the amount of white (vs black) in the colour</li>
+</ol>
+<p>The abbreviation HSB is often used, or HSL (L = ‘Lightness’) or HSV (V = ‘Value’).</p>
+<p>In R these can be easily defined with the <code>rgb()</code> function. For example:</p>
+<ul>
+<li><code>rgb(1,0,0)</code> – a saturated red</li>
+<li><code>rgb(0.1,0,0)</code> – a dark red (low brightness, low saturation)</li>
+<li><code>rgb(1,0.9,0.9)</code> – a light red (high brightness, low saturation)</li>
+</ul>
+<p>Don’t underestimate the impact of choosing a good colour palette, especially for presentations. Colour theory can get a bit overwhelming but here are a few good websites to help:</p>
+<ul>
+<li>Quickly generate your own palette using Coolors: <em><a href="https://coolors.co" class="uri">https://coolors.co</a></em></li>
+<li>Use a colour wheel to find complementary colours using Adobe: <em><a href="https://color.adobe.com/create" class="uri">https://color.adobe.com/create</a></em></li>
+</ul>
+<p><strong>4. Colours have meaning</strong></p>
+<p>Try running this code and veiw the output in colour:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">&lt;-</span>X<span class="sc">+</span><span class="fu">seq_along</span>(X)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">Temperature=</span>Y,<span class="at">Location=</span>X,<span class="at">Temp=</span>Y<span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(Location, Temperature,<span class="at">colour=</span>Temp, <span class="at">data=</span>D) <span class="sc">+</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradient</span>(<span class="at">high=</span><span class="st">"blue"</span>, <span class="at">low=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Question</strong>: What strikes you as odd about this graph (not shown)?</p>
+</blockquote>
+<p>Technically, there is nothing wrong. But we naturally associate colours with particular feelings. In this case, intuitively we associate red with hot and blue with cold, which is the opposite of what is shown in this graph. Be mindful of these associations when choosing a colour palette.</p>
+<p>Another important consideration is that not everyone sees colour the same way. About 5% to 10% of the population has colour blindness. In order to make colour graphs readable to everyone, you should make sure to use colours that can still be interpreted when printed in greyscale, as explained in the Quick Visualizations Chapter.</p>
+<p><strong>5. Maximize contrast</strong></p>
+<p>Colours that are too similar will be hard to distinguish.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Can you see the gradient of colours? The difference among colours is called <code>contrast</code>, and generally a high-contrast palette is more informative than a low-contrast palette. Here is a plot of the same data, plotted with a wider range of colours:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(Latitude,Longitude,<span class="at">colour=</span>Precip), <span class="at">data=</span>D) <span class="sc">+</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradient</span>(<span class="at">high=</span><span class="st">"cyan"</span>, <span class="at">low=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>6. Keep relevant information</strong></p>
+<p>Make sure to include proper axis <strong>labels</strong> (i.e.&nbsp;names) and <strong>tick marks</strong> (i.e.&nbsp;numbers or categories showing the different values). These labels, along with the figure caption, should act as a stand-alone unit. The reader should be able to understand the figure without having to read through the rest of the paper.</p>
+<p><strong>7. Choose the right graph</strong></p>
+<p>Often the same data can be presented in different ways but some are easier to interpret than others. Think carefully about the story you want to present and the main ideas you want your reader to get from your figures. Look at these two graphs that show the same data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ADat<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">Biomass=</span><span class="fu">rnorm</span>(<span class="dv">100</span>), <span class="at">Treatment=</span><span class="st">"Treatment A"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>BDat<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">Biomass=</span><span class="dv">5</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="sc">*</span><span class="dv">5</span> <span class="sc">+</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                   ADat<span class="sc">$</span>Biomass <span class="sc">*</span> <span class="dv">5</span>, <span class="at">Treatment=</span><span class="st">"Treatment B"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>PDat<span class="ot">&lt;-</span><span class="fu">rbind</span>(ADat,BDat)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(Biomass, <span class="at">fill=</span>Treatment), <span class="at">data=</span>PDat)<span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">posit=</span><span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The first graph tells a story about the distributions – the mean and variance of each treatment</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(ADat<span class="sc">$</span>Biomass,BDat<span class="sc">$</span>Biomass)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Biomass in Treatment A"</span>) <span class="sc">+</span> <span class="fu">ylab</span> (<span class="st">"Biomass in Treatment B"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The second graph tells a story about the correlated relationship between Treatment A and Treatment B.</p>
+<p>One graph is not necessarily better than the other. It depends on the story you want to tell.</p>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<p>Now that we have gone over some basic graphing concepts, let’s look at how to build a professional-grade figure. In fact, we’ll reconstruct a figure published in a paper by Colautti &amp; Lau in the journal Molecular Ecology (2015): <em><a href="https://doi.org/10.1111/mec.13162" class="uri">https://doi.org/10.1111/mec.13162</a></em></p>
+<section id="setup" class="level3">
+<h3 class="anchored" data-anchor-id="setup">Setup</h3>
+<p>The paper is a meta-analysis and review of evolution occurring during biological invasions. We will recreate Figure 2, which shows the result of a meta-analysis of selection gradients (<span class="math inline">\(\beta\)</span>) and selection differentials (<span class="math inline">\(s\)</span>). First, we’ll just recreate the top panel, and then we’ll look at ways to make more advanced multi-panel graphs like this.</p>
+<p>The data from the paper are archived on Dryad: <em><a href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.gt678" class="uri">https://datadryad.org/stash/dataset/doi:10.5061/dryad.gt678</a></em></p>
+<p>You could download the zip file and look for the file called <code>Selection_Data.csv</code> and save it to your working directory. But I have also put it on <em>Github</em>, so that you can download it directly to R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>SelData<span class="ot">&lt;-</span><span class="fu">read.csv</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://colauttilab.github.io/RCrashCourse/Selection_Data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We are also going to change the column names in the file to make them a bit more intuitive and easier to work with in R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(SelData)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Collector"</span>, <span class="st">"Author"</span>, <span class="st">"Year"</span>, <span class="st">"Journal"</span>, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Vol"</span>, <span class="st">"Species"</span>, <span class="st">"Native"</span>, <span class="st">"N"</span>, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Fitness.measure"</span>, <span class="st">"Trait"</span>, <span class="st">"s"</span>, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"s.SE"</span>, <span class="st">"s.P"</span>, <span class="st">"B"</span>, <span class="st">"B.SE"</span>, <span class="st">"B.P"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="inspect" class="level3">
+<h3 class="anchored" data-anchor-id="inspect">Inspect</h3>
+<p>Let’s take a quick look at the data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(SelData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Collector               Author Year             Journal
+1 KingsolverDiamond Alatalo and Lundberg 1986           Evolution
+2 KingsolverDiamond Alatalo and Lundberg 1986           Evolution
+3 KingsolverDiamond Alatalo and Lundberg 1986           Evolution
+4 KingsolverDiamond       Alatalo et al. 1990 American Naturalist
+5 KingsolverDiamond       Alatalo et al. 1990 American Naturalist
+6 KingsolverDiamond       Alatalo et al. 1990 American Naturalist
+             Vol             Species Native    N       Fitness.measure
+1     40:574-583  Ficedula hypoleuca    yes  641   male mating success
+2     40:574-583  Ficedula hypoleuca    yes  713 female mating success
+3     40:574-583  Ficedula hypoleuca    yes 1705              survival
+4 135(3):464-471 Ficedula albicollis    yes &lt;NA&gt;              survival
+5 135(3):464-471 Ficedula albicollis    yes &lt;NA&gt;              survival
+6 135(3):464-471 Ficedula albicollis    yes &lt;NA&gt;              survival
+          Trait     s s.SE s.P     B B.SE B.P
+1 tarsus length -0.01       ns    NA         
+2 tarsus length  0.01      sig    NA         
+3 tarsus length  0.04       ns    NA         
+4  tarus length  0.02       ns -0.06         
+5  tarus length  0.08       ns -0.01         
+6  tarus length  0.19      sig  0.01         </code></pre>
+</div>
+</div>
+<p>It’s worth taking some time to look at this to understand how to encode data for a meta-analysis. The <strong>collector</strong> column indicates the paper that the data came from. The <strong>Author</strong> indicates the author(s) of the original paper that reported the data. The <strong>Year</strong>, <strong>Journal</strong>, and <strong>Vol</strong> give information about the publication that the data came from originally.</p>
+<p>We can see above the collector <code>KingsolverDiamond</code>, which represents a paper from Kingsolver and Diamond that was itself a meta-analysis of natural selection. Most of the studies came from this meta-analysis, but a few of the more recent papers were added by grad students, denoted by initials:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(SelData<span class="sc">$</span>Collector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "KingsolverDiamond" "JAL"               "DJW"              
+[4] "CPT"              </code></pre>
+</div>
+</div>
+<p><strong>Species</strong> is the study species, and <strong>Native</strong> is its status as a binary yes/no variable. <strong>N</strong> is the sample size and <strong>Fitness.measure</strong> is the specific trait that defines fitness. <strong>Trait</strong> is the trait on which selection was measured. Finally, <span class="math inline">\(s\)</span> is the <strong>selection differential</strong> and <span class="math inline">\(\beta\)</span> is the <strong>selection gradient</strong>. Note that these are slopes in units of relative fitness per trait standard deviation. This is explained in more detail below.</p>
+</section>
+<section id="absolute-value" class="level3">
+<h3 class="anchored" data-anchor-id="absolute-value">Absolute Value</h3>
+<p>In this analysis, we are interested in the magnitude but not the direction of natural selection. In other words we would want to treat a slope of -4 the same as a slope of +4 because they have the same magnitude. Therefore, we can replace the <span class="math inline">\(s\)</span> column with <span class="math inline">\(|s|\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>SelData<span class="sc">$</span>s<span class="ot">&lt;-</span><span class="fu">abs</span>(SelData<span class="sc">$</span>s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We’ll also add a couple of columns with random variables that we can use later to explore additional plotting options.</p>
+<p>First, a column of values sampled from a z-distribution – this is a Gaussian (a.k.a. ‘normal’) distribution with mean = 0 and sd = 1.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>SelData<span class="sc">$</span>Rpoint<span class="ot">&lt;-</span><span class="fu">rnorm</span>(<span class="fu">nrow</span>(SelData))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Second, a columnn of 1 and 0 sampled randomly with equal frequency (<span class="math inline">\(p = 0.5\)</span>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>SelData<span class="sc">$</span>Rgroup<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="fu">nrow</span>(SelData), <span class="at">replace=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Question</strong>: Do you remember <code>rnorm()</code> and <code>sample()</code> from the <em>R Fundamentals</em> Chapter?</p>
+</blockquote>
+<p>If not, it may be a good time for a quick review. Remember to keep practicing – recognizing code is not the same as being able to write it from scratch.</p>
+</section>
+<section id="missing-values" class="level3">
+<h3 class="anchored" data-anchor-id="missing-values">Missing Values</h3>
+<p>Before we plot the selection data, we should take a quick look at the values to check for potential errors.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(SelData<span class="sc">$</span>s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The output isn’t shown here, but note that <code>NA</code> is used to denote missing data in the output.</p>
+<p>We can subset to remove missing data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>SelData<span class="ot">&lt;-</span>SelData[<span class="sc">!</span><span class="fu">is.na</span>(SelData<span class="sc">$</span>s),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Recall from the <em>R Fundamentals</em> Chapter that <code>!</code> means ‘not’ or ‘invert’</p>
+<p>There is also a convenient <code>drop_na</code> function in the <code>tidyr</code> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>SelData<span class="ot">&lt;-</span>SelData <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="measuring-selection" class="level2">
+<h2 class="anchored" data-anchor-id="measuring-selection">Measuring Selection</h2>
+<section id="dont-panic" class="level3">
+<h3 class="anchored" data-anchor-id="dont-panic">Don’t Panic!</h3>
+<p>We’re going to get a bit technical here. Don’t worry if you don’t completely understand all of the stuff below about measuring selection. Keep it for reference in case you decide you want to use it for your own research. For now, just try to understand it as well as you can and focus on the code used to produce the figures.</p>
+<p>An analysis of phenotypic selection was proposed by Lande &amp; Arnold (1983) as a simple but powerful tool for measuring natural selection. It is just a linear model with <strong>relative fitness</strong> on the y-axis and the <strong>standardized trait value(s)</strong> on the x-axis.</p>
+</section>
+<section id="relative-fitness" class="level3">
+<h3 class="anchored" data-anchor-id="relative-fitness">Relative Fitness</h3>
+<p><strong>Fitness</strong> can be measured in many ways, such as survival or lifetime seed or egg production. Check out the list of specific fitness measures used in these studies:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(SelData<span class="sc">$</span>Fitness.measure)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>(output not shown)</p>
+<p><strong>Absolute fitness</strong> is just the observed value (e.g.&nbsp;seed set or survival yes/no). Technicallly, we call these <em>fitness components</em> because they are not fitness <em>per se</em>, but they represent measurements of survival and reproduction, which are the key components that jointly determine fitness.</p>
+<p><strong>Relative fitness</strong> is just the <em>absolute</em> fitness divided by the mean. <strong>Absolute fitness</strong> is usually denoted by the capital letter <span class="math inline">\(W\)</span> and <strong>relative fitness</strong> is usually represented by a lower-case <span class="math inline">\(w\)</span> or omega <span class="math inline">\(\omega\)</span>. Expressing this in mathematical terms:</p>
+<p><span class="math display">\[ \omega = W_i/\bar W \]</span></p>
+<p>where <span class="math inline">\(W_i\)</span> is the mean of the study sample.</p>
+</section>
+<section id="trait-value" class="level3">
+<h3 class="anchored" data-anchor-id="trait-value">Trait Value</h3>
+<p>A <strong>Trait Value</strong> is just the measured trait on which selection may act. Use <code>unique(SelData$Trait)</code> to see the list of specific traits that were measured in these studies. The <strong>Standardized Trait Value</strong> is the traits z-score. See the <em>Distributions</em> Chapter in the book <em>R STATS Crash Course</em> for more information about z-scores. To calculate the z-score, we take each value, subtract the mean, and then divide by the standard deviation of the sample (<span class="math inline">\(sd\)</span>):</p>
+<p><span class="math display">\[\frac{x_i-\bar X}{sd}\]</span></p>
+<p>Since traits have different metrics, they are hard to compare: e.g.&nbsp;days to flower, egg biomass, foraging intensity, aggression. But standardizing traits to z-scores puts them all on the same scale for comparison. Specifically, the scale of selection will be in standard deviations from the mean.</p>
+</section>
+<section id="s-vs-beta" class="level3">
+<h3 class="anchored" data-anchor-id="s-vs-beta"><span class="math inline">\(s\)</span> vs <span class="math inline">\(\beta\)</span></h3>
+<p>Selection differentials (<span class="math inline">\(s\)</span>) and selection gradients (<span class="math inline">\(\beta\)</span>) measure selection using linear models but represent slightly different measurements. Linear models are covered in the <em>Linear Models</em> Chapter in the book <em>R STATS Crash Course</em>.</p>
+<p>Both models use relative fitness (<span class="math inline">\(\omega\)</span>) as the response variable.</p>
+<p>Selection differentials (<span class="math inline">\(s\)</span>) measure selection on only a single trait, ignoring all other traits. In theory, the response to selection is a simple function of the genetic correlation between a trait and fitness.</p>
+<p>Fitness differences among individuals can depend on a lot of things – genetic variation for the trait itself, but also environmental effects on the trait as well as effects on other traits that are under selection and correlated with the trait of interest.</p>
+<p>Selection gradients (<span class="math inline">\(\beta\)</span>) measure selection on a trait of interest while also accounting for selection on other correlated traits. This is done via a <strong>multiple regression</strong> – a linear model with multiple predictors.</p>
+<p>Now that we have reviewed the relevant biological background, we can plot <span class="math inline">\(s\)</span> and <span class="math inline">\(\beta\)</span> to compare their distributions.</p>
+</section>
+</section>
+<section id="distribution-plots" class="level2">
+<h2 class="anchored" data-anchor-id="distribution-plots">Distribution Plots</h2>
+<p>Let’s start with a simple <code>ggplot</code> function. We are going to be adding layers to build up to more complex graphs, so we’ll start by creating a base plotting object to build on.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>BarPlot<span class="ot">&lt;-</span><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>s, <span class="at">fill=</span>Native), <span class="at">data=</span>SelData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="aes" class="level3">
+<h3 class="anchored" data-anchor-id="aes"><code>aes()</code></h3>
+<p>Recall from the <em>Basic Visualizations</em> Chapter, the use of aesthetic function <code>aes()</code>. This defines the data that we want to use for our <code>ggplot</code> graph. We will see how we do this by adding layers to our plot, similar to the way old-timey cartoons were made by layering multiple clear pages of cellophane with characters painted on them. The <code>aes</code> function inside of the <code>ggplot</code> function defines that data that will be shared among all of the layers. In addition, we can have separate <code>aes</code> functions inside different <code>geom_</code> layers that define and restrict the plotting data to that specific layer.</p>
+<p>Let’s look at the <code>ggplot</code> object so far:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(BarPlot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>No data!</p>
+<blockquote class="blockquote">
+<p><strong>Question</strong>: Why are there no data plotted?</p>
+</blockquote>
+<p><strong>Answer</strong>: We didn’t define a <code>geom_</code> for the data yet.</p>
+</section>
+<section id="layers" class="level3">
+<h3 class="anchored" data-anchor-id="layers">Layers</h3>
+<p>So far, we have only loaded in the data for plotting. We have to specify which geom(s) we want. We’ll start with a bar plot:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>BarPlot<span class="ot">&lt;-</span> BarPlot <span class="sc">+</span> <span class="fu">geom_bar</span>() </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>BarPlot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s explore the components of our Bar Plot object.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(BarPlot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>data: Collector, Author, Year, Journal, Vol, Species, Native, N,
+  Fitness.measure, Trait, s, s.SE, s.P, B, B.SE, B.P, Rpoint, Rgroup
+  [2766x18]
+mapping:  x = ~s, fill = ~Native
+faceting: &lt;ggproto object: Class FacetNull, Facet, gg&gt;
+    compute_layout: function
+    draw_back: function
+    draw_front: function
+    draw_labels: function
+    draw_panels: function
+    finish_data: function
+    init_scales: function
+    map_data: function
+    params: list
+    setup_data: function
+    setup_params: function
+    shrink: TRUE
+    train_scales: function
+    vars: function
+    super:  &lt;ggproto object: Class FacetNull, Facet, gg&gt;
+-----------------------------------
+geom_bar: just = 0.5, width = NULL, na.rm = FALSE, orientation = NA
+stat_count: width = NULL, na.rm = FALSE, orientation = NA
+position_stack </code></pre>
+</div>
+</div>
+<p>It’s worth taking some time to understand the structure of this <code>ggplot</code> object how it relates to what gets plotted to the output.</p>
+<ol type="1">
+<li><strong>Data</strong> shows which data are available for plotting. These are just the column names of the <code>data.frame</code> object we input with the <code>data=</code> parameter in the <code>ggplot()</code> function.</li>
+<li><strong>Mapping</strong> shows the variables from the <code>aes()</code> function, the scaling of the x-axis and the variable for the <code>fill=</code> colours.</li>
+<li><strong>Faceting</strong> contains information for multiple plots. We’ll explore this more later, but a single graph has a <code>facet_null()</code> function.</li>
+<li><strong>Dashed line</strong> separates the <code>ggplot()</code> function from the other functions linked with the plus (<code>+</code>) in our plotting function. In our graph, there was <code>+ geom_bar()</code>, which we can see below the dashed line.</li>
+<li><strong>geom_bar</strong> shows the (default) parameters used in our function</li>
+<li><strong>stat_count</strong> shows our <code>stat</code> function. This was created by default with our <code>+ geom_bar()</code> function; it determines how the data are transformed to geometric shapes for plotting (e.g., points, lines, or bars).</li>
+</ol>
+<p>The output also shows some of the functions and parameters used to generate the graph. At the bottom we see parameters for <code>geom_bar</code> and <code>stat_count</code>. Note that there are more parameters listed than what we explicitly put into the <code>ggplot()</code> function. These extra parameters are the <strong>default parameters</strong> for the function.</p>
+</section>
+<section id="geom_-and-stat_" class="level3">
+<h3 class="anchored" data-anchor-id="geom_-and-stat_"><code>geom_</code> and <code>stat_</code></h3>
+<p>If <code>geoms</code> is the <em>geometry</em> of the shapes in the plot, then <code>stats</code> is the <em>statistic</em> or mathematical functions that create the geoms. In the above case, the vertical bars in <code>geom_bar</code> are created by counting the number of observations in each bin. The <code>stat_count</code> function is responsible for this calculation, and it is called by default when we use the <code>geom_bar</code> function. Specifically, <code>stat_count</code> <em>counts</em> the number of observations in each histogram bin.</p>
+<p>More generally, we can change the geometry of the plotted shapes with <code>geom_&lt;NAME&gt;</code>, and we can define different functions for generating the geometric shapes with <code>stat_&lt;NAME&gt;</code>. To make things easier on us, there is a default <code>stat</code> for each <code>geom</code>. In most cases we can just focus on which geometry we want for our graph, and use the default <code>stat</code>.</p>
+<p>For more information on the default parameters and <code>stat</code> of <code>geom_bar()</code> or any other <code>geom</code>, use the R help function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>?geom_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="bivariate-geom" class="level3">
+<h3 class="anchored" data-anchor-id="bivariate-geom">Bivariate <code>geom</code></h3>
+<p>Let’s explore a few more plotting options to get a better feel for our plotting parameters. Use <code>summary()</code> on each graph and compare it to the <code>summary()</code> output we examined earlier. Here we’ll use the random normal values we generated above so that we can make a bivariate plot:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>BivPlot<span class="ot">&lt;-</span><span class="fu">ggplot</span>(<span class="at">data=</span>SelData, <span class="fu">aes</span>(<span class="at">x=</span>s, <span class="at">y=</span>Rpoint)) <span class="sc">+</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>First, take a quick look at the <code>summary()</code> of the plotting function and compare to the earlier graph (data not shown).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(BivPlot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now plot the graph:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(BivPlot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Notice how the points are all clustered to the left. This looks like a classic log-normal variable, so let’s log-transform <span class="math inline">\(s\)</span> (x-axis)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>BivPlot<span class="ot">&lt;-</span><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">log</span>(s<span class="sc">+</span><span class="dv">1</span>), <span class="at">y=</span>Rpoint), <span class="at">data=</span>SelData) <span class="sc">+</span> </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(BivPlot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Once again, compare the summary with the untransformed x-axis.</p>
+<blockquote class="blockquote">
+<p><strong>Question</strong>: What does the <code>summary()</code> show as the difference for a raw vs log-tranformed x-axis in the <code>aes()</code> function inside of <code>ggplot()</code></p>
+</blockquote>
+</section>
+<section id="geom_smooth" class="level3">
+<h3 class="anchored" data-anchor-id="geom_smooth"><code>geom_smooth()</code></h3>
+<p>A really handy feature of <code>ggplot</code> is the <code>geom_smooth</code> function, which has several options for calculating and plotting a statistical model to the observations.</p>
+<p>Here’s a simple linear regression slope (lm = linear model):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>BivPlot <span class="sc">+</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">colour=</span><span class="st">"steelblue"</span>,</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y<span class="sc">~</span>x, <span class="at">linewidth=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can use a grouping variable to add separate regression lines for each group.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>BivPlot <span class="sc">+</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">colour=</span>Native),<span class="at">linewidth=</span><span class="dv">2</span>,</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">method=</span><span class="st">"lm"</span>, <span class="at">formula=</span>y<span class="sc">~</span>x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="full-ggplot" class="level2">
+<h2 class="anchored" data-anchor-id="full-ggplot">Full <code>ggplot</code></h2>
+<p>Now that we have a better understanding of <code>ggplot()</code>, let’s try to recreate the selection histograms in Figure 2 of Colautti &amp; Lau (2015). This will involve three main steps:</p>
+<ol type="1">
+<li>Separate data for native vs.&nbsp;introduced species into two data sets for custom plotting.</li>
+<li>Use a bootstrap model to estimate non-parametric mean and 95% confidence intervals for each group.</li>
+<li>Plot all of the components on a single graph</li>
+</ol>
+<p>One <strong>technical note</strong>. We are going to deviate from the published code slightly. The published figure uses <em>frequency</em> data, whereas we are going to use <em>density</em> data.</p>
+<section id="separate-data" class="level3">
+<h3 class="anchored" data-anchor-id="separate-data">Separate Data</h3>
+<p>Since this is a relatively simple resampling model, we’ll use two separate vectors to store data for our plots and boostrap sampling: one for native and one for non-native.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>NatSVals<span class="ot">&lt;-</span>SelData<span class="sc">$</span>s[SelData<span class="sc">$</span>Native<span class="sc">==</span><span class="st">"yes"</span>] </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>IntSVals<span class="ot">&lt;-</span>SelData<span class="sc">$</span>s[SelData<span class="sc">$</span>Native<span class="sc">==</span><span class="st">"no"</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>An alternative would be to set up a data frame and keep track of values as separate columns, with a different row for each iteration.</p>
+</section>
+</section>
+<section id="bootstrap" class="level2">
+<h2 class="anchored" data-anchor-id="bootstrap">Bootstrap</h2>
+<p>The graph includes a bootstrap model to estimate the mean and variance for each group (<code>native = "yes"</code> vs <code>"no"</code>). A bootstrap is just a computational approach to generating confidence limits on the sample. It makes no assumptions about the underlying distribution of the population from which the sample is drawn, so it is a robust method for non-parametric data. In our case, we will randomly sample from each vector, and calculate the mean. We repeat this many times to get a range of values from which we can estimate the confidence interval.</p>
+<p>The example below is not the most efficient approach but it is a good opportunity to practice our <code>for(){}</code> loops from the <em>Flow Control</em> section in the <em>R Fundamentals</em> Chapter.</p>
+<section id="data-setup" class="level3">
+<h3 class="anchored" data-anchor-id="data-setup">Data Setup</h3>
+<p>First we define the number of iterations and set up two objects to hold the data from our bootstrap iterations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>IterN<span class="ot">&lt;-</span><span class="dv">100</span> <span class="co"># Number of iterations</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>NatSims<span class="ot">&lt;-</span>{} <span class="co"># Dummy objects to hold output</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>IntSims<span class="ot">&lt;-</span>{}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="for-loop" class="level3">
+<h3 class="anchored" data-anchor-id="for-loop"><code>for(){}</code> Loop</h3>
+<p>We will use the <code>for</code> loop to resample the data, calcuate the sample mean, and repeat <code>N</code> times. This involves just three key steps.</p>
+<ol type="1">
+<li>Sample, with replacement.</li>
+<li>Calculate the average.</li>
+<li>Save the average in a vector: <code>NatSims</code> for native species or <code>IntSims</code> for non-native species.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>IterN){</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  NatSims[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(<span class="fu">sample</span>(</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    NatSVals, <span class="fu">length</span>(NatSVals), <span class="at">replace=</span>T))</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  IntSims[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(<span class="fu">sample</span>(</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    IntSVals, <span class="fu">length</span>(IntSVals), <span class="at">replace=</span>T))</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note in the above code we use ‘nested’ functions. The <code>sample()</code> function is nested inside the the <code>mean()</code> function, which is faster than using nested loop.</p>
+<p>Also note that we can include both datasets (native + non-native) in the same <code>for</code> loop.</p>
+</section>
+<section id="ci" class="level3">
+<h3 class="anchored" data-anchor-id="ci">95% CI</h3>
+<p>Non-parametric <strong>Confidence Intervals</strong> (CI) are calculated directly from the bootstrap output. Let’s try finding our 95% CI range, which goes from the lower 2.5% to the upper 97.5% of values.</p>
+<p>First, sort the datea from low to high</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>NatSims<span class="ot">&lt;-</span><span class="fu">sort</span>(NatSims)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>IntSims<span class="ot">&lt;-</span><span class="fu">sort</span>(IntSims)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Each of the output vectors contains a number of values equal to our <code>Iter</code> variable, as defined earlier in our code. Now we identify the lower 2.5% and upper 97.5% values in each vector. For example, with 1000 iterations our 2.5% would be the 25th value in the sorted vector and the upper 97.5% would be the 975th value in the sorted vector.</p>
+<p>We use this number to index the vector with square brackets. We make sure to round to a whole number since we can’t have a fractional cell position.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>CIs<span class="ot">&lt;-</span><span class="fu">c</span>(NatSims[<span class="fu">round</span>(IterN<span class="sc">*</span><span class="fl">0.025</span>,<span class="dv">0</span>)], <span class="co"># Lower 2.5%</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>       NatSims[<span class="fu">round</span>(IterN<span class="sc">*</span><span class="fl">0.975</span>,<span class="dv">0</span>)], <span class="co"># Upper 97.5%</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>       IntSims[<span class="fu">round</span>(IterN<span class="sc">*</span><span class="fl">0.025</span>,<span class="dv">0</span>)], <span class="co"># Lower 2.5%</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>       IntSims[<span class="fu">round</span>(IterN<span class="sc">*</span><span class="fl">0.975</span>,<span class="dv">0</span>)]) <span class="co"># Upper 97.5%</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The output (<code>CIs</code>) as is therefore a vector of four elements.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(CIs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1820612 0.1998140 0.2259135 0.3058595</code></pre>
+</div>
+</div>
+<p><strong>Note</strong>: your numbers should be similar but won’t be exact because you won’t have the exact same random sample when you run your code.</p>
+<blockquote class="blockquote">
+<p><strong>Question</strong>: What line of code could we add above to ensure that these numbers were exactly the same for everyone who ran this code?</p>
+</blockquote>
+<p><strong>Answer</strong>: If you aren’t sure, then it’s a good time to review the <em>R Fundamentals</em> Chapter.</p>
+</section>
+</section>
+<section id="plot-data" class="level2">
+<h2 class="anchored" data-anchor-id="plot-data">Plot Data</h2>
+<p>We’ll set up a new data frame object for plotting data, to make it easier to write our plotting functions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>HistData<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">s=</span>SelData<span class="sc">$</span>s,<span class="at">Native=</span>SelData<span class="sc">$</span>Native)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>and set up a minimal ggplot code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we can add layers to the plot. We’ll print out each layer as we go, so that we can see what each layer adds to the overall graph. The coding is a bit complex here, so don’t worry if it’s hard to follow everything. The key thing to understand is how the different geoms contribute to the final plot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>s),</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data=</span>HistData[HistData<span class="sc">$</span>Native<span class="sc">==</span><span class="st">"yes"</span>,],</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colour=</span><span class="st">"#1fcebd66"</span>, <span class="at">size=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Here, we’ve added a <code>geom_density</code> geometry, which gives a smoothed line, like we saw in the <em>Quick Visualizations</em> Chapter. This works well for large datasets with many bins. For example, compare this graph with the <code>geom_box()</code> graph that we did on this data earlier in this chapter.</p>
+<p>Note that the y-axis goes above 1 because the total probability is the area under the curve, which must equal one. Since there are many values that are less than one, the density must have values larger than 1 in order for the area to equal 1.</p>
+<p>Next, we can add a similar graph for the non-native species, with a contrasting colour.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>s),</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data=</span>HistData[HistData<span class="sc">$</span>Native<span class="sc">==</span><span class="st">"no"</span>,],</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colour=</span><span class="st">"#f5375166"</span>, <span class="at">size=</span><span class="dv">2</span>)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Alternatively, we could use a single <code>geom</code> with <code>group=</code> and <code>colour=</code>. However, using separate <code>geom</code> layers makes it easier to specify colours. This is yet another example of how different programming approaches can yield the same output, and one approach is not necessarily superior to the other.</p>
+<p>Next, we add our CI data. CI is a range of values for each group, which we can represent as a rectangle.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin=</span>CIs[<span class="dv">1</span>],<span class="at">xmax=</span>CIs[<span class="dv">2</span>],<span class="at">ymin=</span><span class="dv">0</span>,<span class="at">ymax=</span><span class="fl">0.25</span>),</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fill=</span><span class="st">"#1fcebd88"</span>)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p) <span class="co"># native species 95% CI bar</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>With <code>geom_rect</code> we define 4 points of the rectangle. The x-axes coordinates are the CI values from our bootstrap algorithm, and the y-axes values are arbitrary numbers that determine the height of the rectangle.</p>
+<p>Now try the same thing for the non-native species.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin=</span>CIs[<span class="dv">3</span>],<span class="at">xmax=</span>CIs[<span class="dv">4</span>],<span class="at">ymin=</span><span class="dv">0</span>,<span class="at">ymax=</span><span class="fl">0.25</span>),</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fill=</span><span class="st">"#f5375188"</span>)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p) <span class="co"># introduced species 95% CI bar</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now we add the bootstrap mean for each group. The bootstrap mean is just the mean of the bootstrap iterations – that is, a mean of means.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">mean</span>(NatSims),<span class="at">y=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.25</span>)),</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">colour=</span><span class="st">"#1d76bf"</span>,<span class="at">size=</span><span class="dv">1</span>)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">mean</span>(IntSims),<span class="at">y=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.25</span>)),</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">colour=</span><span class="st">"#f53751"</span>,<span class="at">size=</span><span class="dv">1</span>)</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Finally, we tweak the axis titles and zoom in along the x-axis to make it easier to see the differences between the two distributions. Note how the y-axis label changed when we added <code>geom_line</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Density"</span>) <span class="sc">+</span> </span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">1.5</span>))</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p) <span class="co"># labels added, truncated x-axis</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 12 rows containing non-finite values (`stat_density()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 rows containing non-finite values (`stat_density()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="advanced_vis_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Note the warnings about missing data, which seems to be due to the fact that we zoomed in on the x-axis. Despite the warnings, everything looks okay if we compare this graph to the previous one.</p>
+<p>There we have it! We succesffuly created a complex plot overlapping layers by breaking down <code>ggplot()</code> into individual components.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>R Crash Course for Biologists</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p><a href="https://EcoEvoGeno.org/">Robert I Colautti</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Crash Course for Biologists, 2nd Edition</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./favicon.ico" rel="icon">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HZY3MS2C2R"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HZY3MS2C2R', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="https://EcoEvoGeno.org" class="navbar-brand navbar-brand-logo">
+    <img src="./ColauttiLabLogo.png" alt="Colautti Lab logo" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="https://EcoEvoGeno.org">
+    <span class="navbar-title">R Crash Course for Biologists, 2nd Edition</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction">    
+        <li>
+    <a class="dropdown-item" href="./index.html">
+ <span class="dropdown-text">Book Info</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./preface.html">
+ <span class="dropdown-text">Preface</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-basics" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Basics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-basics">    
+        <li>
+    <a class="dropdown-item" href="./fundamentals.html">
+ <span class="dropdown-text">R Fundamentals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./visualizations.html">
+ <span class="dropdown-text">Quick Visualizations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./rmarkdown.html">
+ <span class="dropdown-text">R Markdown</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-more-graphs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">More Graphs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-more-graphs">    
+        <li>
+    <a class="dropdown-item" href="./customizations.html">
+ <span class="dropdown-text">Basic Customization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./advanced_vis.html">
+ <span class="dropdown-text">Advanced Visualizations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./multiplot.html">
+ <span class="dropdown-text">Multi-plot Graphs</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-advanced" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Advanced</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-advanced">    
+        <li>
+    <a class="dropdown-item" href="./datascience.html">
+ <span class="dropdown-text">Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./flowcontrol.html">
+ <span class="dropdown-text">Flow Control</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./regex.html">
+ <span class="dropdown-text">Regular Expressions I</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./regex2.html">
+ <span class="dropdown-text">Regular Expressions II</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./customfunctions.html">
+ <span class="dropdown-text">Custom Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./matrices.html">
+ <span class="dropdown-text">Matrices</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./conclusion.html"> 
+<span class="menu-text">Conclusion</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#regular-expressions-i" id="toc-regular-expressions-i" class="nav-link active" data-scroll-target="#regular-expressions-i">Regular Expressions I</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#universal-syntax" id="toc-universal-syntax" class="nav-link" data-scroll-target="#universal-syntax">Universal Syntax</a></li>
+  <li><a href="#steep-learning-curve" id="toc-steep-learning-curve" class="nav-link" data-scroll-target="#steep-learning-curve">Steep Learning Curve</a></li>
+  </ul></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a>
+  <ul class="collapse">
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#grep" id="toc-grep" class="nav-link" data-scroll-target="#grep"><code>grep()</code></a></li>
+  <li><a href="#grepl" id="toc-grepl" class="nav-link" data-scroll-target="#grepl"><code>grepl()</code></a></li>
+  <li><a href="#sub" id="toc-sub" class="nav-link" data-scroll-target="#sub"><code>sub()</code></a></li>
+  <li><a href="#gsub" id="toc-gsub" class="nav-link" data-scroll-target="#gsub"><code>gsub()</code></a></li>
+  </ul></li>
+  <li><a href="#wildcards" id="toc-wildcards" class="nav-link" data-scroll-target="#wildcards">Wildcards</a>
+  <ul class="collapse">
+  <li><a href="#escape-character" id="toc-escape-character" class="nav-link" data-scroll-target="#escape-character">Escape Character <code>\</code></a></li>
+  <li><a href="#in-r" id="toc-in-r" class="nav-link" data-scroll-target="#in-r"><code>\\</code> in R</a></li>
+  <li><a href="#w" id="toc-w" class="nav-link" data-scroll-target="#w"><code>\\w</code></a></li>
+  <li><a href="#w-1" id="toc-w-1" class="nav-link" data-scroll-target="#w-1"><code>\\W</code></a></li>
+  <li><a href="#s" id="toc-s" class="nav-link" data-scroll-target="#s"><code>\\s</code></a></li>
+  <li><a href="#t" id="toc-t" class="nav-link" data-scroll-target="#t"><code>\\t</code></a></li>
+  <li><a href="#d" id="toc-d" class="nav-link" data-scroll-target="#d"><code>\\d</code></a></li>
+  <li><a href="#d-1" id="toc-d-1" class="nav-link" data-scroll-target="#d-1"><code>\\D</code></a></li>
+  </ul></li>
+  <li><a href="#new-lines" id="toc-new-lines" class="nav-link" data-scroll-target="#new-lines">New Lines</a>
+  <ul class="collapse">
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><code>\\r</code></a></li>
+  <li><a href="#n" id="toc-n" class="nav-link" data-scroll-target="#n"><code>\\n</code></a></li>
+  <li><a href="#big-problem" id="toc-big-problem" class="nav-link" data-scroll-target="#big-problem">Big Problem</a></li>
+  </ul></li>
+  <li><a href="#special-characters" id="toc-special-characters" class="nav-link" data-scroll-target="#special-characters">Special Characters</a>
+  <ul class="collapse">
+  <li><a href="#any-character-." id="toc-any-character-." class="nav-link" data-scroll-target="#any-character-.">Any Character <code>.</code></a></li>
+  <li><a href="#or" id="toc-or" class="nav-link" data-scroll-target="#or">Or <code>|</code></a></li>
+  <li><a href="#special-searches" id="toc-special-searches" class="nav-link" data-scroll-target="#special-searches">Special Searches <code>*</code>, <code>?</code>, <code>+</code>, <code>{}</code></a></li>
+  <li><a href="#find-one-or-more-matches" id="toc-find-one-or-more-matches" class="nav-link" data-scroll-target="#find-one-or-more-matches">Find <em>One or More</em> Matches <code>+</code></a></li>
+  <li><a href="#greedy-matches" id="toc-greedy-matches" class="nav-link" data-scroll-target="#greedy-matches"><em>Greedy</em> Matches <code>*</code></a></li>
+  <li><a href="#restrained-match" id="toc-restrained-match" class="nav-link" data-scroll-target="#restrained-match"><em>Restrained</em> Match <code>?</code></a></li>
+  <li><a href="#lazy-restrained" id="toc-lazy-restrained" class="nav-link" data-scroll-target="#lazy-restrained"><em>Lazy</em>, <em>Restrained</em> <code>+?</code></a></li>
+  <li><a href="#lazy-greedy" id="toc-lazy-greedy" class="nav-link" data-scroll-target="#lazy-greedy"><em>Lazy</em>, <em>Greedy</em> <code>*?</code></a></li>
+  <li><a href="#range" id="toc-range" class="nav-link" data-scroll-target="#range">Range <code>{}</code></a></li>
+  <li><a href="#nm" id="toc-nm" class="nav-link" data-scroll-target="#nm"><code>{n,m}</code></a></li>
+  <li><a href="#n-1" id="toc-n-1" class="nav-link" data-scroll-target="#n-1"><code>{n}</code></a></li>
+  <li><a href="#n-2" id="toc-n-2" class="nav-link" data-scroll-target="#n-2"><code>{n,}</code></a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><code>{}?</code></a></li>
+  </ul></li>
+  <li><a href="#set" id="toc-set" class="nav-link" data-scroll-target="#set">Set <code>[]</code></a></li>
+  <li><a href="#negate-or-start-and-end" id="toc-negate-or-start-and-end" class="nav-link" data-scroll-target="#negate-or-start-and-end">Negate or Start <code>^</code> and End <code>$</code></a>
+  <ul class="collapse">
+  <li><a href="#start" id="toc-start" class="nav-link" data-scroll-target="#start">Start <code>^</code></a></li>
+  <li><a href="#negate" id="toc-negate" class="nav-link" data-scroll-target="#negate">Negate <code>^</code></a></li>
+  <li><a href="#end" id="toc-end" class="nav-link" data-scroll-target="#end">End <code>$</code></a></li>
+  </ul></li>
+  <li><a href="#capture" id="toc-capture" class="nav-link" data-scroll-target="#capture">Capture <code>()</code></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="regular-expressions-i" class="level1">
+<h1>Regular Expressions I</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p><strong>Regular Expressions</strong>, also known as <strong>regex</strong> and <strong>regexp</strong> are special text-based functions that act as run complex find-and-replace functions. I didn’t learn regular expressions until I was a postdoc working at Duke University, but I wish I had learned about them much earlier! This remains one of the most useful programming tools I have ever used. It is absolutely essential for working with any kind of large text files or large data sets. I’ll explain.</p>
+<p>A lot of programming tools in biology use input text files that require very specific formatting (e.g.&nbsp;.txt, .csv, .fasta, .nex). Sometimes, you might need to reorganize or recode data in a large text file or in many separate text files. This can be a big time sink, it can introduce errors, and it’s not reproducible if you do it manually. But regular expressions can automate the process.</p>
+<p>Here’s one example. As a PhD student I co-founded a project called the <strong>Global Garlic Mustard Field Survey (GGMFS)</strong> with collaborator Dr.&nbsp;Oliver Bossdorf at the University of Tübingen – yes the same Dr.&nbsp;Bossdorf mentioned in the <em>Quick Visualizations</em> Chapter. We were fortunate to have over 100 collaborators across Europe and North America who helped to collect samples for the project. Details of the project were published in the Journal <strong>Neobiota</strong>: <a href="https://neobiota.pensoft.net/article/1270/" class="uri"><em>https://neobiota.pensoft.net/article/1270/</em></a> but one BIG problem is the way that each of these 100+ collaborators entered their data online. For example, latitudes and longitudes were entered in a variety of different formats. Regular expressions allowed me to write a small program to automatically convert all of these different formats to a common, decimal format that we could use for the analysis. This saved a huge amount of time and prevented errors that could have been introduced if we tried to edit these values by hand.</p>
+<p>Often when you work with large datasets, you will need to automate some of your error correction, and regular expressions can be a big help here. For example, imagine a simple online survey that includes a place for people to simply type “yes” or “no” in response to a question. This should be coded as a binary variable (1 or 0) for analysis, but you might find a variety of inputs such as: “YES”, “Y”, “yes”, and “Yes”. These all mean the same thing, yet if you try to analyze the raw output, R will treat these as different categories. Here again, regular expressions can be used to quickly change all the different examples to a common “Y” or to a Boolean variable <code>TRUE</code>.</p>
+<p>One final example, is pattern matching, which is common for the analysis of DNA, proteins or other large strings of data. You may want to find a particular sequence of data, possibly with a few variable sites: e.g.&nbsp;TCTA or TCAA or TCGA. This is another area where regular expressions can help.</p>
+<section id="universal-syntax" class="level3">
+<h3 class="anchored" data-anchor-id="universal-syntax">Universal Syntax</h3>
+<p>Regular expressions are a universal language that extends to many other programming languages, including <strong>C/C#/C++</strong>, <strong>Python</strong>, <strong>Unix/Linux</strong>, and <strong>Perl</strong>. We focus here on R but most of the syntax is mantained across programming languages.</p>
+</section>
+<section id="steep-learning-curve" class="level3">
+<h3 class="anchored" data-anchor-id="steep-learning-curve">Steep Learning Curve</h3>
+<p><strong>WARNING</strong>! There is a very steep learning curve here, and the only way to really learn this is to drown yourself in examples. There are lots of exercises you can do for practice online. You should also try to apply these whenever you can, just like you should with all of your other R skills.</p>
+</section>
+</section>
+<section id="functions" class="level2">
+<h2 class="anchored" data-anchor-id="functions">Functions</h2>
+<p>There are four main functions that use regular expressions in R.</p>
+<p><code>grep()</code> and <code>grepl()</code> are equivalent to ‘find’ in your favorite word processor. They have the general form:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"find"</span>, in.this.object)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>grep()</code> outputs a vector with all of the address locations (i.e.&nbsp;numbers) that match. Thus the <em>output length</em> is equal to the <em>number of matches</em>.</p>
+<p><code>grepl()</code> outputs a vector of <code>TRUE</code> (match) and <code>FALSE</code> (no match). Thus, the <em>output length</em> is equal to the <em>length of the input object</em>.</p>
+<p><code>sub()</code> and <code>gsub()</code> are equivalent to ‘find and replace’. They have the general form:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"find"</span>, <span class="st">"replace"</span>, in.this.object)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>sub()</code> replaces only the first match, whereas <code>gsub()</code> replaces all of the matches.</p>
+<p>Some specific examples are provided below to help you understand these similarities and differences. As always, you should take the time to try these out and make sure you get the same input. If you don’t, then it’s a good learning opportunity to find out what you did differently!</p>
+<p>There are two other more advanced functions in R. These aren’t covered in this tutorial, but may be of use once you are more comfortable with the above functions.</p>
+<p><code>regexpr()</code> provides more detailed information about the first match.</p>
+<p><code>gregexpr()</code> provides more detailed results about all matches.</p>
+<blockquote class="blockquote">
+<p>See <code>?regexpr</code> and <code>?gregexpr</code> for more info</p>
+</blockquote>
+<section id="examples" class="level3">
+<h3 class="anchored" data-anchor-id="examples">Examples</h3>
+<p>Some examples can help to understand the differences among the four main functions. Let’s start with a simple data frame of species names.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Species<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"petiolata"</span>, <span class="st">"verticillatus"</span>, <span class="st">"salicaria"</span>, <span class="st">"minor"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "petiolata"     "verticillatus" "salicaria"     "minor"        </code></pre>
+</div>
+</div>
+</section>
+<section id="grep" class="level3">
+<h3 class="anchored" data-anchor-id="grep"><code>grep()</code></h3>
+<p>This returns cell addresses matching the query string.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"a"</span>,Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3</code></pre>
+</div>
+</div>
+<p>Note the vector length compared to the input vector. Instead of the cell number, we can get R to return the specific values in each matching cell with the <code>value=T</code> parameter</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"a"</span>,Species, <span class="at">value=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "petiolata"     "verticillatus" "salicaria"    </code></pre>
+</div>
+</div>
+</section>
+<section id="grepl" class="level3">
+<h3 class="anchored" data-anchor-id="grepl"><code>grepl()</code></h3>
+<p>This returns a vector of <code>TRUE</code> (match) and <code>FALSE</code> (no match). Compare this output with the same parameters in the <code>grep()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(<span class="st">"a"</span>,Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  TRUE  TRUE  TRUE FALSE</code></pre>
+</div>
+</div>
+</section>
+<section id="sub" class="level3">
+<h3 class="anchored" data-anchor-id="sub"><code>sub()</code></h3>
+<p>This replaces the first match (in each cell)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sub</span>(<span class="st">"l"</span>,<span class="st">"L"</span>,Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "petioLata"     "verticiLlatus" "saLicaria"     "minor"        </code></pre>
+</div>
+</div>
+</section>
+<section id="gsub" class="level3">
+<h3 class="anchored" data-anchor-id="gsub"><code>gsub()</code></h3>
+<p>This replaces all matches (in each cell). Compare this output to <code>sub()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"l"</span>,<span class="st">"L"</span>,Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "petioLata"     "verticiLLatus" "saLicaria"     "minor"        </code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Question</strong>: Did you see the difference?</p>
+</blockquote>
+<p><strong>Hint</strong>: Look at “Verticillatus”.</p>
+</section>
+</section>
+<section id="wildcards" class="level2">
+<h2 class="anchored" data-anchor-id="wildcards">Wildcards</h2>
+<section id="escape-character" class="level3">
+<h3 class="anchored" data-anchor-id="escape-character">Escape Character <code>\</code></h3>
+<p>The backslash is a special character. It’s called the ‘escape’ character because it is used to <em>escape</em> from the literal interpretation of the next character to the right. For example, <code>\.</code> applies the <em>escape</em> to the period character. The specific meaning depends on the context, which is much easier to understand by examples, as shown below.</p>
+</section>
+<section id="in-r" class="level3">
+<h3 class="anchored" data-anchor-id="in-r"><code>\\</code> in R</h3>
+<p>In the introduction, we discussed the universality of <strong>regular expressions</strong> in the sense that a similar syntax is used by many different programming langagues. But now here is one exception. In R, the double-escape is usually needed, whereas other programming languages typically use just one. The reason is a bit meta – it’s because we are running regular expressions within R object. So the first <code>\</code> is used to escape special characters in R, applying it to the second <code>\</code>, which is itself the special character that needs to be escaped to pass through the function. The second slash is followed by the ‘escaped’ character. Some examples are provided below.</p>
+<p>If that isn’t clear. Just remember that you need two backslashes when writing regular experssions in R, but just one backslash for most other languages.</p>
+</section>
+<section id="w" class="level3">
+<h3 class="anchored" data-anchor-id="w"><code>\\w</code></h3>
+<p>Instead of finding the letter <code>w</code>, the <code>\\w</code> is a <strong>wildcard</strong> character that represents any letter or digit. It also includes underscore <code>_</code> for some reason.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sub</span>(<span class="st">"w"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...Xhich 1-100 words get replaced?"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"w"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...Xhich 1-100 Xords get replaced?"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...Xhich 1-100 words get replaced?"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...XXXXX X-XXX XXXXX XXX XXXXXXXX?"</code></pre>
+</div>
+</div>
+<p>Again, note the differences between the <code>sub()</code> and <code>gsum()</code> functions. We’ll stick to <code>gsub()</code> for the remainder of the examples in this chapter, but you should also run <code>sub()</code> yourself. Each time, take a moment to try to predict how the output will differ before running it. This will help you develop an understanding of regular expressions much more quickly.</p>
+</section>
+<section id="w-1" class="level3">
+<h3 class="anchored" data-anchor-id="w-1"><code>\\W</code></h3>
+<p>The capital W is the inverse of <code>\\w</code> find a character that is NOT a letter or number.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">W"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100  words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "XXXwhichX1X100XXwordsXgetXreplacedX"</code></pre>
+</div>
+</div>
+</section>
+<section id="s" class="level3">
+<h3 class="anchored" data-anchor-id="s"><code>\\s</code></h3>
+<p>This represents a space</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">s"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100  words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...whichX1-100XXwordsXgetXreplaced?"</code></pre>
+</div>
+</div>
+</section>
+<section id="t" class="level3">
+<h3 class="anchored" data-anchor-id="t"><code>\\t</code></h3>
+<p>This is a tab character. A lot of data files stored as text are tab-delimited (.tsv) as well as comma-delimited (.csv)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">t"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 </span><span class="sc">\t</span><span class="st"> words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...which 1-100 X words get replaced?"</code></pre>
+</div>
+</div>
+<p>Remember that <code>\t</code> is a tab character.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"A</span><span class="sc">\t\t\t</span><span class="st">B C"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>A           B C</code></pre>
+</div>
+</div>
+</section>
+<section id="d" class="level3">
+<h3 class="anchored" data-anchor-id="d"><code>\\d</code></h3>
+<p>d for <em>digits</em>. This is the wild card for numeric characters.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">d"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100  words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...which X-XXX  words get replaced?"</code></pre>
+</div>
+</div>
+</section>
+<section id="d-1" class="level3">
+<h3 class="anchored" data-anchor-id="d-1"><code>\\D</code></h3>
+<p>Non-digit characters</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">D"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100  words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "XXXXXXXXX1X100XXXXXXXXXXXXXXXXXXXXX"</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="new-lines" class="level2">
+<h2 class="anchored" data-anchor-id="new-lines">New Lines</h2>
+<p>There are two special characters that indicate new lines in a text file.</p>
+<section id="r" class="level3">
+<h3 class="anchored" data-anchor-id="r"><code>\\r</code></h3>
+<p>This is the ‘carriage return’ special character</p>
+</section>
+<section id="n" class="level3">
+<h3 class="anchored" data-anchor-id="n"><code>\\n</code></h3>
+<p>This is the ‘newline’ special character</p>
+</section>
+<section id="big-problem" class="level3">
+<h3 class="anchored" data-anchor-id="big-problem">Big Problem</h3>
+<p>One or both of these may be generated when you press the ‘enter’ key while writing a text file. The difference depends on which operating system you are using. These also add a source of headache and confusion when working with text files because:</p>
+<ol type="1">
+<li><strong>Unix and MacOS</strong> text files use lines that end with <code>\n</code> only</li>
+<li><strong>Windows and DOS</strong> text files use lines end with <code>\r\n</code></li>
+</ol>
+<blockquote class="blockquote">
+<p><strong>Question</strong>: Do you know how this difference originated?</p>
+</blockquote>
+<p><strong>Answer</strong>: The reason goes back to the early days of programming, when programmers were moving from mechanical typewriters to computer programs. Mechanical typewriters are hard to find these days, but they would hold a piece of paper in place on a cylinder called a <em>carriage</em>. The</p>
+<p>The <code>\n</code> stands for ‘new line’, and the <code>\r</code> stands for <em>return</em>. When you reach the end of a line of text on a typewriter, you would typically <em>return</em> the carriage back to the starting position, and then move to the next line, thus the <code>\r\n</code>. The Unix operating system decided that the <code>\r</code> wasn’t needed, whereas the DOS operating system decided to include it.</p>
+<p>This difference can cause problems when moving text files across operating systems. Programs like <em>FileZilla</em> will automatically translate these end-of-line characters when moving across systems.</p>
+</section>
+</section>
+<section id="special-characters" class="level2">
+<h2 class="anchored" data-anchor-id="special-characters">Special Characters</h2>
+<p>In addition to special characters that use the escape <code>\\</code>, there are a number of other special characters that don’t use the escape, but have a special meaning.</p>
+<p>Note that if you want to search for the characters below you would have to use the escape character. E.g., use <code>\\.</code> to search for the period character (<code>.</code>).</p>
+<section id="any-character-." class="level3">
+<h3 class="anchored" data-anchor-id="any-character-.">Any Character <code>.</code></h3>
+<p>The period is a wild card that means ‘anything’. This includes all of the <code>\\w</code> characters but also other characters like puncutation marks.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"."</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100  words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"</code></pre>
+</div>
+</div>
+<p>So how to search for a period <code>.</code>? As noted above, we have to use the escape character</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">."</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100  words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "XXXwhich 1-100  words get replaced?"</code></pre>
+</div>
+</div>
+</section>
+<section id="or" class="level3">
+<h3 class="anchored" data-anchor-id="or">Or <code>|</code></h3>
+<p>This is sometimes called the <strong>pipe</strong> character, and it simply means ‘or’. For example, we can search for <code>w or e</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"w|e"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100  words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...Xhich 1-100  Xords gXt rXplacXd?"</code></pre>
+</div>
+</div>
+</section>
+<section id="special-searches" class="level3">
+<h3 class="anchored" data-anchor-id="special-searches">Special Searches <code>*</code>, <code>?</code>, <code>+</code>, <code>{}</code></h3>
+<p>These special characters refer to details about the kind of search that we are trying to conduct. Look at these examples carefully, and remember that <code>sub</code> replaces the first match while <code>gsub</code> replaces all of the matches.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...Xhich 1-100 words get replaced?"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...XXXXX X-XXX XXXXX XXX XXXXXXXX?"</code></pre>
+</div>
+</div>
+<p>Now let’s apply some of these special characters to see how they work.</p>
+</section>
+<section id="find-one-or-more-matches" class="level3">
+<h3 class="anchored" data-anchor-id="find-one-or-more-matches">Find <em>One or More</em> Matches <code>+</code></h3>
+<p>Finds ‘one or more’ matches (i.e.&nbsp;at least one match)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w+"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...X 1-100 words get replaced?"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w+"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...X X-X X X X?"</code></pre>
+</div>
+</div>
+<p>Compare this match to the one above. Notice how we have replaced groups of letters instead of single letters. The algorithm works like this:</p>
+<ol type="1">
+<li>Start at the left and move to the right, one character at a time</li>
+<li>Check if the character is a letter or number (<code>\\w</code>).</li>
+<li>If NO, move to the next character</li>
+<li>If YES, check the next character. If it is also a <code>\\w</code> then go to the next character. Repeat until the next character is not <code>\\w</code>, and replace the entire string of characters.</li>
+</ol>
+<p>When run in the <code>sub()</code> function, the algorithm does the above and then stops. When run with the <code>gsub()</code> function, it continues to the next character, and then starts over.</p>
+</section>
+<section id="greedy-matches" class="level3">
+<h3 class="anchored" data-anchor-id="greedy-matches"><em>Greedy</em> Matches <code>*</code></h3>
+<p>This is a <em>greedy</em> search matches <em>0 or more</em> in a row. Again, this is easier to understand by exploring examples.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w*"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "X...which 1-100 words get replaced?"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w*"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "X.X.X.X X-X X X X?X"</code></pre>
+</div>
+</div>
+<p>In the <code>sub()</code> function, it detects a period (<code>.</code>) as the first character, indicating no match. It replaces the ‘null’ or <code>0</code> match at the beginning, which has the effect of adding a character. In the <code>gsub()</code> function it repeats this again before each period (<code>.</code>). It then continues until it finds the letter <code>w</code>. Then it finds a group of <code>\\w</code> matches, replacing all of them with a single <code>X</code>. Then a space, which is skipped, then a <code>-</code>, which is another null match, prompting another insert.</p>
+</section>
+<section id="restrained-match" class="level3">
+<h3 class="anchored" data-anchor-id="restrained-match"><em>Restrained</em> Match <code>?</code></h3>
+<p>This is the <em>restrained</em> search, which matches <em>zero or one</em> time.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w?"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "X...which 1-100 words get replaced?"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w?"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "X.X.X.XXXXX X-XXX XXXXX XXX XXXXXXXX?X"</code></pre>
+</div>
+</div>
+<p>Compare this to the <code>*</code> above. The <code>?</code> character behaves in a similar way, except it is constrained in the sense that each each letter is replaced individually, instead of replacing entire words.</p>
+</section>
+<section id="lazy-restrained" class="level3">
+<h3 class="anchored" data-anchor-id="lazy-restrained"><em>Lazy</em>, <em>Restrained</em> <code>+?</code></h3>
+<p>This is the <em>lazy</em> version of <code>+</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w+?"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...Xhich 1-100 words get replaced?"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w+?"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...XXXXX X-XXX XXXXX XXX XXXXXXXX?"</code></pre>
+</div>
+</div>
+<p>Note the difference in <code>sub()</code>, which replaces on the the first letter here but the whole word when <code>+</code> is used alone in the earlier example. In the <code>gsub()</code> example we end up replacing every letter instead of whole words. Remember, <code>sub()</code> runs the algorithm once and then stops, while <code>gsub()</code> cycles through the algorithm until it reaches the end of the line.</p>
+</section>
+<section id="lazy-greedy" class="level3">
+<h3 class="anchored" data-anchor-id="lazy-greedy"><em>Lazy</em>, <em>Greedy</em> <code>*?</code></h3>
+<p>Similarly, we can combine these characters for the ‘lazy’ version of <code>*</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w*?"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "X...which 1-100 words get replaced?"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w*?"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "X.X.X.XwXhXiXcXhX X1X-X1X0X0X XwXoXrXdXsX XgXeXtX XrXeXpXlXaXcXeXdX?X"</code></pre>
+</div>
+</div>
+<p>Try using <code>+*</code>.</p>
+<blockquote class="blockquote">
+<p><strong>Question</strong>: Why do you get an error message?</p>
+</blockquote>
+<p><strong>Answer</strong>: The <code>*</code> and <code>?</code> find the same characters, but have competing replacement rules (greedy or restrained).</p>
+</section>
+<section id="range" class="level3">
+<h3 class="anchored" data-anchor-id="range">Range <code>{}</code></h3>
+<p>Curly brackets are used to specify a number of matches, expanding on the options even further.</p>
+</section>
+<section id="nm" class="level3">
+<h3 class="anchored" data-anchor-id="nm"><code>{n,m}</code></h3>
+<p>Find between <span class="math inline">\(n\)</span> to <span class="math inline">\(m\)</span> matches</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w{3,4}"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...Xh 1-X Xs X XX?"</code></pre>
+</div>
+</div>
+</section>
+<section id="n-1" class="level3">
+<h3 class="anchored" data-anchor-id="n-1"><code>{n}</code></h3>
+<p>Find exactly <span class="math inline">\(n\)</span> matches</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w{3}"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...Xch 1-X Xds X XXed?"</code></pre>
+</div>
+</div>
+</section>
+<section id="n-2" class="level3">
+<h3 class="anchored" data-anchor-id="n-2"><code>{n,}</code></h3>
+<p>Find <span class="math inline">\(n\)</span> or more matches</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w{4,}"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...X 1-100 X get X?"</code></pre>
+</div>
+</div>
+</section>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"><code>{}?</code></h3>
+<p>As above, we can use <code>?</code> for the ‘lazy’ versions of these searches</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">w{4,}?"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...Xh 1-100 Xs get XX?"</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="set" class="level2">
+<h2 class="anchored" data-anchor-id="set">Set <code>[]</code></h2>
+<p>Square brackets allow us to define a <em>set</em>, which is a group of characters from which we want to match <em>any</em>. Within a set, we can use the dash <code>-</code> to specify a range of numbers or letters.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"[aceihw-z]"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...XXXXX 1-100 Xords gXt rXplXXXd?"</code></pre>
+</div>
+</div>
+<p>In the above example, we search for 1 of any of the listed letters: a, c, e, i h, w, x, y, z. Note that x and y are included in the <code>w-z</code> statement.</p>
+<blockquote class="blockquote">
+<p><strong>Question</strong>: What if we want to find 1 or more of these characters in a row to replace with <code>X</code>?</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"[aceihw-z]+"</span>,<span class="st">"X"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...X 1-100 Xords gXt rXplXd?"</code></pre>
+</div>
+</div>
+</section>
+<section id="negate-or-start-and-end" class="level2">
+<h2 class="anchored" data-anchor-id="negate-or-start-and-end">Negate or Start <code>^</code> and End <code>$</code></h2>
+<p>Use these characters to specify searches at the start <code>^</code> or end <code>$</code> of the input string.</p>
+<section id="start" class="level3">
+<h3 class="anchored" data-anchor-id="start">Start <code>^</code></h3>
+<p>How do we find which species start with the letter <em>a</em>? Use the start character:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"^a"</span>,Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>integer(0)</code></pre>
+</div>
+</div>
+</section>
+<section id="negate" class="level3">
+<h3 class="anchored" data-anchor-id="negate">Negate <code>^</code></h3>
+<p>The same character (<code>^</code>) has a different meaning if used with a set <code>[]</code>. In those cases, it negates, or finds the opposite.</p>
+<p>For example, find species containing any character other than <em>a</em>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"[^a]"</span>,Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 4</code></pre>
+</div>
+</div>
+<p>Replace every letter except <em>a</em> or <em>l</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"[^al]"</span>,<span class="st">"X"</span>,Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "XXXXXlaXa"     "XXXXXXXllaXXX" "XalXXaXXa"     "XXXXX"        </code></pre>
+</div>
+</div>
+</section>
+<section id="end" class="level3">
+<h3 class="anchored" data-anchor-id="end">End <code>$</code></h3>
+<p>Find species that end with <em>a</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"a$"</span>,Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 3</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="capture" class="level2">
+<h2 class="anchored" data-anchor-id="capture">Capture <code>()</code></h2>
+<p>Regular parentheses are used to ‘capture’ text, which can then be specified in the replacement string using <code>\\1</code>. Or you can capture multiple pieces of text and reorganize them by using the corresponding number – <code>\\1</code> for the first set of<code>()</code>, <code>\\2</code> for the second set of <code>()</code>, etc. Some examples should help.</p>
+<p>Replace each word with its first letter</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"(</span><span class="sc">\\</span><span class="st">w)</span><span class="sc">\\</span><span class="st">w+"</span>,<span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>,</span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...w 1-1 w g r?"</code></pre>
+</div>
+</div>
+<p>Pull out only the numbers and reverse their order</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">".*([0-9]+)-([0-9]+).*"</span>,</span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">"</span><span class="sc">\\</span><span class="st">2-</span><span class="sc">\\</span><span class="st">1"</span>,<span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "100-1"</code></pre>
+</div>
+</div>
+<p>Reverse first two letters of each word</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"(</span><span class="sc">\\</span><span class="st">w)(</span><span class="sc">\\</span><span class="st">w)(</span><span class="sc">\\</span><span class="st">w+)"</span>,<span class="st">"</span><span class="sc">\\</span><span class="st">2</span><span class="sc">\\</span><span class="st">1</span><span class="sc">\\</span><span class="st">3"</span>,</span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">"...which 1-100 words get replaced?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "...hwich 1-010 owrds egt erplaced?"</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>R Crash Course for Biologists</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p><a href="https://EcoEvoGeno.org/">Robert I Colautti</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
