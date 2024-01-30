@@ -3,6 +3,8 @@ title: "Quantitative Biology Series"
 output: html_document
 ---
 
+Reproducible code and quantitative methods for biologists
+
 ## R Crash Course
 
 An introduction to R for bioinformatics and biostatistics
