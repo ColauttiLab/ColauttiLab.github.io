@@ -1,0 +1,23 @@
+---
+title: "Quantitative Biology Series"
+output: html_document
+---
+
+## R Crash Course
+
+An introduction to R for bioinformatics and biostatistics
+
+  * |[website](https://colauttilab.github.io/RCrashCourse)|print|e-book|
+
+## R STATS Crash Course for Biologists
+
+An introduction to statistical models in R for bioinformatics and biostatistics
+
+  * |website|print|e-book|
+
+## R Machine Learning Crash Course for Biologists
+
+An introduction to machine learning in R for bioinformatics and biostatistics
+
+  * |website|print|e-book|
+  
