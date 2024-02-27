@@ -5,21 +5,29 @@ output: html_document
 
 Reproducible code and quantitative methods for biologists
 
-## R Crash Course
+## baRcoder R package
+
+* | [CRAN](https://cran.r-project.org/web/packages/baRcodeR/index.html) | [GitHub](https://github.com/ropensci/baRcodeR) 
+
+The default setting is based on these [U-Line Labels](https://www.uline.ca/Product/Detail/S-19297/Laser-Labels/Uline-Weather-Resistant-Laser-Labels-1-3-4-x-1-2?keywords=S-19297)
+
+## Textbooks
+
+### R Crash Course
 
 An introduction to R for bioinformatics and biostatistics
 
-  * |[website](https://colauttilab.github.io/RCrashCourse)|print|e-book|
+  * | [website](https://colauttilab.github.io/RCrashCourse) | print | e-book | 
 
-## R STATS Crash Course for Biologists
+### R STATS Crash Course for Biologists
 
 An introduction to statistical models in R for bioinformatics and biostatistics
 
-  * |website|print|e-book|
+  * | website | print | e-book |
 
-## R Machine Learning Crash Course for Biologists
+### R Machine Learning Crash Course for Biologists
 
 An introduction to machine learning in R for bioinformatics and biostatistics
 
-  * |website|print|e-book|
+  * | website | print | e-book |
   
