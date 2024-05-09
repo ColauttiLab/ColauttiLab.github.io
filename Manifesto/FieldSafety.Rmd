@@ -76,6 +76,12 @@ Some additional gear is recommended, depending on type of fieldwork and the loca
 
 **Plan**: To minimize transmission, field crews should work as a self-isolated unit, limiting contact with other researchers and the public. All members should self-isolate for 2 weeks and carefully monitor symptoms before joining the field. If you experience any symptoms, self-isolate until they are gone.
 
+## Hazard: Driving and road hazards
+
+**Risk**: Increased chance of car accidents due to wild animals, windy roads that make it difficult to see oncoming vehicles, some of which may be driving very fast.
+
+**Plan**: These are just some examples. Before driving to QUBS, read Queen's "Automobile Best Practices": <https://www.queensu.ca/risk/insurance/driver-safety>
+
 ## Hazard: Arduous hikes & long working days
 
 **Risk**: Some field work or field courses will require long hikes to visit different habitats. Work days can span dawn to dusk and beyond. Certainly fatigue is a possibility, compromising judgment. Blisters may result from poor-fitting footwear.
