@@ -311,7 +311,7 @@ Instead of memorizing textbook definitions and anticipating test questions, your
 
 Create an Individual Development Plan (IDP). The IDP is designed to help you set and achieve goals for your project that align with your future career aspirations by addressing your weaknesses and building on your stengths. Before you begin, take a little while to think about your career goals and what you would like to accomplish with your thesis or dissertation. What skills or expertise would you like to develop? Who would you like to add to your professional network, and what would you like to see on your reference letters? How much time do you have to accomplish your goals?
 
-Fill out [this IDP form](./IDP.docx) 
+Fill out [this IDP form](./Individual Development Plan.docx) 
 
 
 Make a timeline to help yourself stay on track. Be sure to include specific items like data collection, planning, lab/field experiments, writing, etc. A lot of these will be unique to your thesis but here are some things common to most:

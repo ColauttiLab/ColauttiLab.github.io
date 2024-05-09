@@ -1,5 +1,5 @@
 ---
-title: "Colautti Lab Manifest"
+title: "Colautti Lab Manifesto"
 output: html_document
 ---
 
