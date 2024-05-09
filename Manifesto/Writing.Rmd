@@ -47,11 +47,13 @@ To write a strong thesis, start with IDEAS, not words
 
 ## Outline Stage 1
 
-You must PLAN CAREFULLY. Long before you write even a single sentence.
+You must PLAN CAREFULLY, long before you write even a single sentence.Think about the STRUCTURE of a good scientific paper, right from the beginning. Begin by creating a document that answers the following questions:
 
-Think about the STRUCTURE of a good scientific paper, right from the beginning. Make your outline with this structure in mind:
+  1. What is the big-picture framing for your project? This defines your audience.
+  2. What is/are the unanswered question(s) or problem(s) you are addressing? 
+  3. 
 
-![](PaperStructure.jpg)
+Send these questions and your answers to your supervisor.
 
   * If you have data. Start by making your 'final' figures and tables. In other words, format them and write captions just as they would appear in your final document.
   * Start with some brainstorming notes. Why would somebody be interested in this study? What does it contribute to scientific knowledge? How does it fit into the broader context?
@@ -60,7 +62,11 @@ Think about the STRUCTURE of a good scientific paper, right from the beginning. 
     
 ## Outline Stage 2
 
-  * Organize your thoughts from Stage 1 into a coherent flow. 
+  * Organize your thoughts from Stage 1 into a coherent flow. Make your outline with this structure in mind:
+
+![](PaperStructure.jpg)
+
+
   * USING POINT-FORM Start with the main sections:
       + **Introduction** -- Set up your research for the reader. Provide background information and motivate/justify why you spent (or will spend) so much time on this project.
       + **Methods** (or proposed methods) -- Summarize your experimental design and analysis so that the reader can follow what you did. More detailed methods, including R code, pictures, and experimental designs should usually be included as supplementary material (using R markdown). 

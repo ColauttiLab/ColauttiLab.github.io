@@ -5,28 +5,65 @@ output: html_document
 
 # Read, read, read!
 
-Read early and read often. Actually, the word ‘read’ is a bit misleading as it suggests something like you would do with a good novel or news article. Technical reading is very different. As a new student you are going to have to spend a lot of time with each paper, trying to understand as much of of the article as you can. This often requires re-reading the same sentence or paragraph multiple times, taking a side-track to look up each term or concept that you don't understand. Don’t worry if you can’t understanding every single line or equation, but read each sentence very carefully.
+## Getting started
 
-  * Pause to look up terms and phrases that you aren’t don’t know well enough to explain to a 1st year biology student. 
-  * Don't be afraid of equations. Equations aren't like regular text, they take a long time to read and understand, even for people who like math. Take time to understand each parameter, where it comes from, how it's calculated, and what it represents biologically. It may take you as long to work through one equation as it takes you to read a whole page of text -- and that's okay!
-  * Try to read everything on your study species and in your study area, no matter how trivial, but save some time to read broadly.
-  * Focus more time on papers from good journals (Science, Nature, PNAS, PRSC, Evolution, Ecology Letters, and just about anything with an ISI impact factor > 5). 
-  * Review papers (e.g. TREE, Annu Rev, etc.) are a place to start and a good source for general overview of a topic when you first start researching your topic, but you should focus more on synthesizing primary research papers.
-  * Start reading by finding reviews and spending some time digging into relevant papers from the Colautti Lab and our collaborators. Then use these to identify other papers to read (e.g. look at citations in the paper, and use Web of Science or Google Scholar to find newer papers that cite the one you are reading).
+Read early and read often. You should read as much as you can, throughout your entire training, but more intensively at the *beginning* -- to help develop your project, and at the *end* -- to help write your final thesis or manuscript. 
 
-# Three very important reasons to read:
+Actually, the word ‘read’ is a bit misleading as it suggests something similar to sitting down with a good novel or news article. Technical reading is very different. Some papers can be skimmed quite quickly, as you develop  enough expertise that you become familiar with the methods and research questions. Others require intense focus. As a new student you are going to have to spend a lot of time with some papers, trying to understand as much of of the article as you can. This often requires re-reading the same sentence or paragraph multiple times, taking a side-track to look up each term or concept that you don't understand. Here are some basic tips to get started.
 
-  1. To learn what has already been discovered.
-  2. To understand the methods used to make those discoveries.
-  3. To learn how to write a good research paper by comparing papers in different journals.
+  1. Use a **reference manager** to start building your reading list. I like [Zotero](https://www.zotero.org/) because it's free and there is a plug-in for Microsoft Word, which helps later when you are writing. You can also organize your references into different folders.
+  2. Ask your supervisor for **key papers** and the names of researchers with a reputation of high-quality research and publications. Don't rely on citation metrics -- some of the worst studies are cited the most because they are so controversial. 
+  3. Look for good **review papers** the papers they cite.
+  4. **Review your reading list** with your supervisor. Make a list of paper titles and authors, and go through them in your one-on-one meetings to identify which ones are the best quality.
+  5. Identify the **classic papers** in your field. Look at which papers are repeatedly cited and why. 
+  6. Find **recent papers**. Use these papers to identify keywords that you can use to search for more recent papers. You can find your *high quality* and *classic* papers in search engines like Web of Science or Google Scholar, and then search for papers that cite these.
+  7. If you have a **study system**, read as much as you can about it, even things that may not seem so relevant to your specific project.
+
+## Reading tips.
+
+Once you have a reading list started, quickly read through titles and abstracts to decide how relevant an important each paper is, and prioritize your reading. When you are first starting out, you should prioritize review papers and the methods and discussion sections of original research papers. As you start to narrow down your project and think about specific hypotheses, goals and objectives, then you should focus more time on the methods and results sections. It's important to learn how to skim through a paper and decide which parts ot focus on. 
+
+Pause to **look up terms and phrases** that you aren’t familiar with or don’t know well enough. Sometimes you think you know something but don't understand it as well as you think. A good litmus test is to try to explain it to a first year biology student. 
   
-# Where to start?
+Don't be afraid to **read equations**. Equations aren't like regular text, they take a long time to read and understand, even for people who like math. Take time to understand each parameter, where it comes from, how it's calculated, and what it represents biologically. It may take you as long to work through one equation as it takes you to read a whole page of text -- and that's okay! Eventually you will start to see that the way equations are explained is not completely accurate. That's because math is its own language, and trying to translate to words can lead to inaccuracies and misunderstanding. Identifying these errors of explanation can result in a great contribution to science!
+
+Focus more time reading papers from good journals (Science, Nature, PNAS, PRSC, Evolution, Ecology Letters; pretty much any ecology and evolution journal with an ISI impact factor > 5 is a good journal). Eventually you will start to see why these studies stand out from the much larger number of studies in more 'specialized' journals.
+
+## Take notes
+
+Taking notes serves two main purposes. It gives you a summary document that makes it easier for you to review later, for example when you are writing a report, thesis or manuscript. More importantly, you will start to see how good papers are structured, which will make it much easier for you when you write your own papers. Most importantly, the act of taking notes will focus your mind on the reading, to help it 'stick' better in your mind. This is best done if you take structured notes. Consider copy-pasting these prompts into a text or word processor document. Later, you can use a GPT or chatbot to help you summarize and review your notes.
+
+**Introduction**
+
+  * What is the 'big picture' or 'framing' of the study? 
+  * Who would be interested in this research, and why?
+  * Which questions or knowledge gaps are used to motivate the study?
+  * What are the specific hypotheses and predictions being evaluated?
+
+**Methods**
+
+  * What techniques are used? 
+  * What are the sample sizes? 
+  * What are some potential limitations of these methods? 
+  * What trade-offs did the authors likely consider to make the experiment tractable?
+
+# Where to start
 
 If you are new to a topic, look for some high-impact reviews. This new literature search tool from Heather Piwowar et al. looks useful [GetTheResearch.org](https://gettheresearch.org/)
 
 For more detailed searches of primary research, try [Web of Science](https://www.webofknowledge.com) and [Google Scholar](https://scholar.google.ca/)
 
-Note that if you are using the internet off-campus you will need to login with a VPN or follow the link through the library in order to access many journal articles.
+Your Queen's netID also gives you access to Microsoft Copilot, which can help you digest the literature and identify key papers. DO NOT make the mistake of using Copilot or other generative AI to try to summarize technical scientific papers. They often make mistakes and miss important details. However, they can be useful for sifting through large literature to identify papers worth focusing your time and energy on.
+
+Note that if you are using the internet off-campus you will need to log in with a VPN or follow the link through the library in order to access many journal articles.
+
+# What to read
+
+Start with web searches and review papers. This will give you a general sense of what has been done and where some of the open questions might be.
+
+Focus on original research. Use key words to make a list of relevant papers, and quickly read through the titles and abstracts to help set priorities of what to read first.
+
+Ask your supervisor and other members of your lab to identify key papers relevant to your project.
 
 # What are you waiting for?
 
