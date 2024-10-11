@@ -21,7 +21,9 @@ Land acknowledgments should not be seen as empty platitudes, but rather an oppor
 
 ## Land Acknowledgement
 
-The Colautti Lab at Queen's University is situated on traditional [Anishinaabe](https://www.thecanadianencyclopedia.ca/en/article/anishinaabe) (Ah- nish-in-ah-bay) and [Haudenosaunee (Iroquois)](https://www.thecanadianencyclopedia.ca/en/article/iroquois) (Ho-den-o-show-nee) territory. We are grateful to be able to live, learn and play on these lands.
+Your Land Acknowledgement should be unique to you. Writing a Land Acknowledgement is an exercise in self-reflection and research. It's not something to be taken lightly. Queen's University's Centre for Teaching and Learning has a series of self-directed courses on [Decolonizing and Indigenizing](https://www.queensu.ca/ctl/resources/decolonizing-and-indigenizing), including [Land Acknowledgements](https://www.queensu.ca/ctl/resources/decolonizing-and-indigenizing/land-acknowledgements)
+
+That said, we acknowledge that the Colautti Lab at Queen's University is situated on traditional [Anishinaabe](https://www.thecanadianencyclopedia.ca/en/article/anishinaabe) (Ah- nish-in-ah-bay) and [Haudenosaunee (Iroquois)](https://www.thecanadianencyclopedia.ca/en/article/iroquois) (Ho-den-o-show-nee) territory. We are grateful to be able to live, learn and play on these lands.
 
 By acknowledging our shared history, we recognize a long and storied past that began long before the earliest European colonies. We also acknowledge this territory’s significance for the Indigenous Peoples who lived, and continue to live, upon it and whose practices and spiritualities were tied to the land and continue to develop in relationship to the territory and its other inhabitants today.
 
@@ -39,7 +41,7 @@ Stats from the [Canadian Association of University Teachers](https://www.caut.ca
 | Black | 3.1% | 2% |
 | Women | 50% | 44% (27% Full Prof.)
 
-![Source: [Nature.com](https://www.nature.com/news/racial-bias-continues-to-haunt-nih-grants-1.18807)](NIH_Gap.jpg)
+![Source: Nature.com](https://www.nature.com/news/racial-bias-continues-to-haunt-nih-grants-1.18807)](NIH_Gap.jpg)
 
 
 However, this varies across disciplines and instutions. In the Biological Sciences at Canadian universities, representation tends to be much lower. Here's a figure showing the race gap in a number of disciplines. Note the location of Evolutionary Biology:
@@ -80,7 +82,7 @@ Systemic barriers include any practices or policies that result in uneven access
 
 
 
-# To Do: 
+# Further Readings for Future Lab Retreats: 
 
 Read/summarize Government of Canada pilot program called [Dimensions](http://www.nserc-crsng.gc.ca/NSERC-CRSNG/EDI-EDI/Dimensions_Dimensions_eng.asp); see also this [Press Release](http://www.nserc-crsng.gc.ca/Media-Media/NewsRelease-CommuniqueDePresse_eng.asp?ID=1062) to increase EDI at Canadian Universities
 

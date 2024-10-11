@@ -11,9 +11,10 @@ Below is a checklist for professional and effective presentations. Be sure to fo
 
 # Before you begin
 
-* [ ] **Make a timeline**. Write down the dates of the conference, and the early bird registration deadline. Make a list of what you want to include in your poster, and set some deadlines for yourself so that you can have a first draft at least 2 weeks before the registration and a final draft of your poster at least 4 weeks before the conference. If you are planning to conduct new analyses and make new figures, be sure to give yourself enough time to make the figures AND triple-check for errors.
-* [ ] **Make an outline**. Turn off your computer and take a piece of paper (or several). Sketch out the poster or slides. What should go in each section? How much presentation time or poster space will you devote to the introduction/overview, methods, results, and discussion/impact?
-* [ ] **Get feedback**. Ask your peer or your advisor 
+  * [ ] **Make a timeline**. Write down the dates of the conference, and the early bird registration deadline. Make a list of what you want to include in your poster, and set some deadlines for yourself so that you can have a first draft at least 2 weeks before the registration and a final draft of your poster at least 4 weeks before the conference. If you are planning to conduct new analyses and make new figures, be sure to give yourself enough time to make the figures AND triple-check for errors.
+  
+  * [ ] **Make an outline**. Turn off your computer and take a piece of paper (or several). Sketch out the poster or slides. What should go in each section? How much presentation time or poster space will you devote to the introduction/overview, methods, results, and discussion/impact?
+  * [ ] **Get feedback**. Ask your friends, family members, classmates, lab members, and anyone else who will listen and provide feedback. Also volunteer to help others -- you will more from providing feedback than from receiving it. 
 
 # General checklist
 
@@ -35,38 +36,42 @@ theme_set(theme_pub())
 
 Ensure that your slides address all of the following points:
 
-* [ ] Use a clean and simple slide design (DO NOT use Powerpoint templates -- these add clutter). For Powerpoint, consider using this [Colautti Lab Powerpoint Template](../Files/ColauttiLab_SlideFormat.pptx), which includes pre-formatted slides and unified colour scheme. Using this template shows that your talk has a quality 'seal of approval' from the lab.
-* [ ] For more presentation tips, see this [Presentation Guide](../Files/Presentation_PAW_Walkthrough.pdf) from Chloe Schmidt, a former graduate student of Colin Garroway (U Manitoba)
-* [ ] A title slide with your name, co-authors, and affiliation
-* [ ] 1-3 Introduction slides including the 'big picture' context, unanswered question(s), and specific background that the audience needs to understand your results. 
-* [ ] Hypotheses and predictions are clearly laid out (If hypothesis X is true, then I expect to see Y)
-* [ ] 2-5 Slides with methods and results
-* [ ] 1-2 Slides emphasizing implications and impact of research
-* [ ] Final Acknowledgments slide with funder information and key collaborators/assistants
+  * [ ] Use a clean and simple slide design (DO NOT use Powerpoint templates -- these add clutter). For Powerpoint, consider using this [Colautti Lab Powerpoint Template](../Files/ColauttiLab_SlideFormat.pptx), which includes pre-formatted slides and unified colour scheme. Using this template shows that your talk has a quality 'seal of approval' from the lab.
+  * [ ] For more presentation tips, see this [Presentation Guide](../Files/Presentation_PAW_Walkthrough.pdf) from Chloe Schmidt, a former graduate student of Colin Garroway (U Manitoba)
+  * [ ] A title slide with your name, co-authors, and affiliation
+  * [ ] 1-3 Introduction slides including the 'big picture' context, unanswered question(s), and specific background that the audience needs to understand your results. 
+  * [ ] Hypotheses and predictions are clearly laid out (If hypothesis X is true, then I expect to see Y)
+  * [ ] 2-5 Slides with methods and results
+  * [ ] 1-2 Slides emphasizing implications and impact of research
+  * [ ] Final Acknowledgments slide with funder information and key collaborators/assistants
+
+![Example of a rough sketch of your talk](./Slide_Sketch.jpg)
 
 (NOTE: Slide numbers above are for ~12 minute presentations) 
 
-* [ ] ~1 slide per minute of presentation.
-* [ ] Each slide has a short and concise title that captures the 'take-home message' and 32-36pt font.
-* [ ] Slide titles have a consistent case. You can use regular sentence case. Or You Can Use Title Case (First Letter is Capital Except for Words Like 'the', 'an', 'and'). Use either but be consistent!
-* [ ] All words are necessary. Often long sentences or slides with many points can be better represented with images, flow charts, or separate slides. Avoid overcrowding your poster or slides. Use keywords and short phrases, rather than long sentences. You generally don't need to write down phrases or sentences that you are going to say anyway.
-* [ ] If your talk reports on results of an experiment, be sure to include a slide with images of the experimental design and include numbers to give a sense of the scale and amount of work involved.
-* [ ] Check that each slide is *necessary*. A common mistake for inexperienced students is telling the audience everything you learned about a project or topic. Instead, focus on your core message. Usually, your core message will be something you discovered, or a new idea you are proposing. 
-* [ ] Ensure that animations and transitions are used sparingly.
-* [ ] Anticipate what questions you may get. You can include 'bonus slides' after your Acknowledgements slide to help address these questions, without increasing the length of your presentation.
+  * [ ] ~1 slide per minute of presentation.
+  * [ ] Each slide has a short and concise title that captures the 'take-home message' and 32-36pt font.
+  * [ ] Slide titles have a consistent case. You can use regular sentence case. Or You Can Use Title Case (First Letter is Capital Except for Words Like 'the', 'an', 'and'). Use either but be consistent!
+  * [ ] All words are necessary. Often long sentences or slides with many points can be better represented with images, flow charts, or separate slides. Avoid overcrowding your poster or slides. Use keywords and short phrases, rather than long sentences. You generally don't need to write down phrases or sentences that you are going to say anyway.
+  * [ ] If your talk reports on results of an experiment, be sure to include a slide with images of the experimental design and include numbers to give a sense of the scale and amount of work involved.
+  * [ ] Check that each slide is *necessary*. A common mistake for inexperienced students is telling the audience everything you learned about a project or topic. Instead, focus on your core message. Usually, your core message will be something you discovered, or a new idea you are proposing. 
+  * [ ] Ensure that animations and transitions are used sparingly.
+  * [ ] Plan how you will explain each slide. If you don't have much experience presenting, try writing out a script for each slide, and include transitions (something you say to set up the next slide). You don't have to memorize this, but the act of writing it down will help to focus your explanation. 
+  * [ ] Do a 'dress rehersal' practice run and record the audio. Check your time and listen for distracting habits.
+  * [ ] Anticipate what questions you may get. You can include 'bonus slides' after your Acknowledgements slide to help address these questions, without increasing the length of your presentation.
   
 # Poster presentation checklist
 
-* [ ] Prepare an 'elevator pitch' to communicate your core message to your audience, as efficiently as possible (30 seconds max).
-* [ ] Choose a program or website to make your poster (e.g., Powerpoint, Canva)
-* [ ] Check the size requirements for your poster. The most common size is 4' by 3' (120 cm x 90 cm). Decide whether your poster will have the 'wide' or 'long' layout.
-* [ ] Work through this [Presentation Guide](../Files/Presentation_PAW_Walkthrough.pdf), also from Chloe Schmidt, a former graduate student of Colin Garroway (U Manitoba)
-* [ ] Ensure the palette is set to CMYK mode, not RGB. If your program doesn't do this, try 'Print to PDF' to check the colour scheme.
-* [ ] Create a new document with the proper size. 
-* [ ] Ensure that none of your images are 'pixelated' or 'squashed'. Never expand the size of your image -- this will make it blurry/pixelated. If you shrink the image, be sure to shrink both the x- and y- axis by the same ratio, otherwise the image will look squashed. In Powerpoint, use the corners to shrink an image, never the sides:
+  * [ ] Prepare an 'elevator pitch' to communicate your core message to your audience, as efficiently as possible (30 seconds max).
+  * [ ] Choose a program or website to make your poster (e.g., Powerpoint, Canva)
+  * [ ] Check the size requirements for your poster. The most common size is 4' by 3' (120 cm x 90 cm). Decide whether your poster will have the 'wide' or 'long' layout.
+  * [ ] Work through this [Presentation Guide](../Files/Presentation_PAW_Walkthrough.pdf), also from Chloe Schmidt, a former graduate student of Colin Garroway (U Manitoba)
+  * [ ] Ensure the palette is set to CMYK mode, not RGB. If your program doesn't do this, try 'Print to PDF' to check the colour scheme.
+  * [ ] Create a new document with the proper size. 
+  * [ ] Ensure that none of your images are 'pixelated' or 'squashed'. Never expand the size of your image -- this will make it blurry/pixelated. If you shrink the image, be sure to shrink both the x- and y- axis by the same ratio, otherwise the image will look squashed. In Powerpoint, use the corners to shrink an image, never the sides:
 ![Resize using corners only](./Resizing.png)
-* [ ] Make sure your file size is optimized.
-* [ ] Practice your 'elevator pitch'.
+  * [ ] Make sure your file size is optimized.
+  * [ ] Practice your 'elevator pitch'.
 
 # Narratives
 
