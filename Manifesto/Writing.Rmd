@@ -37,6 +37,14 @@ Read our [Notes on Academic Writing](https://ecogeno.wordpress.com/2017/10/20/ac
 
 Read the [Research Proposal Tips](https://ecogeno.wordpress.com/2016/10/04/research-proposal-tips/) on the lab blog, if you are writing a research proposal.
 
+# Templates
+
+- [Committee Report](Files/Committee_Report_Template.docx)
+- PhD Proposal
+- Thesis Chapter
+- Manuscript
+
+
 # Checklist
 
 Here is a general checklist for writing. Below you will find more advice and other checklists for specific writing types (e.g., commitee reports, emails, thesis chapters and manuscripts)
