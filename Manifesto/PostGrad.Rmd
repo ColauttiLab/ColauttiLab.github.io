@@ -3,21 +3,31 @@ title: "(Post-)Post-Graduation"
 output: html_document
 ---
 
-You've read through and internalized all of the advice in the Colautti Lab Manifesto. Now what?
+You've read through and internalized all of the advice in the Lab Manifesto. Now what?
 
 Fear not, there are many more amazing career-development resources by some outstanding researchers, covering a wide range of important topics for all stages of your academic career.
 
-# [Marissa Baskett](http://www.des.ucdavis.edu/faculty/baskett/links.html)
+# [EcoEvoJobs.net](https://ecoevojobs.net/)
+
+Here is list of available faculty positions in ecology and evolution. It is a good idea to look through these even before you are ready to start applying, to get a sense of what kinds of skills, expertise, and experience is required.
+
+# [EvolDir](https://evol.mcmaster.ca/evoldir.html)
+
+EvolDir is the 'Evolution Directory'. It's a mailing list you can join, targeted at evolutionary biologists and related fields. You can also just browse the latest listings using the link above. Unlike EcoEvoJobs.net, EvolDir includes listings for graduate positions, field assistants, and postdocs. It also has other information about conferences and workshops.
+
+# Advice from other labs
+
+## [Marissa Baskett](http://www.des.ucdavis.edu/faculty/baskett/links.html)
 
 From an ecologist at UC Davis, with lots of good advice 
 
-# [Spencer Hall](http://www.indiana.edu/~halllab/grad-student-resources.html)
+## [Spencer Hall](http://www.indiana.edu/~halllab/grad-student-resources.html)
 
 From an ecologist at the University of Indiana, with lots of usful links for all levels of academia 
 
-# [Ronald Azume](http://www.cs.unc.edu/~azuma/hitch4.html)
+## [Ronald Azume](http://www.cs.unc.edu/~azuma/hitch4.html)
 
-A Computer Science perspective 
+A computer science perspective
 
 # [CGS Document](http://cgsnet.org/ckfinder/userfiles/files/CGS_ProfDev_STEMGrads16_web.pdf)
 
