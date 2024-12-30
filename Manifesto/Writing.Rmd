@@ -3,9 +3,27 @@ title: "Colautti Lab Manifesto <br> > Writing"
 output: html_document
 ---
 
+Technical scientific writing is another important skill to develop over the course of your thesis or independent research project. Think of writing as another skill like coding or working in the molecular lab: It's hard to get started, there is a steep learning curve, and it takes a lot of practice to get good at it.
+
+Fortunately, you have many opportunities to develop your writing skills for your committee reports, research proposals, and early drafts of your thesis. This will help develop your writing skills for more difficult projects like a PhD thesis chapter or a manuscript to submit for peer review and publication.
+
+# Science writing is different
+
+If you had experience writing as an undergraduate student, it was probably some kind of term paper, where the goal was to demonstrate the level of learning and understanding that you developed in a class. 
+
+If you haven't had a lot of writing experience, you've probably at least noticed some different styles of writing, including social media posts, blogs, news reports, and Wikipedia articles.
+
+Scientific writing is very different from these other forms of writing. It's important to learn these differences so that you can avoid making some common writing errors. 
+
 > "I never thought the write-up could be as challenging as it has been."      --- email from a 537 BSc Hs Thesis student. March 28, 2016
 
-This document outlines most of the 'what' to do. You should also carefully read more about 'how' to write. In addition to reading the suggestions in this page, you should read these additional links:
+# Learn the basics
+
+Take advantage of [Queen's Academic Success Services for students](https://sass.queensu.ca/). There are online resources and in-person events to develop basic skills (outlining, sentence and paragraph structure, effective communication). You can book an appointment with a SASS team member to get face-to-face feedback on your writing. Your tuition fees are paying for these services, and they provide detailed training on basic skills that are the foundation of effective writing.
+
+## Other sources
+
+This document outlines most of the 'what' to do. You should also carefully read more about 'how' to write, which is covered in more detail by some of these sources:
 
 Read this explanation in the 2016 Bulletin of the Ecological Society of America: [Scientific Writing Made Easy](./References/Turbek2016Writing.pdf)
 
@@ -15,37 +33,55 @@ See this thread of great academic [writing tips on twitter](https://twitter.com/
 
 If you are a graduate student, consider getting a copy of Stephen Heard's book [The Scientist's Guide to Writing](https://www.amazon.ca/Scientists-Guide-Writing-Effectively-throughout/dp/0691170223/ref=sr_1_1?ie=UTF8&qid=1523074693&sr=8-1&keywords=scientists+guide+to+writing+heard). Read it carefully and refer back to it periodically.
 
-Read the [Notes on Academic Writing](https://ecogeno.wordpress.com/2017/10/20/academic-writing/) from a discussion group led by Chris Eckert.
+Read our [Notes on Academic Writing](https://ecogeno.wordpress.com/2017/10/20/academic-writing/) which we wrote as part of a discussion group led by Chris Eckert.
 
 Read the [Research Proposal Tips](https://ecogeno.wordpress.com/2016/10/04/research-proposal-tips/) on the lab blog, if you are writing a research proposal.
 
+# Checklist
 
-__Important note:__ The stages listed below are not  independent. You will likely keep reading throughout the process and modify your questions/hypotheses and writing as you read and develop your ideas.
+Here is a general checklist for writing. Below you will find more advice and other checklists for specific writing types (e.g., commitee reports, emails, thesis chapters and manuscripts)
 
-# 1. Make a timeline
+- [ ] Identify the **audience** and the **communication goal**. Keep this in mind when deciding what you need to focus on in your writing. 
+- [ ] Create a separate folder for each writing project. For example, an NSERC application, a PhD proposal, a committee report, or a thesis chapter would each have their own folder. 
+- [ ] Choose a file name carefully. Start with the year-month-day, then your name and description of the document (e.g., 2024-12-29_Colautti_CommitteeReport). Putting the date right at the beginning makes it easy for coauthors or reviewers to check that they are working on the latest version, which is more helpful than something like 'draft5'. It's not uncommon to cut a sentence or paragraph, then later decide you need it again. Having these as separate drafts means you won't lose half a day trying to re-write sometha paragraph.
+- [ ] If you are providing feedback on a document, add your initials to the end of the document name, to distinguish it from the original.
+- [ ] Include a title page with the document title.
+- [ ] In the last paragraph of the introduction, give a clear overview with clear questions/aims/hypotheses that will be addressed
+- [ ] Each of the questions/aims/hypotheses in the last paragraph should be motivated earlier in the introduction.
+
+
+# Reports & Proposals
+
+Committee reports and thesis proposals are a great way to develop your writing skills. Your audience will be professional researchers who will likely be more knowledgable than you on most topics relevant to your thesis. However, they will not know much about your specific project. Since you are the expert, your job is to communicate the most relevant details: What are you doing, and why does it matter?
+
+# Thesis Chapter or Manuscript
+
+__Important note:__ The stages listed below are not independent. You will likely keep reading throughout the process and modify your questions/hypotheses and writing as you read and develop your ideas.
+
+## 1. Make a timeline
 
 Work backwards from your final deadline. Assume a turnaround time of about 1-2 weeks for short documents (<2,500 words or <10 double-spaced pages, double-spaced), and 2-4 weeks for larger documents. Look at the steps for writing below and then work from the bottom up to determine your timeline.
 
-# 2. Identify Main Questions/Hypotheses
+## 2. Identify Main Questions/Hypotheses
 This is the most crucial step and you should work this out with your supervisor as soon as possible. Initially you may only have a vague idea of your topic and what your questions might be. They are not set in stone, but still try to make them as concrete and tractable as you can. Keep them in mind as you move on to step 2.
 
-# 3. Read, Read, Read! 
+## 3. Read, Read, Read! 
 
 Yes, the first step of writing is to __READ__. Read early and read often. See the [Reading page](Reading.html) for tips. Needless to say: read, read read!
 
-# 4. Synthesize
+## 4. Synthesize
 
 Take careful notes as you read. Make concept maps, visual models, mathematical models, find commonalities, identify unanswered questions, and look for contradictory findings. Look carefully at the methods and results and think about alternative explanations to what is presented in the discussion. 
 
 First, accept that __you will never write a perfect paper__, and that's okay. You will constantly need to review and revise your work at every stage. Don't let yourself get frustrated. Nothing worth doing is easy. Embrace the struggle!
 
-# 5. pre-Draft
+## 5. pre-Draft
 
 Think of your final thesis as a potential publication in a peer-reviewed journal. It should be the end result of your absolute best effort. You will then get valuable feedback from your committee, which you can incorporate to improve your thesis before submitting it for peer review.
 
 To write a strong thesis, start with IDEAS, not words
 
-## Outline Stage 1
+### Outline Stage 1
 
 You must PLAN CAREFULLY, long before you write even a single sentence.Think about the STRUCTURE of a good scientific paper, right from the beginning. Begin by creating a document that answers the following questions:
 
@@ -60,7 +96,7 @@ Send these questions and your answers to your supervisor.
   * Make a concept map or outline of your key points. Each one should relate to your key results in some way.
   * Boil everything down to 1 to 3 points that you want the reader to take away from your study. What are the biggest innovations/findings of your work? Or in the case of a proposal, what are the biggest questions you will address?
     
-## Outline Stage 2
+### Outline Stage 2
 
   * Organize your thoughts from Stage 1 into a coherent flow. Make your outline with this structure in mind:
 
@@ -75,14 +111,14 @@ Send these questions and your answers to your supervisor.
 
 THIS is the first thing you should show me. DON'T WAIT until you have a first draft! I want to see this and comment on it before you start writing your fist draft.
 
-## Outline Stage 3
+### Outline Stage 3
 
 Once you have finished Stage 2, you should be able to get to Stage 3 pretty quickly
 
   * Take your sections from Stage 2 and Lay out each paragraph, again in point form
   * For each paragraph, determine what is the topic sentence and the main points of each sentence. What is the conclusion/transition to the next paragraph. It can be helpful to include key references (no formal reference list, just a reminder of what references will go where)
 
-# 6. First Draft
+## 6. First Draft
 
 ONLY AFTER you have completed stages 1-3 should you start writing. Despite laying everything out in great detail, this step is going to take a longer than you think! 
 
@@ -104,17 +140,43 @@ If you are doing this right, you may spend several minutes on a single sentence 
 
 As you write you will find that you may have to make major rearrangements to improve the logical flow of the paper. This is a lot of work, but completely normal.
 
-# 7. Peer Feedback
+### First Draft Checklist:
+
+Refer to [this manuscript](https://www.biorxiv.org/content/10.1101/2024.05.30.596697v2.full.pdf) as a template as you work through the following checklist:
+ 
+Every journal has an 'Authors Guide' or something equivalent. In the template you will see "Manuscript received _______" and "Running head", which are additional requirements of the journal it was submitted to.
+
+*Title Page*
+
+ - [ ] Title in 12 of 14pt, bold letters and sentence case
+ - [ ] Proper author names with superscript for affiliations (e.g. Robert I Colautti$^{1*}$)
+ - [ ] Corresponding author email with superscript next to author name
+ - [ ] Affiliations (Department, University, City, Country). Also include province for Canada or state for the U.S.
+
+*Manuscript formatting*
+
+ - [ ] Add page breaks after the title page, abstract, and each of the figures and tables (Insert-->Page Break). 
+ - [ ] All lines double-spaced (you can use single-spacing for title, references, and long tables or captions)
+ - [ ] Use a 12pt font like Times New Roman
+ - [ ] Add page numbers (Layout-->Page Numbers-->Bottom of Page in MS Word)
+ - [ ] Add line numbers (Layout-->Line Numbers-->Continuous in MS Word)
+ - [ ] Each table is on its own page with a short description on the **top**: "Table 1. Description..."
+ - [ ] Each figure is on its own page with a clear description on the **bottom**
+ - [ ] Multi-panel figures are labelled: A) B) C) etc.
+ - [ ] Double-check that tables and figures are numbered in the order that they appear in the text.
+ - [ ] Look for 'orphan lines' at the bottom of each page (e.g., a section header with no additional text). In MS Word you can highlight part of the text, then right-click and choose 'Paragraph'. This will bring up a window for paragraph formatting, with a tab called 'Line and Page Breaks'. There you will see options for 'Window/Orphan control' and 'keep with next', which will automatically move the orphan line down to the next page. If you later make changes that reduce the text, it will automatically move the text back up for you.
+
+## 7. Peer Feedback
 
 Ask 1-3 lab members to look over your writing. It often helps to have a 'fresh perspective'. Don't mindlessly accept all of their changes, even if they are more senior then you. If you aren't sure why a particular suggestion was made or don't think it would improve your manucript, then talk to them about it. One or both of you man learn something from the discussion.
 
 If somebody asks you to comment on their writing, don't hesitate to do so. It will benefit you as much as them. One of the best ways to improve your own writing is to carefully read somebody else's!
 
-# 8. Mentor Feedback
+## 8. Mentor Feedback
 
 This is the stage where you should send it to me for comment. Depending on the clarity and efficiency of your writing, this could require anywhere from 3 to 20 rounds of revision. Generally, the more quality work timethat you devote to stages 1-6, the fewer rounds of revision you will require. Note that it can take 1-2 weeks between each revision, so in theory it can take almost a year to revise poorly-written manuscript! Avoid this at all costs -- invest the time to produce the best possible outline and 1st draft.
 
-# 9. Final Editing
+## 9. Final Editing
 
 Look carefully at each word, each sentence, each paragraph. Ask youself -- is this the best way to say this? Is it clear?
 
@@ -122,19 +184,17 @@ Check style guides, like [this one](https://authorservices.wiley.com/asset/photo
 
 If you are submitting a journal article, look at the 'Author Guidelines' on the website of the journal you want to submit to. Read it carefully and make any changes necessary.
 
-# 10. Publishing
+## 10. Publishing
 
 After the long process of writing and revising a manuscript that passes review of your peers, you may be ready to finally submit your paper for scientific peer review. Your first step is to find a journal. Avoid predatory journals that prey on desperate young scientists and offer a forum for publication that will never be cited. A good resource for identifying predatory journals is *Beall's List*: https://beallslist.weebly.com/
 
 See also, the guidelines at *Think, Check, Submit*: https://thinkchecksubmit.org/
 
-# 11. Improving your game
+## 11. Improving your game
 
 Some links to take your writing to the next level.
 
 Some great tips from an editor at Nature: https://twitter.com/MWClimateSci/status/1111773593656918016
-
-
 
 # E-MAIL
 
@@ -186,7 +246,6 @@ NEVER send an off-the-cuff or emotional email. Wait 24 hours until you can calm 
 Another tricky problem with email is how to assert yourself without coming off as rude. Here is a good matrix to help with the wording of some common sensitive issues:
 
 ![Email Like a Boss](EmailBoss.jpeg)
-
 
 
 
