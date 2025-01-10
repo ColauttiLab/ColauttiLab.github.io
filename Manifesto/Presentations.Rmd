@@ -5,8 +5,44 @@ output: html_document
 
 # Presentations
 
-Unless you are a seasoned scientist with published papers in peer-reviewed manuscripts, your oral presentations and posters are the only way for the scientific community to learn about your hard work. These play important roles in communicating our research methods and findings to each other, and to the public. Effective presentations come in many different formulations, but generally you want to *communicate* something to an *audience*. It's important to always think about your audience -- what do they already know, and what do they need to know? Then, think about what you want to try to communicate to them. 
+Unless you are a seasoned scientist with published papers in peer-reviewed manuscripts, your oral presentations and posters are the only way for the scientific community to learn about your hard work. Here are a few things to consider:
 
+  1. Most conferences are in the spring and summer, but you'll need to know what you are going to present several months in advance.
+  2. There are too many conferences. Focus on one, or possibly one local/regional and one international if you are at a later career stage.
+  3. Most conferences have funding available to help cover travel costs. Queen's University also provides support, and there is grant money available from the lab to cover the remaining travel and accommodation costs.
+  4. Conferences are important for building your professional network. A great way to get noticed is to give a strong presentation.
+  5. Many conferences include workshops, sometimes a day before or after the main conference. These are worth attending to build your professional skills and a chance to network.
+
+## Where to Present
+
+You should look for potential conferences and symposia at least a year in advance. Smaller, local conferences are a good place to start, but larger international conferences will be crucial if you want to pursue a career in research. Here are a few of the more common conferences where past lab members have presented.
+
+**Local, lower-stakes conferences**
+
+- [Ontario Ecology Ethology Evolution Colloquium](https://www.oe3c.ca/) is a great place to start, and most presenters are graduate students from southern Ontario.
+
+- [TickNet](https://ticknet.ca/) is the Canadian network of researchers for ticks and tick-borne diseases, the former Canadian Lyme Disease Research Network.
+
+- [Canadian Society for Ecology and Evolution](https://csee-scee.ca) holds annual meetings and is the best conference for networking with Canadian researchers in ecology and evolution.
+
+**International, higher-stakes conferences**
+
+International conferences typically include a mix of senior graduate students, postdocs, and more established researchers. Applications for larger international conferences are often due several months before the start of the conference. And, you will want to give a strong presentation, which means you should have most of your data analysis done and have a good idea of what the presentation will look like.
+
+- [Evolution Conference](https://www.evolutionmeetings.org/) is jointly supported by the Society of the Study of Evolution (SSE), the Society of Systematic Biologists (SSB) and the American Society of Naturalists (ASN).
+- [Ecological Society of America (ESA)](https://esa.org/) is a big meeting that typically includes thousands of ecologists ranging from academic researchers to practitioners.
+- [Botany](https://botany.org/) is a plant-focused meeting jointly supported by multiple societies (Botanical Society of America, Society of Herbarium Curators, American Society of Plant Taxonomists, and a few others)
+
+**Finding Other Conferences**
+
+Many professional societies support conferences and symposia that they list on their website:
+
+- [New Phytologist Foundation](https://www.newphytologist.org/)
+- [Genetics Society of America](https://genetics-gsa.org/)
+
+# What to present
+
+Effective presentations come in many different formulations, but generally you want to *communicate* something to an *audience*. It's important to always think about your audience -- what do they already know, and what do they need to know? Then, think about what you want to try to communicate to them. 
 Below is a checklist for professional and effective presentations. Be sure to follow these carefully. The checklist is designed to be a short reference to ensure that your presentations meet the minimum requirements for a professional poster at an international conference. Some of these concepts might be new to you, in which case more detail is provided after the checklist.
 
 # Before you begin
