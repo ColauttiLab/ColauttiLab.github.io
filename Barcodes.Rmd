@@ -1,0 +1,60 @@
+---
+title: "DNA Barcodes Links"
+output: html_document
+date: "2025-02-03"
+---
+
+```{r, eval=F, echo=F}
+# Code to make list of file names with links
+X<-paste(list.files("./Data/DNA_Barcoding"),collapse="\n")
+Y<-gsub("(\\w+\\.ab1)\n*","- [\\1](./Data/DNA_Barcoding/\\1)\r\n",X)
+cat(Y)
+```
+
+
+# DNA Barcodes
+
+This is a list of barcodes from the OUPFB field course "Field Methods in Ecological and Evolutionary Genomics", which is taught at the Queen's University Biological Station, and open to students enrolled at Ontario Universities.
+
+ 
+- [1I1_F_P1815443_047.ab1](./Data/DNA_Barcoding/1I1_F_P1815443_047.ab1)
+- [1I1_R_P1815443_094.ab1](./Data/DNA_Barcoding/1I1_R_P1815443_094.ab1)
+- [1I2_F_P1815443_048.ab1](./Data/DNA_Barcoding/1I2_F_P1815443_048.ab1)
+- [1I2_R_P1815443_011.ab1](./Data/DNA_Barcoding/1I2_R_P1815443_011.ab1)
+- [1I4_F_P1815443_063.ab1](./Data/DNA_Barcoding/1I4_F_P1815443_063.ab1)
+- [1I4_R_P1815443_012.ab1](./Data/DNA_Barcoding/1I4_R_P1815443_012.ab1)
+- [1Ineg_F_P1815443_079.ab1](./Data/DNA_Barcoding/1Ineg_F_P1815443_079.ab1)
+- [1Ineg_R_P1815443_028.ab1](./Data/DNA_Barcoding/1Ineg_R_P1815443_028.ab1)
+- [1Ipos_F_P1815443_064.ab1](./Data/DNA_Barcoding/1Ipos_F_P1815443_064.ab1)
+- [1Ipos_R_P1815443_027.ab1](./Data/DNA_Barcoding/1Ipos_R_P1815443_027.ab1)
+- [1r1_F_P1815443_015.ab1](./Data/DNA_Barcoding/1r1_F_P1815443_015.ab1)
+- [1r1_R_P1815443_062.ab1](./Data/DNA_Barcoding/1r1_R_P1815443_062.ab1)
+- [1r2_F_P1815443_016.ab1](./Data/DNA_Barcoding/1r2_F_P1815443_016.ab1)
+- [1r2_R_P1815443_077.ab1](./Data/DNA_Barcoding/1r2_R_P1815443_077.ab1)
+- [1r4_F_P1815443_031.ab1](./Data/DNA_Barcoding/1r4_F_P1815443_031.ab1)
+- [1r4_R_P1815443_078.ab1](./Data/DNA_Barcoding/1r4_R_P1815443_078.ab1)
+- [1r5_F_P1815443_032.ab1](./Data/DNA_Barcoding/1r5_F_P1815443_032.ab1)
+- [1r5_R_P1815443_093.ab1](./Data/DNA_Barcoding/1r5_R_P1815443_093.ab1)
+- [2I5_F_P1815443_095.ab1](./Data/DNA_Barcoding/2I5_F_P1815443_095.ab1)
+- [2I5_R_P1815443_044.ab1](./Data/DNA_Barcoding/2I5_R_P1815443_044.ab1)
+- [2r5_F_P1815443_080.ab1](./Data/DNA_Barcoding/2r5_F_P1815443_080.ab1)
+- [2r5_R_P1815443_043.ab1](./Data/DNA_Barcoding/2r5_R_P1815443_043.ab1)
+- [3Ipos_F_P1815443_096.ab1](./Data/DNA_Barcoding/3Ipos_F_P1815443_096.ab1)
+- [3Ipos_R_P1815443_059.ab1](./Data/DNA_Barcoding/3Ipos_R_P1815443_059.ab1)
+- [3r2_F_P1815443_013.ab1](./Data/DNA_Barcoding/3r2_F_P1815443_013.ab1)
+- [3r2_R_P1815443_060.ab1](./Data/DNA_Barcoding/3r2_R_P1815443_060.ab1)
+- [3rpos_F_P1815443_014.ab1](./Data/DNA_Barcoding/3rpos_F_P1815443_014.ab1)
+- [3rpos_R_P1815443_075.ab1](./Data/DNA_Barcoding/3rpos_R_P1815443_075.ab1)
+- [4I4_F_P1815443_029.ab1](./Data/DNA_Barcoding/4I4_F_P1815443_029.ab1)
+- [4I4_R_P1815443_076.ab1](./Data/DNA_Barcoding/4I4_R_P1815443_076.ab1)
+- [4I5_F_P1815443_030.ab1](./Data/DNA_Barcoding/4I5_F_P1815443_030.ab1)
+- [4I5_R_P1815443_091.ab1](./Data/DNA_Barcoding/4I5_R_P1815443_091.ab1)
+- [4I6_F_P1815443_045.ab1](./Data/DNA_Barcoding/4I6_F_P1815443_045.ab1)
+- [4I6_R_P1815443_092.ab1](./Data/DNA_Barcoding/4I6_R_P1815443_092.ab1)
+- [4r5_F_P1815443_046.ab1](./Data/DNA_Barcoding/4r5_F_P1815443_046.ab1)
+- [4r5_R_P1815443_009.ab1](./Data/DNA_Barcoding/4r5_R_P1815443_009.ab1)
+- [4r6_F_P1815443_061.ab1](./Data/DNA_Barcoding/4r6_F_P1815443_061.ab1)
+- [4r6_R_P1815443_010.ab1](./Data/DNA_Barcoding/4r6_R_P1815443_010.ab1)
+- [Sample.ab1](./Data/DNA_Barcoding/Sample.ab1)
+
+
