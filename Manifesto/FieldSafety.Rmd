@@ -5,7 +5,7 @@ output: html_document
 
 # Lab Safety
 
-For Lab Safety, see on boarding for new students in the OnQ training modules. (LINK)
+For Lab Safety, see on-boarding modules available in OnQ for new students. 
 
 # Field Safety
 
@@ -38,6 +38,10 @@ Field Gear
   * Get good, breathable light raincoat and rain pants
   * Breathable thermal underwear (long pants + shirts)
   * Outdoor stores like MEC, Atmosphere, Columbia are where you want to go to buy these.
+
+### QOFEI
+
+The Queen's Outdoor Field Experience Initiative (QOFEI), pronounced like "cofee" is an equipment lending library. If you do not already have a lot of this equipment, you can arrange to borrow what you need. You'll need to get in touch through the [QOFEI Website](https://www.qofei.com/) -- and please consider making a donation to support them.
 
 ## Recommended
 
